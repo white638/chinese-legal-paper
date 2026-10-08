@@ -1,0 +1,4 @@
+interface:
+  display_name: "Qual QCA"
+  short_description: "QCA and fsQCA analysis workflow"
+  default_prompt: "Use $qual-qca to run the appropriate workflow."

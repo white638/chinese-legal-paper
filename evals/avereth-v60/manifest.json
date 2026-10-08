@@ -1,0 +1,24 @@
+{
+  "schema_version": "avereth-eval-manifest/v1",
+  "framework_version": "7.2.0",
+  "suite": "local-research-engine",
+  "contracts": [
+    "single-eight-state-control-plane",
+    "local-build-audit-output",
+    "recoverable-runtime-retirement",
+    "two-phase-render-qa",
+    "transactional-packages",
+    "fail-closed-receipts",
+    "immutable-review-provenance",
+    "finding-lifecycle-closure",
+    "json-derived-review-views",
+    "explanation-first-prose-pipeline",
+    "semantic-proposition-fidelity",
+    "review-context-isolation",
+    "executable-research-protocol",
+    "accepted-action-result-provenance",
+    "computed-method-maturity",
+    "direction-first-topic-portfolios",
+    "material-quarantined-topic-divergence"
+  ]
+}

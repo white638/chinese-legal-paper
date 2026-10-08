@@ -1,0 +1,68 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "normative",
+  "required_operation_kinds": [
+    "value_premise_declaration",
+    "factual_premise_audit",
+    "stakeholder_mapping",
+    "argument_reconstruction",
+    "strongest_objection_test",
+    "counterexample_test",
+    "institutional_feasibility_assessment",
+    "normative_disposition"
+  ],
+  "optional_operation_kinds": ["value_conflict_adjudication", "implementation_scenario_test"],
+  "required_artifact_roles": [
+    "value_premise_ledger",
+    "factual_premise_evidence",
+    "stakeholder_map",
+    "argument_map",
+    "strongest_objection",
+    "counterexample_register",
+    "institutional_feasibility_constraints",
+    "normative_scope_statement"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "normative-pilot/v1",
+    "required_operation_kinds": [
+      "value_premise_declaration",
+      "factual_premise_audit",
+      "stakeholder_mapping",
+      "argument_reconstruction",
+      "strongest_objection_test",
+      "counterexample_test"
+    ],
+    "acceptance_dimensions": [
+      "value and factual premises are distinguishable",
+      "affected stakeholders and burdens are visible",
+      "the argument can be reconstructed as inferential steps",
+      "the strongest objection and counterexample can change the conclusion"
+    ]
+  },
+  "completion_predicates": [
+    "all material factual premises resolve to evidence or explicit assumptions",
+    "stakeholder interests and burdens are assessed under the same normative principles",
+    "the strongest objection and counterexamples receive reasoned dispositions",
+    "institutional constraints and conclusion scope are explicit"
+  ],
+  "failure_routes": [
+    {"code": "LINKAGE.FACTUAL_PREMISE_UNSUPPORTED", "route": "reopen:research"},
+    {"code": "PROTOCOL.VALUE_PREMISE_HIDDEN", "route": "reopen:design"},
+    {"code": "CLAIM.STRONGEST_OBJECTION_SURVIVES", "route": "narrow:<Claim ID>"},
+    {"code": "CLAIM.COUNTEREXAMPLE_FATAL", "route": "withdraw:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "value-premise priority",
+    "factual-premise credibility",
+    "distribution of stakeholder burdens",
+    "force of the strongest objection",
+    "institutional feasibility and conclusion scope"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

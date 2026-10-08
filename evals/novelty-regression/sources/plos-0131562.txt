@@ -1,0 +1,15 @@
+Spontaneous Giving under Structural Inequality: Intuition Promotes Cooperation in Asymmetric Social Dilemmas
+
+Authors: Sebastian Lotz
+DOI: 10.1371/journal.pone.0131562
+Publisher: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131562
+License: Creative Commons Attribution 4.0 International
+License URL: https://creativecommons.org/licenses/by/4.0/
+Attribution: Lotz S (2015) Spontaneous Giving under Structural Inequality: Intuition Promotes Cooperation in Asymmetric Social Dilemmas. PLoS ONE 10(7): e0131562. https://doi.org/10.1371/journal.pone.0131562
+
+Locator: Abstract, paragraph 1; normalized characters 266:396
+Excerpt (verbatim; one inspected span):
+cooperation is promoted by intuition in an asymmetric context that distributes the gains from cooperation unequally among a group.
+
+Editorial scope note (paraphrase): 概念启动和收益不对称的实验情境；不是已确认的普遍直觉合作规律。
+This excerpt records the authors' report. It does not establish a universal effect, replication outcome, or absolute novelty judgment.

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/methods/text-alignment-v1.schema.json",
+  "title": "Semantic Alignment and Reuse Contract v1",
+  "type": "object",
+  "required": ["alignment_unit", "direction_rule", "boilerplate_policy", "third_source_policy", "translation_policy", "threshold_plan", "source_manifest_artifact_id", "target_manifest_artifact_id", "matches_artifact_id", "threshold_sensitivity_artifact_id", "human_validation_artifact_id"],
+  "properties": {
+    "alignment_unit": {"type": "string", "minLength": 1},
+    "direction_rule": {"enum": ["source-precedes-target", "target-precedes-source", "non-directional"]},
+    "boilerplate_policy": {"type": "string", "minLength": 1},
+    "third_source_policy": {"type": "string", "minLength": 1},
+    "translation_policy": {"type": "string", "minLength": 1},
+    "threshold_plan": {
+      "type": "object",
+      "required": ["selection_basis", "sensitivity_range"]
+    }
+  },
+  "additionalProperties": true
+}

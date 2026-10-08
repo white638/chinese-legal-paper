@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avereth-topic-packet-v1.schema.json",
+  "title": "Avereth material-bounded topic packet v1",
+  "description": "Transient research-stage projection for bounded topic divergence. This v1 schema preserves legacy read compatibility; new direction-first compilation and generation additionally require traceable literature reconnaissance through the runtime generation check.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "compiled_at",
+    "origin_mode",
+    "brainstorm_depth",
+    "workspace_policy",
+    "current_user_request",
+    "direction_contract",
+    "direction_contract_digest",
+    "publication_track",
+    "explicit_constraints",
+    "acceptable_adjacency",
+    "allowed_inputs",
+    "excluded_inputs",
+    "material_visibility",
+    "declared_workspace_scope",
+    "packet_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "avereth-topic-packet/v1"},
+    "compiled_at": {"type": "string", "minLength": 10},
+    "origin_mode": {"enum": ["direction_first", "workspace_extension", "material_opportunity", "phenomenon_first"]},
+    "brainstorm_depth": {"enum": ["broad", "focused"]},
+    "workspace_policy": {"enum": ["quarantine_until_divergence", "declared_source_from_start"]},
+    "current_user_request": {"type": "string", "minLength": 8},
+    "direction_contract": {
+      "type": "object",
+      "required": [
+        "current_user_goal",
+        "field",
+        "core_problem",
+        "preferred_contribution",
+        "object_scope",
+        "must_preserve",
+        "must_avoid",
+        "acceptable_adjacency",
+        "publication_track",
+        "method_role",
+        "workspace_role",
+        "authority"
+      ],
+      "properties": {
+        "current_user_goal": {"type": "string", "minLength": 4},
+        "field": {"type": "string", "minLength": 2},
+        "core_problem": {"type": "string", "minLength": 4},
+        "preferred_contribution": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 2}
+        },
+        "object_scope": {"type": "string", "minLength": 4},
+        "must_preserve": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "must_avoid": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "acceptable_adjacency": {"enum": ["narrow", "medium", "broad"]},
+        "publication_track": {"enum": ["cnki-cn", "international-ssci", "mixed"]},
+        "method_role": {"enum": ["open", "preferred", "fixed-by-user"]},
+        "workspace_role": {
+          "enum": ["optional-after-divergence", "declared-extension-source", "declared-material-source", "declared-phenomenon-source"]
+        },
+        "authority": {"const": "current-user-request"}
+      },
+      "additionalProperties": false
+    },
+    "direction_contract_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "publication_track": {"enum": ["cnki-cn", "international-ssci", "mixed"]},
+    "explicit_constraints": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "acceptable_adjacency": {"enum": ["narrow", "medium", "broad"]},
+    "allowed_inputs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "current_user_request",
+          "direction_contract",
+          "publication_track",
+          "explicit_constraints",
+          "acceptable_adjacency",
+          "declared_material_projection",
+          "literature_reconnaissance"
+        ]
+      }
+    },
+    "excluded_inputs": {
+      "const": [
+        "workspace_data",
+        "codebooks",
+        "prior_topic_lists",
+        "prior_manuscripts",
+        "workspace_literature",
+        "existing_methods",
+        "material_convenience"
+      ]
+    },
+    "material_visibility": {"enum": ["quarantined", "declared-source"]},
+    "declared_workspace_scope": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "literature_reconnaissance": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 60,
+      "items": {"$ref": "#/$defs/reconEntry"}
+    },
+    "packet_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"origin_mode": {"const": "direction_first"}}, "required": ["origin_mode"]},
+      "then": {
+        "properties": {
+          "workspace_policy": {"const": "quarantine_until_divergence"},
+          "material_visibility": {"const": "quarantined"},
+          "direction_contract": {
+            "properties": {"workspace_role": {"const": "optional-after-divergence"}}
+          },
+          "allowed_inputs": {
+            "oneOf": [
+              {"const": ["current_user_request", "direction_contract", "publication_track", "explicit_constraints", "acceptable_adjacency"]},
+              {"const": ["current_user_request", "direction_contract", "publication_track", "explicit_constraints", "acceptable_adjacency", "literature_reconnaissance"]}
+            ]
+          },
+          "declared_workspace_scope": {"maxItems": 0}
+        }
+      },
+      "else": {
+        "properties": {
+          "workspace_policy": {"const": "declared_source_from_start"},
+          "material_visibility": {"const": "declared-source"},
+          "allowed_inputs": {
+            "oneOf": [
+              {"const": ["current_user_request", "direction_contract", "publication_track", "explicit_constraints", "acceptable_adjacency", "declared_material_projection"]},
+              {"const": ["current_user_request", "direction_contract", "publication_track", "explicit_constraints", "acceptable_adjacency", "declared_material_projection", "literature_reconnaissance"]}
+            ]
+          },
+          "declared_workspace_scope": {"minItems": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"origin_mode": {"const": "workspace_extension"}}, "required": ["origin_mode"]},
+      "then": {
+        "properties": {
+          "direction_contract": {
+            "properties": {"workspace_role": {"const": "declared-extension-source"}}
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"origin_mode": {"const": "material_opportunity"}}, "required": ["origin_mode"]},
+      "then": {
+        "properties": {
+          "direction_contract": {
+            "properties": {"workspace_role": {"const": "declared-material-source"}}
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"origin_mode": {"const": "phenomenon_first"}}, "required": ["origin_mode"]},
+      "then": {
+        "properties": {
+          "direction_contract": {
+            "properties": {"workspace_role": {"const": "declared-phenomenon-source"}}
+          }
+        }
+      }
+    },
+    {
+      "if": {"required": ["literature_reconnaissance"]},
+      "then": {"properties": {"allowed_inputs": {"contains": {"const": "literature_reconnaissance"}}}},
+      "else": {"properties": {"allowed_inputs": {"not": {"contains": {"const": "literature_reconnaissance"}}}}}
+    }
+  ],
+  "$defs": {
+    "reconEntry": {
+      "type": "object",
+      "required": ["query", "source", "title", "year", "claim"],
+      "properties": {
+        "query": {"type": "string", "minLength": 1, "maxLength": 500},
+        "source": {"enum": ["cnki", "exa", "openalex", "google_scholar", "semantic_scholar", "web_of_science", "other"]},
+        "title": {"type": "string", "minLength": 1, "maxLength": 500},
+        "year": {"type": "integer", "minimum": 1500, "maximum": 2100},
+        "claim": {"type": "string", "minLength": 1, "maxLength": 500},
+        "authors": {"type": "string", "maxLength": 500},
+        "venue": {"type": "string", "maxLength": 500},
+        "identifier": {"type": "string", "maxLength": 500},
+        "retrieved_at": {"type": "string", "minLength": 10, "maxLength": 500},
+        "relations": {
+          "type": "array",
+          "maxItems": 20,
+          "items": {
+            "type": "object",
+            "required": ["target", "relation", "evidence"],
+            "properties": {
+              "target": {"type": "string", "minLength": 1},
+              "relation": {"enum": ["cites", "cited-by", "co-cited-with"]},
+              "evidence": {"enum": ["openalex", "semantic_scholar", "cnki", "crossref", "other"]}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

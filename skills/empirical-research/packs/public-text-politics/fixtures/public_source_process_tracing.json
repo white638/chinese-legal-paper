@@ -1,0 +1,45 @@
+{
+  "schema_version": "avereth-public-text-politics-executable-fixtures/v1",
+  "profile_id": "public_source_process_tracing",
+  "artifact_token_prefix": "artifact:",
+  "base_contract": {
+    "schema_version": "avereth-public-text-politics/public-source-process-tracing/v1",
+    "profile_id": "public_source_process_tracing",
+    "case": {
+      "boundary": "A defined policy episode within one institution and decision sequence.",
+      "period": "2020-2024",
+      "materials_scope": "artifact:artifacts/materials_scope.json"
+    },
+    "mechanism": {
+      "nodes": [
+        {"node_id": "M-1", "theoretical_prediction": "Public signal changes the agenda of relevant officials.", "expected_trace": "Dated internal or public agenda reference after the signal.", "diagnosticity": "hoop"},
+        {"node_id": "M-2", "theoretical_prediction": "Officials translate the signal into a specific procedural choice.", "expected_trace": "A source links the choice to the signal rather than a rival cause.", "diagnosticity": "smoking_gun"}
+      ],
+      "strongest_rivals": [
+        {"rival_id": "R-1", "prediction": "The procedural choice follows pre-existing committee priorities.", "disconfirming_observation": "A pre-signal agenda lacks the issue while post-signal records explicitly add it."}
+      ]
+    },
+    "evidence": {
+      "ledger": "artifact:artifacts/evidence_ledger.csv",
+      "source_chain": "artifact:artifacts/source_chain.csv",
+      "independence_audit": "artifact:artifacts/source_independence.json",
+      "missing_traces": "artifact:artifacts/missing_traces.csv",
+      "public_record_silence": {
+        "log": "artifact:artifacts/public_record_silence.csv",
+        "absence_wording": "not_found_in_defined_public_record"
+      }
+    },
+    "core_inference_result": "artifact:artifacts/core_inference_result.json",
+    "interpretation": {
+      "allowed": ["Report trace support by mechanism node and rival."],
+      "prohibited": ["Treat syndicated reports as independent evidence."]
+    }
+  },
+  "cases": [
+    {"id": "tracing-positive", "kind": "positive", "operations": [], "expected_status": "PASS", "expected_codes": []},
+    {"id": "tracing-no-rival", "kind": "typical-error", "operations": [{"op": "replace", "path": "/mechanism/strongest_rivals", "from": [{"rival_id": "R-1", "prediction": "The procedural choice follows pre-existing committee priorities.", "disconfirming_observation": "A pre-signal agenda lacks the issue while post-signal records explicitly add it."}], "value": []}], "expected_status": "FAIL", "expected_codes": ["PTP.TRACING.RIVAL_MATRIX"]},
+    {"id": "tracing-absence-as-nonexistence", "kind": "typical-error", "operations": [{"op": "replace", "path": "/evidence/public_record_silence/absence_wording", "from": "not_found_in_defined_public_record", "value": "event_did_not_exist"}], "expected_status": "FAIL", "expected_codes": ["PTP.TRACING.SILENCE_OVERCLAIM"]},
+    {"id": "tracing-boundary-weaker-test", "kind": "boundary", "operations": [{"op": "replace", "path": "/mechanism/nodes/1/diagnosticity", "from": "smoking_gun", "value": "straw_in_the_wind"}], "expected_status": "PASS", "expected_codes": []},
+    {"id": "tracing-unbound-mechanism-claim", "kind": "inference-overreach", "operations": [{"op": "replace", "path": "/core_inference_result", "from": "ART-ARTIFACTS-CORE-INFERENCE-RESULT-JSON", "value": ""}], "expected_status": "FAIL", "expected_codes": ["PTP.TRACING.INFERENCE_OVERREACH"]}
+  ]
+}

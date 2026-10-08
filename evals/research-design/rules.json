@@ -1,0 +1,281 @@
+{
+  "schema": "cnki-research-design-eval-rules/v1",
+  "version": "1.0.0",
+  "research_design_schema": "cnki-research-design/v1",
+  "principles": {
+    "machine_truth": "research_design.json",
+    "source_truth": "reference_materials/literature_registry.json",
+    "generated_views": [
+      "knowledge_design_matrix.md",
+      "concept_register.md",
+      "claim_evidence_scope_matrix.md"
+    ],
+    "hard_gate_scope": "Only objective, reproducible contradictions, omissions, identity failures, or undisclosed reporting changes may block.",
+    "non_universal_rules": [
+      "fixed sample size",
+      "one significance threshold",
+      "fixed reliability or validity threshold",
+      "fixed QCA threshold",
+      "mandatory hypotheses",
+      "RCT as an intrinsically superior method",
+      "quantitative or qualitative method labels as quality scores"
+    ]
+  },
+  "severity_order": [
+    "error",
+    "warning",
+    "researcher-review"
+  ],
+  "blocking_rules": [
+    {
+      "code": "RD.SCHEMA.FUTURE",
+      "severity": "error",
+      "stage_from": "design",
+      "condition": "research_design.json declares an unknown schema newer than cnki-research-design/v1",
+      "rationale": "Unknown future schemas must fail safely rather than be rewritten or silently accepted."
+    },
+    {
+      "code": "RD.ID.DUPLICATE",
+      "severity": "error",
+      "stage_from": "design",
+      "condition": "A stable RQ, concept, claim, design, evidence, hypothesis, proposition, or framework ID occurs more than once.",
+      "rationale": "One ID must identify one object."
+    },
+    {
+      "code": "RD.ID.UNRESOLVED",
+      "severity": "error",
+      "stage_from": "design",
+      "condition": "A cross-reference points to a missing stable design object.",
+      "rationale": "Claim, evidence, concept, and design links must be resolvable."
+    },
+    {
+      "code": "RD.CONFIRMATION.MISSING",
+      "severity": "error",
+      "stage_from": "research",
+      "condition": "Contribution, blueprint, results, or manuscript writing exists before the motivation and stable research question are explicitly confirmed.",
+      "rationale": "The workflow may not write past an unconfirmed research identity."
+    },
+    {
+      "code": "RD.SOURCE.UNKNOWN",
+      "severity": "error",
+      "stage_from": "design",
+      "condition": "A source_id used by a design or evidence object does not exist in literature_registry.json.",
+      "rationale": "The registry is the only source-identity authority."
+    },
+    {
+      "code": "RD.SOURCE.UNVERIFIED_AS_VERIFIED",
+      "severity": "error",
+      "stage_from": "execution",
+      "condition": "A registry source that is candidate-only, unavailable, or unverified is represented as content-verified evidence.",
+      "rationale": "Screening evidence cannot be promoted by wording."
+    },
+    {
+      "code": "RD.BOUNDARY.MISSING",
+      "severity": "error",
+      "stage_from": "design",
+      "condition": "The applicable sample, case, corpus, argument-material, time, version, inclusion, or exclusion boundary is absent.",
+      "rationale": "Readers must be able to identify what material the inference covers.",
+      "route_sensitive": true
+    },
+    {
+      "code": "RD.MEASUREMENT.MISSING",
+      "severity": "error",
+      "stage_from": "design",
+      "condition": "An empirical claim uses a core concept with no route-appropriate variable mapping, event or process indicator, text coding rule, or reasoned alternative observation interface.",
+      "rationale": "An empirical concept must connect to observable material without forcing all routes into variables.",
+      "route_sensitive": true
+    },
+    {
+      "code": "RD.CAUSAL.ROUTE_UNDECLARED",
+      "severity": "error",
+      "stage_from": "design",
+      "condition": "A causal claim is active but no causal route is declared.",
+      "rationale": "Causal language requires an explicit identification route."
+    },
+    {
+      "code": "RD.CAUSAL.NO_COUNTERFACTUAL",
+      "severity": "error",
+      "stage_from": "design",
+      "condition": "A causal effect route has no comparison or counterfactual and does not explicitly narrow the claim to noncausal or mechanism evidence.",
+      "rationale": "Effect claims require a stated contrast."
+    },
+    {
+      "code": "RD.CAUSAL.OVERCLAIM",
+      "severity": "error",
+      "stage_from": "execution",
+      "condition": "Contribution, result, or manuscript causal wording exceeds the inference ceiling recorded by the design.",
+      "rationale": "Writing may not upgrade correlation, sequence, prediction, or mechanism clues into identified effects."
+    },
+    {
+      "code": "RD.VALIDATION.LEAKAGE",
+      "severity": "error",
+      "stage_from": "execution",
+      "condition": "The same material constructs a concept, proposition, dictionary, or model and is represented as an independent validation without disclosure.",
+      "rationale": "Circular construction and validation must be disclosed and inference narrowed."
+    },
+    {
+      "code": "RD.CONSISTENCY.DRIFT",
+      "severity": "error",
+      "stage_from": "execution",
+      "condition": "Confirmed question, concept meaning, core case or corpus, design, contribution, result, or manuscript identity changes without a recorded revision and required confirmation.",
+      "rationale": "Cross-artifact drift invalidates the confirmed research identity."
+    },
+    {
+      "code": "RD.CONSISTENCY.CONTRADICTION",
+      "severity": "error",
+      "stage_from": "execution",
+      "condition": "Two current artifacts make directly incompatible statements about a stable design object, material boundary, result, or inference ceiling.",
+      "rationale": "Only one current design truth is permitted."
+    },
+    {
+      "code": "RD.NUMBER.UNREGISTERED",
+      "severity": "error",
+      "stage_from": "execution",
+      "condition": "A load-bearing number in results or manuscript cannot be traced to a registered evidence object and transformation.",
+      "rationale": "Empirical numbers require provenance."
+    },
+    {
+      "code": "RD.ETHICS.MISSING",
+      "severity": "error",
+      "stage_from": "design",
+      "condition": "Human, personal, sensitive, restricted, or nonpublic material is used without an ethics status, exemption, or reasoned not-applicable state.",
+      "rationale": "An unresolved ethics status cannot be represented as complete.",
+      "route_sensitive": true
+    },
+    {
+      "code": "RD.PERMISSION.MISSING",
+      "severity": "error",
+      "stage_from": "design",
+      "condition": "Restricted material lacks a lawful access and permitted-use record.",
+      "rationale": "Acquisition and research use must remain within permission."
+    },
+    {
+      "code": "RD.REPRO.MISSING",
+      "severity": "error",
+      "stage_from": "execution",
+      "condition": "An empirical route has none of its route-appropriate reproducibility artifacts or a reasoned restriction-and-review path.",
+      "rationale": "Reproduction is conditional on method and permission, but cannot be omitted wholesale.",
+      "route_sensitive": true
+    },
+    {
+      "code": "RD.REPORT.SELECTIVE",
+      "severity": "error",
+      "stage_from": "audit",
+      "condition": "A registered main result, adverse or null result, exclusion-rule change, or confirmatory-to-exploratory status change is omitted or relabeled without disclosure.",
+      "rationale": "Selective reporting is an objective inconsistency with the design record."
+    },
+    {
+      "code": "RD.REVIEW.INDEPENDENCE",
+      "severity": "error",
+      "stage_from": "audit",
+      "condition": "Chinese reviewer outputs are substantially duplicated under Unicode-aware comparison, or a review lacks a score and at least three substantive findings with manuscript locations.",
+      "rationale": "Renamed or lightly altered reviews are not independent reviews."
+    }
+  ],
+  "risk_warning_rules": [
+    {
+      "code": "RD.RISK.CONSTRUCTION_REUSE",
+      "severity": "warning",
+      "condition": "The same material is disclosed as serving construction and evaluation roles, with the inference ceiling narrowed.",
+      "review_action": "Assess whether the disclosure and narrowed claim are sufficient or whether an independent check is feasible."
+    },
+    {
+      "code": "RD.RISK.MISSINGNESS",
+      "severity": "warning",
+      "condition": "Material gaps or inaccessible units are recorded and could plausibly vary with the outcome or concept.",
+      "review_action": "Assess direction, magnitude, and sensitivity of the resulting selection risk."
+    },
+    {
+      "code": "RD.RISK.MODEL_DEPENDENCE",
+      "severity": "warning",
+      "condition": "A main result materially depends on one defensible coding, preprocessing, model, or specification choice.",
+      "review_action": "Assess whether alternatives change the substantive answer."
+    },
+    {
+      "code": "RD.RISK.TRANSFER",
+      "severity": "warning",
+      "condition": "The output proposes transfer beyond observed cases, population, corpus, period, or institutional setting while labeling it as tentative.",
+      "review_action": "Assess similarity, transport assumptions, and boundary conditions."
+    }
+  ],
+  "review_rules": [
+    {
+      "code": "RD.REVIEW.VALUE",
+      "severity": "researcher-review",
+      "question": "Does the question address a consequential and genuinely unresolved problem?",
+      "automatic_failure": false
+    },
+    {
+      "code": "RD.REVIEW.CONCEPT",
+      "severity": "researcher-review",
+      "question": "Are concept boundaries coherent, discriminating, and analytically useful?",
+      "automatic_failure": false
+    },
+    {
+      "code": "RD.REVIEW.FIT",
+      "severity": "researcher-review",
+      "question": "Does the design generate the variation, comparison, process evidence, semantic evidence, or normative reasoning needed by the question?",
+      "automatic_failure": false
+    },
+    {
+      "code": "RD.REVIEW.REPRESENTATIVENESS",
+      "severity": "researcher-review",
+      "question": "How well do the sample, cases, corpus, or argument materials support the stated target of inference?",
+      "automatic_failure": false
+    },
+    {
+      "code": "RD.REVIEW.ALTERNATIVES",
+      "severity": "researcher-review",
+      "question": "Are the most plausible alternative explanations distinguished by observable implications?",
+      "automatic_failure": false
+    },
+    {
+      "code": "RD.REVIEW.MECHANISM",
+      "severity": "researcher-review",
+      "question": "Are mechanism nodes temporally ordered and supported by diagnostically useful evidence?",
+      "automatic_failure": false
+    },
+    {
+      "code": "RD.REVIEW.SCOPE",
+      "severity": "researcher-review",
+      "question": "Are transfer, generalization, and boundary claims proportionate to the materials?",
+      "automatic_failure": false
+    },
+    {
+      "code": "RD.REVIEW.NORMATIVE",
+      "severity": "researcher-review",
+      "question": "Are value premises, factual premises, affected parties, counterexamples, and conflicts among principles explicit and persuasive?",
+      "automatic_failure": false
+    }
+  ],
+  "route_requirements": {
+    "quantitative_causal": [
+      "estimand",
+      "temporal_order",
+      "comparison_or_counterfactual",
+      "identification_assumptions",
+      "diagnostics",
+      "robustness",
+      "uncertainty",
+      "inference_ceiling"
+    ],
+    "case_process": [
+      "case_selection",
+      "timeline",
+      "mechanism_nodes",
+      "evidence_diagnosticity",
+      "competing_mechanisms",
+      "negative_evidence",
+      "scope_conditions"
+    ],
+    "text_content": [
+      "corpus_inventory",
+      "unit_of_analysis",
+      "version_and_preprocessing",
+      "codebook",
+      "reliability_or_model_validation",
+      "context",
+      "interpretive_boundary"
+    ]
+  }
+}

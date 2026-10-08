@@ -1,0 +1,527 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/cnki-research-design-v3.schema.json",
+  "title": "CNKI Paper Research Design Contract v3",
+  "description": "Portable structural schema. Deterministic cross-reference, capability, migration, source, and artifact checks are implemented by research_design.py.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "research_decision_ref",
+    "research_questions",
+    "knowledge_state",
+    "epistemic_position",
+    "concepts",
+    "claims",
+    "evidence",
+    "method_routes",
+    "integration",
+    "governance",
+    "case_design"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cnki-research-design/v3"
+    },
+    "status": {
+      "enum": [
+        "confirmed",
+        "draft",
+        "needs-review"
+      ]
+    },
+    "research_decision_ref": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "decision_id",
+        "candidate_id",
+        "selected_candidate_subgraph_digest",
+        "question_version_id",
+        "question_sha256"
+        ,"research_feasibility_ref"
+        ,"feasibility_basis_digest"
+      ],
+      "properties": {
+        "decision_id": {"type": "string"},
+        "candidate_id": {"type": "string"},
+        "selected_candidate_subgraph_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "question_version_id": {"type": "string"},
+        "question_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        ,"research_feasibility_ref": {"type": "object"}
+        ,"feasibility_basis_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "material_plan": {
+      "type": "object",
+      "required": ["feasibility_basis_digest", "allowed_question_boundary_digest", "material_refs", "time_scope", "spatial_scope", "unit_scope", "required_fields_or_roles", "linkage_plan", "variation_or_identification_plan", "realization_rule"],
+      "properties": {
+        "feasibility_basis_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "allowed_question_boundary_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "material_refs": {"type": "array", "items": {"type": "object"}},
+        "time_scope": {"type": "string"},
+        "spatial_scope": {"type": "string"},
+        "unit_scope": {"type": "string"},
+        "required_fields_or_roles": {"type": "array", "items": {"type": "string"}},
+        "linkage_plan": {"type": "string", "minLength": 8},
+        "variation_or_identification_plan": {"type": "string", "minLength": 8},
+        "realization_rule": {"type": "string", "minLength": 8}
+      },
+      "additionalProperties": true
+    },
+    "research_questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "role",
+          "text",
+          "primary_type",
+          "answer_task",
+          "otipr",
+          "confirmation"
+        ]
+      }
+    },
+    "knowledge_state": {
+      "type": "object"
+    },
+    "epistemic_position": {
+      "type": "object"
+    },
+    "concepts": {
+      "type": "array",
+      "minItems": 1
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "type",
+          "question_ids",
+          "design_ids",
+          "evidence_ids",
+          "allowed_scope",
+          "prohibited_scope"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "descriptive",
+              "association",
+              "causal_effect",
+              "causal_mechanism",
+              "causal_configuration",
+              "prediction",
+              "operational",
+              "interpretive",
+              "theory_generation",
+              "theory_evaluation",
+              "normative",
+              "review_synthesis"
+            ]
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1
+    },
+    "method_routes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "method_contract_schema": {
+            "type": "string"
+          },
+          "method_contract_revision": {
+            "type": "string"
+          },
+          "method_profile": {
+            "type": "string"
+          },
+          "method_contract": {
+            "type": "object"
+          },
+          "supplemental_profile_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "supplemental_contract": {
+            "type": "object"
+          },
+          "artifact_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "anyOf": [
+                {"required": ["supplemental_profile_id"]},
+                {"required": ["supplemental_contract"]}
+              ]
+            },
+            "then": {
+              "required": ["supplemental_profile_id", "method_contract_schema", "method_contract_revision"],
+              "properties": {
+                "supplemental_profile_id": {"type": "string", "minLength": 1},
+                "method_contract_schema": {"type": "string", "minLength": 1},
+                "method_contract_revision": {"type": "string", "minLength": 1}
+              }
+            }
+          }
+        ]
+      }
+    },
+    "integration": {
+      "type": "object"
+    },
+    "governance": {
+      "type": "object"
+    },
+    "case_design": {
+      "$ref": "#/$defs/caseDesign"
+    },
+    "artifact_fingerprints": {
+      "type": "array"
+    },
+    "change_log": {
+      "type": "array"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "confirmed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "research_decision_ref": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "idArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "caseDesign": {
+      "type": "object",
+      "required": [
+        "applicability",
+        "rationale",
+        "theoretical_purposes",
+        "causal_logics",
+        "linked_design_ids",
+        "case_universes",
+        "cases",
+        "scope_conditions",
+        "comparisons",
+        "within_case_analyses",
+        "integration"
+      ],
+      "properties": {
+        "applicability": {
+          "enum": [
+            "active",
+            "not-applicable",
+            "needs-review"
+          ]
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "theoretical_purposes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "descriptive_mapping",
+              "typology_building",
+              "theory_generation",
+              "theory_refinement",
+              "theory_testing",
+              "causal_effect",
+              "causal_mechanism",
+              "causal_configuration",
+              "theory_evaluation"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "causal_logics": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "probabilistic_effect",
+              "deterministic",
+              "necessary_condition",
+              "sufficient_condition",
+              "conjunctural",
+              "equifinal",
+              "mechanism",
+              "interpretive",
+              "not-applicable"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "linked_design_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "case_universes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/caseUniverse"
+          }
+        },
+        "cases": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/case"
+          }
+        },
+        "scope_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scopeCondition"
+          }
+        },
+        "comparisons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/comparison"
+          }
+        },
+        "within_case_analyses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/withinCase"
+          }
+        },
+        "integration": {
+          "$ref": "#/$defs/caseIntegration"
+        },
+        "migration_review_items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "caseUniverse": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "inclusion",
+        "exclusion",
+        "time_scope",
+        "spatial_scope",
+        "level",
+        "unit_definition"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CUN-[A-Z0-9][A-Z0-9_-]*$"
+        }
+      }
+    },
+    "case": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "universe_id",
+        "design_ids",
+        "case_boundary",
+        "time_scope",
+        "level",
+        "selection_strategy",
+        "theoretical_role",
+        "outcome_knowledge_at_selection",
+        "selection_timing",
+        "inclusion_rationale",
+        "material_roles"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAS-[A-Z0-9][A-Z0-9_-]*$"
+        },
+        "design_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "material_roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "material_id",
+              "role",
+              "independence"
+            ]
+          }
+        }
+      }
+    },
+    "scopeCondition": {
+      "type": "object",
+      "required": [
+        "id",
+        "statement",
+        "status",
+        "claim_ids",
+        "design_ids",
+        "inference_impact"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^SCP-[A-Z0-9][A-Z0-9_-]*$"
+        },
+        "claim_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "design_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/idArray"
+        }
+      }
+    },
+    "comparison": {
+      "type": "object",
+      "required": [
+        "id",
+        "mode",
+        "case_ids",
+        "design_ids",
+        "logic",
+        "time_alignment",
+        "level_alignment",
+        "common_dimensions",
+        "contrast_dimensions",
+        "target_inference",
+        "threats",
+        "inference_ceiling"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CMP-[A-Z0-9][A-Z0-9_-]*$"
+        },
+        "case_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "design_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/idArray"
+        }
+      }
+    },
+    "withinCase": {
+      "type": "object",
+      "required": [
+        "id",
+        "mode",
+        "case_ids",
+        "design_ids",
+        "claim_ids",
+        "purpose",
+        "inference_ceiling"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^WCA-[A-Z0-9][A-Z0-9_-]*$"
+        },
+        "mode": {
+          "enum": [
+            "process_tracing",
+            "congruence_analysis",
+            "timeline",
+            "pattern_matching",
+            "other"
+          ]
+        },
+        "case_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "design_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "claim_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/idArray"
+        }
+      }
+    },
+    "caseIntegration": {
+      "type": "object",
+      "required": [
+        "sequence",
+        "comparison_ids",
+        "within_case_analysis_ids",
+        "route_order",
+        "handoffs",
+        "material_role_separation",
+        "conflict_policy",
+        "inference_ceiling"
+      ],
+      "properties": {
+        "sequence": {
+          "enum": [
+            "single",
+            "cross-case-first",
+            "within-case-first",
+            "iterative",
+            "not-applicable",
+            "needs-review"
+          ]
+        },
+        "comparison_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "within_case_analysis_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "route_order": {
+          "$ref": "#/$defs/idArray"
+        }
+      }
+    }
+  }
+}

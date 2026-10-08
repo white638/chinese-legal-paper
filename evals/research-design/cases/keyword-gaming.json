@@ -1,0 +1,134 @@
+{
+  "schema": "cnki-research-design-executable-fixtures/v1",
+  "fixture_kind": "keyword-gaming",
+  "materializer": "skills/cnki-paper/scripts/test_research_design.py::base_contract",
+  "registry_source_ids": [
+    "S01",
+    "S02"
+  ],
+  "cases": [
+    {
+      "id": "GAME-LONG-EMPTY-BOUNDARY-001",
+      "family": "quantitative-causal",
+      "base_contract": {
+        "family": "quantitative_causal",
+        "claim_type": "causal_effect",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/design/evidence_boundary",
+          "from": "只使用登记来源、预定样本和2012—2025年材料回答该问题。",
+          "value": ""
+        },
+        {
+          "op": "replace",
+          "path": "/design/limitations",
+          "from": "不可观测差异仍可能存在，将报告敏感性分析并收窄外推。",
+          "value": "本研究高度重视边界、样本、测量、伦理、效度、稳健性、反事实、机制、替代解释、复现与推断上限，并将严格遵循全部研究规范。"
+        }
+      ],
+      "expected_status": "FAIL",
+      "expected_codes": [
+        "RD.BOUNDARY.MISSING"
+      ],
+      "rationale": "A long list of design keywords in another field does not replace the required evidence boundary."
+    },
+    {
+      "id": "GAME-FAKE-SOURCE-001",
+      "family": "text-content",
+      "base_contract": {
+        "family": "text_content",
+        "claim_type": "descriptive",
+        "question_type": "descriptive"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/evidence/0/source_ids/0",
+          "from": "S01",
+          "value": "S999"
+        },
+        {
+          "op": "replace",
+          "path": "/evidence/0/description",
+          "from": "制度规则、资源和执行结果的版本化面板记录。",
+          "value": "该来源绝对真实、权威、内容已核验，并具有稳定 Source ID、完整证据链和可复现记录。"
+        }
+      ],
+      "expected_status": "FAIL",
+      "expected_codes": [
+        "RD.SOURCE.UNKNOWN"
+      ],
+      "rationale": "Claims of authenticity cannot create registry membership."
+    },
+    {
+      "id": "GAME-CAUSAL-SLOGAN-001",
+      "family": "valid-noncausal-and-normative",
+      "base_contract": {
+        "family": "interpretive",
+        "claim_type": "interpretive",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claims/0/text",
+          "from": "行动者在资源约束语境中将制度信号理解为差异化行动理由。",
+          "value": "This interpretive material causally proves that the policy always produces the same outcome."
+        },
+        {
+          "op": "replace",
+          "path": "/design/method_rationale",
+          "from": "设计产生回答主张所需的比较、过程或材料证据，并保留失败条件。",
+          "value": "本研究充分运用因果、反事实、识别、机制、诊断、稳健性和不确定性思维。"
+        }
+      ],
+      "expected_status": "FAIL",
+      "expected_codes": [
+        "RD.CAUSAL.OVERCLAIM"
+      ],
+      "rationale": "Causal vocabulary cannot turn an interpretive route into causal identification."
+    },
+    {
+      "id": "GAME-ETHICS-BOILERPLATE-001",
+      "family": "case-process",
+      "base_contract": {
+        "family": "case_process",
+        "claim_type": "causal_mechanism",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/design/ethics/status",
+          "from": "exempt",
+          "value": ""
+        },
+        {
+          "op": "replace",
+          "path": "/design/permissions/status",
+          "from": "confirmed",
+          "value": ""
+        },
+        {
+          "op": "replace",
+          "path": "/design/ethics/note",
+          "from": "不处理可识别个人信息",
+          "value": "本研究高度重视科研伦理、合法权限、个人隐私、匿名化和数据安全。"
+        }
+      ],
+      "expected_status": "FAIL",
+      "expected_codes": [
+        "RD.ETHICS.MISSING",
+        "RD.PERMISSION.MISSING"
+      ],
+      "rationale": "Boilerplate is not an ethics status or lawful-use record."
+    }
+  ]
+}

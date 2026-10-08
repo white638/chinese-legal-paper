@@ -1,0 +1,69 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "historical",
+  "required_operation_kinds": [
+    "source_inventory_freeze",
+    "provenance_trace",
+    "transmission_chain_audit",
+    "source_criticism",
+    "corroboration_test",
+    "silence_assessment",
+    "archive_gap_mapping",
+    "anachronism_audit",
+    "historical_inference_disposition"
+  ],
+  "optional_operation_kinds": ["oral_history_ethics_audit"],
+  "required_artifact_roles": [
+    "source_inventory",
+    "provenance_ledger",
+    "transmission_graph",
+    "source_criticism_memos",
+    "corroboration_matrix",
+    "silence_register",
+    "archive_gap_log",
+    "anachronism_audit"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "historical-pilot/v1",
+    "required_operation_kinds": [
+      "source_inventory_freeze",
+      "provenance_trace",
+      "transmission_chain_audit",
+      "source_criticism",
+      "corroboration_test",
+      "archive_gap_mapping"
+    ],
+    "acceptance_dimensions": [
+      "primary and secondary status is source-specific",
+      "transmission chains distinguish independent corroboration from repetition",
+      "authorship, audience, purpose, and preservation context are assessed",
+      "archive gaps bound what absence can mean"
+    ]
+  },
+  "completion_predicates": [
+    "every material historical claim resolves to provenance and source criticism",
+    "corroboration claims exclude dependent transmissions",
+    "silences and archive gaps receive separate interpretations",
+    "present-day categories are tested against historical usage"
+  ],
+  "failure_routes": [
+    {"code": "SOURCE.PROVENANCE_UNRESOLVED", "route": "retry"},
+    {"code": "SOURCE.TRANSMISSION_DEPENDENCE", "route": "reopen:research"},
+    {"code": "COVERAGE.ARCHIVE_GAP_MATERIAL", "route": "narrow:<Claim ID>"},
+    {"code": "CLAIM.ANACHRONISTIC_INFERENCE", "route": "reopen:design"}
+  ],
+  "judgment_nodes": [
+    "source proximity and purpose",
+    "independence of corroboration",
+    "meaning of documentary silence",
+    "severity of archive gaps",
+    "anachronism risk"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

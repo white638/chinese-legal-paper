@@ -1,0 +1,64 @@
+{
+  "schema_version": "cnki-v31-fixture-manifest/v1",
+  "baseline_commit": "eb5e0cf",
+  "candidate_framework": "3.1.0",
+  "privacy": {
+    "default": "local-only",
+    "upload": false,
+    "materials": "recomputable synthetic cases plus locally anonymized real cases",
+    "prompt_contents_committed": false
+  },
+  "automated_variants_per_family": [
+    "positive",
+    "keyword-gaming",
+    "single-field-mutation",
+    "design-execution-drift",
+    "inference-overreach",
+    "legal-non-applicability"
+  ],
+  "automated_fixture_test": "skills/empirical-research/scripts/test_method_execution.py::MethodExecutionTests.test_every_family_has_required_fixture_mutations",
+  "blind_evaluation_tool": "evals/research-methods-v31/blind_eval.py",
+  "hidden_evaluation": {
+    "task_count": 20,
+    "repeats_per_task": 2,
+    "anonymous_pairs": 40,
+    "candidate_labels": ["A", "B"],
+    "reviewers": 3,
+    "reviewer_isolation": true,
+    "preference_aggregation": "plurality_non_tie",
+    "withhold_from_reviewers": ["checker output", "golden answer", "framework version", "other reviewer output"],
+    "tasks": [
+      {"id": "H01", "family": "quantitative", "focus": "separate descriptive, associational, predictive, and causal claims"},
+      {"id": "H02", "family": "experiment", "focus": "allocation truth, flow, noncompliance, interference, and ethics"},
+      {"id": "H03", "family": "survey", "focus": "sampling frame, instrument version, response, missingness, and protection"},
+      {"id": "H04", "family": "case_study", "focus": "case population, selection, evidence chain, and theory dialogue"},
+      {"id": "H05", "family": "process_tracing", "focus": "timeline, diagnostic evidence, rivals, and negative evidence"},
+      {"id": "H06", "family": "qca", "focus": "calibration, contradictions, remainders, solutions, sensitivity, and cases"},
+      {"id": "H07", "family": "content_analysis", "focus": "corpus, units, codebook, reliability applicability, and context"},
+      {"id": "H08", "family": "discourse_analysis", "focus": "context, power, positionality, competing readings, and reflexivity"},
+      {"id": "H09", "family": "text_as_data", "focus": "corpus versions, preprocessing, split audit, validation, and interpretation"},
+      {"id": "H10", "family": "social_network", "focus": "boundary, missing ties, dependence, diagnostics, and reidentification"},
+      {"id": "H11", "family": "comparative", "focus": "comparability, time alignment, negative cases, and type space"},
+      {"id": "H12", "family": "historical", "focus": "provenance, source criticism, silence, archive gaps, and oral ethics"},
+      {"id": "H13", "family": "grounded_theory", "focus": "tradition, theoretical sampling, comparison, memos, and saturation rationale"},
+      {"id": "H14", "family": "computational", "focus": "platform terms, leakage, drift, bias, privacy, and environment"},
+      {"id": "H15", "family": "review", "focus": "review-type routing, search, screening, appraisal, contradiction, and gaps"},
+      {"id": "H16", "family": "conceptual", "focus": "definition rules, argument map, boundary cases, and counterexamples"},
+      {"id": "H17", "family": "interpretive", "focus": "context, interpretive rules, competing readings, and reflexivity"},
+      {"id": "H18", "family": "normative", "focus": "value and factual premises, stakeholders, objections, and counterexamples"},
+      {"id": "H19", "family": "multi-route", "focus": "sequential/convergent integration, handoffs, independence, conflict, and synthesis"},
+      {"id": "H20", "family": "governance-migration", "focus": "integrity declarations, conservative migration, hashes, and future-schema blocking"}
+    ]
+  },
+  "release_thresholds": {
+    "hard_failure_detection": 1.0,
+    "overall_automated_pass_rate_min": 0.9,
+    "per_family_pass_rate_min": 0.8,
+    "hard_error_count_max": 0,
+    "blind_wins_min": 27,
+    "blind_losses_max": 5,
+    "net_regression_allowed_per_family": false,
+    "design_answer_match_zero_allowed": false,
+    "inference_calibration_zero_allowed": false
+  }
+}

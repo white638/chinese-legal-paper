@@ -1,0 +1,4 @@
+interface:
+  display_name: "AERS PRISMA SLR"
+  short_description: "PRISMA review workflow support"
+  default_prompt: "Use $aers-prisma-slr to run the appropriate workflow."

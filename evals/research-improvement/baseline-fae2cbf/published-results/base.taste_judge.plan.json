@@ -1,0 +1,63 @@
+{
+  "variant": "base",
+  "card_slug": "comparative-politics",
+  "references": [
+    {
+      "identifier": "SYNTHETIC-RESULT-02",
+      "title": "Access costs and service use",
+      "claim": "The synthetic result attributes uptake differences to the cost of access.",
+      "origin": "references",
+      "comparison_view": {
+        "maturity": "result",
+        "text": "Access costs and service use\nThe synthetic result attributes uptake differences to the cost of access."
+      },
+      "ref_id": "REF-01"
+    },
+    {
+      "identifier": "SYNTHETIC-RESULT-01",
+      "title": "Recording rules and completion",
+      "claim": "The synthetic result attributes completion differences to recording rules.",
+      "origin": "references",
+      "comparison_view": {
+        "maturity": "result",
+        "text": "Recording rules and completion\nThe synthetic result attributes completion differences to recording rules."
+      },
+      "ref_id": "REF-02"
+    }
+  ],
+  "items": [
+    {
+      "candidate_id": "CAND-01",
+      "comparison_view": {
+        "maturity": "proposal",
+        "question": "When do recording rules change apparent service completion?",
+        "baseline": "",
+        "mechanism": "",
+        "prediction": "",
+        "evidence": "",
+        "update": "Separate recorded completion from actual access before interpreting differences.",
+        "text": ""
+      },
+      "texts": {
+        "research_question": "When do recording rules change apparent service completion?",
+        "potential_contribution": "Separate recorded completion from actual access before interpreting differences."
+      },
+      "replaced_terms": [],
+      "pairs": [
+        {
+          "pair_id": "P1",
+          "ref_id": "REF-01",
+          "candidate_position": "two",
+          "comparable": false
+        },
+        {
+          "pair_id": "P2",
+          "ref_id": "REF-02",
+          "candidate_position": "one",
+          "comparable": false
+        }
+      ]
+    }
+  ],
+  "card_sha256": "9144bb734c6a9b46ccc1b693ddfd66de54e6e78f715cabfba38e6de1b46667c6"
+}

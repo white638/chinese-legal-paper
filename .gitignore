@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+content.json
+paper_rewriting_output/
+.dist/
+.ci-build/
+.ci-install/

@@ -1,0 +1,67 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "comparative",
+  "required_operation_kinds": [
+    "case_set_freeze",
+    "comparison_dimension_operationalization",
+    "comparability_audit",
+    "time_alignment",
+    "structured_case_comparison",
+    "negative_case_test",
+    "type_space_construction",
+    "comparative_inference_disposition"
+  ],
+  "optional_operation_kinds": ["mill_logic_test", "set_theoretic_integration"],
+  "required_artifact_roles": [
+    "case_comparison_table",
+    "case_selection_memo",
+    "comparability_audit",
+    "time_alignment_audit",
+    "structured_comparison_ledger",
+    "negative_case_register",
+    "type_space"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "comparative-pilot/v1",
+    "required_operation_kinds": [
+      "case_set_freeze",
+      "comparison_dimension_operationalization",
+      "comparability_audit",
+      "time_alignment",
+      "structured_case_comparison",
+      "negative_case_test"
+    ],
+    "acceptance_dimensions": [
+      "cases share a defensible comparison basis",
+      "comparison dimensions preserve equivalent meanings",
+      "historical periods are aligned by substantive process",
+      "negative cases can change the proposed comparison"
+    ]
+  },
+  "completion_predicates": [
+    "every comparison dimension has a cross-case comparability disposition",
+    "case observations are aligned to equivalent temporal or process positions",
+    "negative and boundary cases receive explicit treatment",
+    "type-space claims account for empty and observed cells"
+  ],
+  "failure_routes": [
+    {"code": "UNIT.CASES_INCOMPARABLE", "route": "reopen:design"},
+    {"code": "TEMPORAL.CASE_PERIODS_MISALIGNED", "route": "reopen:design"},
+    {"code": "COVERAGE.NEGATIVE_CASE_MISSING", "route": "reopen:research"},
+    {"code": "CLAIM.TYPE_SPACE_OVERGENERALIZED", "route": "narrow:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "case selection and comparison leverage",
+    "cross-case concept equivalence",
+    "substantive time alignment",
+    "negative-case diagnostic value",
+    "type-space completeness"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

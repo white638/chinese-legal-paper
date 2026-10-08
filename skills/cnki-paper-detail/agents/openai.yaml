@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNKI Paper Detail"
+  short_description: "Extract full CNKI paper metadata"
+  default_prompt: "Use $cnki-paper-detail to run the appropriate workflow."

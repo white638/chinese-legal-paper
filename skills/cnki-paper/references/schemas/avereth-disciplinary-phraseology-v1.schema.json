@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avereth-disciplinary-phraseology-v1.schema.json",
+  "title": "avereth-disciplinary-phraseology-v1",
+  "description": "Derived exact short expressions with independent author/article support. The executable derivation verifies source content, function consistency, and explicit distinctive-span exclusions.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "avereth-disciplinary-phraseology/v1"
+    },
+    "source_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "expressions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category": {
+            "enum": [
+              "conventional_bundle",
+              "discipline_specific_bundle",
+              "technical_fixed_expression",
+              "distinctive_expression"
+            ]
+          },
+          "discourse_function": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "cp_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "disciplines": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "independent_support": {
+            "type": "boolean"
+          },
+          "reuse_allowed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "text",
+          "category",
+          "discourse_function",
+          "source_ids",
+          "cp_ids",
+          "disciplines",
+          "independent_support",
+          "reuse_allowed"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "reuse_allowed": {
+                  "const": true
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "category": {
+                  "enum": [
+                    "conventional_bundle",
+                    "discipline_specific_bundle",
+                    "technical_fixed_expression"
+                  ]
+                },
+                "independent_support": {
+                  "const": true
+                },
+                "source_ids": {
+                  "minItems": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "source_digest",
+    "expressions"
+  ]
+}

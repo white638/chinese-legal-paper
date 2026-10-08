@@ -1,0 +1,209 @@
+{
+  "schema_version": "avereth-p1-development-materials/v1",
+  "evaluation_status": "synthetic_materials_ready_real_case_and_model_runs_pending",
+  "evidence_kind": "authored synthetic development cases; no real study, original proposal, execution, or expert preference is represented",
+  "planned_real_case_counts": {
+    "development": 20,
+    "held_out": 40,
+    "acquired": 0
+  },
+  "conditions": [
+    {
+      "id": "judge-baseline",
+      "teaching_exemplars": "off"
+    },
+    {
+      "id": "judge-with-research-moves",
+      "teaching_exemplars": "on"
+    }
+  ],
+  "generation_change": "not_part_of_p1_fixed_candidate_comparison",
+  "real_runs": [],
+  "expert_labels": [],
+  "cases": [
+    {
+      "id": "SYN-P1-01",
+      "project_id": "SYNTHETIC-PROJECT-01",
+      "family": "record-comparability",
+      "focus": "plain-important-versus-ornate-empty",
+      "split": "development",
+      "synthetic": true,
+      "one": {
+        "maturity": "proposal",
+        "question": "同名办结字段在两个地区是否记录同一事件？",
+        "evidence": "合成代码本分别定义为结案与首次答复；尚无实际记录。",
+        "update": "先限定可比范围，再判断是否存在服务差异。"
+      },
+      "two": {
+        "maturity": "proposal",
+        "question": "数字文明如何重塑全过程协同治理新范式？",
+        "evidence": "只有议题词汇，没有明确对象或可核对材料。",
+        "update": "声称建立新范式，尚未说明会改变什么判断。"
+      },
+      "review": "评价认识后果和证据责任；修辞强度不充当贡献证据。",
+      "related_teaching_identifiers": [],
+      "expert_judgment": null
+    },
+    {
+      "id": "SYN-P1-02",
+      "project_id": "SYNTHETIC-PROJECT-02",
+      "family": "service-coverage",
+      "focus": "descriptive-research",
+      "split": "development",
+      "synthetic": true,
+      "one": {
+        "maturity": "proposal",
+        "question": "现有服务名册漏记了哪些符合资格的群体？",
+        "evidence": "合成材料提供名册定义和抽样框草案；未获得样本。",
+        "update": "形成有明确覆盖范围的描述，说明官方覆盖率能代表谁。"
+      },
+      "two": {
+        "maturity": "proposal",
+        "question": "跨地区服务覆盖差异由何种机制导致？",
+        "evidence": "相同名册，但资格与漏记尚未区分。",
+        "update": "暂定解释覆盖差异，仍需先核对测量。"
+      },
+      "review": "不因缺少因果机制而否定描述责任；判断哪一步信息能支持后续投入。",
+      "related_teaching_identifiers": [],
+      "expert_judgment": null
+    },
+    {
+      "id": "SYN-P1-03",
+      "project_id": "SYNTHETIC-PROJECT-03",
+      "family": "information-rights",
+      "focus": "normative-research",
+      "split": "development",
+      "synthetic": true,
+      "one": {
+        "maturity": "proposal",
+        "question": "当公开理由会损害第三方隐私时，行政解释义务到哪里为止？",
+        "evidence": "给出两项明确规范前提与冲突情境；尚未完成反例分析。",
+        "update": "界定解释义务与隐私保护冲突时的规范责任。"
+      },
+      "two": {
+        "maturity": "proposal",
+        "question": "信息公开如何全面提高公共治理效能？",
+        "evidence": "仅以价值口号描述目标。",
+        "update": "未说明规范前提、适用条件或可能冲突。"
+      },
+      "review": "用规范前提、推导与反例责任评价，不强制要求因果识别。",
+      "related_teaching_identifiers": [],
+      "expert_judgment": null
+    },
+    {
+      "id": "SYN-P1-04",
+      "project_id": "SYNTHETIC-PROJECT-04",
+      "family": "historical-vocabulary",
+      "focus": "historical-concept-work",
+      "split": "development",
+      "synthetic": true,
+      "one": {
+        "maturity": "proposal",
+        "question": "同一政治术语在两份同期文书中是否指向不同的权限关系？",
+        "evidence": "合成摘录附版本与段落定位；文本真伪和代表性仍待检查。",
+        "update": "区分术语相同与制度意义相同，限定可成立的历史解释。"
+      },
+      "two": {
+        "maturity": "proposal",
+        "question": "这一术语体现了怎样一以贯之的政治传统？",
+        "evidence": "使用相同的两份文书。",
+        "update": "暂未解释两份用法的差异。"
+      },
+      "review": "检查解释是否依赖真实文本差异；不得把两则材料扩展成完整谱系。",
+      "related_teaching_identifiers": [],
+      "expert_judgment": null
+    },
+    {
+      "id": "SYN-P1-05",
+      "project_id": "SYNTHETIC-PROJECT-05",
+      "family": "replication-boundary",
+      "focus": "replication-and-negative-outcomes",
+      "split": "development",
+      "synthetic": true,
+      "one": {
+        "maturity": "proposal",
+        "question": "已发表关系在纠正编码口径后是否仍成立？",
+        "evidence": "合成研究计划列出复现脚本接口和编码差异；没有运行结果。",
+        "update": "检验原结论对编码口径的依赖，任何方向的结果均先完成检查。"
+      },
+      "two": {
+        "maturity": "proposal",
+        "question": "能否利用同一资料证明原研究结论错误？",
+        "evidence": "相同计划，但事先认定相反结果。",
+        "update": "把预想的负结果直接称为创新。"
+      },
+      "review": "复现可以有投入价值；未运行前不得宣称推翻，负结果本身不自动成为贡献。",
+      "related_teaching_identifiers": [],
+      "expert_judgment": null
+    },
+    {
+      "id": "SYN-P1-06",
+      "project_id": "SYNTHETIC-PROJECT-06",
+      "family": "immature-anomaly",
+      "focus": "important-but-not-yet-formed",
+      "split": "development",
+      "synthetic": true,
+      "one": {
+        "maturity": "proposal",
+        "question": "两个档案序列持续无法归入现有分类，差别出在哪里？",
+        "evidence": "合成材料列出可定位的分类冲突；尚不清楚该改概念还是改分析单位。",
+        "update": "先查明冲突是否由记录方式造成，再决定形成何种问题。"
+      },
+      "two": {
+        "maturity": "proposal",
+        "question": "能否把两个新理论结合来解释档案差异？",
+        "evidence": "同一材料，尚无理论适用性依据。",
+        "update": "仅提出组合理论。"
+      },
+      "review": "未成熟与无根据分开评议；探索意见不授予 screened 或 design 准入。",
+      "related_teaching_identifiers": [],
+      "expert_judgment": null
+    },
+    {
+      "id": "SYN-P1-07",
+      "project_id": "SYNTHETIC-PROJECT-07",
+      "family": "maturity-mismatch",
+      "focus": "published-result-versus-proposal",
+      "split": "development",
+      "synthetic": true,
+      "one": {
+        "maturity": "proposal",
+        "question": "何时申请成本影响服务使用？",
+        "evidence": "仅方案草案，没有结果。",
+        "update": "拟区分资格与获取成本。"
+      },
+      "two": {
+        "maturity": "result",
+        "question": "合成成果报告申请成本解释使用差异。",
+        "evidence": "这是合成的已完成结果描述。",
+        "update": "这是结果陈述，不是同期原始方案。"
+      },
+      "review": "计划应报告成熟度不匹配，避免发出必然弃判的成对调用。",
+      "related_teaching_identifiers": [],
+      "expert_judgment": null
+    },
+    {
+      "id": "SYN-P1-08",
+      "project_id": "SYNTHETIC-PROJECT-08",
+      "family": "evidence-absence",
+      "focus": "insufficient-evidence",
+      "split": "development",
+      "synthetic": true,
+      "one": {
+        "maturity": "proposal",
+        "question": "两地投诉处理是否遵循同一规则？",
+        "evidence": "只见标题；没有规则文本或来源说明。",
+        "update": "未知。"
+      },
+      "two": {
+        "maturity": "proposal",
+        "question": "两地投诉处理差异是否来自服务能力？",
+        "evidence": "只见标题；没有材料或来源说明。",
+        "update": "未知。"
+      },
+      "review": "不足以比较时保留未知或弃判，不从流畅措辞推定证据厚度。",
+      "related_teaching_identifiers": [],
+      "expert_judgment": null
+    }
+  ]
+}

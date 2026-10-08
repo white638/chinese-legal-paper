@@ -1,0 +1,64 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "survey",
+  "required_operation_kinds": [
+    "sampling_frame_freeze",
+    "instrument_version_freeze",
+    "fieldwork_execution",
+    "response_process_audit",
+    "missingness_assessment",
+    "weighting_decision",
+    "measurement_quality_assessment",
+    "survey_inference_disposition"
+  ],
+  "optional_operation_kinds": ["mode_effect_assessment", "interviewer_effect_assessment"],
+  "required_artifact_roles": [
+    "sampling_frame",
+    "instrument_snapshot",
+    "fieldwork_log",
+    "response_summary",
+    "missing_data_report",
+    "weighting_report",
+    "measurement_checks"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "survey-pilot/v1",
+    "required_operation_kinds": [
+      "sampling_frame_freeze",
+      "instrument_version_freeze",
+      "fieldwork_execution",
+      "response_process_audit",
+      "measurement_quality_assessment"
+    ],
+    "acceptance_dimensions": [
+      "target population and recruitment frame are distinguishable",
+      "administered instrument version is frozen",
+      "response process is traceable by mode",
+      "measurement failures are detectable in pilot responses"
+    ]
+  },
+  "completion_predicates": [
+    "all fieldwork waves identify instrument version and recruitment frame",
+    "nonresponse and item missingness receive separate dispositions",
+    "weighting is either executed with diagnostics or rejected with a design-based rationale"
+  ],
+  "failure_routes": [
+    {"code": "COVERAGE.FRAME_MISMATCH", "route": "reopen:research"},
+    {"code": "MEASUREMENT.INSTRUMENT_FAILURE", "route": "reopen:design"},
+    {"code": "ETHICS.CONSENT_OR_PRIVACY_FAILURE", "route": "human-review"}
+  ],
+  "judgment_nodes": [
+    "coverage error severity",
+    "mode comparability",
+    "nonresponse bias plausibility",
+    "weighting necessity and variance cost",
+    "construct validity of survey measures"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

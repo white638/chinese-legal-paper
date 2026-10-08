@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/methods/discourse-network-v1.schema.json",
+  "title": "Actor-Claim-Position Discourse Network Contract v1",
+  "type": "object",
+  "required": ["network_kind", "edge_schema", "network_boundary", "dependence_plan", "source_identity_policy", "edges_artifact_id", "dependence_diagnostics_artifact_id", "source_provenance_artifact_id"],
+  "properties": {
+    "network_kind": {"const": "actor-claim-position"},
+    "edge_schema": {
+      "const": ["actor", "claim", "position", "time", "source"]
+    },
+    "network_boundary": {"type": "string", "minLength": 1},
+    "dependence_plan": {"type": "string", "minLength": 1},
+    "source_identity_policy": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}

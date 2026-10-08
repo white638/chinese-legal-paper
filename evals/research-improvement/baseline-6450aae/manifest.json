@@ -1,0 +1,19 @@
+{
+  "source_commit": "6450aae02b8b6f99db8feeb979a572419f35a79f",
+  "evidence_kind": "synthetic deterministic prompt capture; no model responses",
+  "source_sha256": {
+    "skills/cnki-paper/scripts/taste_exemplars.py": "b8ac71c4df81c01d7dc873da3d035b33957292932817fe777e91094906b1387e",
+    "skills/cnki-paper/scripts/taste_judge.py": "a371c0c56ab2f95d5c26f98babeea931d493e940ce9f6594be0d47a99114fad2",
+    "skills/cnki-paper/scripts/taste_cards.py": "59ae0b9d3a353f568fb0aabbe36ec97cd63675a62ccea85097881896a3076dee",
+    "skills/cnki-paper/scripts/problem_orientation_check.py": "d2be40390a80e4ce62544724c083706dcc0b772080aa1446e7c5822458eb4d62",
+    "skills/cnki-paper/scripts/topic_packet.py": "660f498fccc9fb3b361374af8660fc9b0c3fa896a044ee0d671afdbd2ba6dac6",
+    "skills/cnki-paper/references/taste/branch-taste-cards.json": "4edf5280224bf1ca74686a90002799b8a7f6b28307220fb75009c7a562837c22"
+  },
+  "capture_sha256": {
+    "fixtures.json": "7c32241b8fa1a389f627de057abbca9242de6d5bf57fcceb89fe5a8ec3bc517d",
+    "selection.prompt.md": "37cbea3c95fa90a94f9595247a18fadd9fffe40e6e83253576548b97a7782769",
+    "selection.schema.json": "e2b33f987165843b6c3ff8923fde1130c47e814fbb23b3d7e9772ffc715a5f1e",
+    "judge.prompt.md": "24b7526befae08830dd9db3a65197fa4559dfd777bc8d155b3ebc5eb089c4d3d",
+    "judge.schema.json": "015a5d2634896d48b1e62e5bd66b1959c46e76a702acd4abbfeb5c30145ec362"
+  }
+}

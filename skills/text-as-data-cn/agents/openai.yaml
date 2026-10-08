@@ -1,0 +1,4 @@
+interface:
+  display_name: "Text as Data CN"
+  short_description: "Chinese text-as-data workflow"
+  default_prompt: "Use $text-as-data-cn to run the appropriate workflow."

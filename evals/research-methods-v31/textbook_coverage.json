@@ -1,0 +1,252 @@
+{
+  "schema_version": "cnki-textbook-coverage/v1",
+  "framework_version": "3.1.0",
+  "baseline_commit": "eb5e0cf",
+  "source": {
+    "title": "社会科学研究设计与方法",
+    "editors": ["张发林", "吴晓林"],
+    "publisher": "中国人民大学出版社",
+    "edition": "2026年6月第1版",
+    "isbn": "978-7-300-34680-9",
+    "pdf_pages": 480,
+    "substantive_pages": "1-464",
+    "chapters": 19,
+    "toc_sections": 80
+  },
+  "policy": {
+    "copyright": "Only transformed summaries and routing decisions are stored; textbook prose and extended quotations are excluded.",
+    "hard_gate": "Only independently supported, objectively checkable integrity, identity, boundary, version, permission, drift, reporting, and hash failures become ERROR.",
+    "soft_review": "Method fit, representativeness, thresholds, saturation, model quality, external validity, paradigm compatibility, and argumentative force remain WARNING or REVIEW.",
+    "venue_priority": "Verified target-journal rules override generic textbook word-count, structure, and formatting advice."
+  },
+  "classifications": {
+    "core": "Cross-method contract or gate used by most research routes.",
+    "adapter": "Conditional design or execution fields activated only for the matching method family.",
+    "reference": "Explanatory guidance that informs judgment but is not mechanically scored.",
+    "review-only": "A useful prompt for evidence-backed researcher review that cannot be made a universal PASS/FAIL rule.",
+    "excluded": "A proposition deliberately not implemented because it is unreliable, obsolete, or over-general."
+  },
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "什么是社会科学研究",
+      "pages": "1-18",
+      "sections": [
+        {"id": "C01S01", "title": "了解科学", "pages": "1-9", "classification": "reference", "external_basis": ["AUTH-NASEM-REPRO"], "entry_points": ["skills/cnki-paper/references/research-foundations.md"], "transformation": "以透明、可复核、可修正和证据约束作为科学性自检，不把一套哲学定义变成硬评分。", "rationale": "保留科学推理底座，排除教科书式定义背诵。"},
+        {"id": "C01S02", "title": "什么是社会科学", "pages": "10-14", "classification": "reference", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-SRQR"], "entry_points": ["skills/cnki-paper/references/research-foundations.md"], "transformation": "记录社会对象的情境性、反身性和多种证据形态，避免用自然科学单一路线压平社会科学。", "rationale": "提供边界意识，不形成方法等级。"},
+        {"id": "C01S03", "title": "社会科学研究体系的构成", "pages": "15-16", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING"], "entry_points": ["skills/cnki-paper/references/research-design-spine.md"], "transformation": "映射为问题、概念、路线、证据、执行、推断、写作与治理的身份链。", "rationale": "进入 v2 核心契约和八阶段工作流。"},
+        {"id": "C01S04", "title": "科学思维与教材理念", "pages": "17-18", "classification": "reference", "external_basis": ["AUTH-NASEM-REPRO"], "entry_points": ["skills/cnki-paper/references/research-foundations.md"], "transformation": "转化为问题意识、竞争解释、反证条件和可复核记录四类提示。", "rationale": "保留思维训练，避免把口号当作合规证据。"}
+      ]
+    },
+    {
+      "chapter": 2,
+      "title": "社会科学研究的方法体系",
+      "pages": "19-46",
+      "sections": [
+        {"id": "C02S01", "title": "哲学基础与体系构成", "pages": "19-24", "classification": "core", "external_basis": ["AUTH-SRQR"], "entry_points": ["skills/cnki-paper/references/research-foundations.md", "skills/cnki-paper/references/research-design-spine.md"], "transformation": "结构化记录本体论、认识论、方法论与研究者位置。", "rationale": "作为自检事实，不依据标签自动打分。"},
+        {"id": "C02S02", "title": "社会科学的研究范式", "pages": "25-29", "classification": "review-only", "external_basis": ["AUTH-SRQR"], "entry_points": ["skills/cnki-paper/references/research-foundations.md"], "transformation": "检查范式、研究逻辑和方法路线是否能共同支撑主张。", "rationale": "兼容性需要学术判断，拒绝范式高低排序。"},
+        {"id": "C02S03", "title": "社会科学的方法论", "pages": "30-35", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-SRQR"], "entry_points": ["skills/cnki-paper/references/method-routing.md"], "transformation": "按问题功能与推断上限选择路线，而非按方法声望选择。", "rationale": "进入路线选择和理由字段。"},
+        {"id": "C02S04", "title": "实证主义的研究逻辑", "pages": "36-40", "classification": "reference", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-CAUSAL"], "entry_points": ["skills/cnki-paper/references/research-foundations.md"], "transformation": "保留演绎、检验、测量和反事实逻辑，同时明确它不是唯一合法研究逻辑。", "rationale": "支持实证路线但不排除诠释、规范和理论生成。"},
+        {"id": "C02S05", "title": "社会科学研究的具体方法", "pages": "41-46", "classification": "core", "external_basis": ["AUTH-NIH-MIXED"], "entry_points": ["skills/empirical-research/references/method-adapters.md", "skills/empirical-research/references/method-adapter-registry.json"], "transformation": "统一注册方法族、主辅角色、依赖、问题/主张映射与多路线整合。", "rationale": "进入方法适配器注册表，不新增竞争性一级阶段。"}
+      ]
+    },
+    {
+      "chapter": 3,
+      "title": "研究困惑与研究问题",
+      "pages": "47-72",
+      "sections": [
+        {"id": "C03S01", "title": "什么是研究困惑", "pages": "47-49", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING"], "entry_points": ["skills/cnki-paper/references/research-question-design.md"], "transformation": "把经验异常、理论矛盾、知识缺口或实践难题写成可回答的知识任务。", "rationale": "形成 intake/research 的问题入口。"},
+        {"id": "C03S02", "title": "研究困惑的来源与研究分类", "pages": "50-59", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING"], "entry_points": ["skills/cnki-paper/references/research-question-design.md"], "transformation": "记录困惑来源、真实空白检验和描述/解释/预测/操作/规范五类主问题。", "rationale": "防止仅靠热点或低命中率制造空白。"},
+        {"id": "C03S03", "title": "研究问题的类型和构成要素", "pages": "60-67", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING"], "entry_points": ["skills/cnki-paper/references/research-question-design.md", "skills/cnki-paper/references/research-design-spine.md"], "transformation": "使用一个主问题、可选子问题和 O-T-I-P-R 卡，并按问题类型激活条件字段。", "rationale": "进入 research_questions[]，不强迫所有研究具有假设。"},
+        {"id": "C03S04", "title": "研究问题的常见错误", "pages": "68-72", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING"], "entry_points": ["skills/cnki-paper/references/research-question-design.md"], "transformation": "检查对象、时间、议题、视角、关系、答案任务与用户确认是否稳定。", "rationale": "客观漂移进入硬门，选题价值保留人工判断。"}
+      ]
+    },
+    {
+      "chapter": 4,
+      "title": "概念、假设与分析框架",
+      "pages": "73-97",
+      "sections": [
+        {"id": "C04S01", "title": "什么是概念", "pages": "73-80", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-TYPOLOGY"], "entry_points": ["skills/cnki-paper/references/measurement-inference.md", "skills/cnki-paper/references/research-design-spine.md"], "transformation": "为概念建立稳定 ID、定义、边界、相邻概念和识别/操作规则。", "rationale": "概念缺失和跨工件漂移可客观检查，概念质量需评审。"},
+        {"id": "C04S02", "title": "研究假设", "pages": "81-85", "classification": "adapter", "external_basis": ["AUTH-AERA-REPORTING"], "entry_points": ["skills/cnki-paper/references/research-design-spine.md"], "transformation": "仅对需要预期关系的路线登记假设；其他路线可使用命题或分析框架。", "rationale": "明确排除所有研究必须有假设的通则。"},
+        {"id": "C04S03", "title": "分析框架", "pages": "86-97", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-SRQR"], "entry_points": ["skills/cnki-paper/references/research-design-spine.md"], "transformation": "用 hypotheses[]、propositions[] 或 frameworks[] 表达可追溯的分析结构。", "rationale": "路线条件化，不把框架形式统一化。"}
+      ]
+    },
+    {
+      "chapter": 5,
+      "title": "概念操作化、测量与抽样",
+      "pages": "98-123",
+      "sections": [
+        {"id": "C05S01", "title": "概念的操作化与测量", "pages": "98-104", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-SRQR"], "entry_points": ["skills/cnki-paper/references/measurement-inference.md"], "transformation": "区分变量测量、材料识别与诠释有效性，记录误差、版本和不适用理由。", "rationale": "不强迫非变量研究量化，也不接受无识别规则的概念。"},
+        {"id": "C05S02", "title": "抽样的相关概念与技巧", "pages": "105-111", "classification": "core", "external_basis": ["AUTH-AAPOR", "AUTH-SRQR"], "entry_points": ["skills/cnki-paper/references/measurement-inference.md"], "transformation": "统一记录总体/材料宇宙、抽样框或选择池、单位、纳排规则与实际范围。", "rationale": "材料边界缺失为硬错，代表性进入独立解释性评审。"},
+        {"id": "C05S03", "title": "概率抽样", "pages": "112-119", "classification": "adapter", "external_basis": ["AUTH-AAPOR"], "entry_points": ["skills/empirical-research/references/method-adapters.md#survey"], "transformation": "调查适配器记录概率机制、覆盖、应答、权重和估计目标。", "rationale": "按调查路线激活，不以固定样本量作为通用阈值。"},
+        {"id": "C05S04", "title": "非概率抽样", "pages": "120-123", "classification": "adapter", "external_basis": ["AUTH-AAPOR", "AUTH-SRQR"], "entry_points": ["skills/empirical-research/references/method-adapters.md#survey"], "transformation": "记录招募/选择逻辑、偏差来源、推断限制和透明披露。", "rationale": "允许合法非概率路线，但禁止把样本冒充总体。"}
+      ]
+    },
+    {
+      "chapter": 6,
+      "title": "文献综述",
+      "pages": "124-148",
+      "sections": [
+        {"id": "C06S01", "title": "什么是文献综述", "pages": "124-128", "classification": "core", "external_basis": ["AUTH-PRISMA", "AUTH-PRISMA-SCR"], "entry_points": ["skills/cnki-paper/references/literature-review-routing.md"], "transformation": "区分嵌入式、叙述式、范围综述和系统综述，并记录其不同答案任务。", "rationale": "只有相应综述类型激活对应报告规范。"},
+        {"id": "C06S02", "title": "文献检索与文献阅读", "pages": "129-133", "classification": "core", "external_basis": ["AUTH-PRISMA", "AUTH-AERA-REPORTING"], "entry_points": ["skills/cnki-paper/references/literature-review-routing.md", "skills/cnki-paper/references/acquisition-registry.md"], "transformation": "检索式、筛选、阅读记录、质量评价、矛盾证据和 Source ID 进入结构化登记。", "rationale": "来源身份与材料边界可硬检，评价结论需人工判断。"},
+        {"id": "C06S03", "title": "作为独立研究的文献综述", "pages": "134-141", "classification": "adapter", "external_basis": ["AUTH-PRISMA", "AUTH-PRISMA-SCR", "AUTH-COCHRANE-SEARCH"], "entry_points": ["skills/cnki-paper/references/literature-review-routing.md", "skills/aers-prisma-slr/SKILL.md"], "transformation": "系统综述接入 PRISMA 引擎；范围综述使用相应扩展；叙述式综述不冒充系统综述。", "rationale": "避免一刀切 PRISMA，也防止漏报系统检索筛选。"},
+        {"id": "C06S04", "title": "作为研究部分的文献综述", "pages": "142-148", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING"], "entry_points": ["skills/cnki-paper/references/literature-review-routing.md"], "transformation": "嵌入式综述服务问题定位、概念边界、方法选择和真实空白，不单独制造 PRISMA 门禁。", "rationale": "保留论文中的定位功能。"}
+      ]
+    },
+    {
+      "chapter": 7,
+      "title": "因果关系与因果机制",
+      "pages": "149-172",
+      "sections": [
+        {"id": "C07S01", "title": "因果关系的定义和判别标准", "pages": "150-152", "classification": "core", "external_basis": ["AUTH-CAUSAL"], "entry_points": ["skills/cnki-paper/references/measurement-inference.md", "skills/empirical-research/references/method-adapters.md#quantitative"], "transformation": "因果主张必须映射到明确因果路线、时序、比较基础与识别假设。", "rationale": "普通回归和方法标签不能自动升级为因果。"},
+        {"id": "C07S02", "title": "因果推断的基本形式", "pages": "153-154", "classification": "core", "external_basis": ["AUTH-CAUSAL"], "entry_points": ["skills/cnki-paper/references/measurement-inference.md"], "transformation": "区分因果效应与因果机制，并分别限定可支持的证据形式。", "rationale": "进入 claim.type 与路线推断上限。"},
+        {"id": "C07S03", "title": "因果推断的技术路径", "pages": "155-162", "classification": "adapter", "external_basis": ["AUTH-CAUSAL", "AUTH-CONSORT", "AUTH-PROCESS", "AUTH-RD-PRACTICAL"], "entry_points": ["skills/empirical-research/references/method-adapters.md"], "transformation": "按实验、定量识别、比较、过程追踪等路线记录各自假设和诊断。", "rationale": "不建立 RCT 或任何方法的天然等级。"},
+        {"id": "C07S04", "title": "因果机制的概念与作用", "pages": "163-164", "classification": "core", "external_basis": ["AUTH-PROCESS"], "entry_points": ["skills/empirical-research/references/method-adapters.md#process-tracing"], "transformation": "机制主张绑定节点、时序、诊断证据、竞争机制和负面证据。", "rationale": "把机制从叙事词汇转为可审计证据链。"},
+        {"id": "C07S05", "title": "政治学和国际关系中的因果推断实例", "pages": "165-168", "classification": "reference", "external_basis": ["AUTH-CAUSAL", "AUTH-PROCESS"], "entry_points": ["skills/empirical-research/references/method-adapters.md"], "transformation": "将实例转化为路线选择示例，不保留教材个案文本。", "rationale": "方法模式可复用，案例内容不进入技能事实源。"},
+        {"id": "C07S06", "title": "争议与未来趋势", "pages": "169-172", "classification": "review-only", "external_basis": ["AUTH-CAUSAL", "AUTH-ASA-P"], "entry_points": ["skills/cnki-paper/references/measurement-inference.md"], "transformation": "提示识别争议、不确定性、替代解释与外推边界。", "rationale": "争议需评审，不能被固定阈值裁决。"}
+      ]
+    },
+    {
+      "chapter": 8,
+      "title": "实验法",
+      "pages": "173-197",
+      "sections": [
+        {"id": "C08S01", "title": "实验的发展与社会科学实验", "pages": "174-176", "classification": "reference", "external_basis": ["AUTH-CONSORT"], "entry_points": ["skills/empirical-research/references/method-adapters.md#experiment"], "transformation": "说明实验路线的干预、比较和分配逻辑，不把实验本身等同于已识别因果。", "rationale": "历史背景留作参考。"},
+        {"id": "C08S02", "title": "实验法的优劣与应用场景", "pages": "177-180", "classification": "review-only", "external_basis": ["AUTH-CONSORT"], "entry_points": ["skills/empirical-research/references/method-adapters.md#experiment"], "transformation": "独立解释性评审适配性、内外部效度和可实施性。", "rationale": "方法优劣不能跨问题统一排序。"},
+        {"id": "C08S03", "title": "实验室实验的具体操作", "pages": "181-189", "classification": "adapter", "external_basis": ["AUTH-CONSORT"], "entry_points": ["skills/empirical-research/references/method-adapters.md#experiment", "skills/empirical-research/scripts/method_execution.py"], "transformation": "登记干预、比较组、分配机制、随机化审计、结果时序、操纵检查、流失、不依从与干扰。", "rationale": "伪随机化和设计—执行漂移进入硬门。"},
+        {"id": "C08S04", "title": "其他实验方法", "pages": "190-192", "classification": "adapter", "external_basis": ["AUTH-CONSORT"], "entry_points": ["skills/empirical-research/references/method-adapters.md#experiment"], "transformation": "允许现场、调查、自然与准实验通过明确路线或依赖路线组合表达。", "rationale": "不以单一实验形式垄断因果路线。"},
+        {"id": "C08S05", "title": "实验中的伦理问题", "pages": "193-197", "classification": "core", "external_basis": ["AUTH-CONSORT", "AUTH-COPE"], "entry_points": ["skills/empirical-research/references/research-integrity.md"], "transformation": "强制记录审批/豁免、欺骗、事后说明、风险、同意与隐私。", "rationale": "伦理或权限缺项属于客观硬失败。"}
+      ]
+    },
+    {
+      "chapter": 9,
+      "title": "调查研究法",
+      "pages": "198-221",
+      "sections": [
+        {"id": "C09S01", "title": "调查研究法概述", "pages": "198-201", "classification": "adapter", "external_basis": ["AUTH-AAPOR"], "entry_points": ["skills/empirical-research/references/method-adapters.md#survey"], "transformation": "把观察、访谈、焦点小组和问卷作为调查模式数组，并记录总体与工具版本。", "rationale": "支持多模式而不混淆其材料和推断边界。"},
+        {"id": "C09S02", "title": "观察法", "pages": "202-206", "classification": "adapter", "external_basis": ["AUTH-SRQR"], "entry_points": ["skills/empirical-research/references/method-adapters.md#survey"], "transformation": "记录观察场域、角色、选择规则、记录工具、反身性与同意/隐私。", "rationale": "作为 survey 模式条件化激活。"},
+        {"id": "C09S03", "title": "访谈法", "pages": "207-212", "classification": "adapter", "external_basis": ["AUTH-SRQR", "AUTH-OHA"], "entry_points": ["skills/empirical-research/references/method-adapters.md#survey"], "transformation": "记录招募框、提纲版本、预测试、访谈员训练、应答/退出和数据保护。", "rationale": "不以固定人数替代选择和饱和理由。"},
+        {"id": "C09S04", "title": "问卷法", "pages": "213-221", "classification": "adapter", "external_basis": ["AUTH-AAPOR"], "entry_points": ["skills/empirical-research/references/method-adapters.md#survey"], "transformation": "记录抽样框、题项版本、预测试、现场流程、应答、缺失、权重和测量误差。", "rationale": "抽样框缺失和版本缺失可硬检，质量程度需评审。"}
+      ]
+    },
+    {
+      "chapter": 10,
+      "title": "案例研究法",
+      "pages": "222-245",
+      "sections": [
+        {"id": "C10S01", "title": "什么是案例研究", "pages": "222-230", "classification": "adapter", "external_basis": ["AUTH-SRQR", "AUTH-COMPARATIVE"], "entry_points": ["skills/empirical-research/references/method-adapters.md#case-study"], "transformation": "区分一般案例研究与过程追踪，记录案例总体、研究单位和推断功能。", "rationale": "避免把所有案例研究自动称为机制识别。"},
+        {"id": "C10S02", "title": "案例研究的准备", "pages": "231-235", "classification": "adapter", "external_basis": ["AUTH-COMPARATIVE"], "entry_points": ["skills/empirical-research/references/method-adapters.md#case-study"], "transformation": "登记案例选择、嵌入单元、材料范围、时间线和理论复现计划。", "rationale": "案例选择透明化，代表性保持独立解释性评审。"},
+        {"id": "C10S03", "title": "案例研究的操作程序", "pages": "236-240", "classification": "adapter", "external_basis": ["AUTH-SRQR", "AUTH-PROCESS"], "entry_points": ["skills/empirical-research/references/method-adapters.md#case-study", "skills/empirical-research/scripts/method_execution.py"], "transformation": "执行期登记案例清单、证据链、来源独立性审计、嵌入单元和时间线。", "rationale": "同源材料伪装独立验证为硬失败。"},
+        {"id": "C10S04", "title": "案例研究的理论对话", "pages": "241-245", "classification": "review-only", "external_basis": ["AUTH-COMPARATIVE", "AUTH-TYPOLOGY"], "entry_points": ["skills/empirical-research/references/method-adapters.md#case-study"], "transformation": "评审理论复现、概念发展、竞争解释和范围条件。", "rationale": "理论贡献力度无法由关键词自动判定。"}
+      ]
+    },
+    {
+      "chapter": 11,
+      "title": "定性比较分析法",
+      "pages": "246-274",
+      "sections": [
+        {"id": "C11S01", "title": "定性比较分析法概述", "pages": "247-251", "classification": "adapter", "external_basis": ["AUTH-QCA-GOOD"], "entry_points": ["skills/empirical-research/references/method-adapters.md#qca"], "transformation": "记录集合类型、条件、结果和集合论问题，不将 QCA 当作普通变量回归。", "rationale": "接入现有 QCA 引擎。"},
+        {"id": "C11S02", "title": "定性比较分析法的使用场景与功能", "pages": "252-254", "classification": "review-only", "external_basis": ["AUTH-QCA-GOOD"], "entry_points": ["skills/empirical-research/references/method-adapters.md#qca"], "transformation": "评审配置、等效多因、有限多样性和案例知识是否匹配问题。", "rationale": "方法适配性不设统一样本/条件数。"},
+        {"id": "C11S03", "title": "定性比较分析法的操作流程", "pages": "255-267", "classification": "adapter", "external_basis": ["AUTH-QCA-GOOD", "AUTH-QCA-ROBUST"], "entry_points": ["skills/empirical-research/references/method-adapters.md#qca", "skills/empirical-research/scripts/method_execution.py"], "transformation": "登记校准依据、真值表、矛盾组态、逻辑余项、解类型、敏感性与回到案例。", "rationale": "固定阈值只触发评审，不作为通用 PASS/FAIL。"},
+        {"id": "C11S04", "title": "案例解析", "pages": "268-274", "classification": "reference", "external_basis": ["AUTH-QCA-GOOD"], "entry_points": ["skills/empirical-research/references/method-adapters.md#qca"], "transformation": "提炼从集合定义到案例解释的工作模式，不保存教材案例文本。", "rationale": "示例用于方法理解而非复制。"}
+      ]
+    },
+    {
+      "chapter": 12,
+      "title": "文本分析类方法",
+      "pages": "275-303",
+      "sections": [
+        {"id": "C12S01", "title": "三种分析法的内涵与比较", "pages": "276-281", "classification": "core", "external_basis": ["AUTH-CONTENT", "AUTH-SRQR", "AUTH-DATASHEETS"], "entry_points": ["skills/empirical-research/references/method-adapters.md#text"], "transformation": "拆分内容分析、话语分析和文本即数据三条路线，并分别设定适用检查。", "rationale": "防止把编码信度强加给所有文本研究。"},
+        {"id": "C12S02", "title": "内容分析法", "pages": "282-291", "classification": "adapter", "external_basis": ["AUTH-CONTENT"], "entry_points": ["skills/empirical-research/references/method-adapters.md#content-analysis"], "transformation": "登记语料、单位、版本/预处理、编码手册、信度适用性、验证和语境边界。", "rationale": "接入现有内容分析引擎。"},
+        {"id": "C12S03", "title": "话语分析法", "pages": "292-299", "classification": "adapter", "external_basis": ["AUTH-SRQR"], "entry_points": ["skills/empirical-research/references/method-adapters.md#discourse-analysis"], "transformation": "登记语境、权力关系、研究者位置、竞争解读、反身性和解释边界。", "rationale": "采用诠释质量标准而非不适用的编码阈值。"},
+        {"id": "C12S04", "title": "发展趋势与技术手段", "pages": "300-303", "classification": "adapter", "external_basis": ["AUTH-DATASHEETS", "AUTH-MODELCARDS"], "entry_points": ["skills/empirical-research/references/method-adapters.md#text-as-data"], "transformation": "文本即数据记录表示、训练/验证/测试隔离、模型验证、敏感性和解释边界。", "rationale": "工具版本和数据泄漏进入执行硬门。"}
+      ]
+    },
+    {
+      "chapter": 13,
+      "title": "社会网络分析法",
+      "pages": "304-326",
+      "sections": [
+        {"id": "C13S01", "title": "社会网络的构成与属性", "pages": "305-310", "classification": "adapter", "external_basis": ["AUTH-NETWORK"], "entry_points": ["skills/empirical-research/references/method-adapters.md#social-network"], "transformation": "登记节点、关系、网络边界、方向、权重和时间。", "rationale": "防止边界与单位含混。"},
+        {"id": "C13S02", "title": "社会网络分析的定量路径", "pages": "311-313", "classification": "adapter", "external_basis": ["AUTH-NETWORK"], "entry_points": ["skills/empirical-research/references/method-adapters.md#social-network"], "transformation": "登记缺失关系、依赖结构、模型、诊断和软件环境。", "rationale": "节点非独立触发风险评审，不套普通独立观测假设。"},
+        {"id": "C13S03", "title": "网络因果机制建构", "pages": "314-317", "classification": "review-only", "external_basis": ["AUTH-NETWORK", "AUTH-CAUSAL"], "entry_points": ["skills/empirical-research/references/method-adapters.md#social-network"], "transformation": "机制主张必须另行映射到可支持因果的识别路线及时间结构。", "rationale": "网络结构或模型本身不自动识别机制。"},
+        {"id": "C13S04", "title": "案例分析与应用路径", "pages": "318-326", "classification": "reference", "external_basis": ["AUTH-NETWORK"], "entry_points": ["skills/empirical-research/references/method-adapters.md#social-network"], "transformation": "提炼网络边界、依赖诊断和机制限定的示例模式。", "rationale": "教材案例不进入技能事实源。"}
+      ]
+    },
+    {
+      "chapter": 14,
+      "title": "比较类方法",
+      "pages": "327-352",
+      "sections": [
+        {"id": "C14S01", "title": "基本理念与理论基础", "pages": "328-329", "classification": "adapter", "external_basis": ["AUTH-COMPARATIVE"], "entry_points": ["skills/empirical-research/references/method-adapters.md#comparative"], "transformation": "区分案例内与案例间比较，登记比较功能和推断边界。", "rationale": "比较不是自动因果识别。"},
+        {"id": "C14S02", "title": "比较类方法的主要类型", "pages": "330-334", "classification": "adapter", "external_basis": ["AUTH-COMPARATIVE"], "entry_points": ["skills/empirical-research/references/method-adapters.md#comparative"], "transformation": "登记案例、可比性、时间对齐、负面案例和路线组合。", "rationale": "使比较逻辑与材料边界可审计。"},
+        {"id": "C14S03", "title": "小样本比较研究：穆勒五法", "pages": "335-344", "classification": "reference", "external_basis": ["AUTH-COMPARATIVE"], "entry_points": ["skills/empirical-research/references/method-adapters.md#comparative"], "transformation": "把穆勒逻辑作为比较启发和证据结构，不作为充分因果证明。", "rationale": "经典规则保留解释价值但限定推断。"},
+        {"id": "C14S04", "title": "基于分类的比较：类型学方法", "pages": "345-352", "classification": "adapter", "external_basis": ["AUTH-TYPOLOGY", "AUTH-QCA-GOOD"], "entry_points": ["skills/empirical-research/references/method-adapters.md#comparative"], "transformation": "登记类型维度、类型空间、空格与案例归类，并允许集合论整合。", "rationale": "概念边界和类型空间进入设计；类型价值由评审判断。"}
+      ]
+    },
+    {
+      "chapter": 15,
+      "title": "历史研究法",
+      "pages": "353-370",
+      "sections": [
+        {"id": "C15S01", "title": "历史与历史研究法", "pages": "353-354", "classification": "reference", "external_basis": ["AUTH-AHA"], "entry_points": ["skills/empirical-research/references/method-adapters.md#historical"], "transformation": "说明历史材料、时间与解释的关系，不把历史研究缩减为背景叙述。", "rationale": "保留历史方法的独立定位。"},
+        {"id": "C15S02", "title": "研究历史的方法", "pages": "355-359", "classification": "adapter", "external_basis": ["AUTH-AHA", "AUTH-OHA"], "entry_points": ["skills/empirical-research/references/method-adapters.md#historical"], "transformation": "登记史料来源与传递链、一手/二手身份、史料批判、交叉印证、沉默证据和档案缺口。", "rationale": "伪独立来源、权限与口述史伦理可硬检。"},
+        {"id": "C15S03", "title": "历史作为社会科学研究的方法", "pages": "360-370", "classification": "adapter", "external_basis": ["AUTH-AHA", "AUTH-COMPARATIVE", "AUTH-PROCESS"], "entry_points": ["skills/empirical-research/references/method-adapters.md#historical"], "transformation": "登记时代错置控制、时序、比较/机制功能、范围条件与替代解释。", "rationale": "允许描述和解释路线，因果措辞受路线能力约束。"}
+      ]
+    },
+    {
+      "chapter": 16,
+      "title": "扎根理论",
+      "pages": "371-396",
+      "sections": [
+        {"id": "C16S01", "title": "扎根理论的起源与演进", "pages": "372-377", "classification": "reference", "external_basis": ["AUTH-GROUNDED", "AUTH-GROUNDED-CHARMAZ", "AUTH-SRQR"], "entry_points": ["skills/empirical-research/references/method-adapters.md#grounded-theory"], "transformation": "要求声明流派和认识论位置，不把不同流派混成单一固定程序。", "rationale": "流派选择进入设计，优劣不自动评分。"},
+        {"id": "C16S02", "title": "扎根理论的使用场景", "pages": "378-380", "classification": "review-only", "external_basis": ["AUTH-GROUNDED"], "entry_points": ["skills/empirical-research/references/method-adapters.md#grounded-theory"], "transformation": "评审是否真正以范畴和理论生成为任务，而非只做主题归纳。", "rationale": "适配性需要学术判断。"},
+        {"id": "C16S03", "title": "扎根理论的核心研究逻辑、一般流程和局限", "pages": "381-388", "classification": "adapter", "external_basis": ["AUTH-GROUNDED", "AUTH-GROUNDED-CHARMAZ", "AUTH-SRQR"], "entry_points": ["skills/empirical-research/references/method-adapters.md#grounded-theory", "skills/empirical-research/scripts/method_execution.py"], "transformation": "登记初始/理论抽样、持续比较、编码、备忘录、范畴、负面案例、反身性、文献介入与饱和证据。", "rationale": "固定人数不构成饱和硬门；伪饱和触发独立解释性评审。"},
+        {"id": "C16S04", "title": "案例解析：对Z市烧烤现象的扎根理论分析", "pages": "389-396", "classification": "reference", "external_basis": ["AUTH-GROUNDED"], "entry_points": ["skills/empirical-research/references/method-adapters.md#grounded-theory"], "transformation": "仅提炼迭代抽样、比较、备忘录和范畴发展的流程模式。", "rationale": "不复制教材案例材料或结论。"}
+      ]
+    },
+    {
+      "chapter": 17,
+      "title": "社会科学定量研究方法",
+      "pages": "397-421",
+      "sections": [
+        {"id": "C17S01", "title": "社会科学定量研究的界定与演进", "pages": "397-399", "classification": "reference", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-ASA-P"], "entry_points": ["skills/empirical-research/references/method-adapters.md#quantitative"], "transformation": "说明定量路线的测量、估计和不确定性功能，不建立定量优越论。", "rationale": "保留定位而不形成方法等级。"},
+        {"id": "C17S02", "title": "定量研究的特征与混合方法", "pages": "400-404", "classification": "core", "external_basis": ["AUTH-NIH-MIXED"], "entry_points": ["skills/cnki-paper/references/method-routing.md", "skills/empirical-research/references/method-adapters.md#integration"], "transformation": "多路线必须声明顺序、主辅、交接、材料独立性、冲突策略和综合推断上限。", "rationale": "防止混合方法仅作简单拼接。"},
+        {"id": "C17S03", "title": "常见的定量研究方法", "pages": "405-411", "classification": "adapter", "external_basis": ["AUTH-CAUSAL", "AUTH-RD-PRACTICAL", "AUTH-TRIPOD", "AUTH-STROBE"], "entry_points": ["skills/empirical-research/references/method-adapters.md#quantitative"], "transformation": "明确分离描述、关联、预测和因果任务，并按任务激活估计目标、验证或识别字段。", "rationale": "普通回归不得自动解释为因果。"},
+        {"id": "C17S04", "title": "社会科学定量研究中的稳健性检验", "pages": "412-414", "classification": "review-only", "external_basis": ["AUTH-ASA-P", "AUTH-CAUSAL", "AUTH-RD-PRACTICAL"], "entry_points": ["skills/empirical-research/references/method-adapters.md#quantitative"], "transformation": "要求登记诊断、稳健性与不确定性，但由问题和假设决定具体检验。", "rationale": "不采用固定 p 值或统一稳健性菜单。"},
+        {"id": "C17S05", "title": "社会科学定量研究设计与实施步骤", "pages": "415-417", "classification": "adapter", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-CAUSAL", "AUTH-TRIPOD"], "entry_points": ["skills/empirical-research/references/method-adapters.md#quantitative", "skills/empirical-research/scripts/method_execution.py"], "transformation": "设计登记抽样、缺失、假设、比较、验证和稳健性；执行登记样本、模型日志、诊断和结果。", "rationale": "设计—执行漂移与未登记结果为硬错。"},
+        {"id": "C17S06", "title": "社会科学定量分析软件基础与应用", "pages": "418-421", "classification": "adapter", "external_basis": ["AUTH-NASEM-REPRO"], "entry_points": ["skills/empirical-research/references/reproducibility.md", "skills/empirical-research/scripts/method_execution.py"], "transformation": "登记运行时、包版本、锁文件/环境捕获、命令和输出哈希。", "rationale": "工具和版本是客观可复核事实。"}
+      ]
+    },
+    {
+      "chapter": 18,
+      "title": "计算社会科学方法",
+      "pages": "422-448",
+      "sections": [
+        {"id": "C18S01", "title": "数字时代的方法论转型", "pages": "424-428", "classification": "reference", "external_basis": ["AUTH-AOIR", "AUTH-DATASHEETS"], "entry_points": ["skills/empirical-research/references/method-adapters.md#computational"], "transformation": "记录数字痕迹的生成机制、平台选择和研究者访问条件。", "rationale": "数字规模不等于总体代表性。"},
+        {"id": "C18S02", "title": "计算社会科学的方法体系", "pages": "429-435", "classification": "adapter", "external_basis": ["AUTH-DATASHEETS", "AUTH-MODELCARDS", "AUTH-NASEM-REPRO"], "entry_points": ["skills/empirical-research/references/method-adapters.md#computational"], "transformation": "登记来源/条款、特征、训练验证测试、模拟、基准、漂移、解释、公平、隐私和环境。", "rationale": "覆盖数据、模型、模拟和复现全链条。"},
+        {"id": "C18S03", "title": "前沿技术应用案例", "pages": "436-443", "classification": "reference", "external_basis": ["AUTH-DATASHEETS", "AUTH-MODELCARDS"], "entry_points": ["skills/empirical-research/references/method-adapters.md#computational"], "transformation": "提炼数据卡、模型卡、基准和切片验证的可复用模式，不复制案例。", "rationale": "应用案例仅作方法参考。"},
+        {"id": "C18S04", "title": "计算社会科学方法的批判与反思", "pages": "444-448", "classification": "core", "external_basis": ["AUTH-AOIR", "AUTH-MODELCARDS"], "entry_points": ["skills/empirical-research/references/method-adapters.md#computational", "skills/empirical-research/references/research-integrity.md"], "transformation": "检查平台条款、数据泄漏、算法偏差、公平、隐私、再识别风险和外推边界。", "rationale": "权限、隐私和泄漏为硬门，公平与外推力度需评审。"}
+      ]
+    },
+    {
+      "chapter": 19,
+      "title": "论文写作与规范",
+      "pages": "449-464",
+      "sections": [
+        {"id": "C19S01", "title": "学术论文的构成要素", "pages": "449-460", "classification": "core", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-SRQR", "AUTH-STROBE"], "entry_points": ["skills/cnki-paper/references/workflow-playbook.md", "skills/cnki-paper/references/research-design-spine.md"], "transformation": "将问题、方法、结果、限制和贡献映射到 build/audit/output，并由目标刊规范决定最终结构。", "rationale": "保留论证功能，拒绝通用固定字数/格式。"},
+        {"id": "C19S02", "title": "学位论文中常见的问题", "pages": "461", "classification": "review-only", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-SRQR"], "entry_points": ["skills/cnki-paper/references/research-quality-protocol.md"], "transformation": "转化为问题—设计—执行—结果—贡献漂移和越界推断的评审清单。", "rationale": "问题严重度需结合稿件判断。"},
+        {"id": "C19S03", "title": "关于学术道德与学术规范", "pages": "462", "classification": "core", "external_basis": ["AUTH-COPE", "AUTH-ICMJE-AI", "AUTH-NASEM-REPRO"], "entry_points": ["skills/empirical-research/references/research-integrity.md", "skills/cnki-paper/references/research-design-spine.md"], "transformation": "结构化记录数据真实性、选择性报告、引用、署名、既往发表、一稿多投、利益冲突、AI、隐私和权限。", "rationale": "未声明或不利状态为硬失败；具体争议保留人工处置。"},
+        {"id": "C19S04", "title": "给初级研究者的一些话", "pages": "463-464", "classification": "reference", "external_basis": ["AUTH-NASEM-REPRO"], "entry_points": ["skills/cnki-paper/references/workflow-playbook.md"], "transformation": "保留迭代、记录、复核和诚实限定的实践建议。", "rationale": "作为教学提示，不进入机器评分。"}
+      ]
+    }
+  ],
+  "excluded_rules": [
+    {"id": "EX-01", "rule": "ordinary regression automatically identifies causality", "reason": "Identification depends on the research design and assumptions, not the estimator label.", "external_basis": ["AUTH-CAUSAL"]},
+    {"id": "EX-02", "rule": "an experiment automatically proves a causal claim", "reason": "Allocation truth, implementation, attrition, noncompliance, interference, outcome timing, and analysis remain consequential.", "external_basis": ["AUTH-CONSORT"]},
+    {"id": "EX-03", "rule": "digital traces equal the target population", "reason": "Platform participation and trace generation create coverage and selection processes.", "external_basis": ["AUTH-DATASHEETS", "AUTH-AOIR"]},
+    {"id": "EX-04", "rule": "one p-value, sample size, reliability, validity, QCA, or saturation threshold fits every study", "reason": "Thresholds require design-specific justification and sensitivity assessment.", "external_basis": ["AUTH-ASA-P", "AUTH-QCA-ROBUST", "AUTH-GROUNDED"]},
+    {"id": "EX-05", "rule": "randomized controlled trials are intrinsically superior to every other design", "reason": "Method choice follows the research question, material, ethics, and warranted inference.", "external_basis": ["AUTH-AERA-REPORTING", "AUTH-NIH-MIXED"]},
+    {"id": "EX-06", "rule": "every study must state hypotheses", "reason": "Descriptive, interpretive, theory-generating, normative, conceptual, and some review routes use other analytic structures.", "external_basis": ["AUTH-SRQR", "AUTH-AERA-REPORTING"]}
+  ]
+}

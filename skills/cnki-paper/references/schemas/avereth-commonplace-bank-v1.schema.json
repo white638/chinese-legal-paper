@@ -1,0 +1,353 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avereth-commonplace-bank-v1.schema.json",
+  "title": "avereth-commonplace-bank-v1",
+  "description": "Private local fulltext excerpts and human-supplied rhetorical analysis. validate_bank additionally checks file identity, exact selected spans, source permission records, budgets, and the digest.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "avereth-commonplace-bank/v1"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "metadata_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "metadata_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "article_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "authors": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true,
+                "minItems": 1
+              },
+              "discipline": {
+                "type": "string",
+                "minLength": 1
+              },
+              "venue": {
+                "type": "string",
+                "minLength": 1
+              },
+              "fulltext_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "fulltext_verified": {
+                "const": true
+              },
+              "permission_status": {
+                "const": "permitted"
+              },
+              "synthetic": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "source_id",
+              "article_id",
+              "title",
+              "authors",
+              "discipline",
+              "venue",
+              "fulltext_sha256",
+              "fulltext_verified",
+              "permission_status",
+              "synthetic"
+            ]
+          },
+          "fulltext": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "source_id",
+          "path",
+          "sha256",
+          "metadata_path",
+          "metadata_sha256",
+          "metadata",
+          "fulltext"
+        ]
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "cp_id": {
+            "type": "string",
+            "pattern": "^CP-[A-Za-z0-9][A-Za-z0-9._-]*$"
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "section": {
+                "type": "string",
+                "minLength": 1
+              },
+              "page": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "paragraph": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "section"
+            ],
+            "anyOf": [
+              {
+                "required": [
+                  "page"
+                ]
+              },
+              {
+                "required": [
+                  "paragraph"
+                ]
+              },
+              {
+                "required": [
+                  "label"
+                ]
+              }
+            ]
+          },
+          "selection": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "before_start": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "start": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "end": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "after_end": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "before_start",
+              "start",
+              "end",
+              "after_end"
+            ]
+          },
+          "neighborhood": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "before": {
+                "type": "string"
+              },
+              "focus": {
+                "type": "string",
+                "minLength": 1
+              },
+              "after": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "before",
+              "focus",
+              "after",
+              "sha256"
+            ]
+          },
+          "section_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "argument_action": {
+            "type": "string",
+            "minLength": 1
+          },
+          "discourse_function": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rhetorical_skeleton": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "citation_pattern": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "syntactic_skeleton": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lexical_bundles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "category": {
+                  "enum": [
+                    "conventional_bundle",
+                    "discipline_specific_bundle",
+                    "technical_fixed_expression",
+                    "distinctive_expression"
+                  ]
+                }
+              },
+              "required": [
+                "text",
+                "category"
+              ]
+            }
+          },
+          "distinctive_spans": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "topic_terms": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "reuse_class": {
+            "const": "structural_exemplar"
+          }
+        },
+        "required": [
+          "cp_id",
+          "source_id",
+          "locator",
+          "selection",
+          "neighborhood",
+          "section_role",
+          "argument_action",
+          "discourse_function",
+          "rhetorical_skeleton",
+          "citation_pattern",
+          "syntactic_skeleton",
+          "lexical_bundles",
+          "distinctive_spans",
+          "topic_terms",
+          "reuse_class"
+        ]
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_excerpt_chars_per_entry": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_excerpt_chars_per_source": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "max_excerpt_chars_per_entry",
+        "max_excerpt_chars_per_source"
+      ]
+    },
+    "source_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "sources",
+    "entries",
+    "limits",
+    "source_digest"
+  ]
+}

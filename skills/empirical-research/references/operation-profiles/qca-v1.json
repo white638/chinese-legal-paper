@@ -1,0 +1,71 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "qca",
+  "required_operation_kinds": [
+    "case_set_freeze",
+    "condition_operationalization",
+    "set_calibration",
+    "necessity_analysis",
+    "truth_table_construction",
+    "contradiction_analysis",
+    "logical_remainder_adjudication",
+    "solution_minimization",
+    "robustness_analysis",
+    "case_return",
+    "configurational_disposition"
+  ],
+  "optional_operation_kinds": ["multi_value_recoding"],
+  "required_artifact_roles": [
+    "case_condition_table",
+    "calibration_anchors",
+    "calibrated_set_matrix",
+    "truth_table",
+    "contradiction_register",
+    "remainder_decisions",
+    "solution_terms",
+    "robustness_results",
+    "case_return_memos"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "qca-pilot/v1",
+    "required_operation_kinds": [
+      "case_set_freeze",
+      "condition_operationalization",
+      "set_calibration",
+      "truth_table_construction",
+      "contradiction_analysis",
+      "case_return"
+    ],
+    "acceptance_dimensions": [
+      "conditions and outcome have substantive set meanings",
+      "calibration anchors are justified from evidence",
+      "contradictory configurations are visible",
+      "set memberships can be checked against cases"
+    ]
+  },
+  "completion_predicates": [
+    "every retained condition has a documented calibration basis",
+    "contradictions and logical remainders have explicit dispositions",
+    "solution terms survive declared robustness probes or are narrowed",
+    "configurational claims return to representative and deviant cases"
+  ],
+  "failure_routes": [
+    {"code": "MEASUREMENT.CALIBRATION_UNGROUNDED", "route": "reopen:design"},
+    {"code": "MODEL.CONTRADICTORY_CONFIGURATION_UNRESOLVED", "route": "human-review"},
+    {"code": "CLAIM.CONFIGURATION_OVERGENERALIZED", "route": "narrow:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "substantive calibration anchors",
+    "case-frequency and consistency choices",
+    "treatment of logical remainders",
+    "solution stability across defensible specifications",
+    "necessity and sufficiency claim boundary"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

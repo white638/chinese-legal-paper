@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cnki-review-assurance-v1.schema.json",
+  "title": "CNKI-Paper Review Assurance v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "mode"],
+  "properties": {
+    "schema_version": {
+      "const": "cnki-review-assurance/v1"
+    },
+    "mode": {
+      "enum": ["independent", "single_agent"]
+    },
+    "reviewers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "context_id", "output"],
+        "properties": {
+          "role": {
+            "enum": ["methods", "contribution", "clarity"]
+          },
+          "context_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "output": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "mode": {"const": "independent"}
+        }
+      },
+      "then": {
+        "required": ["reviewers"],
+        "properties": {
+          "reviewers": {
+            "minItems": 3,
+            "maxItems": 3
+          }
+        }
+      }
+    }
+  ]
+}

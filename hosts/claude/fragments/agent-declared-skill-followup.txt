@@ -1,0 +1,1 @@
+`host-screen`、`material-discovery` 与 `semantic-review` 支持同一 `--runner agent-declared` 两阶段路线，每一步必须使用彼此独立的全新子代理。

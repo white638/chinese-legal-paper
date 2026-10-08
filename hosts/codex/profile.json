@@ -1,0 +1,67 @@
+{
+  "schema_version": "avereth-host-build-profile/v1",
+  "host_id": "codex",
+  "display_name": "Codex",
+  "home_env": "CODEX_HOME",
+  "default_home": ".codex",
+  "python_env": "CODEX_PYTHON",
+  "bundled_python_windows": ".cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+  "agent_format": "toml",
+  "agent_extension": ".toml",
+  "entrypoint_dir": "prompts",
+  "entrypoint_file": "avereth.md",
+  "entrypoint_invocation": "/prompts:avereth",
+  "skill_invocation": "$cnki-paper",
+  "openai_metadata": true,
+  "default_runner": "codex-exec",
+  "allowed_runners": [
+    "codex-exec"
+  ],
+  "permission_map": {
+    "workspace_write": {
+      "sandbox_mode": "workspace-write"
+    },
+    "read_only": {
+      "sandbox_mode": "read-only"
+    }
+  },
+  "template_tokens": {
+    "HOST_EXEC_NAME": "CodexExec",
+    "HOST_DISPLAY_NAME": "Codex",
+    "BROWSER_TOOL_NAME": "chrome:control-chrome",
+    "SUBSKILL_ADAPTER_FILE": "codex-subskill-adapter.md",
+    "METHOD_ADAPTER_FILE": "codex-method-adapter.md",
+    "SKILL_INSTALL_ROOT": "~/.codex/skills",
+    "RUNTIME_HOME_ASSIGNMENT": "$AverethHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $HOME '.codex' }",
+    "AGENT_DECLARED_AGENT_CLAUSE": "",
+    "AGENT_DECLARED_SEMANTIC_CLAUSE": "",
+    "AGENT_DECLARED_ENTRYPOINT_GUIDANCE": "",
+    "AGENT_DECLARED_SKILL_GUIDANCE": "",
+    "AGENT_DECLARED_SKILL_FOLLOWUP": ""
+  },
+  "template_fragments": {
+    "SKILL_HOST_BOOTSTRAP": "fragments/skill-bootstrap.md",
+    "HOST_RUNTIME_DOCUMENT": "fragments/host-runtime.md",
+    "WORKFLOW_PYTHON_CANDIDATES": "fragments/workflow-python-candidates.md"
+  },
+  "reference_renames": [
+    {
+      "from": "skills/cnki-paper/references/host-subskill-adapter.source.md",
+      "to": "skills/cnki-paper/references/codex-subskill-adapter.source.md"
+    },
+    {
+      "from": "skills/empirical-research/references/host-method-adapter.source.md",
+      "to": "skills/empirical-research/references/codex-method-adapter.source.md"
+    }
+  ],
+  "rewrites": "rewrites.json",
+  "discovery_channel": {
+    "mode": "primary_search_broker",
+    "allowed_tools": [
+      "exa.search",
+      "web.search"
+    ],
+    "direct_agent_tools": false,
+    "context": "fresh_no_parent_history"
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/cnki-method-execution-v3.schema.json",
+  "title": "CNKI Method Execution Contract v3",
+  "description": "Immutable action attempts, accepted-action result provenance, and an explicit minimum viable method run bound to research-design v4.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "design_schema_version",
+    "design_sha256",
+    "adapter_registry_sha256",
+    "status",
+    "runs",
+    "reporting",
+    "software_environments",
+    "material_realizations"
+  ],
+  "properties": {
+    "schema_version": {"const": "cnki-method-execution/v3"},
+    "design_schema_version": {"const": "cnki-research-design/v4"},
+    "design_sha256": {"$ref": "#/$defs/sha256"},
+    "adapter_registry_sha256": {"$ref": "#/$defs/sha256"},
+    "status": {"enum": ["complete", "needs-review", "draft"]},
+    "runs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/run"}},
+    "reporting": {"type": "object"},
+    "software_environments": {"type": "array", "items": {"type": "object"}},
+    "feasibility_basis_digest": {"$ref": "#/$defs/sha256"},
+    "material_realizations": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/materialRealization"}
+    },
+    "migration": {"type": "object"},
+    "knowledge_update": {
+      "type": "object",
+      "description": "Optional execution-owned interpretation; contribution checks resolve accepted results and claims using the canonical execution validator.",
+      "required": ["kind", "baseline_origin", "work_performed", "result_interpretation", "supported_update", "limitations", "result_ids", "claim_ids", "semantic_assessment"],
+      "properties": {
+        "kind": {"enum": ["explanation-revision", "boundary-refinement", "independent-replication", "negative-result", "description-measurement", "conceptual-normative"]},
+        "baseline_origin": {"enum": ["contemporaneous", "retrospective", "unknown"]},
+        "work_performed": {"type": "string", "minLength": 8},
+        "result_interpretation": {"type": "string", "minLength": 8},
+        "supported_update": {"type": "string", "minLength": 8},
+        "limitations": {"type": "string", "minLength": 8},
+        "result_ids": {"$ref": "#/$defs/idArray", "minItems": 1},
+        "claim_ids": {"$ref": "#/$defs/idArray", "minItems": 1},
+        "semantic_assessment": {
+          "type": "object", "required": ["status", "rationale"],
+          "properties": {"status": {"enum": ["supported", "restatement", "uncertain"]}, "rationale": {"type": "string", "minLength": 12}}
+        },
+        "null_interpretation": {"enum": ["inconclusive", "bounded-effect", "explanation-excluded"]},
+        "null_basis": {"type": "string", "minLength": 20},
+        "replication": {
+          "type": "object", "required": ["independent_material", "independence_basis"],
+          "properties": {"independent_material": {"type": "boolean"}, "independence_basis": {"type": "string", "minLength": 20}}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[A-Z][A-Z0-9_-]{1,31}$"},
+    "idArray": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+    "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+    "materialRealization": {
+      "type": "object",
+      "required": ["material_id", "status", "path", "sha256", "artifact_ids"],
+      "properties": {
+        "material_id": {"$ref": "#/$defs/id"},
+        "status": {"enum": ["REALIZED", "PARTIAL", "BLOCKED", "FAILED"]},
+        "path": {"type": "string"},
+        "sha256": {"type": "string"},
+        "artifact_ids": {"$ref": "#/$defs/idArray"},
+        "probe_ids": {"$ref": "#/$defs/idArray"},
+        "realized_scope": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "artifact": {
+      "type": "object",
+      "required": ["id", "path", "sha256", "role"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "role": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "checkResult": {
+      "type": "object",
+      "required": ["id", "rule", "status", "diagnostic", "artifact_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "rule": {"type": "string", "minLength": 1},
+        "status": {"enum": ["pass", "fail", "needs-review"]},
+        "diagnostic": {"type": "string", "minLength": 1},
+        "artifact_ids": {"$ref": "#/$defs/idArray"}
+      },
+      "additionalProperties": true
+    },
+    "parameterSnapshot": {
+      "description": "Actual parameter, prompt, codebook, or configuration content serialized with sorted keys, compact separators, and UTF-8 under canonical-json/v1. The enclosing action's parameter_snapshot_sha256 is the SHA-256 of this complete object.",
+      "type": "object",
+      "required": ["format", "kind", "content"],
+      "properties": {
+        "format": {"const": "canonical-json/v1"},
+        "kind": {
+          "enum": ["parameters", "prompt", "codebook", "configuration", "mixed"]
+        },
+        "content": {"type": "object", "minProperties": 1}
+      },
+      "additionalProperties": false
+    },
+    "researcherCollaboration": {
+      "type": "object",
+      "required": [
+        "schema_version", "decision_sha256", "operation_id", "mode",
+        "task_kinds", "frozen_input_artifact_ids", "researcher_runs",
+        "task_records", "agreement", "adjudication"
+      ],
+      "properties": {
+        "schema_version": {"const": "avereth-researcher-collaboration/v1"},
+        "decision_sha256": {"$ref": "#/$defs/sha256"},
+        "operation_id": {"$ref": "#/$defs/id"},
+        "mode": {"enum": ["single", "isolated_multi"]},
+        "task_kinds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "independent_coding", "pilot_codebook_calibration",
+              "agreement_calculation", "disagreement_adjudication",
+              "reference_set_construction", "holdout_validation",
+              "boundary_case_review", "inference_audit"
+            ]
+          }
+        },
+        "frozen_input_artifact_ids": {"$ref": "#/$defs/idArray"},
+        "researcher_runs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/researcherRun"}},
+        "task_records": {"type": "array", "items": {"$ref": "#/$defs/researcherTaskRecord"}},
+        "agreement": {"$ref": "#/$defs/researcherAgreement"},
+        "adjudication": {"$ref": "#/$defs/researcherAdjudication"}
+      },
+      "additionalProperties": true
+    },
+    "researcherRun": {
+      "type": "object",
+      "required": [
+        "role", "run_id", "context_id", "model_name", "model_revision",
+        "reasoning_effort", "prompt_sha256", "protocol_sha256",
+        "input_artifact_ids", "input_scope_sha256", "output_artifact_id",
+        "started_at", "completed_at", "blind_to_peer_outputs",
+        "blind_to_reference_labels", "sealed_first_output"
+      ],
+      "properties": {
+        "role": {"type": "string", "pattern": "^Researcher [A-Z]$"},
+        "run_id": {"type": "string", "minLength": 1},
+        "context_id": {"type": "string", "minLength": 1},
+        "model_name": {"type": "string", "minLength": 1},
+        "model_revision": {"type": "string", "minLength": 1},
+        "reasoning_effort": {"enum": ["low", "medium", "high", "xhigh", "max", "ultra"]},
+        "prompt_sha256": {"$ref": "#/$defs/sha256"},
+        "protocol_sha256": {"$ref": "#/$defs/sha256"},
+        "input_artifact_ids": {"$ref": "#/$defs/idArray"},
+        "input_scope_sha256": {"$ref": "#/$defs/sha256"},
+        "output_artifact_id": {"$ref": "#/$defs/id"},
+        "started_at": {"type": "string", "format": "date-time"},
+        "completed_at": {"type": "string", "format": "date-time"},
+        "blind_to_peer_outputs": {"type": "boolean"},
+        "blind_to_reference_labels": {"type": "boolean"},
+        "sealed_first_output": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "researcherTaskRecord": {
+      "type": "object",
+      "required": [
+        "task_kind", "status", "input_artifact_ids", "output_artifact_ids",
+        "run_ids", "details"
+      ],
+      "properties": {
+        "task_kind": {
+          "enum": [
+            "independent_coding", "pilot_codebook_calibration",
+            "agreement_calculation", "disagreement_adjudication",
+            "reference_set_construction", "holdout_validation",
+            "boundary_case_review", "inference_audit"
+          ]
+        },
+        "status": {"enum": ["complete", "needs-review", "blocked"]},
+        "input_artifact_ids": {"$ref": "#/$defs/idArray"},
+        "output_artifact_ids": {"$ref": "#/$defs/idArray"},
+        "run_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "details": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "researcherAgreement": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["complete", "not_applicable", "needs-review"]},
+        "metric_semantics": {"enum": ["run_consistency", "reference_agreement", "stability", "external_accuracy"]},
+        "metrics_artifact_id": {"$ref": "#/$defs/id"},
+        "disagreement_artifact_id": {"$ref": "#/$defs/id"}
+      },
+      "additionalProperties": false
+    },
+    "researcherAdjudicatorRun": {
+      "type": "object",
+      "required": [
+        "role", "run_id", "context_id", "model_name", "model_revision",
+        "reasoning_effort", "prompt_sha256", "protocol_sha256",
+        "input_artifact_ids", "input_scope_sha256", "output_artifact_id",
+        "started_at", "completed_at", "blind_to_reference_labels"
+      ],
+      "properties": {
+        "role": {"const": "Adjudicator"},
+        "run_id": {"type": "string", "minLength": 1},
+        "context_id": {"type": "string", "minLength": 1},
+        "model_name": {"type": "string", "minLength": 1},
+        "model_revision": {"type": "string", "minLength": 1},
+        "reasoning_effort": {"enum": ["low", "medium", "high", "xhigh", "max", "ultra"]},
+        "prompt_sha256": {"$ref": "#/$defs/sha256"},
+        "protocol_sha256": {"$ref": "#/$defs/sha256"},
+        "input_artifact_ids": {"$ref": "#/$defs/idArray"},
+        "input_scope_sha256": {"$ref": "#/$defs/sha256"},
+        "output_artifact_id": {"$ref": "#/$defs/id"},
+        "started_at": {"type": "string", "format": "date-time"},
+        "completed_at": {"type": "string", "format": "date-time"},
+        "blind_to_reference_labels": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "researcherAdjudication": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["complete", "not_triggered", "not_applicable", "needs-review"]},
+        "run": {"$ref": "#/$defs/researcherAdjudicatorRun"},
+        "unresolved_count": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "action": {
+      "type": "object",
+      "required": [
+        "id",
+        "operation_id",
+        "attempt",
+        "run_kind",
+        "status",
+        "started_from_design_sha256",
+        "parameter_snapshot",
+        "parameter_snapshot_sha256",
+        "input_artifact_ids",
+        "output_artifact_ids",
+        "software_environment_id",
+        "check_results",
+        "failure_code",
+        "disposition_route",
+        "deviation_id",
+        "result_ids"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "operation_id": {"$ref": "#/$defs/id"},
+        "attempt": {"type": "integer", "minimum": 1},
+        "run_kind": {"enum": ["mvmr", "full"]},
+        "status": {"enum": ["accepted", "failed", "superseded", "unchecked"]},
+        "started_at": {"type": "string", "format": "date-time", "description": "Recorded action start; required when asserting a contemporaneous knowledge baseline."},
+        "started_from_design_sha256": {"$ref": "#/$defs/sha256"},
+        "parameter_snapshot": {"$ref": "#/$defs/parameterSnapshot"},
+        "parameter_snapshot_sha256": {
+          "description": "SHA-256 of the complete canonical parameter_snapshot object.",
+          "$ref": "#/$defs/sha256"
+        },
+        "input_artifact_ids": {"$ref": "#/$defs/idArray"},
+        "output_artifact_ids": {"$ref": "#/$defs/idArray"},
+        "software_environment_id": {"$ref": "#/$defs/id"},
+        "check_results": {"type": "array", "items": {"$ref": "#/$defs/checkResult"}},
+        "failure_code": {"type": ["string", "null"]},
+        "disposition_route": {"type": ["string", "null"]},
+        "deviation_id": {"type": ["string", "null"]},
+        "result_ids": {"$ref": "#/$defs/idArray"},
+        "researcher_collaboration": {"$ref": "#/$defs/researcherCollaboration"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "accepted"}}, "required": ["status"]},
+          "then": {
+            "properties": {
+              "output_artifact_ids": {"minItems": 1},
+              "check_results": {"minItems": 1},
+              "failure_code": {"enum": ["", null]},
+              "disposition_route": {"const": "continue"},
+              "deviation_id": {"enum": ["", null]}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"status": {"const": "failed"}}, "required": ["status"]},
+          "then": {
+            "properties": {
+              "failure_code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]*(\\.[A-Z0-9_]+)+$"},
+              "disposition_route": {"type": "string", "pattern": "^(retry|replace-implementation|human-review|reopen:(acquisition|research|design)|(narrow|withdraw):[A-Z][A-Z0-9_-]{1,31})$"},
+              "deviation_id": {"$ref": "#/$defs/id"},
+              "result_ids": {"maxItems": 0}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"status": {"enum": ["superseded", "unchecked"]}}, "required": ["status"]},
+          "then": {"properties": {"result_ids": {"maxItems": 0}}}
+        }
+      ],
+      "additionalProperties": true
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "id", "text", "type", "claim_ids", "evidence_ids", "artifact_ids",
+        "case_ids", "scope_condition_ids", "comparison_ids", "within_case_analysis_ids",
+        "status", "allowed_interpretation", "prohibited_interpretation", "action_ids"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "text": {"type": "string", "minLength": 1},
+        "type": {"enum": ["descriptive", "association", "causal_effect", "causal_mechanism", "causal_configuration", "prediction", "operational", "interpretive", "theory_generation", "theory_evaluation", "normative", "review_synthesis"]},
+        "claim_ids": {"$ref": "#/$defs/idArray"},
+        "evidence_ids": {"$ref": "#/$defs/idArray"},
+        "artifact_ids": {"$ref": "#/$defs/idArray"},
+        "case_ids": {"$ref": "#/$defs/idArray"},
+        "scope_condition_ids": {"$ref": "#/$defs/idArray"},
+        "comparison_ids": {"$ref": "#/$defs/idArray"},
+        "within_case_analysis_ids": {"$ref": "#/$defs/idArray"},
+        "status": {"enum": ["supported", "qualified", "null", "negative", "not-supported", "withdrawn", "not-applicable"]},
+        "allowed_interpretation": {"type": "string", "minLength": 1},
+        "prohibited_interpretation": {"type": "string", "minLength": 1},
+        "action_ids": {"$ref": "#/$defs/idArray"},
+        "numeric_values": {"type": "array", "items": {"type": "object"}}
+      },
+      "additionalProperties": true
+    },
+    "claimDisposition": {
+      "type": "object",
+      "required": ["id", "claim_id", "result_ids", "status", "reason", "route"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "claim_id": {"$ref": "#/$defs/id"},
+        "result_ids": {"$ref": "#/$defs/idArray"},
+        "status": {"enum": ["retained", "narrowed", "withdrawn"]},
+        "reason": {"type": "string", "minLength": 1},
+        "route": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "minimumViableRun": {
+      "type": "object",
+      "required": ["status", "material_id", "analysis_unit", "extraction_or_coding", "action_ids", "artifact_ids", "check_result_ids", "result_ids", "claim_disposition_ids"],
+      "properties": {
+        "status": {"enum": ["accepted", "failed", "unchecked", "not-applicable"]},
+        "material_id": {"type": "string"},
+        "analysis_unit": {
+          "type": "object",
+          "required": ["id", "material_id", "unit_type", "locator"],
+          "properties": {
+            "id": {"type": "string"},
+            "material_id": {"type": "string"},
+            "unit_type": {"type": "string"},
+            "locator": {"type": "string"}
+          }
+        },
+        "extraction_or_coding": {
+          "type": "object",
+          "required": ["kind", "rule", "artifact_id"],
+          "properties": {
+            "kind": {"enum": ["extraction", "coding", "extraction-and-coding"]},
+            "rule": {"type": "string"},
+            "artifact_id": {"type": "string"}
+          }
+        },
+        "action_ids": {"$ref": "#/$defs/idArray"},
+        "artifact_ids": {"$ref": "#/$defs/idArray"},
+        "check_result_ids": {"$ref": "#/$defs/idArray"},
+        "result_ids": {"$ref": "#/$defs/idArray"},
+        "claim_disposition_ids": {"$ref": "#/$defs/idArray"}
+      },
+      "additionalProperties": true
+    },
+    "deviation": {
+      "type": "object",
+      "required": ["id", "action_id", "failure_code", "disposition_route", "planned", "actual", "reason", "classification", "disposition", "affected_claim_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "action_id": {"type": "string"},
+        "failure_code": {"type": "string"},
+        "disposition_route": {"type": "string"},
+        "planned": {"type": "string"},
+        "actual": {"type": "string"},
+        "reason": {"type": "string"},
+        "classification": {"type": "string"},
+        "disposition": {"type": "string"},
+        "affected_claim_ids": {"$ref": "#/$defs/idArray"}
+      },
+      "additionalProperties": true
+    },
+    "run": {
+      "type": "object",
+      "required": [
+        "id", "design_id", "route_family", "adapter_version", "design_route_sha256",
+        "question_ids", "claim_ids", "evidence_ids", "case_ids", "scope_condition_ids",
+        "comparison_ids", "within_case_analysis_ids", "case_execution", "status", "actions",
+        "method_fields", "artifacts", "results", "claim_dispositions", "minimum_viable_run",
+        "deviations", "negative_findings", "ethics_events", "software_environment_ids",
+        "inference_ceiling_observed", "prohibited_inferences_observed"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "design_id": {"$ref": "#/$defs/id"},
+        "route_family": {"type": "string", "minLength": 1},
+        "adapter_version": {"type": "string", "minLength": 1},
+        "design_route_sha256": {"$ref": "#/$defs/sha256"},
+        "question_ids": {"$ref": "#/$defs/idArray"},
+        "claim_ids": {"$ref": "#/$defs/idArray"},
+        "evidence_ids": {"$ref": "#/$defs/idArray"},
+        "case_ids": {"$ref": "#/$defs/idArray"},
+        "scope_condition_ids": {"$ref": "#/$defs/idArray"},
+        "comparison_ids": {"$ref": "#/$defs/idArray"},
+        "within_case_analysis_ids": {"$ref": "#/$defs/idArray"},
+        "case_execution": {"type": "object"},
+        "status": {"enum": ["completed", "qualified", "null", "negative", "not-applicable", "withdrawn", "planned"]},
+        "actions": {"type": "array", "items": {"$ref": "#/$defs/action"}},
+        "method_fields": {"type": "object"},
+        "artifacts": {"type": "array", "items": {"$ref": "#/$defs/artifact"}},
+        "results": {"type": "array", "items": {"$ref": "#/$defs/result"}},
+        "claim_dispositions": {"type": "array", "items": {"$ref": "#/$defs/claimDisposition"}},
+        "minimum_viable_run": {"$ref": "#/$defs/minimumViableRun"},
+        "deviations": {"type": "array", "items": {"$ref": "#/$defs/deviation"}},
+        "negative_findings": {"type": "array", "items": {"type": "object"}},
+        "ethics_events": {"type": "array", "items": {"type": "object"}},
+        "software_environment_ids": {"$ref": "#/$defs/idArray"},
+        "inference_ceiling_observed": {"type": "string"},
+        "prohibited_inferences_observed": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

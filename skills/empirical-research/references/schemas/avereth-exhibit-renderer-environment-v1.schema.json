@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/avereth-exhibit-renderer-environment-v1.schema.json",
+  "title": "Avereth empirical exhibit renderer environment",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "renderer",
+    "R",
+    "packages",
+    "requested_fonts",
+    "resolved_fonts",
+    "backend_sha256",
+    "style_profile_sha256",
+    "recipe_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "avereth-exhibit-renderer-environment/v1"
+    },
+    "renderer": {
+      "const": "r/generic-ggplot2-v1"
+    },
+    "R": {
+      "type": "string",
+      "minLength": 1
+    },
+    "packages": {
+      "type": "object",
+      "required": [
+        "jsonlite",
+        "ggplot2",
+        "svglite",
+        "ragg",
+        "systemfonts"
+      ],
+      "properties": {
+        "jsonlite": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ggplot2": {
+          "type": "string",
+          "minLength": 1
+        },
+        "svglite": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ragg": {
+          "type": "string",
+          "minLength": 1
+        },
+        "systemfonts": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "requested_fonts": {
+      "type": "object",
+      "required": [
+        "base"
+      ],
+      "properties": {
+        "base": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "resolved_fonts": {
+      "type": "object",
+      "required": [
+        "base"
+      ],
+      "properties": {
+        "base": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "backend_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "style_profile_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "recipe_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    }
+  },
+  "additionalProperties": false
+}

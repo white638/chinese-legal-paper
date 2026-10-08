@@ -1,0 +1,112 @@
+{
+  "schema_version": "avereth-researcher-dispatch-evals/v1",
+  "cases": [
+    {
+      "id": "RD-EVAL-001",
+      "family": "quantitative",
+      "operation": "corpus_freeze",
+      "claim_type": "descriptive",
+      "expected_mode": "single",
+      "expected_tasks": []
+    },
+    {
+      "id": "RD-EVAL-002",
+      "family": "content_analysis",
+      "operation": "content_coding",
+      "claim_type": "descriptive",
+      "expected_mode": "isolated_multi",
+      "expected_tasks": ["independent_coding"],
+      "expected_trigger": "TASK.REQUIRES_INDEPENDENT_RUNS"
+    },
+    {
+      "id": "RD-EVAL-003",
+      "family": "text_as_data",
+      "operation": "reference_validation",
+      "claim_type": "prediction",
+      "expected_mode": "isolated_multi",
+      "expected_tasks": [
+        "agreement_calculation",
+        "holdout_validation",
+        "reference_set_construction"
+      ],
+      "expected_trigger": "TASK.REQUIRES_INDEPENDENT_RUNS"
+    },
+    {
+      "id": "RD-EVAL-004",
+      "family": "causal",
+      "operation": "causal_inference_disposition",
+      "claim_type": "causal_effect",
+      "expected_mode": "isolated_multi",
+      "expected_tasks": ["inference_audit"],
+      "expected_trigger": "RISK.INFERENCE_HIGH_CONSEQUENCE"
+    },
+    {
+      "id": "RD-EVAL-005",
+      "family": "content_analysis",
+      "operation": "content_inference_disposition",
+      "claim_type": "descriptive",
+      "researcher_risk": {
+        "epistemic_fit": "single_judgment",
+        "interpretive_ambiguity": "low",
+        "consequence_of_error": "low",
+        "codebook_maturity": "not_applicable",
+        "reference_basis": "not_applicable",
+        "holdout_status": "not_applicable",
+        "boundary_case_load": "low",
+        "inference_distance": "direct",
+        "rationale": "One registered descriptive result maps directly to one claim."
+      },
+      "expected_mode": "single",
+      "expected_tasks": ["inference_audit"]
+    },
+    {
+      "id": "RD-EVAL-006",
+      "family": "content_analysis",
+      "operation": "codebook_revision",
+      "claim_type": "descriptive",
+      "expected_mode": "isolated_multi",
+      "expected_tasks": ["pilot_codebook_calibration"],
+      "expected_trigger": "RISK.CODEBOOK_NOT_STABLE"
+    },
+    {
+      "id": "RD-EVAL-007",
+      "family": "content_analysis",
+      "operation": "content_coding",
+      "claim_type": "descriptive",
+      "researcher_risk": {
+        "epistemic_fit": "not_applicable",
+        "interpretive_ambiguity": "low",
+        "consequence_of_error": "low",
+        "codebook_maturity": "stable",
+        "reference_basis": "not_applicable",
+        "holdout_status": "not_applicable",
+        "boundary_case_load": "low",
+        "inference_distance": "direct",
+        "rationale": "The profile cannot waive the operation-level independence requirement."
+      },
+      "expected_mode": "isolated_multi",
+      "expected_tasks": ["independent_coding"],
+      "expected_trigger": "TASK.REQUIRES_INDEPENDENT_RUNS"
+    },
+    {
+      "id": "RD-EVAL-008",
+      "family": "causal",
+      "operation": "causal_inference_disposition",
+      "claim_type": "causal_effect",
+      "researcher_risk": {
+        "epistemic_fit": "single_judgment",
+        "interpretive_ambiguity": "low",
+        "consequence_of_error": "low",
+        "codebook_maturity": "not_applicable",
+        "reference_basis": "not_applicable",
+        "holdout_status": "not_applicable",
+        "boundary_case_load": "low",
+        "inference_distance": "direct",
+        "rationale": "A local profile cannot lower the registered causal-claim consequence floor."
+      },
+      "expected_mode": "isolated_multi",
+      "expected_tasks": ["inference_audit"],
+      "expected_trigger": "RISK.INFERENCE_HIGH_CONSEQUENCE"
+    }
+  ]
+}

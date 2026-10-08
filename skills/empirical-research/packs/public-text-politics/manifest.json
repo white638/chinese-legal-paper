@@ -1,0 +1,76 @@
+{
+  "schema_version": "avereth-public-text-politics-pack/v1",
+  "pack_version": "1.0.0",
+  "pack_id": "public-text-politics",
+  "kind": "internal-method-profile-pack",
+  "control_plane": "cnki-paper",
+  "ownership": "method-profile-assets-only",
+  "method_authority": {
+    "family_registry": "../../references/method-adapter-registry.json",
+    "design_contract": "research_design.json",
+    "execution_contract": "method_execution.json",
+    "observed_inference_authority": "core-validator-result",
+    "profile_schema": "profile.schema.json"
+  },
+  "runtime_binding": {
+    "authoritative_registry": "../../references/method-adapter-registry.json#/method_contracts/*/supplemental_profiles",
+    "design_selector": "method_routes[].supplemental_profile_id",
+    "design_payload": "method_routes[].supplemental_contract",
+    "execution_selector": "runs[].supplemental_profile_id",
+    "execution_payload": "runs[].supplemental_contract",
+    "artifact_records": "runs[].artifacts",
+    "validator_dispatch": "core-method-contract-only"
+  },
+  "forbidden_pack_ownership": [
+    "workflow stage",
+    "stage receipt",
+    "paper completion",
+    "claim capability registry",
+    "universal quality score",
+    "journal acceptance rule"
+  ],
+  "profiles": [
+    {
+      "id": "claim_measurement",
+      "profile": "profiles/claim_measurement.json",
+      "contract_guide": "CONTRACTS.md#claim_measurement",
+      "adversarial_fixture": "fixtures/claim_measurement.json"
+    },
+    {
+      "id": "semantic_alignment_and_reuse",
+      "profile": "profiles/semantic_alignment_and_reuse.json",
+      "contract_guide": "CONTRACTS.md#semantic_alignment_and_reuse",
+      "adversarial_fixture": "fixtures/semantic_alignment_and_reuse.json"
+    },
+    {
+      "id": "legislative_process",
+      "profile": "profiles/legislative_process.json",
+      "contract_guide": "CONTRACTS.md#legislative_process",
+      "adversarial_fixture": "fixtures/legislative_process.json"
+    },
+    {
+      "id": "institutional_grammar",
+      "profile": "profiles/institutional_grammar.json",
+      "contract_guide": "CONTRACTS.md#institutional_grammar",
+      "adversarial_fixture": "fixtures/institutional_grammar.json"
+    },
+    {
+      "id": "public_source_process_tracing",
+      "profile": "profiles/public_source_process_tracing.json",
+      "contract_guide": "CONTRACTS.md#public_source_process_tracing",
+      "adversarial_fixture": "fixtures/public_source_process_tracing.json"
+    },
+    {
+      "id": "discourse_network",
+      "profile": "profiles/discourse_network.json",
+      "contract_guide": "CONTRACTS.md#discourse_network",
+      "adversarial_fixture": "fixtures/discourse_network.json"
+    },
+    {
+      "id": "text_in_causal_design",
+      "profile": "profiles/text_in_causal_design.json",
+      "contract_guide": "CONTRACTS.md#text_in_causal_design",
+      "adversarial_fixture": "fixtures/text_in_causal_design.json"
+    }
+  ]
+}

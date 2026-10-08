@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper1.local/schemas/avereth-exa-manifest-v1.schema.json",
+  "title": "Avereth Exa run manifest v1",
+  "type": "object",
+  "required": ["schema_version", "runs"],
+  "properties": {
+    "schema_version": {"const": "avereth-exa-manifest/v1"},
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["query_id", "path", "sha256", "executed_at", "result_count"],
+        "properties": {
+          "query_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{1,63}$"},
+          "path": {"type": "string", "pattern": "^reference_materials/integrations/exa_runs/[A-Za-z0-9._-]+\\.json$"},
+          "sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+          "executed_at": {"type": "string", "format": "date-time"},
+          "result_count": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "avereth-public-text-politics-profile/v1",
+  "profile_id": "public_source_process_tracing",
+  "title_zh": "公开来源过程追踪",
+  "purpose": "用公开记录登记机制节点、预期痕迹、竞争机制、证据诊断力、来源产生背景、传播链和记录沉默。",
+  "core_method_families": ["process_tracing"],
+  "complementary_method_families": ["historical"],
+  "core_claim_capability_refs": [
+    "../../references/method-adapter-registry.json#/claim_capabilities/process_tracing"
+  ],
+  "core_method_contract_id": "process-tracing/v1",
+  "core_method_contract_schema": "../../references/schemas/methods/process-tracing-v1.schema.json",
+  "profile_contract_schema": "../contracts/public_source_process_tracing.schema.json",
+  "artifact_roles": ["case_boundary", "mechanism_matrix", "rival_matrix", "evidence_ledger", "source_chain", "independence_audit", "missing_trace_log", "public_record_silence_log", "core_inference_result"],
+  "machine_checks": [
+    {"id": "rival_matrix", "check_kind": "mechanism_rival_matrix", "inputs": ["/mechanism/nodes", "/mechanism/strongest_rivals", "/evidence/ledger"], "failure_code": "PTP.TRACING.RIVAL_MATRIX"},
+    {"id": "source_independence", "check_kind": "source_independence", "inputs": ["/evidence/source_chain", "/evidence/independence_audit", "/evidence/ledger"], "failure_code": "PTP.TRACING.SOURCE_INDEPENDENCE"},
+    {"id": "silence_language", "check_kind": "silence_semantics", "inputs": ["/evidence/missing_traces", "/evidence/public_record_silence"], "failure_code": "PTP.TRACING.SILENCE_OVERCLAIM"},
+    {"id": "observed_ceiling", "check_kind": "inference_ceiling_binding", "inputs": ["/core_inference_result", "/evidence/ledger"], "failure_code": "PTP.TRACING.INFERENCE_OVERREACH"},
+    {"id": "hashed_evidence", "check_kind": "artifact_exists_and_hash_matches", "inputs": ["/evidence/ledger", "/evidence/source_chain", "/evidence/independence_audit"], "failure_code": "PTP.TRACING.ARTIFACT_HASH"}
+  ],
+  "researcher_judgments": ["每条痕迹在具体来源产生背景中的诊断力", "最强竞争机制是否被公平表达", "公开记录沉默在制度和档案背景下意味着什么"],
+  "interpretation_boundaries": {
+    "allowed": ["按节点与竞争机制报告证据支持和缺失", "把同源传播链折叠后讨论独立证据"],
+    "prohibited": ["把同源报道数量当成多条独立证据", "把找不到记录写成事件不存在", "没有竞争机制矩阵却声称识别因果机制"]
+  }
+}

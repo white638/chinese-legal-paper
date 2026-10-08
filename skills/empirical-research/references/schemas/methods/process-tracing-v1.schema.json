@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/methods/process-tracing-v1.schema.json",
+  "title": "Process Tracing Diagnostic Evidence Contract v1",
+  "type": "object",
+  "required": ["mechanism", "strongest_competing_mechanism", "predicted_traces", "source_independence_plan", "inference_boundary", "diagnostic_matrix_artifact_id", "source_independence_artifact_id", "negative_evidence"],
+  "properties": {
+    "mechanism": {"type": "string", "minLength": 1},
+    "strongest_competing_mechanism": {"type": "string", "minLength": 1},
+    "predicted_traces": {"type": "array", "minItems": 1},
+    "source_independence_plan": {"type": "string", "minLength": 1},
+    "inference_boundary": {"type": "string", "minLength": 1},
+    "diagnostic_matrix_artifact_id": {"type": "string"},
+    "source_independence_artifact_id": {"type": "string"},
+    "negative_evidence": {"type": "array"}
+  },
+  "additionalProperties": true
+}

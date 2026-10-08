@@ -1,0 +1,7 @@
+# The deployed runtime is the validated skills/ directory produced by
+# tools/sync_runtime.py.  This file intentionally configures repository tools
+# only; it does not advertise an empty or partial Python wheel.
+
+[tool.pytest.ini_options]
+python_files = ["test_*.py"]
+testpaths = ["skills/cnki-paper/scripts", "tools", "evals"]

@@ -1,0 +1,414 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/cnki-method-execution-v2.schema.json",
+  "title": "CNKI Method Execution Contract v2",
+  "description": "Execution facts bound to research-design v3, including case, scope, comparison, and within-case identities.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "design_schema_version",
+    "design_sha256",
+    "adapter_registry_sha256",
+    "status",
+    "runs",
+    "reporting",
+    "software_environments"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cnki-method-execution/v2"
+    },
+    "design_schema_version": {
+      "const": "cnki-research-design/v3"
+    },
+    "design_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{64}$"
+    },
+    "adapter_registry_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{64}$"
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "needs-review",
+        "draft"
+      ]
+    },
+    "runs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/run"
+      }
+    },
+    "reporting": {
+      "type": "object"
+    },
+    "software_environments": {
+      "type": "array"
+    },
+    "feasibility_basis_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{64}$"
+    },
+    "material_realizations": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/materialRealization"}
+    },
+    "migration": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "materialRealization": {
+      "type": "object",
+      "required": ["material_id", "probe_ids", "artifact_ids", "status", "realized_scope", "linkage_outcome", "variation_or_identification_outcome"],
+      "properties": {
+        "material_id": {"type": "string", "pattern": "^MAT-[0-9]{3,}$"},
+        "probe_ids": {"$ref": "#/$defs/idArray"},
+        "artifact_ids": {"$ref": "#/$defs/idArray"},
+        "status": {"enum": ["REALIZED", "PARTIAL", "BLOCKED", "FAILED"]},
+        "realized_scope": {"type": "object"},
+        "linkage_outcome": {"type": "string", "minLength": 8},
+        "variation_or_identification_outcome": {"type": "string", "minLength": 8},
+        "deviation_id": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "idArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "run": {
+      "type": "object",
+      "required": [
+        "id",
+        "design_id",
+        "route_family",
+        "adapter_version",
+        "design_route_sha256",
+        "question_ids",
+        "claim_ids",
+        "evidence_ids",
+        "case_ids",
+        "scope_condition_ids",
+        "comparison_ids",
+        "within_case_analysis_ids",
+        "case_execution",
+        "status",
+        "actions",
+        "method_fields",
+        "artifacts",
+        "results",
+        "deviations",
+        "negative_findings",
+        "ethics_events",
+        "software_environment_ids",
+        "inference_ceiling_observed",
+        "prohibited_inferences_observed"
+      ],
+      "properties": {
+        "case_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "scope_condition_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "comparison_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "within_case_analysis_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "case_execution": {
+          "$ref": "#/$defs/caseExecution"
+        },
+        "method_fields": {
+          "type": "object"
+        },
+        "method_contract_schema": {
+          "type": "string"
+        },
+        "method_contract_revision": {
+          "type": "string"
+        },
+        "method_profile": {
+          "type": "string"
+        },
+        "design_method_contract_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{64}$"
+        },
+        "method_contract": {
+          "type": "object"
+        },
+        "supplemental_profile_id": {
+          "type": "string",
+          "pattern": "^(?:|[a-z][a-z0-9_]*)$"
+        },
+        "design_supplemental_contract_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{64}$"
+        },
+        "supplemental_contract": {
+          "type": "object"
+        },
+        "artifact_refs": {
+          "$ref": "#/$defs/idArray"
+        },
+        "inference_disposition": {
+          "$ref": "#/$defs/inferenceDisposition"
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifact"
+          }
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/result"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "anyOf": [
+              {"required": ["supplemental_profile_id"]},
+              {"required": ["supplemental_contract"]},
+              {"required": ["design_supplemental_contract_sha256"]}
+            ]
+          },
+          "then": {
+            "required": ["supplemental_profile_id", "method_contract_schema", "method_contract_revision"],
+            "properties": {
+              "supplemental_profile_id": {"type": "string", "minLength": 1},
+              "method_contract_schema": {"type": "string", "minLength": 1},
+              "method_contract_revision": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      ]
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "id",
+        "text",
+        "type",
+        "claim_ids",
+        "evidence_ids",
+        "artifact_ids",
+        "case_ids",
+        "scope_condition_ids",
+        "comparison_ids",
+        "within_case_analysis_ids",
+        "status",
+        "allowed_interpretation",
+        "prohibited_interpretation"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "descriptive",
+            "association",
+            "causal_effect",
+            "causal_mechanism",
+            "causal_configuration",
+            "prediction",
+            "operational",
+            "interpretive",
+            "theory_generation",
+            "theory_evaluation",
+            "normative",
+            "review_synthesis"
+          ]
+        },
+        "case_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "scope_condition_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "comparison_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "within_case_analysis_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "artifact_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "numeric_values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/numericValue"
+          }
+        }
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "required": [
+        "id",
+        "path",
+        "sha256",
+        "role"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{64}$"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "numericValue": {
+      "type": "object",
+      "required": [
+        "value",
+        "evidence_id",
+        "artifact_id",
+        "locator",
+        "reproduction_command"
+      ],
+      "properties": {
+        "value": {},
+        "evidence_id": {
+          "type": "string"
+        },
+        "artifact_id": {
+          "type": "string"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reproduction_command": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "inferenceDisposition": {
+      "type": "object",
+      "required": [
+        "status",
+        "reason_codes",
+        "failed_diagnostic_ids",
+        "allowed_claim_types",
+        "prohibited_interpretations"
+      ],
+      "properties": {
+        "status": {
+          "enum": ["retained", "narrowed", "withdrawn"]
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "failed_diagnostic_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "allowed_claim_types": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "prohibited_interpretations": {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "caseExecution": {
+      "type": "object",
+      "required": [
+        "applicability",
+        "actual_case_ids",
+        "case_changes",
+        "theory_prediction_observation_matrix",
+        "mechanism_traces",
+        "negative_cases",
+        "scope_revisions",
+        "handoff_results",
+        "negative_case_review_status",
+        "contradictory_result_status",
+        "scope_review_status"
+      ],
+      "properties": {
+        "applicability": {
+          "enum": [
+            "active",
+            "not-applicable",
+            "needs-review"
+          ]
+        },
+        "actual_case_ids": {
+          "$ref": "#/$defs/idArray"
+        },
+        "case_changes": {
+          "type": "array"
+        },
+        "theory_prediction_observation_matrix": {
+          "type": "array"
+        },
+        "mechanism_traces": {
+          "type": "array"
+        },
+        "negative_cases": {
+          "type": "array"
+        },
+        "scope_revisions": {
+          "type": "array"
+        },
+        "handoff_results": {
+          "type": "array"
+        },
+        "negative_case_review_status": {
+          "enum": [
+            "reported",
+            "reviewed-none",
+            "needs-review"
+          ]
+        },
+        "contradictory_result_status": {
+          "enum": [
+            "reported",
+            "reviewed-none",
+            "needs-review"
+          ]
+        },
+        "scope_review_status": {
+          "enum": [
+            "reported",
+            "reviewed-none",
+            "needs-review"
+          ]
+        }
+      }
+    }
+  }
+}

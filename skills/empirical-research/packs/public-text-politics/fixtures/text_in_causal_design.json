@@ -1,0 +1,46 @@
+{
+  "schema_version": "avereth-public-text-politics-executable-fixtures/v1",
+  "profile_id": "text_in_causal_design",
+  "artifact_token_prefix": "artifact:",
+  "base_contract": {
+    "schema_version": "avereth-public-text-politics/text-in-causal-design/v1",
+    "profile_id": "text_in_causal_design",
+    "text_role": "outcome",
+    "units": {
+      "treatment_level": "document_id",
+      "text_analysis_unit": "claim_id",
+      "effective_sample_unit": "document_id",
+      "cluster_level": "document_id"
+    },
+    "measurement": {
+      "contract_ref": "artifact:artifacts/claim_measurement_contract.json",
+      "error_sensitivity": "artifact:artifacts/measurement_error_sensitivity.json"
+    },
+    "data_separation": {
+      "development_manifest": "artifact:artifacts/measurement_development_ids.txt",
+      "effect_estimation_manifest": "artifact:artifacts/effect_estimation_ids.txt",
+      "overlap_disposition": "disjoint"
+    },
+    "causal_design": {
+      "estimand_ref": "research_design.json#/design/routes/0/estimand_or_target",
+      "counterfactual_ref": "research_design.json#/design/routes/0/comparison_basis",
+      "identification_diagnostics": "artifact:artifacts/identification_diagnostics.json"
+    },
+    "results": {
+      "model_output": "artifact:artifacts/model_output.json",
+      "claim_ledger": "artifact:artifacts/claim_ledger.json"
+    },
+    "core_inference_result": "artifact:artifacts/core_inference_result.json",
+    "interpretation": {
+      "allowed": ["Report the core estimand with measurement-error sensitivity."],
+      "prohibited": ["Use claim count as the independent treatment sample size."]
+    }
+  },
+  "cases": [
+    {"id": "text-causal-positive", "kind": "positive", "operations": [], "expected_status": "PASS", "expected_codes": []},
+    {"id": "text-causal-local-estimand", "kind": "typical-error", "operations": [{"op": "replace", "path": "/causal_design/estimand_ref", "from": "research_design.json#/design/routes/0/estimand_or_target", "value": "local_profile#/estimand"}], "expected_status": "FAIL", "expected_codes": ["PTP.CAUSAL.CORE_CONTRACT_REF"]},
+    {"id": "text-causal-unresolved-overlap", "kind": "typical-error", "operations": [{"op": "replace", "path": "/data_separation/overlap_disposition", "from": "disjoint", "value": "ignored"}], "expected_status": "FAIL", "expected_codes": ["PTP.CAUSAL.DATA_OVERLAP"]},
+    {"id": "text-causal-mechanism-role", "kind": "boundary", "operations": [{"op": "replace", "path": "/text_role", "from": "outcome", "value": "mechanism_evidence"}], "expected_status": "PASS", "expected_codes": []},
+    {"id": "text-causal-unbound-inference", "kind": "inference-overreach", "operations": [{"op": "replace", "path": "/core_inference_result", "from": "ART-ARTIFACTS-CORE-INFERENCE-RESULT-JSON", "value": ""}], "expected_status": "FAIL", "expected_codes": ["PTP.CAUSAL.INFERENCE_OVERREACH"]}
+  ]
+}

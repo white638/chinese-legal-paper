@@ -1,0 +1,301 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/avereth-manuscript-contract-v1.schema.json",
+  "title": "Avereth Manuscript Global Contract v1",
+  "description": "Build-stage structural contract. It references existing research authorities and must not become a second scientific fact source or completion authority.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_id",
+    "compiler_mode",
+    "genre_profile",
+    "profile_version",
+    "venue_profile",
+    "output_language",
+    "authority_bindings",
+    "global_identity",
+    "narrative_contract",
+    "sections",
+    "moves",
+    "claim_lifecycle",
+    "promises",
+    "cross_section_edges",
+    "scientific_commitment_order",
+    "render_order"
+  ],
+  "properties": {
+    "schema_version": {"const": "avereth-manuscript-contract/v1"},
+    "contract_id": {"type": "string", "pattern": "^AMC-[A-Z0-9][A-Z0-9._-]{2,}$"},
+    "compiler_mode": {"const": "build_projection"},
+    "genre_profile": {"enum": ["empirical-social-science", "humanities-argument"]},
+    "profile_version": {"type": "string", "minLength": 1},
+    "venue_profile": {"type": "string", "minLength": 1},
+    "output_language": {"type": "string", "minLength": 2},
+    "authority_bindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/authority_binding"}
+    },
+    "global_identity": {
+      "type": "object",
+      "required": ["research_question_ref", "main_claim_refs", "contribution_refs", "design_refs", "result_refs", "scope_refs", "literature_refs"],
+      "properties": {
+        "research_question_ref": {"type": "string", "minLength": 1},
+        "main_claim_refs": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "contribution_refs": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "design_refs": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "result_refs": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "scope_refs": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "literature_refs": {"$ref": "#/$defs/nonempty_unique_refs"}
+      },
+      "additionalProperties": false
+    },
+    "narrative_contract": {
+      "type": "object",
+      "required": ["initial_reader_state", "final_reader_update", "central_throughline"],
+      "properties": {
+        "initial_reader_state": {"$ref": "#/$defs/nonempty_text_array"},
+        "final_reader_update": {"$ref": "#/$defs/nonempty_text_array"},
+        "central_throughline": {"type": "string", "minLength": 8}
+      },
+      "additionalProperties": false
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/section"}
+    },
+    "moves": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/move"}
+    },
+    "claim_lifecycle": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/claim_lifecycle"}
+    },
+    "promises": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/promise"}
+    },
+    "cross_section_edges": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/edge"}
+    },
+    "scientific_commitment_order": {"$ref": "#/$defs/nonempty_text_array"},
+    "render_order": {"$ref": "#/$defs/nonempty_text_array"}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "nonempty_unique_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "nonempty_text_array": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 4}
+    },
+    "selector": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["type"],
+          "properties": {"type": {"const": "whole_file"}},
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["type", "id", "id_keys"],
+          "properties": {
+            "type": {"const": "json_object_id"},
+            "id": {"type": "string", "minLength": 1},
+            "id_keys": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
+            "inference_strength_field": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "authority_binding": {
+      "type": "object",
+      "required": ["ref_id", "authority_kind", "source_path", "selector"],
+      "properties": {
+        "ref_id": {"type": "string", "minLength": 1},
+        "authority_kind": {"enum": ["research_question", "claim", "evidence", "source", "material", "contribution", "design", "result", "scope", "literature"]},
+        "source_path": {"type": "string", "minLength": 1},
+        "selector": {"$ref": "#/$defs/selector"}
+      },
+      "additionalProperties": false
+    },
+    "section": {
+      "type": "object",
+      "required": [
+        "section_id",
+        "semantic_role",
+        "section_family",
+        "display_heading",
+        "reader_state_before_id",
+        "reader_state_before",
+        "reader_question",
+        "required_update",
+        "reader_state_after_id",
+        "reader_state_after",
+        "dependencies",
+        "move_refs"
+      ],
+      "properties": {
+        "section_id": {"type": "string", "pattern": "^SEC-[A-Z0-9][A-Z0-9-]*$"},
+        "semantic_role": {"type": "string", "minLength": 2},
+        "section_family": {"type": "string", "minLength": 2},
+        "display_heading": {"type": "string", "minLength": 1},
+        "reader_state_before_id": {"type": "string", "minLength": 1},
+        "reader_state_before": {"$ref": "#/$defs/nonempty_text_array"},
+        "reader_question": {"type": "string", "minLength": 8},
+        "required_update": {"$ref": "#/$defs/nonempty_text_array"},
+        "reader_state_after_id": {"type": "string", "minLength": 1},
+        "reader_state_after": {"$ref": "#/$defs/nonempty_text_array"},
+        "dependencies": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "move_refs": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "argument_role": {"enum": ["core_argument", "enabling", "synthesis", "presentation"]},
+        "serves_promise_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "if_removed": {"type": "string", "minLength": 8}
+      },
+      "additionalProperties": false
+    },
+    "move": {
+      "type": "object",
+      "required": [
+        "move_id",
+        "section_ref",
+        "move_type",
+        "prose_packet_role",
+        "planned_function",
+        "reader_question",
+        "required_update",
+        "authority_refs",
+        "claim_refs",
+        "dependency_refs",
+        "promise_refs",
+        "delivery_refs",
+        "inference_strength"
+      ],
+      "properties": {
+        "move_id": {"type": "string", "pattern": "^MOVE-[A-Z0-9][A-Z0-9-]*$"},
+        "section_ref": {"type": "string", "pattern": "^SEC-[A-Z0-9][A-Z0-9-]*$"},
+        "move_type": {"type": "string", "minLength": 2},
+        "prose_packet_role": {"type": "string", "minLength": 2},
+        "planned_function": {"type": "string", "minLength": 8},
+        "reader_question": {"type": "string", "minLength": 8},
+        "required_update": {"type": "string", "minLength": 8},
+        "authority_refs": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "claim_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "dependency_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "promise_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "delivery_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "argument_action": {
+          "enum": ["POSE", "PRESS", "DISTINGUISH", "REVISE", "ADVANCE", "RESOLVE", "RETURN"]
+        },
+        "problem_state_before": {"type": "string", "minLength": 4},
+        "problem_state_after": {"type": "string", "minLength": 4},
+        "resonance_device": {
+          "enum": ["none", "metaphor", "classical_allusion", "wordplay", "question", "symmetry", "other"]
+        },
+        "body_explanation_move_ref": {"type": "string", "pattern": "^MOVE-[A-Z0-9][A-Z0-9-]*$"},
+        "verified_scene": {
+          "type": "object",
+          "required": ["anchor_id", "authority_ref"],
+          "properties": {
+            "anchor_id": {"type": "string", "pattern": "^ANCHOR-[A-Z0-9][A-Z0-9._-]*$"},
+            "authority_ref": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        },
+        "inference_strength": {"enum": ["inherit", "descriptive", "interpretive", "association", "associational", "prediction", "causal_mechanism", "causal_effect", "operational", "normative", "review_synthesis"]}
+      },
+      "additionalProperties": false
+    },
+    "claim_lifecycle": {
+      "type": "object",
+      "required": ["claim_ref", "introduced", "motivated", "specified", "operationalized", "evaluated", "interpreted", "summarized"],
+      "properties": {
+        "claim_ref": {"type": "string", "minLength": 1},
+        "introduced": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "motivated": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "specified": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "operationalized": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "evaluated": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "interpreted": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "summarized": {"$ref": "#/$defs/nonempty_unique_refs"}
+      },
+      "additionalProperties": false
+    },
+    "promise": {
+      "type": "object",
+      "required": ["promise_id", "promise_type", "source_move_ref", "authority_refs", "delivery_move_refs"],
+      "properties": {
+        "promise_id": {"type": "string", "pattern": "^PROMISE-[A-Z0-9][A-Z0-9-]*$"},
+        "promise_type": {"type": "string", "minLength": 2},
+        "source_move_ref": {"type": "string", "minLength": 1},
+        "authority_refs": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "delivery_move_refs": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "delay_span": {"enum": ["same_move", "same_section", "next_answer_section"]},
+        "resolution_type": {"enum": ["DISTINGUISH", "REVISE", "RESOLVE", "REDEFINE"]},
+        "required_authority_refs": {"$ref": "#/$defs/nonempty_unique_refs"},
+        "warrant": {"type": "string", "minLength": 8},
+        "failure_consequence": {"type": "string", "minLength": 8}
+      },
+      "additionalProperties": false
+    },
+    "edge": {
+      "type": "object",
+      "required": ["edge_id", "source_ref", "target_ref", "relation"],
+      "properties": {
+        "edge_id": {"type": "string", "pattern": "^EDGE-[A-Z0-9][A-Z0-9-]*$"},
+        "source_ref": {"type": "string", "minLength": 1},
+        "target_ref": {"type": "string", "minLength": 1},
+        "relation": {"enum": ["motivates", "defines", "operationalizes", "tests", "supports", "qualifies", "contradicts", "updates", "summarizes", "visualizes", "returns_to"]},
+        "anchor_id": {"type": "string", "pattern": "^ANCHOR-[A-Z0-9][A-Z0-9._-]*$"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

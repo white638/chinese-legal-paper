@@ -1,0 +1,8 @@
+{
+  "schema_version": "avereth-exhibit-recipe/v1",
+  "id": "predicted_probability",
+  "required_fields": ["x", "estimate", "conf_low", "conf_high", "unit"],
+  "semantic_checks": ["response scale is probability", "estimates and intervals stay within zero and one"],
+  "author_review_requirements": ["conditioning values declared"],
+  "recommended_for": ["political behavior", "policy adoption", "binary outcomes"]
+}

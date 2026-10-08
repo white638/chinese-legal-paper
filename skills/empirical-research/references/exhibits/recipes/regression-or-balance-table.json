@@ -1,0 +1,8 @@
+{
+  "schema_version": "avereth-exhibit-recipe/v1",
+  "id": "regression_or_balance_table",
+  "required_fields": ["term", "estimate", "model_label", "sample_n", "unit"],
+  "semantic_checks": ["uncertainty type declared", "cluster level declared when applicable"],
+  "author_review_requirements": ["fixed effects and sample identity disclosed in notes"],
+  "recommended_for": ["main estimates", "descriptive statistics", "balance checks"]
+}

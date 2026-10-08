@@ -1,0 +1,15 @@
+The effect on turnout of campaign mobilization messages addressing ballot secrecy concerns: A replication experiment
+
+Authors: Alan S. Gerber; Gregory A. Huber; Albert H. Fang; Catlan E. Reardon
+DOI: 10.1371/journal.pone.0182199
+Publisher: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0182199
+License: Creative Commons Attribution 4.0 International
+License URL: https://creativecommons.org/licenses/by/4.0/
+Attribution: Gerber AS, Huber GA, Fang AH, Reardon CE (2017) The effect on turnout of campaign mobilization messages addressing ballot secrecy concerns: A replication experiment. PLoS ONE 12(8): e0182199. https://doi.org/10.1371/journal.pone.0182199
+
+Locator: Abstract, paragraph 1; normalized characters 656:735
+Excerpt (verbatim; one inspected span):
+We find that sending this mailer has no effect on turnout rates in this setting
+
+Editorial scope note (paraphrase): 新注册而此前不投票的人群，且基线投票率较低；不能推成所有场景均无效。
+This excerpt records the authors' report. It does not establish a universal effect, replication outcome, or absolute novelty judgment.

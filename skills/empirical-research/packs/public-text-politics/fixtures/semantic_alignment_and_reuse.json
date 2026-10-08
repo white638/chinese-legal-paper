@@ -1,0 +1,49 @@
+{
+  "schema_version": "avereth-public-text-politics-executable-fixtures/v1",
+  "profile_id": "semantic_alignment_and_reuse",
+  "artifact_token_prefix": "artifact:",
+  "base_contract": {
+    "schema_version": "avereth-public-text-politics/semantic-alignment-and-reuse/v1",
+    "profile_id": "semantic_alignment_and_reuse",
+    "corpora": {
+      "source": "artifact:artifacts/source_corpus.jsonl",
+      "target": "artifact:artifacts/target_corpus.jsonl",
+      "alignment_unit": "clause"
+    },
+    "direction": {"source_precedes_target": true, "source_time_field": "source_date", "target_time_field": "target_date"},
+    "normalization": {
+      "template_phrases": "artifact:artifacts/template_phrases.txt",
+      "legal_boilerplate": "artifact:artifacts/legal_boilerplate.txt",
+      "translation_strategy": "parallel_official"
+    },
+    "matching": {
+      "representation": "multilingual sentence embedding",
+      "similarity_measure": "cosine",
+      "threshold_grid": [0.7, 0.8, 0.9],
+      "candidate_pairs": "artifact:artifacts/candidate_pairs.csv",
+      "adjudicated_pairs": "artifact:artifacts/adjudicated_pairs.csv"
+    },
+    "validation": {
+      "reference_pairs": "artifact:artifacts/reference_pairs.csv",
+      "metrics": "artifact:artifacts/alignment_metrics.json",
+      "threshold_sensitivity": "artifact:artifacts/threshold_sensitivity.json",
+      "false_match_analysis": "artifact:artifacts/false_match_analysis.md"
+    },
+    "confounds": {
+      "common_third_party_sources": "artifact:artifacts/common_sources.csv",
+      "template_language_audited": true,
+      "translation_chain_audited": true
+    },
+    "interpretation": {
+      "allowed": ["Report time-ordered similarity after confound audit."],
+      "prohibited": ["Call a shared third-party quotation direct diffusion."]
+    }
+  },
+  "cases": [
+    {"id": "alignment-positive", "kind": "positive", "operations": [], "expected_status": "PASS", "expected_codes": []},
+    {"id": "alignment-reversed-time", "kind": "typical-error", "operations": [{"op": "replace", "path": "/direction/source_precedes_target", "from": true, "value": false}], "expected_status": "FAIL", "expected_codes": ["PTP.ALIGNMENT.TIME_DIRECTION"]},
+    {"id": "alignment-single-threshold", "kind": "typical-error", "operations": [{"op": "replace", "path": "/matching/threshold_grid", "from": [0.7, 0.8, 0.9], "value": [0.8]}], "expected_status": "FAIL", "expected_codes": ["PTP.ALIGNMENT.THRESHOLD_GRID"]},
+    {"id": "alignment-multilingual-audit", "kind": "boundary", "operations": [{"op": "replace", "path": "/normalization/translation_strategy", "from": "parallel_official", "value": "multilingual_model_with_audit"}], "expected_status": "PASS", "expected_codes": []},
+    {"id": "alignment-unaudited-translation-claim", "kind": "inference-overreach", "operations": [{"op": "replace", "path": "/confounds/translation_chain_audited", "from": true, "value": false}], "expected_status": "FAIL", "expected_codes": ["PTP.ALIGNMENT.TRANSLATION_CHAIN"]}
+  ]
+}

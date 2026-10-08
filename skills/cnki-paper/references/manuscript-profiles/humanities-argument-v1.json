@@ -1,0 +1,565 @@
+{
+  "schema_version": "avereth-manuscript-profile/v1",
+  "profile_id": "humanities-argument",
+  "profile_version": "1.0.0",
+  "compatible_contract_versions": ["1.0.0"],
+  "description": "Build-stage manuscript graph for argument-driven humanities and social-science papers whose evidence is texts, sources, cases read interpretively, or reasoned argument rather than estimation: political theory, normative argument, history of ideas and concepts, historical political science and institutional history, interpretive and conceptual studies. Section headings remain presentation choices (中文期刊常用 一、（一）1. 层级); semantic roles and move identities carry the contract. 论证与史料/文本证据取代 data_methods/results，但问题、主张、证据锚定、反方处置、推断上限与贡献承诺的闭环不变。",
+  "initial_reader_state": [
+    "The reader can identify the broad research domain but cannot yet recover this paper's exact question."
+  ],
+  "final_reader_update": [
+    "The reader can recover the question, the thesis, the sources and reasoning that carry it, the disposition of rival readings, the contribution, and the warranted scope."
+  ],
+  "central_throughline": "question -> literature position -> concepts and interpretive frame -> sources and analytical procedure -> argument anchored in evidence -> disposition of rival readings -> theoretical or conceptual update -> bounded conclusion",
+  "rhetorical_architecture": {
+    "distinguished_thought_move_types": [
+      "literature_clusters",
+      "gap_transition",
+      "core_argument",
+      "objection_disposition",
+      "substantive_meaning",
+      "literature_update",
+      "theory_update",
+      "research_answer"
+    ],
+    "epistemic_hook_max_section_distance": 3,
+    "verified_scene_optional": true,
+    "title_resonance_optional": true
+  },
+  "scientific_commitment_order": [
+    "research_question",
+    "claim",
+    "design",
+    "execution",
+    "result"
+  ],
+  "render_order": [
+    "sources_approach",
+    "analysis",
+    "literature_theory",
+    "discussion",
+    "conclusion",
+    "introduction",
+    "abstract",
+    "title",
+    "supporting_expression"
+  ],
+  "sections": [
+    {
+      "section_id": "SEC-TITLE",
+      "semantic_role": "title",
+      "prose_packet_role": "abstract",
+      "section_family": "orientation",
+      "display_heading": "Title",
+      "reader_state_before_id": "RS-START",
+      "reader_state_before": [
+        "The reader can identify the broad research domain but cannot yet recover this paper's exact question."
+      ],
+      "reader_question": "What object, puzzle or thesis, and scope does this paper study?",
+      "required_update": [
+        "Identify the research object, the central puzzle or thesis, and the necessary temporal, textual or institutional scope without exceeding the inference ceiling."
+      ],
+      "reader_state_after_id": "RS-TITLE",
+      "reader_state_after": [
+        "The reader can identify the research object, central puzzle or thesis, and necessary scope."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-TITLE-IDENTITY",
+          "move_type": "title_identity",
+          "planned_function": "Compress the question, thesis boundary, and scope into a searchable title; a claim-bearing title is allowed only at the registered inference strength.",
+          "authority_groups": ["research_question", "claims", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-ABSTRACT",
+      "semantic_role": "abstract",
+      "prose_packet_role": "abstract",
+      "section_family": "orientation",
+      "display_heading": "Abstract",
+      "reader_state_before_id": "RS-TITLE",
+      "reader_state_before": [
+        "The reader can identify the research object, central puzzle or thesis, and necessary scope."
+      ],
+      "reader_question": "What question is answered, from which sources or texts and by what reasoning, and what is the bounded thesis?",
+      "required_update": [
+        "Recover the question, the sources and analytical approach, the thesis, the contribution, and the scope as a compression of the completed manuscript."
+      ],
+      "reader_state_after_id": "RS-ABSTRACT",
+      "reader_state_after": [
+        "The reader can state the paper's question, approach, main thesis, bounded answer, and contribution."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-ABSTRACT-QUESTION",
+          "move_type": "research_question",
+          "planned_function": "State the exact research question.",
+          "authority_groups": ["research_question"]
+        },
+        {
+          "move_id": "MOVE-ABSTRACT-APPROACH",
+          "move_type": "approach_compression",
+          "planned_function": "Compress the source base, textual corpus or case material and the analytical procedure that produces the argument.",
+          "authority_groups": ["design", "scope"]
+        },
+        {
+          "move_id": "MOVE-ABSTRACT-RESULT",
+          "move_type": "argument_compression",
+          "planned_function": "State only the registered argument outcomes at their warranted strength.",
+          "authority_groups": ["claims", "results", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-ABSTRACT-CONTRIBUTION",
+          "move_type": "contribution_compression",
+          "planned_function": "State the evidence-supported reader update and the contribution boundary.",
+          "authority_groups": ["contribution", "results", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-INTRO",
+      "semantic_role": "introduction",
+      "prose_packet_role": "introduction",
+      "section_family": "orientation",
+      "display_heading": "Introduction",
+      "reader_state_before_id": "RS-ABSTRACT",
+      "reader_state_before": [
+        "The reader can state the paper's question, approach, main thesis, bounded answer, and contribution."
+      ],
+      "reader_question": "Why does this question matter, what remains unresolved in the existing readings, and what will this paper establish?",
+      "required_update": [
+        "Understand the motivating phenomenon or textual puzzle, its stakes, the literature position, the exact question, the thesis preview, the source and reasoning route, and the contribution promise."
+      ],
+      "reader_state_after_id": "RS-INTRO",
+      "reader_state_after": [
+        "The reader understands why the question matters, what remains unresolved, and what the paper promises to establish."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-INTRO-PHENOMENON",
+          "move_type": "phenomenon",
+          "planned_function": "Present the load-bearing phenomenon, textual puzzle, historical anomaly or normative tension before author-process narration.",
+          "authority_groups": ["research_question", "scope"]
+        },
+        {
+          "move_id": "MOVE-INTRO-STAKES",
+          "move_type": "stakes",
+          "planned_function": "Explain the concrete scholarly, interpretive or practical stakes of resolving the question.",
+          "authority_groups": ["research_question", "literature"]
+        },
+        {
+          "move_id": "MOVE-INTRO-LITERATURE-MAP",
+          "move_type": "literature_map",
+          "planned_function": "Locate the dominant readings, explanations or positions and their relationship to the current question.",
+          "authority_groups": ["literature", "research_question"]
+        },
+        {
+          "move_id": "MOVE-INTRO-GAP",
+          "move_type": "gap",
+          "planned_function": "State the precise unresolved obstruction (a misreading, an untested assumption, a missing source base, a conceptual conflation) without a generic gap label.",
+          "authority_groups": ["literature", "research_question"]
+        },
+        {
+          "move_id": "MOVE-INTRO-QUESTION",
+          "move_type": "research_question",
+          "planned_function": "State the exact research question and its scope.",
+          "authority_groups": ["research_question"]
+        },
+        {
+          "move_id": "MOVE-INTRO-ANSWER",
+          "move_type": "thesis_preview",
+          "planned_function": "Preview the thesis at its registered inference strength.",
+          "authority_groups": ["claims", "results", "scope"]
+        },
+        {
+          "move_id": "MOVE-INTRO-APPROACH",
+          "move_type": "approach_response",
+          "planned_function": "Explain which sources, texts or cases and which analytical procedure answer the question and why they are adequate.",
+          "authority_groups": ["design", "research_question", "scope"]
+        },
+        {
+          "move_id": "MOVE-INTRO-CONTRIBUTION",
+          "move_type": "contribution",
+          "planned_function": "Promise the contribution in the form the evidence can deliver: reinterpretation, conceptual reconstruction, corrected historical account, or normative argument.",
+          "authority_groups": ["contribution", "claims", "results", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-LIT-THEORY",
+      "semantic_role": "literature_theory",
+      "prose_packet_role": "theory",
+      "section_family": "theoretical_positioning",
+      "display_heading": "Literature and Interpretive Frame",
+      "reader_state_before_id": "RS-INTRO",
+      "reader_state_before": [
+        "The reader understands why the question matters, what remains unresolved, and what the paper promises to establish."
+      ],
+      "reader_question": "Which readings compete, which concepts carry the argument, and under what interpretive or normative frame will the sources be read?",
+      "required_update": [
+        "Recover the competing readings, the defined concepts and their history, the interpretive or normative frame, the structure of the argument, and the rival readings the analysis must dispose of."
+      ],
+      "reader_state_after_id": "RS-THEORY",
+      "reader_state_after": [
+        "The reader holds the concepts, the frame, the argument structure, and the rival readings that the analysis must confront."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-LIT-CLUSTERS",
+          "move_type": "literature_clusters",
+          "planned_function": "Organize the literature into positions or readings that matter for the question, not a catalogue of authors.",
+          "authority_groups": ["literature", "research_question"]
+        },
+        {
+          "move_id": "MOVE-LIT-GAP-TRANSITION",
+          "move_type": "gap_transition",
+          "planned_function": "Turn the unresolved obstruction into the paper's thesis and its burden of proof.",
+          "authority_groups": ["literature", "research_question", "claims"]
+        },
+        {
+          "move_id": "MOVE-THEORY-CONCEPTS",
+          "move_type": "concept_definition",
+          "planned_function": "Define the load-bearing concepts, distinguish them from neighbours, and register their historical or translated senses where the argument depends on them.",
+          "authority_groups": ["claims", "design"]
+        },
+        {
+          "move_id": "MOVE-THEORY-FRAME",
+          "move_type": "interpretive_frame",
+          "planned_function": "State the interpretive rules, theoretical lens or normative premises that govern how sources and texts will be read and weighed.",
+          "authority_groups": ["claims", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-THEORY-ARGUMENT",
+          "move_type": "argument_structure",
+          "planned_function": "Decompose the thesis into checkable sub-claims or reasoning steps and state what evidence would count against each.",
+          "authority_groups": ["claims", "design"]
+        },
+        {
+          "move_id": "MOVE-THEORY-ALTERNATIVES",
+          "move_type": "competing_interpretations",
+          "planned_function": "State the strongest rival readings or counter-arguments the analysis must answer.",
+          "authority_groups": ["claims", "design", "literature"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-SOURCES-APPROACH",
+      "semantic_role": "sources_approach",
+      "prose_packet_role": "methods",
+      "section_family": "evidence_production",
+      "display_heading": "Sources and Analytical Procedure",
+      "reader_state_before_id": "RS-THEORY",
+      "reader_state_before": [
+        "The reader holds the concepts, the frame, the argument structure, and the rival readings that the analysis must confront."
+      ],
+      "reader_question": "Which sources, texts or cases are used, in which editions and with what limits, and by what procedure are they turned into evidence?",
+      "required_update": [
+        "Recover the source base and its editions, why these materials and not others, how source reliability and silences were judged, the analytical procedure, and the resulting inference ceiling."
+      ],
+      "reader_state_after_id": "RS-SOURCES",
+      "reader_state_after": [
+        "The reader can judge whether the sources and procedure are adequate to the question and knows the inference ceiling."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-SOURCES-MATERIALS",
+          "move_type": "materials",
+          "planned_function": "Identify the source base, corpus or case material with editions, archives, versions and the registered source identities.",
+          "authority_groups": ["design", "scope"]
+        },
+        {
+          "move_id": "MOVE-SOURCES-SELECTION",
+          "move_type": "source_selection",
+          "planned_function": "Justify why these materials answer the question, what they cover, what they are silent on, and how survival or selection bias is handled.",
+          "authority_groups": ["design", "scope"]
+        },
+        {
+          "move_id": "MOVE-SOURCES-CRITICISM",
+          "move_type": "source_criticism",
+          "planned_function": "State how authorship, dating, transmission, editions, genre conventions and author intent were assessed and how conflicting sources are weighed.",
+          "authority_groups": ["design"]
+        },
+        {
+          "move_id": "MOVE-SOURCES-METHOD",
+          "move_type": "analytical_procedure",
+          "planned_function": "Explain the procedure that turns sources into evidence for each sub-claim: close reading rules, conceptual-history method, comparative or process logic, or normative reasoning chain.",
+          "authority_groups": ["research_question", "claims", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-SOURCES-SCOPE",
+          "move_type": "inference_scope",
+          "planned_function": "State what the sources and procedure can and cannot establish.",
+          "authority_groups": ["design", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-ANALYSIS",
+      "semantic_role": "analysis",
+      "prose_packet_role": "findings",
+      "section_family": "evidence_production",
+      "display_heading": "Analysis",
+      "reader_state_before_id": "RS-SOURCES",
+      "reader_state_before": [
+        "The reader can judge whether the sources and procedure are adequate to the question and knows the inference ceiling."
+      ],
+      "reader_question": "What do the sources and reasoning actually establish, anchored where, and how do the rival readings fare?",
+      "required_update": [
+        "Recover each registered argument outcome, the exact source or textual anchors that carry it, the disposition of rival readings, its substantive meaning, and its boundary."
+      ],
+      "reader_state_after_id": "RS-ANALYSIS",
+      "reader_state_after": [
+        "The reader knows what the argument establishes, on which anchors, against which rivals, and within what boundary."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-ANALYSIS-QUESTION",
+          "move_type": "analysis_question",
+          "planned_function": "Reconnect the analysis to the exact question and the sub-claim under examination before presenting evidence.",
+          "authority_groups": ["research_question", "claims"]
+        },
+        {
+          "move_id": "MOVE-ANALYSIS-CORE",
+          "move_type": "core_argument",
+          "planned_function": "State the registered argument outcome for each sub-claim at its warranted strength.",
+          "authority_groups": ["claims", "results", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-ANALYSIS-EVIDENCE",
+          "move_type": "evidence_anchor",
+          "planned_function": "Anchor every load-bearing step in cited sources, passages or cases with edition and location, quoted faithfully and read in context.",
+          "authority_groups": ["results", "design"]
+        },
+        {
+          "move_id": "MOVE-ANALYSIS-OBJECTIONS",
+          "move_type": "objection_disposition",
+          "planned_function": "Confront the strongest rival readings and counter-evidence on the sources themselves and record what survives.",
+          "authority_groups": ["claims", "results", "design", "literature"]
+        },
+        {
+          "move_id": "MOVE-ANALYSIS-MEANING",
+          "move_type": "substantive_meaning",
+          "planned_function": "Explain what the established reading means for the question rather than restating the evidence.",
+          "authority_groups": ["research_question", "claims", "results"]
+        },
+        {
+          "move_id": "MOVE-ANALYSIS-BOUNDARY",
+          "move_type": "argument_boundary",
+          "planned_function": "State the temporal, textual, institutional or normative boundary of each outcome.",
+          "authority_groups": ["claims", "results", "design", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-DISCUSSION",
+      "semantic_role": "discussion",
+      "prose_packet_role": "discussion",
+      "section_family": "interpretive_update",
+      "display_heading": "Discussion",
+      "reader_state_before_id": "RS-ANALYSIS",
+      "reader_state_before": [
+        "The reader knows what the argument establishes, on which anchors, against which rivals, and within what boundary."
+      ],
+      "reader_question": "How does the established reading change the literature, the concepts or theory, and the warranted scope?",
+      "required_update": [
+        "Recover the argument recap, the literature update, the conceptual or theoretical update, the disposition of remaining alternatives, the scope update, and the delivered contribution."
+      ],
+      "reader_state_after_id": "RS-DISCUSSION",
+      "reader_state_after": [
+        "The reader can state how the paper updates the literature, the concepts or theory, and the warranted scope."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-DISCUSSION-RESULT",
+          "move_type": "argument_recap",
+          "planned_function": "Recap the established outcomes at their registered strength.",
+          "authority_groups": ["claims", "results", "scope"]
+        },
+        {
+          "move_id": "MOVE-DISCUSSION-LITERATURE",
+          "move_type": "literature_update",
+          "planned_function": "State which readings or positions are confirmed, corrected, or displaced.",
+          "authority_groups": ["literature", "claims", "results"]
+        },
+        {
+          "move_id": "MOVE-DISCUSSION-THEORY",
+          "move_type": "theory_update",
+          "planned_function": "State the conceptual, theoretical or normative update the evidence warrants.",
+          "authority_groups": ["claims", "results", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-DISCUSSION-ALTERNATIVES",
+          "move_type": "alternative_disposition",
+          "planned_function": "Dispose of the remaining rival readings and say which cannot be excluded on the available sources.",
+          "authority_groups": ["claims", "results", "design", "literature"]
+        },
+        {
+          "move_id": "MOVE-DISCUSSION-SCOPE",
+          "move_type": "scope_update",
+          "planned_function": "Update the warranted scope: which periods, texts, institutions or cases the reading extends to and which it does not.",
+          "authority_groups": ["claims", "results", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-DISCUSSION-CONTRIBUTION",
+          "move_type": "contribution_delivery",
+          "planned_function": "Deliver the promised contribution in the form the evidence supports.",
+          "authority_groups": ["contribution", "claims", "results", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-CONCLUSION",
+      "semantic_role": "conclusion",
+      "prose_packet_role": "conclusion",
+      "section_family": "interpretive_update",
+      "display_heading": "Conclusion",
+      "reader_state_before_id": "RS-DISCUSSION",
+      "reader_state_before": [
+        "The reader can state how the paper updates the literature, the concepts or theory, and the warranted scope."
+      ],
+      "reader_question": "What is the bounded answer, on what evidence, with what contribution, and what remains open?",
+      "required_update": [
+        "Recover the bounded answer, the compressed evidence path, the contribution, the boundary, and the next question."
+      ],
+      "reader_state_after_id": "RS-CONCLUSION",
+      "reader_state_after": [
+        "The reader can recover the question, answer, evidence path, contribution, and warranted scope."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-CONCLUSION-ANSWER",
+          "move_type": "research_answer",
+          "planned_function": "Answer the exact question at the registered strength.",
+          "authority_groups": ["research_question", "claims", "results", "scope"]
+        },
+        {
+          "move_id": "MOVE-CONCLUSION-EVIDENCE",
+          "move_type": "evidence_compression",
+          "planned_function": "Compress the sources and reasoning that carry the answer.",
+          "authority_groups": ["results", "design"]
+        },
+        {
+          "move_id": "MOVE-CONCLUSION-CONTRIBUTION",
+          "move_type": "contribution",
+          "planned_function": "State the delivered contribution without inflating it into a new theory or a generic significance claim.",
+          "authority_groups": ["contribution", "claims", "results"]
+        },
+        {
+          "move_id": "MOVE-CONCLUSION-BOUNDARY",
+          "move_type": "boundary",
+          "planned_function": "State the boundary of the answer and the readings that remain possible.",
+          "authority_groups": ["claims", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-CONCLUSION-NEXT",
+          "move_type": "next_question",
+          "planned_function": "Name the next question the evidence makes askable.",
+          "authority_groups": ["results", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-SUPPORT",
+      "semantic_role": "supporting_expression",
+      "prose_packet_role": "findings",
+      "section_family": "supporting_expression",
+      "display_heading": "Notes, Source Tables and Appendices",
+      "reader_state_before_id": "RS-CONCLUSION",
+      "reader_state_before": [
+        "The reader can recover the question, answer, evidence path, contribution, and warranted scope."
+      ],
+      "reader_question": "Where can each cited source, chronology, glossary or appendix be checked, and how does it connect to the argument?",
+      "required_update": [
+        "Recover the citation apparatus, source tables, chronologies, glossaries or appendices and their cross-references to the analysis."
+      ],
+      "reader_state_after_id": "RS-FINAL",
+      "reader_state_after": [
+        "The reader can recover the question, the thesis, the sources and reasoning that carry it, the disposition of rival readings, the contribution, and the warranted scope."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-SUPPORT-IDENTITY",
+          "move_type": "source_apparatus_identity",
+          "planned_function": "Identify the notes, source tables, chronologies, glossaries or appendices that carry checkable evidence.",
+          "authority_groups": ["results", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-SUPPORT-NOTES",
+          "move_type": "supporting_notes",
+          "planned_function": "Provide edition, location, translation and transcription notes for cited sources.",
+          "authority_groups": ["design", "results", "scope"]
+        },
+        {
+          "move_id": "MOVE-SUPPORT-CROSSREF",
+          "move_type": "cross_references",
+          "planned_function": "Cross-reference each supporting item to the analysis step it supports.",
+          "authority_groups": ["design", "results"]
+        }
+      ]
+    }
+  ],
+  "sync_requirements": {
+    "research_question": ["abstract", "introduction", "analysis", "conclusion"],
+    "claims": ["title", "abstract", "introduction", "literature_theory", "analysis", "discussion", "conclusion"],
+    "design": ["abstract", "introduction", "sources_approach", "analysis"],
+    "results": ["abstract", "introduction", "analysis", "discussion", "conclusion", "supporting_expression"],
+    "contribution": ["abstract", "introduction", "discussion", "conclusion"],
+    "scope": ["title", "abstract", "introduction", "sources_approach", "analysis", "discussion", "conclusion", "supporting_expression"]
+  },
+  "claim_lifecycle": {
+    "introduced": ["MOVE-INTRO-ANSWER"],
+    "motivated": ["MOVE-LIT-GAP-TRANSITION"],
+    "specified": ["MOVE-THEORY-FRAME", "MOVE-THEORY-ARGUMENT"],
+    "operationalized": ["MOVE-SOURCES-METHOD"],
+    "evaluated": ["MOVE-ANALYSIS-CORE"],
+    "interpreted": ["MOVE-DISCUSSION-THEORY"],
+    "summarized": ["MOVE-ABSTRACT-RESULT", "MOVE-CONCLUSION-ANSWER"]
+  },
+  "promise_templates": [
+    {
+      "promise_id": "PROMISE-ANSWER",
+      "promise_type": "answer",
+      "source_move_ref": "MOVE-INTRO-ANSWER",
+      "authority_groups": ["research_question", "claims", "results", "scope"],
+      "delivery_move_refs": ["MOVE-ANALYSIS-CORE", "MOVE-DISCUSSION-THEORY", "MOVE-CONCLUSION-ANSWER", "MOVE-ABSTRACT-RESULT"]
+    },
+    {
+      "promise_id": "PROMISE-APPROACH",
+      "promise_type": "approach_response",
+      "source_move_ref": "MOVE-INTRO-APPROACH",
+      "authority_groups": ["research_question", "design", "scope"],
+      "delivery_move_refs": ["MOVE-SOURCES-METHOD", "MOVE-ANALYSIS-CORE", "MOVE-ABSTRACT-APPROACH"]
+    },
+    {
+      "promise_id": "PROMISE-CONTRIBUTION",
+      "promise_type": "contribution",
+      "source_move_ref": "MOVE-INTRO-CONTRIBUTION",
+      "authority_groups": ["contribution", "claims", "results", "scope"],
+      "delivery_move_refs": ["MOVE-DISCUSSION-CONTRIBUTION", "MOVE-CONCLUSION-CONTRIBUTION", "MOVE-ABSTRACT-CONTRIBUTION"]
+    },
+    {
+      "promise_id": "PROMISE-ARGUMENT-INTERPRETATION",
+      "promise_type": "argument_interpretation",
+      "source_move_ref": "MOVE-ANALYSIS-CORE",
+      "authority_groups": ["claims", "results", "scope"],
+      "delivery_move_refs": ["MOVE-DISCUSSION-RESULT", "MOVE-DISCUSSION-THEORY", "MOVE-CONCLUSION-EVIDENCE"]
+    }
+  ],
+  "edge_templates": [
+    {"edge_id": "EDGE-001", "source_ref": "MOVE-INTRO-GAP", "target_ref": "MOVE-INTRO-QUESTION", "relation": "motivates"},
+    {"edge_id": "EDGE-002", "source_ref": "MOVE-INTRO-QUESTION", "target_ref": "MOVE-THEORY-FRAME", "relation": "defines"},
+    {"edge_id": "EDGE-003", "source_ref": "MOVE-THEORY-ARGUMENT", "target_ref": "MOVE-SOURCES-METHOD", "relation": "operationalizes"},
+    {"edge_id": "EDGE-004", "source_ref": "MOVE-SOURCES-METHOD", "target_ref": "MOVE-ANALYSIS-CORE", "relation": "supports"},
+    {"edge_id": "EDGE-005", "source_ref": "MOVE-ANALYSIS-CORE", "target_ref": "MOVE-DISCUSSION-THEORY", "relation": "updates"},
+    {"edge_id": "EDGE-006", "source_ref": "MOVE-DISCUSSION-THEORY", "target_ref": "MOVE-CONCLUSION-ANSWER", "relation": "summarizes"},
+    {"edge_id": "EDGE-007", "source_ref": "MOVE-ANALYSIS-CORE", "target_ref": "MOVE-ABSTRACT-RESULT", "relation": "summarizes"},
+    {"edge_id": "EDGE-008", "source_ref": "MOVE-ANALYSIS-EVIDENCE", "target_ref": "MOVE-SUPPORT-IDENTITY", "relation": "visualizes"},
+    {"edge_id": "EDGE-009", "source_ref": "MOVE-INTRO-CONTRIBUTION", "target_ref": "MOVE-DISCUSSION-CONTRIBUTION", "relation": "supports"},
+    {"edge_id": "EDGE-010", "source_ref": "MOVE-DISCUSSION-SCOPE", "target_ref": "MOVE-CONCLUSION-BOUNDARY", "relation": "qualifies"},
+    {"edge_id": "EDGE-011", "source_ref": "MOVE-ANALYSIS-CORE", "target_ref": "MOVE-CONCLUSION-EVIDENCE", "relation": "summarizes"},
+    {"edge_id": "EDGE-012", "source_ref": "MOVE-SOURCES-METHOD", "target_ref": "MOVE-ABSTRACT-APPROACH", "relation": "summarizes"},
+    {"edge_id": "EDGE-013", "source_ref": "MOVE-THEORY-ALTERNATIVES", "target_ref": "MOVE-ANALYSIS-OBJECTIONS", "relation": "qualifies"},
+    {"edge_id": "EDGE-014", "source_ref": "MOVE-SOURCES-CRITICISM", "target_ref": "MOVE-ANALYSIS-EVIDENCE", "relation": "qualifies"}
+  ]
+}

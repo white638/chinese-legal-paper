@@ -1,0 +1,4 @@
+interface:
+  display_name: "AERS Thematic Analysis"
+  short_description: "Thematic analysis workflow support"
+  default_prompt: "Use $aers-thematic-analysis to run the appropriate workflow."

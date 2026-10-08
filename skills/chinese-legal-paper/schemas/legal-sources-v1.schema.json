@@ -1,0 +1,325 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:chinese-legal-paper:sources:v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "legal-sources/v1"
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "legal_sources",
+        "literature_only"
+      ]
+    },
+    "scope_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "version_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "statute",
+              "regulation",
+              "judicial_interpretation",
+              "policy",
+              "case",
+              "case_summary",
+              "scholarship",
+              "historical"
+            ]
+          },
+          "jurisdiction": {
+            "type": "string",
+            "minLength": 1
+          },
+          "authority": {
+            "type": "object",
+            "properties": {
+              "issuer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "level": {
+                "type": "string",
+                "minLength": 1
+              },
+              "document_number": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "issuer",
+              "level",
+              "document_number"
+            ],
+            "additionalProperties": false
+          },
+          "representation": {
+            "type": "string",
+            "enum": [
+              "official_text",
+              "court_document",
+              "publisher_text",
+              "editorial_summary",
+              "secondary_quote"
+            ]
+          },
+          "identity_review": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "verified"
+                ]
+              },
+              "reviewer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reviewed_at": {
+                "type": "string",
+                "format": "date"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "basis": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "status",
+              "reviewer",
+              "reviewed_at",
+              "reason",
+              "basis"
+            ],
+            "additionalProperties": false
+          },
+          "access": {
+            "type": "object",
+            "properties": {
+              "level": {
+                "type": "string",
+                "enum": [
+                  "metadata",
+                  "abstract",
+                  "partial",
+                  "fulltext"
+                ]
+              },
+              "permission": {
+                "type": "string",
+                "enum": [
+                  "public",
+                  "licensed",
+                  "user_provided",
+                  "unknown"
+                ]
+              },
+              "basis": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "level",
+              "permission",
+              "basis"
+            ],
+            "additionalProperties": false
+          },
+          "temporal": {
+            "type": "object",
+            "properties": {
+              "promulgated": {
+                "type": "string",
+                "format": "date"
+              },
+              "effective_from": {
+                "type": "string",
+                "format": "date"
+              },
+              "effective_to": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "current",
+                  "repealed",
+                  "amended",
+                  "not_yet_effective",
+                  "historical",
+                  "unknown"
+                ]
+              },
+              "checked_at": {
+                "type": "string",
+                "format": "date"
+              },
+              "basis": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "status",
+              "checked_at",
+              "basis"
+            ],
+            "additionalProperties": false
+          },
+          "case": {
+            "type": "object",
+            "properties": {
+              "court": {
+                "type": "string",
+                "minLength": 1
+              },
+              "case_number": {
+                "type": "string",
+                "minLength": 1
+              },
+              "procedure": {
+                "type": "string",
+                "minLength": 1
+              },
+              "decided_at": {
+                "type": "string",
+                "format": "date"
+              },
+              "related_source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0
+              },
+              "finality": {
+                "type": "string",
+                "enum": [
+                  "final",
+                  "appealable",
+                  "unknown"
+                ]
+              },
+              "document_type": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "court",
+              "case_number",
+              "procedure",
+              "decided_at",
+              "related_source_ids",
+              "finality",
+              "document_type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "source_id",
+          "source_digest",
+          "version_id",
+          "kind",
+          "jurisdiction",
+          "representation",
+          "identity_review",
+          "access"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "scope",
+    "scope_reason",
+    "sources"
+  ],
+  "additionalProperties": false
+}

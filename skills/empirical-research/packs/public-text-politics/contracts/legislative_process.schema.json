@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/public-text-politics/legislative-process-v1.schema.json",
+  "title": "Legislative process supplemental profile contract",
+  "x-profile-contract-role": "supplement-over-core-method-contract",
+  "x-core-method-contract-id": "event-history/v1",
+  "type": "object",
+  "required": ["schema_version", "profile_id", "corpus", "bill_family", "units", "risk_set", "events", "model", "interpretation"],
+  "properties": {
+    "schema_version": {"const": "avereth-public-text-politics/legislative-process/v1"},
+    "profile_id": {"const": "legislative_process"},
+    "corpus": {"$ref": "#/$defs/artifact"},
+    "bill_family": {
+      "type": "object",
+      "required": ["identity_rules", "mapping", "version_deduplication"],
+      "properties": {
+        "identity_rules": {"type": "string", "minLength": 20},
+        "mapping": {"$ref": "#/$defs/artifact"},
+        "version_deduplication": {"const": true, "x-error-code": "PTP.LEGISLATIVE.DUPLICATE_FAMILY"}
+      },
+      "additionalProperties": false
+    },
+    "units": {
+      "type": "object",
+      "required": ["risk_unit", "cluster_level"],
+      "properties": {
+        "risk_unit": {"const": "bill_family_id", "x-error-code": "PTP.LEGISLATIVE.EFFECTIVE_N"},
+        "cluster_level": {"enum": ["bill_family_id", "legislative_session", "sponsor_id"]}
+      },
+      "additionalProperties": false
+    },
+    "risk_set": {
+      "type": "object",
+      "required": ["event_history", "start_field", "end_field", "session_end_field", "censoring_rule"],
+      "properties": {
+        "event_history": {"$ref": "#/$defs/artifact"},
+        "start_field": {"type": "string", "minLength": 2},
+        "end_field": {"type": "string", "minLength": 2},
+        "session_end_field": {"type": "string", "minLength": 2},
+        "censoring_rule": {"const": "right_censor_at_session_end", "x-error-code": "PTP.LEGISLATIVE.CENSORING"}
+      },
+      "additionalProperties": false
+    },
+    "events": {
+      "type": "object",
+      "required": ["first_substantive_action", "competing_risks", "legal_forms"],
+      "properties": {
+        "first_substantive_action": {"type": "string", "minLength": 10},
+        "competing_risks": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "minLength": 2}, "x-error-code": "PTP.LEGISLATIVE.COMPETING_RISKS"},
+        "legal_forms": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 2}}
+      },
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "required": ["model_family", "time_varying_covariates", "output", "diagnostics", "sensitivity"],
+      "properties": {
+        "model_family": {"enum": ["event_history", "competing_risks", "multi_state"]},
+        "time_varying_covariates": {"$ref": "#/$defs/artifact"},
+        "output": {"$ref": "#/$defs/artifact"},
+        "diagnostics": {"$ref": "#/$defs/artifact"},
+        "sensitivity": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "interpretation": {"$ref": "#/$defs/interpretation"}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "string",
+      "pattern": "^ART-[A-Z0-9][A-Z0-9_-]*$",
+      "x-error-code": "PTP.ARTIFACT.ID"
+    },
+    "interpretation": {
+      "type": "object",
+      "required": ["allowed", "prohibited"],
+      "properties": {
+        "allowed": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}},
+        "prohibited": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNKI Advanced Search"
+  short_description: "Precise CNKI filtered search workflow"
+  default_prompt: "Use $cnki-advanced-search to run the appropriate workflow."

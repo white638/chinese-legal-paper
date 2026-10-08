@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper1.local/schemas/cnki-manuscript-revision-v1.schema.json",
+  "title": "CNKI-Paper controlled manuscript revision v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "baseline",
+    "requested_changes",
+    "affected_identities",
+    "earliest_reopen_stage",
+    "assurance_level",
+    "authorization"
+  ],
+  "properties": {
+    "schema_version": {"const": "cnki-manuscript-revision/v1"},
+    "baseline": {
+      "type": "object",
+      "required": ["kind", "path", "snapshot_path", "sha256"],
+      "properties": {
+        "kind": {"enum": ["workspace", "standalone"]},
+        "path": {"type": "string", "minLength": 1},
+        "snapshot_path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "requested_changes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["change_id", "summary", "change_class"],
+        "properties": {
+          "change_id": {"type": "string", "minLength": 1},
+          "summary": {"type": "string", "minLength": 1},
+          "change_class": {"enum": ["surface", "argument", "evidence", "design", "execution"]}
+        }
+      }
+    },
+    "affected_identities": {
+      "type": "object",
+      "required": [
+        "source_ids",
+        "claim_ids",
+        "design_ids",
+        "execution_ids",
+        "manuscript_units"
+      ],
+      "properties": {
+        "source_ids": {"$ref": "#/$defs/identityList"},
+        "claim_ids": {"$ref": "#/$defs/identityList"},
+        "design_ids": {"$ref": "#/$defs/identityList"},
+        "execution_ids": {"$ref": "#/$defs/identityList"},
+        "manuscript_units": {"$ref": "#/$defs/identityList"}
+      },
+      "additionalProperties": false
+    },
+    "earliest_reopen_stage": {"enum": ["research", "design", "execution", "build"]},
+    "assurance_level": {"enum": ["full", "reconstructed", "legacy_limited"]},
+    "authorization": {"type": "object"}
+  },
+  "$defs": {
+    "identityList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "additionalProperties": true
+}

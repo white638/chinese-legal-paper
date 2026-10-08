@@ -1,0 +1,55 @@
+{
+  "schema_version": "avereth-exhibit-style/v1",
+  "id": "international-polisci-econ",
+  "width_inches": 6.5,
+  "height_inches": 4.2,
+  "min_font_pt": 9,
+  "dpi": 320,
+  "max_series": 4,
+  "palette": [
+    "#111111",
+    "#5C5C5C",
+    "#1F5A94",
+    "#9A9A9A"
+  ],
+  "line_types": [
+    "solid",
+    "dashed",
+    "dotted",
+    "dotdash"
+  ],
+  "markers": [
+    16,
+    17,
+    15,
+    18
+  ],
+  "fonts": {
+    "base": "Liberation Serif"
+  },
+  "font_fallbacks": {
+    "base": [
+      "Times New Roman",
+      "TeX Gyre Termes",
+      "DejaVu Serif"
+    ]
+  },
+  "labels": {
+    "relative_period": "Relative period",
+    "term": "Variable",
+    "observations": "Observations",
+    "note": "Note",
+    "series_separator": " / ",
+    "estimand": "Estimand",
+    "unit_label": "Unit",
+    "vcov": "Standard errors",
+    "cluster": "Clustered by",
+    "ci": "Confidence level",
+    "se_in_parentheses": "Standard errors in parentheses",
+    "ci_in_brackets": "Confidence intervals in brackets"
+  },
+  "grayscale_required": true,
+  "vector_required": true,
+  "caption_location": "manuscript",
+  "plot_title": false
+}

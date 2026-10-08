@@ -1,0 +1,146 @@
+{
+  "schema_version": "avereth-agent-spec-manifest/v1",
+  "agents": [
+    {
+      "name": "avereth",
+      "source": "avereth.agent.toml",
+      "phrases": [
+        "`cnki-paper` owns workflow semantics",
+        "controller, gates and current receipts",
+        "cnki-paper SKILL.md",
+        "existing explicit authorization",
+        "primary_thread_action_required",
+        "Do not fabricate sources, results, checks or consent",
+        "validated ProsePacket",
+        "protected atoms",
+        "outside the writing context"
+      ]
+    },
+    {
+      "name": "avereth_writer",
+      "source": "avereth_writer.agent.toml",
+      "phrases": [
+        "avereth-commonplace-packet/v1",
+        "validated dual-packet dispatch",
+        "prose_conditioning=auto",
+        "explicit `commonplace`",
+        "control-side retrieval records",
+        "Do not silently discard a required packet",
+        "language conditioning only",
+        "untrusted source material",
+        "avereth-prose-packet/v2",
+        "read exactly that file",
+        "do not browse",
+        "return only the manuscript prose",
+        "do not edit files",
+        "canonical proposition",
+        "protected atoms",
+        "evidence_function",
+        "single_full_statement",
+        "evidence_items",
+        "realization_mode=verbatim"
+      ]
+    },
+    {
+      "name": "avereth_compressor",
+      "source": "avereth_compressor.agent.toml",
+      "phrases": [
+        "avereth-prose-packet/v2",
+        "clarity editor",
+        "delete",
+        "replace",
+        "move",
+        "bridge",
+        "define",
+        "avereth-clarity-edit-ledger/v1",
+        "prose_delta",
+        "no_inference_strengthening",
+        "do not edit files",
+        "soft diagnostics"
+      ]
+    },
+    {
+      "name": "avereth_methods",
+      "source": "avereth_methods.agent.toml",
+      "phrases": [
+        "review_prompts/methods_reviewer.md",
+        "review_prompts/methods_review_output.md",
+        "do not read any other reviewer",
+        "do not browse",
+        "edit files",
+        "return only"
+      ]
+    },
+    {
+      "name": "avereth_contribution",
+      "source": "avereth_contribution.agent.toml",
+      "phrases": [
+        "review_prompts/contribution_reviewer.md",
+        "review_prompts/contribution_review_output.md",
+        "do not read any other reviewer",
+        "do not browse",
+        "edit files",
+        "return only"
+      ]
+    },
+    {
+      "name": "avereth_clarity",
+      "source": "avereth_clarity.agent.toml",
+      "phrases": [
+        "review_prompts/clarity_reviewer.md",
+        "review_prompts/clarity_review_output.md",
+        "do not read any other reviewer",
+        "do not browse",
+        "edit files",
+        "return only",
+        "clean read",
+        "what happened",
+        "sequence of comments"
+      ]
+    },
+    {
+      "name": "avereth_researcher",
+      "source": "avereth_researcher.agent.toml",
+      "phrases": [
+        "neutral role",
+        "frozen input scope",
+        "avereth-research-artifact/v1",
+        "item_id",
+        "evidence_locator",
+        "do not add an identity statement",
+        "do not browse",
+        "do not edit files",
+        "entire response"
+      ]
+    },
+    {
+      "name": "avereth_adjudicator",
+      "source": "avereth_adjudicator.agent.toml",
+      "phrases": [
+        "adjudicator",
+        "sealed first-output",
+        "disagreement",
+        "avereth-research-artifact/v1",
+        "evidence_locator",
+        "do not add an identity statement",
+        "do not browse",
+        "do not edit files",
+        "entire response"
+      ]
+    },
+    {
+      "name": "avereth_scout",
+      "source": "avereth_scout.agent.toml",
+      "phrases": [
+        "primary search broker",
+        "public_task",
+        "unverified_candidate",
+        "fresh context",
+        "do not browse",
+        "do not edit files",
+        "do not spawn",
+        "candidate"
+      ]
+    }
+  ]
+}

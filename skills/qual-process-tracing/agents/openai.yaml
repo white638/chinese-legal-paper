@@ -1,0 +1,4 @@
+interface:
+  display_name: "Qual Process Tracing"
+  short_description: "Process tracing evidence workflow"
+  default_prompt: "Use $qual-process-tracing to run the appropriate workflow."

@@ -1,0 +1,574 @@
+{
+  "schema_version": "avereth-manuscript-profile/v1",
+  "profile_id": "empirical-social-science",
+  "profile_version": "1.1.0",
+  "compatible_contract_versions": ["1.0.0", "1.1.0"],
+  "description": "A single build-stage manuscript graph for empirical social-science papers. Section headings remain presentation choices; semantic roles and move identities carry the contract.",
+  "initial_reader_state": [
+    "The reader can identify the broad research domain but cannot yet recover this paper's exact question."
+  ],
+  "final_reader_update": [
+    "The reader can recover the question, answer, evidence path, contribution, and warranted scope."
+  ],
+  "central_throughline": "question -> literature position -> explanation -> design -> evidence -> judgment -> theoretical update -> bounded conclusion",
+  "rhetorical_architecture": {
+    "distinguished_thought_move_types": [
+      "literature_clusters",
+      "gap_transition",
+      "core_finding",
+      "substantive_meaning",
+      "literature_update",
+      "theory_update",
+      "research_answer"
+    ],
+    "epistemic_hook_max_section_distance": 3,
+    "verified_scene_optional": true,
+    "title_resonance_optional": true
+  },
+  "scientific_commitment_order": [
+    "research_question",
+    "claim",
+    "design",
+    "execution",
+    "result"
+  ],
+  "render_order": [
+    "data_methods",
+    "results",
+    "literature_theory",
+    "discussion",
+    "conclusion",
+    "introduction",
+    "abstract",
+    "title",
+    "supporting_expression"
+  ],
+  "sections": [
+    {
+      "section_id": "SEC-TITLE",
+      "semantic_role": "title",
+      "prose_packet_role": "abstract",
+      "section_family": "orientation",
+      "display_heading": "Title",
+      "reader_state_before_id": "RS-START",
+      "reader_state_before": [
+        "The reader can identify the broad research domain but cannot yet recover this paper's exact question."
+      ],
+      "reader_question": "What object, relationship or puzzle, and scope does this paper study?",
+      "required_update": [
+        "Identify the research object, central relationship or puzzle, and necessary scope without exceeding the inference ceiling."
+      ],
+      "reader_state_after_id": "RS-TITLE",
+      "reader_state_after": [
+        "The reader can identify the research object, central relationship or puzzle, and necessary scope."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-TITLE-IDENTITY",
+          "move_type": "title_identity",
+          "planned_function": "Compress the question, claim boundary, and scope into a searchable title.",
+          "authority_groups": ["research_question", "claims", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-ABSTRACT",
+      "semantic_role": "abstract",
+      "prose_packet_role": "abstract",
+      "section_family": "orientation",
+      "display_heading": "Abstract",
+      "reader_state_before_id": "RS-TITLE",
+      "reader_state_before": [
+        "The reader can identify the research object, central relationship or puzzle, and necessary scope."
+      ],
+      "reader_question": "What question is answered, with what design and evidence, and what is the bounded answer?",
+      "required_update": [
+        "Recover the question, design, result, contribution, and scope as a compression of the completed manuscript."
+      ],
+      "reader_state_after_id": "RS-ABSTRACT",
+      "reader_state_after": [
+        "The reader can state the paper's question, design, main result, bounded answer, and contribution."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-ABSTRACT-QUESTION",
+          "move_type": "research_question",
+          "planned_function": "State the exact research question.",
+          "authority_groups": ["research_question"]
+        },
+        {
+          "move_id": "MOVE-ABSTRACT-DESIGN",
+          "move_type": "design_compression",
+          "planned_function": "Compress the design and evidence-production route.",
+          "authority_groups": ["design", "scope"]
+        },
+        {
+          "move_id": "MOVE-ABSTRACT-RESULT",
+          "move_type": "result_compression",
+          "planned_function": "Report only registered results at their warranted strength.",
+          "authority_groups": ["claims", "results", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-ABSTRACT-CONTRIBUTION",
+          "move_type": "contribution_compression",
+          "planned_function": "State the evidence-supported reader update and contribution boundary.",
+          "authority_groups": ["contribution", "results", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-INTRO",
+      "semantic_role": "introduction",
+      "prose_packet_role": "introduction",
+      "section_family": "orientation",
+      "display_heading": "Introduction",
+      "reader_state_before_id": "RS-ABSTRACT",
+      "reader_state_before": [
+        "The reader can state the paper's question, design, main result, bounded answer, and contribution."
+      ],
+      "reader_question": "Why does this question matter, what remains unresolved, and what will this paper establish?",
+      "required_update": [
+        "Understand the motivating phenomenon, stakes, literature position, exact question, answer preview, design response, and contribution promise."
+      ],
+      "reader_state_after_id": "RS-INTRO",
+      "reader_state_after": [
+        "The reader understands why the question matters, what remains unresolved, and what the paper promises to establish."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-INTRO-PHENOMENON",
+          "move_type": "phenomenon",
+          "planned_function": "Present the load-bearing phenomenon or puzzle before author-process narration.",
+          "authority_groups": ["research_question", "scope"]
+        },
+        {
+          "move_id": "MOVE-INTRO-STAKES",
+          "move_type": "stakes",
+          "planned_function": "Explain the concrete scholarly or practical stakes of resolving the question.",
+          "authority_groups": ["research_question", "literature"]
+        },
+        {
+          "move_id": "MOVE-INTRO-LITERATURE-MAP",
+          "move_type": "literature_map",
+          "planned_function": "Locate the dominant explanations and their relationship to the current question.",
+          "authority_groups": ["literature", "research_question"]
+        },
+        {
+          "move_id": "MOVE-INTRO-GAP",
+          "move_type": "gap",
+          "planned_function": "State the precise unresolved obstruction without substituting a generic gap label.",
+          "authority_groups": ["literature", "research_question"]
+        },
+        {
+          "move_id": "MOVE-INTRO-QUESTION",
+          "move_type": "research_question",
+          "planned_function": "State the exact committed research question.",
+          "authority_groups": ["research_question"]
+        },
+        {
+          "move_id": "MOVE-INTRO-ANSWER",
+          "move_type": "answer_preview",
+          "planned_function": "Preview the evidence-calibrated answer without introducing an unregistered result.",
+          "authority_groups": ["claims", "results", "scope"]
+        },
+        {
+          "move_id": "MOVE-INTRO-DESIGN",
+          "move_type": "design_response",
+          "planned_function": "Show why the registered design can answer the stated question.",
+          "authority_groups": ["design", "research_question", "scope"]
+        },
+        {
+          "move_id": "MOVE-INTRO-CONTRIBUTION",
+          "move_type": "contribution",
+          "planned_function": "Promise only the contribution that later results and discussion can deliver.",
+          "authority_groups": ["contribution", "claims", "results", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-LIT-THEORY",
+      "semantic_role": "literature_theory",
+      "prose_packet_role": "theory",
+      "section_family": "theoretical_positioning",
+      "display_heading": "Literature and Theory",
+      "reader_state_before_id": "RS-INTRO",
+      "reader_state_before": [
+        "The reader understands why the question matters, what remains unresolved, and what the paper promises to establish."
+      ],
+      "reader_question": "How are existing explanations organized, and what mechanism or expectation does this paper specify?",
+      "required_update": [
+        "Recover the explanatory clusters, unresolved issue, concepts, mechanism, observable expectations, and strongest competing explanation."
+      ],
+      "reader_state_after_id": "RS-THEORY",
+      "reader_state_after": [
+        "The reader can distinguish existing explanations and state the paper's bounded mechanism or expectation."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-LIT-CLUSTERS",
+          "move_type": "literature_clusters",
+          "planned_function": "Organize sources by explanatory task rather than author sequence.",
+          "authority_groups": ["literature", "research_question"]
+        },
+        {
+          "move_id": "MOVE-LIT-GAP-TRANSITION",
+          "move_type": "gap_transition",
+          "planned_function": "Connect the unresolved literature problem to the committed research responsibility.",
+          "authority_groups": ["literature", "research_question", "claims"]
+        },
+        {
+          "move_id": "MOVE-THEORY-CONCEPTS",
+          "move_type": "concept_definition",
+          "planned_function": "Define the concepts needed to understand the claim and design.",
+          "authority_groups": ["claims", "design"]
+        },
+        {
+          "move_id": "MOVE-THEORY-MECHANISM",
+          "move_type": "mechanism",
+          "planned_function": "Specify the actor or structural relations, mechanism steps, conditions, and warranted inference.",
+          "authority_groups": ["claims", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-THEORY-EXPECTATIONS",
+          "move_type": "observable_expectations",
+          "planned_function": "State hypotheses, propositions, or evidence expectations appropriate to the research design.",
+          "authority_groups": ["claims", "design"]
+        },
+        {
+          "move_id": "MOVE-THEORY-ALTERNATIVES",
+          "move_type": "competing_explanations",
+          "planned_function": "Name only material alternatives that change interpretation or evidence requirements.",
+          "authority_groups": ["claims", "design", "literature"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-DATA-METHODS",
+      "semantic_role": "data_methods",
+      "prose_packet_role": "methods",
+      "section_family": "evidence_production",
+      "display_heading": "Data and Methods",
+      "reader_state_before_id": "RS-THEORY",
+      "reader_state_before": [
+        "The reader can distinguish existing explanations and state the paper's bounded mechanism or expectation."
+      ],
+      "reader_question": "What evidence was obtained, how was it produced, and why can it answer the question?",
+      "required_update": [
+        "Recover the material universe, realized sample, measurement, comparison logic, diagnostics, and inference boundary."
+      ],
+      "reader_state_after_id": "RS-METHODS",
+      "reader_state_after": [
+        "The reader can explain how the evidence was produced and what inferences the design permits."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-METHOD-MATERIALS",
+          "move_type": "materials",
+          "planned_function": "State the material universe, actual access, inclusion, exclusion, and missingness.",
+          "authority_groups": ["design", "scope"]
+        },
+        {
+          "move_id": "MOVE-METHOD-SAMPLE",
+          "move_type": "sample",
+          "planned_function": "State how the realized sample or cases were formed and what they represent.",
+          "authority_groups": ["design", "scope"]
+        },
+        {
+          "move_id": "MOVE-METHOD-MEASUREMENT",
+          "move_type": "measurement",
+          "planned_function": "Connect concepts to observable and reproducible measurements or interpretations.",
+          "authority_groups": ["claims", "design"]
+        },
+        {
+          "move_id": "MOVE-METHOD-DESIGN",
+          "move_type": "design_logic",
+          "planned_function": "Explain the comparison, counterfactual, mechanism trace, or interpretive logic in plain terms before technique names.",
+          "authority_groups": ["research_question", "claims", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-METHOD-DIAGNOSTICS",
+          "move_type": "diagnostics",
+          "planned_function": "Tie each diagnostic or sensitivity analysis to a concrete threat.",
+          "authority_groups": ["design"]
+        },
+        {
+          "move_id": "MOVE-METHOD-SCOPE",
+          "move_type": "inference_scope",
+          "planned_function": "State the positive population, time, space, and inference boundary.",
+          "authority_groups": ["design", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-RESULTS",
+      "semantic_role": "results",
+      "prose_packet_role": "findings",
+      "section_family": "evidence_production",
+      "display_heading": "Results",
+      "reader_state_before_id": "RS-METHODS",
+      "reader_state_before": [
+        "The reader can explain how the evidence was produced and what inferences the design permits."
+      ],
+      "reader_question": "What did the registered evidence show, with what direction, magnitude, uncertainty, and boundary?",
+      "required_update": [
+        "Recover each result's question, finding, direction or magnitude, uncertainty, evidence location, substantive meaning, and boundary."
+      ],
+      "reader_state_after_id": "RS-RESULTS",
+      "reader_state_after": [
+        "The reader can state the registered findings and distinguish evidence from interpretation."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-RESULTS-QUESTION",
+          "move_type": "result_question",
+          "planned_function": "State the question answered by the result unit.",
+          "authority_groups": ["research_question", "claims"]
+        },
+        {
+          "move_id": "MOVE-RESULTS-CORE",
+          "move_type": "core_finding",
+          "planned_function": "State the registered finding before model or table chronology.",
+          "authority_groups": ["claims", "results", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-RESULTS-MAGNITUDE",
+          "move_type": "direction_magnitude",
+          "planned_function": "Report direction, magnitude, or qualitative pattern exactly as registered.",
+          "authority_groups": ["claims", "results"]
+        },
+        {
+          "move_id": "MOVE-RESULTS-UNCERTAINTY",
+          "move_type": "uncertainty",
+          "planned_function": "Report the uncertainty or evidentiary strength appropriate to the design.",
+          "authority_groups": ["results", "design"]
+        },
+        {
+          "move_id": "MOVE-RESULTS-EVIDENCE",
+          "move_type": "evidence_anchor",
+          "planned_function": "Bind the finding to the registered table, figure, quotation, trace, or artifact.",
+          "authority_groups": ["results", "design"]
+        },
+        {
+          "move_id": "MOVE-RESULTS-MEANING",
+          "move_type": "substantive_meaning",
+          "planned_function": "Explain what the finding means for the current question without theoretical overreach.",
+          "authority_groups": ["research_question", "claims", "results"]
+        },
+        {
+          "move_id": "MOVE-RESULTS-BOUNDARY",
+          "move_type": "result_boundary",
+          "planned_function": "State only the boundary that changes the result's permitted interpretation.",
+          "authority_groups": ["claims", "results", "design", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-DISCUSSION",
+      "semantic_role": "discussion",
+      "prose_packet_role": "discussion",
+      "section_family": "interpretive_update",
+      "display_heading": "Discussion",
+      "reader_state_before_id": "RS-RESULTS",
+      "reader_state_before": [
+        "The reader can state the registered findings and distinguish evidence from interpretation."
+      ],
+      "reader_question": "What existing understanding is supported, revised, limited, or displaced by the results?",
+      "required_update": [
+        "Understand the relation to existing explanations, theoretical update, alternative explanation disposition, scope, and delivered contribution."
+      ],
+      "reader_state_after_id": "RS-DISCUSSION",
+      "reader_state_after": [
+        "The reader can explain what understanding changed, why, and within what boundary."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-DISCUSSION-RESULT",
+          "move_type": "result_recap",
+          "planned_function": "Recall only the result needed for interpretation, not the full results sequence.",
+          "authority_groups": ["claims", "results", "scope"]
+        },
+        {
+          "move_id": "MOVE-DISCUSSION-LITERATURE",
+          "move_type": "literature_update",
+          "planned_function": "Relate the result to existing explanations and unresolved disagreement.",
+          "authority_groups": ["literature", "claims", "results"]
+        },
+        {
+          "move_id": "MOVE-DISCUSSION-THEORY",
+          "move_type": "theory_update",
+          "planned_function": "State which theoretical judgment is supported, revised, or limited.",
+          "authority_groups": ["claims", "results", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-DISCUSSION-ALTERNATIVES",
+          "move_type": "alternative_disposition",
+          "planned_function": "Explain how material competing explanations are distinguished or retained.",
+          "authority_groups": ["claims", "results", "design", "literature"]
+        },
+        {
+          "move_id": "MOVE-DISCUSSION-SCOPE",
+          "move_type": "scope_update",
+          "planned_function": "State which judgment is limited, why, and whether the main answer changes.",
+          "authority_groups": ["claims", "results", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-DISCUSSION-CONTRIBUTION",
+          "move_type": "contribution_delivery",
+          "planned_function": "Deliver the contribution promised in the introduction using the registered result and update.",
+          "authority_groups": ["contribution", "claims", "results", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-CONCLUSION",
+      "semantic_role": "conclusion",
+      "prose_packet_role": "conclusion",
+      "section_family": "interpretive_update",
+      "display_heading": "Conclusion",
+      "reader_state_before_id": "RS-DISCUSSION",
+      "reader_state_before": [
+        "The reader can explain what understanding changed, why, and within what boundary."
+      ],
+      "reader_question": "What is the answer worth retaining, what evidence supports it, and where does it stop?",
+      "required_update": [
+        "Retain the exact answer, core evidence, contribution, boundary, and only the next question that follows from the results."
+      ],
+      "reader_state_after_id": "RS-CONCLUSION",
+      "reader_state_after": [
+        "The reader can recover the question, answer, evidence path, contribution, and warranted scope."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-CONCLUSION-ANSWER",
+          "move_type": "research_answer",
+          "planned_function": "Answer the exact research question at the registered inference strength.",
+          "authority_groups": ["research_question", "claims", "results", "scope"]
+        },
+        {
+          "move_id": "MOVE-CONCLUSION-EVIDENCE",
+          "move_type": "evidence_compression",
+          "planned_function": "Compress the decisive evidence without introducing a new result.",
+          "authority_groups": ["results", "design"]
+        },
+        {
+          "move_id": "MOVE-CONCLUSION-CONTRIBUTION",
+          "move_type": "contribution",
+          "planned_function": "State the delivered theoretical or substantive contribution.",
+          "authority_groups": ["contribution", "claims", "results"]
+        },
+        {
+          "move_id": "MOVE-CONCLUSION-BOUNDARY",
+          "move_type": "boundary",
+          "planned_function": "State the positive scope and the boundary that changes the final answer.",
+          "authority_groups": ["claims", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-CONCLUSION-NEXT",
+          "move_type": "next_question",
+          "planned_function": "Name only a follow-up question that arises from a registered result or boundary.",
+          "authority_groups": ["results", "scope"]
+        }
+      ]
+    },
+    {
+      "section_id": "SEC-SUPPORT",
+      "semantic_role": "supporting_expression",
+      "prose_packet_role": "findings",
+      "section_family": "supporting_expression",
+      "display_heading": "Tables, Figures, and Supporting Material",
+      "reader_state_before_id": "RS-CONCLUSION",
+      "reader_state_before": [
+        "The reader can recover the question, answer, evidence path, contribution, and warranted scope."
+      ],
+      "reader_question": "Can the manuscript's claims, quantities, units, and cross-references be independently checked?",
+      "required_update": [
+        "Verify that tables, figures, notes, appendices, and cross-references carry the same result, design, and scope identities as the prose."
+      ],
+      "reader_state_after_id": "RS-FINAL",
+      "reader_state_after": [
+        "The reader can recover the question, answer, evidence path, contribution, and warranted scope."
+      ],
+      "required_moves": [
+        {
+          "move_id": "MOVE-SUPPORT-IDENTITY",
+          "move_type": "figure_table_identity",
+          "planned_function": "Keep table and figure result identities, quantities, units, and directions synchronized with the prose.",
+          "authority_groups": ["results", "design", "scope"]
+        },
+        {
+          "move_id": "MOVE-SUPPORT-NOTES",
+          "move_type": "supporting_notes",
+          "planned_function": "Carry reproducibility and bounded detail without creating a new main claim.",
+          "authority_groups": ["design", "results", "scope"]
+        },
+        {
+          "move_id": "MOVE-SUPPORT-CROSSREF",
+          "move_type": "cross_references",
+          "planned_function": "Keep section, table, figure, appendix, and note references resolvable.",
+          "authority_groups": ["design", "results"]
+        }
+      ]
+    }
+  ],
+  "sync_requirements": {
+    "research_question": ["abstract", "introduction", "results", "conclusion"],
+    "claims": ["title", "abstract", "introduction", "literature_theory", "results", "discussion", "conclusion"],
+    "design": ["abstract", "introduction", "data_methods", "results"],
+    "results": ["abstract", "introduction", "results", "discussion", "conclusion", "supporting_expression"],
+    "contribution": ["abstract", "introduction", "discussion", "conclusion"],
+    "scope": ["title", "abstract", "introduction", "data_methods", "results", "discussion", "conclusion", "supporting_expression"]
+  },
+  "claim_lifecycle": {
+    "introduced": ["MOVE-INTRO-ANSWER"],
+    "motivated": ["MOVE-LIT-GAP-TRANSITION"],
+    "specified": ["MOVE-THEORY-MECHANISM", "MOVE-THEORY-EXPECTATIONS"],
+    "operationalized": ["MOVE-METHOD-MEASUREMENT", "MOVE-METHOD-DESIGN"],
+    "evaluated": ["MOVE-RESULTS-CORE"],
+    "interpreted": ["MOVE-DISCUSSION-THEORY"],
+    "summarized": ["MOVE-ABSTRACT-RESULT", "MOVE-CONCLUSION-ANSWER"]
+  },
+  "promise_templates": [
+    {
+      "promise_id": "PROMISE-ANSWER",
+      "promise_type": "answer",
+      "source_move_ref": "MOVE-INTRO-ANSWER",
+      "authority_groups": ["research_question", "claims", "results", "scope"],
+      "delivery_move_refs": ["MOVE-RESULTS-CORE", "MOVE-DISCUSSION-THEORY", "MOVE-CONCLUSION-ANSWER", "MOVE-ABSTRACT-RESULT"]
+    },
+    {
+      "promise_id": "PROMISE-DESIGN",
+      "promise_type": "design_response",
+      "source_move_ref": "MOVE-INTRO-DESIGN",
+      "authority_groups": ["research_question", "design", "scope"],
+      "delivery_move_refs": ["MOVE-METHOD-DESIGN", "MOVE-RESULTS-CORE", "MOVE-ABSTRACT-DESIGN"]
+    },
+    {
+      "promise_id": "PROMISE-CONTRIBUTION",
+      "promise_type": "contribution",
+      "source_move_ref": "MOVE-INTRO-CONTRIBUTION",
+      "authority_groups": ["contribution", "claims", "results", "scope"],
+      "delivery_move_refs": ["MOVE-DISCUSSION-CONTRIBUTION", "MOVE-CONCLUSION-CONTRIBUTION", "MOVE-ABSTRACT-CONTRIBUTION"]
+    },
+    {
+      "promise_id": "PROMISE-RESULT-INTERPRETATION",
+      "promise_type": "result_interpretation",
+      "source_move_ref": "MOVE-RESULTS-CORE",
+      "authority_groups": ["claims", "results", "scope"],
+      "delivery_move_refs": ["MOVE-DISCUSSION-RESULT", "MOVE-DISCUSSION-THEORY", "MOVE-CONCLUSION-EVIDENCE"]
+    }
+  ],
+  "edge_templates": [
+    {"edge_id": "EDGE-001", "source_ref": "MOVE-INTRO-GAP", "target_ref": "MOVE-INTRO-QUESTION", "relation": "motivates"},
+    {"edge_id": "EDGE-002", "source_ref": "MOVE-INTRO-QUESTION", "target_ref": "MOVE-THEORY-MECHANISM", "relation": "defines"},
+    {"edge_id": "EDGE-003", "source_ref": "MOVE-THEORY-EXPECTATIONS", "target_ref": "MOVE-METHOD-DESIGN", "relation": "operationalizes"},
+    {"edge_id": "EDGE-004", "source_ref": "MOVE-METHOD-DESIGN", "target_ref": "MOVE-RESULTS-CORE", "relation": "tests"},
+    {"edge_id": "EDGE-005", "source_ref": "MOVE-RESULTS-CORE", "target_ref": "MOVE-DISCUSSION-THEORY", "relation": "updates"},
+    {"edge_id": "EDGE-006", "source_ref": "MOVE-DISCUSSION-THEORY", "target_ref": "MOVE-CONCLUSION-ANSWER", "relation": "summarizes"},
+    {"edge_id": "EDGE-007", "source_ref": "MOVE-RESULTS-CORE", "target_ref": "MOVE-ABSTRACT-RESULT", "relation": "summarizes"},
+    {"edge_id": "EDGE-008", "source_ref": "MOVE-RESULTS-CORE", "target_ref": "MOVE-SUPPORT-IDENTITY", "relation": "visualizes"},
+    {"edge_id": "EDGE-009", "source_ref": "MOVE-INTRO-CONTRIBUTION", "target_ref": "MOVE-DISCUSSION-CONTRIBUTION", "relation": "supports"},
+    {"edge_id": "EDGE-010", "source_ref": "MOVE-DISCUSSION-SCOPE", "target_ref": "MOVE-CONCLUSION-BOUNDARY", "relation": "qualifies"},
+    {"edge_id": "EDGE-011", "source_ref": "MOVE-RESULTS-CORE", "target_ref": "MOVE-CONCLUSION-EVIDENCE", "relation": "summarizes"},
+    {"edge_id": "EDGE-012", "source_ref": "MOVE-METHOD-DESIGN", "target_ref": "MOVE-ABSTRACT-DESIGN", "relation": "summarizes"}
+  ]
+}

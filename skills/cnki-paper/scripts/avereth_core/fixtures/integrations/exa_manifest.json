@@ -1,0 +1,12 @@
+{
+  "schema_version": "avereth-exa-manifest/v1",
+  "runs": [
+    {
+      "query_id": "Q-EXA-COLLISION-001",
+      "path": "reference_materials/integrations/exa_runs/Q-EXA-COLLISION-001.json",
+      "sha256": "f1ad13dd63229f5c5687165229f563fd9fab7a27ce99c667e61ae33be84fd03d",
+      "executed_at": "2026-08-21T03:00:00Z",
+      "result_count": 1
+    }
+  ]
+}

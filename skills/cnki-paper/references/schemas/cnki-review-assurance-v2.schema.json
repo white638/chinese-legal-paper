@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cnki-review-assurance-v2.schema.json",
+  "title": "CNKI-Paper Review Assurance v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "review_run_id", "mode", "manuscript", "reviewers"],
+  "properties": {
+    "schema_version": {"const": "cnki-review-assurance/v2"},
+    "review_run_id": {"type": "string", "pattern": "^REV-[A-F0-9]{16}$"},
+    "mode": {"enum": ["independent", "single_agent"]},
+    "manuscript": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "reviewers": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "role", "context_id", "prompt_path", "prompt_sha256",
+          "output_path", "output_sha256", "input_scope", "isolation_declared"
+        ],
+        "properties": {
+          "role": {"enum": ["methods", "contribution", "clarity"]},
+          "context_id": {"type": "string", "minLength": 1},
+          "prompt_path": {"type": "string", "minLength": 1},
+          "prompt_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "output_path": {"type": "string", "minLength": 1},
+          "output_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "input_scope": {
+            "enum": ["manuscript_only", "manuscript_and_sanitized_confirmed_semantics"]
+          },
+          "isolation_declared": {"type": "boolean"}
+        }
+      }
+    },
+    "note": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"mode": {"const": "independent"}}},
+      "then": {
+        "properties": {
+          "reviewers": {
+            "items": {"properties": {"isolation_declared": {"const": true}}}
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"mode": {"const": "single_agent"}}},
+      "then": {
+        "properties": {
+          "reviewers": {
+            "items": {"properties": {"isolation_declared": {"const": false}}}
+          }
+        }
+      }
+    }
+  ]
+}

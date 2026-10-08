@@ -1,0 +1,71 @@
+{
+  "schema_version": "avereth-topic-portfolio-evals/v1",
+  "cases": [
+    {
+      "id": "irrelevant-material-invariance",
+      "handler": "test_direction_first_material_invariance_case",
+      "runtime_boundary": "controlled topic generation through TopicScreeningScheduler receipt",
+      "expected": "Two workspaces with unrelated conflicting materials produce the same signed direction-first candidate family, research question, and semantic core without material leakage."
+    },
+    {
+      "id": "direction-sensitivity",
+      "handler": "test_direction_change_sensitivity_case",
+      "runtime_boundary": "controlled topic generation through TopicScreeningScheduler receipt",
+      "expected": "Changing only the direction contract while holding material constant changes both the direction digest and the signed candidate semantic core."
+    },
+    {
+      "id": "declared-material-origin-receipt",
+      "handler": "test_declared_material_origins_bind_real_material_and_multiple_families",
+      "runtime_boundary": "TopicGenerationScheduler receipt for material_opportunity and workspace_extension",
+      "expected": "Explicit material-origin generation binds actual workspace-relative material text and SHA in its input digest, emits at least four substantive families, and becomes stale when the bound material changes."
+    },
+    {
+      "id": "explicit-material-opportunity",
+      "handler": "test_material_dependent_candidate_passes_only_under_explicit_material_mode",
+      "runtime_boundary": "research_decision.py validate --json",
+      "expected": "A material-dependent candidate is accepted by the portfolio audit only under an explicitly declared material_opportunity origin; direction_first rejects the same dependency and generation lane."
+    },
+    {
+      "id": "title-pseudo-diversity",
+      "handler": "test_runtime_rejects_title_pseudo_diversity_with_identical_semantics",
+      "runtime_boundary": "research_decision.py validate --json",
+      "expected": "Different titles with the same load-bearing semantic signature emit RDEC.PORTFOLIO.PSEUDO_DIVERSITY."
+    },
+    {
+      "id": "strict-single-candidate-exemption",
+      "handler": "test_single_candidate_exemption_is_complete_and_non_fabricating_or_it_fails",
+      "runtime_boundary": "research_decision.py validate --json",
+      "expected": "One candidate bypasses breadth only with attempted families, substantive elimination reasons and rationale, and an affirmative no-fabricated-companions declaration; removing or corrupting any element fails."
+    },
+    {
+      "id": "forged-seed-lineage",
+      "handler": "test_runtime_rejects_forged_seed_lineage_against_signed_screening",
+      "runtime_boundary": "research_decision.py validate --json against screening receipt",
+      "expected": "A candidate cannot replace its controller-signed seed lineage with an unsealed seed id."
+    },
+    {
+      "id": "missing-seed-disposition",
+      "handler": "test_screening_refuses_any_missing_seed_disposition",
+      "runtime_boundary": "TopicScreeningScheduler receipt issuance",
+      "expected": "The controlled screening scheduler refuses issuance unless every sealed seed receives exactly one retain, merge, or drop disposition."
+    },
+    {
+      "id": "four-layer-direction-fit-receipt",
+      "handler": "test_four_layer_direction_fit_self_report_cannot_replace_receipt",
+      "runtime_boundary": "research_decision.py validate --json against screening receipt",
+      "expected": "A structurally valid topic, problem, contribution, and trajectory fit self-report cannot replace or contradict the controller-signed candidate core."
+    },
+    {
+      "id": "material-discovery-receipt",
+      "handler": "test_material_discovery_requires_material_bound_controlled_receipt",
+      "runtime_boundary": "TopicMaterialDiscoveryScheduler receipt and research_decision.py validate --json",
+      "expected": "A post-screen material discovery must bind actual material text, path, SHA, direction, seeds, and screened cores; merely declaring the lane is rejected."
+    },
+    {
+      "id": "nonselected-material-stale-isolation",
+      "handler": "test_nonselected_material_staleness_does_not_topple_selected_clearance",
+      "runtime_boundary": "selected-candidate subgraph plus localized material receipt validation",
+      "expected": "Material drift for a non-selected, non-critical discovery emits a local warning without staling the cleared selected candidate or its dependency subgraph."
+    }
+  ]
+}

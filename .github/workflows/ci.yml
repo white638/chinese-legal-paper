@@ -1,0 +1,184 @@
+name: Chinese Legal Paper CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      full_matrix:
+        description: Run the exhaustive 3 OS x 4 Python compatibility matrix
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: avereth-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: "1"
+  PYTHONIOENCODING: "utf-8"
+
+jobs:
+  cross-platform-contracts:
+    name: ${{ matrix.os }} / Python ${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include: >-
+          ${{
+            fromJSON(
+              (
+                github.event_name == 'schedule'
+                || (github.event_name == 'workflow_dispatch' && inputs.full_matrix)
+              )
+              && '[{"os":"ubuntu-latest","python-version":"3.10"},{"os":"ubuntu-latest","python-version":"3.11"},{"os":"ubuntu-latest","python-version":"3.12"},{"os":"ubuntu-latest","python-version":"3.13"},{"os":"windows-latest","python-version":"3.10"},{"os":"windows-latest","python-version":"3.11"},{"os":"windows-latest","python-version":"3.12"},{"os":"windows-latest","python-version":"3.13"},{"os":"macos-latest","python-version":"3.10"},{"os":"macos-latest","python-version":"3.11"},{"os":"macos-latest","python-version":"3.12"},{"os":"macos-latest","python-version":"3.13"}]'
+              || '[{"os":"ubuntu-latest","python-version":"3.10"},{"os":"ubuntu-latest","python-version":"3.11"},{"os":"ubuntu-latest","python-version":"3.12"},{"os":"ubuntu-latest","python-version":"3.13"},{"os":"windows-latest","python-version":"3.12"},{"os":"macos-latest","python-version":"3.12"}]'
+            )
+          }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install document test dependencies
+        run: python -m pip install "lxml==6.1.1" "PyMuPDF==1.26.6"
+      - name: Compile first-party Python
+        run: python -m compileall -q skills/cnki-paper/scripts skills/chinese-legal-paper/scripts skills/empirical-research/scripts tools
+      - name: Check workflow registry drift
+        run: python tools/check_workflow_registry.py --check
+      - name: Check canonical source host neutrality
+        run: python tools/host_leak_check.py . --source
+      - name: Build Codex contract fixture
+        run: python tools/build_host.py --host codex --out .ci-build/codex --json
+      - name: Run repository doctor against generated runtime
+        run: python .ci-build/codex/skills/cnki-paper/scripts/avereth.py --skills-dir .ci-build/codex/skills doctor --json
+      - name: Run controller and contract tests
+        run: python -m unittest discover -s skills/cnki-paper/scripts -p "test_*.py"
+      - name: Chinese legal paper contracts and provider adapters
+        run: python -m unittest discover -s skills/chinese-legal-paper/scripts -p "test_*.py"
+      - name: Empirical research contract tests
+        run: python -m unittest discover -s skills/empirical-research/scripts -p "test_*.py"
+      - name: Page evidence source and PDF regression tests
+        run: python -m unittest discover -s skills/page-evidence/scripts -p "test_*.py"
+
+  deterministic-suite:
+    name: Deterministic common suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Tool and dual-build tests
+        run: python -m unittest discover -s tools -p "test_*.py"
+      - name: Architecture evals
+        run: python -m unittest discover -s evals/avereth-v60 -p "test_*.py"
+      - name: Lean Core v7 baseline contracts
+        run: python -m unittest discover -s evals/lean-core-v7 -p "test_*.py"
+      - name: Topic portfolio counterfactual evals
+        run: python -m unittest discover -s evals/topic-portfolio -p "test_*.py"
+      - name: Source-bound novelty regression contracts
+        run: python -m unittest discover -s evals/novelty-regression -p "test_*.py"
+      - name: Research judgment baseline contracts
+        run: python -m unittest discover -s evals/research-improvement -p "test_*.py"
+      - name: Research design semantic evals
+        run: python -m unittest discover -s evals/research-design -p "test_*.py"
+      - name: Research methods semantic evals
+        run: python -m unittest discover -s evals/research-methods-v31 -p "test_*.py"
+      - name: Executable research protocol evals
+        run: python -m unittest discover -s evals/research-protocol -p "test_*.py"
+      - name: Risk-routed researcher collaboration evals
+        run: python -m unittest discover -s evals/researcher-collaboration -p "test_*.py"
+      - name: Defensive academic-prose pipeline tests (offline)
+        run: python -m unittest discover -s evals/academic-prose -p "test_*.py"
+      - name: Defensive academic-prose generation corpus (offline)
+        run: python evals/academic-prose/run_generation_eval.py
+      - name: Commonplace matched-experiment contracts (synthetic)
+        run: python -m unittest discover -s evals/commonplace-writing -p "test_*.py"
+      - name: Methodology registry coverage
+        run: python tools/check_methodology_coverage.py --check
+      - name: Method-operation maturity gate
+        run: python tools/check_method_maturity.py --check
+      - name: Methodology routing evals
+        run: python -m unittest discover -s evals/methodology-routing -p "test_*.py"
+      - name: Public-text politics semantic evals
+        run: python -m unittest discover -s evals/public-text-politics -p "test_*.py"
+      - name: Journal packs remain venue overlays
+        run: python tools/check_journal_overlays.py
+      - name: Generated files remain clean
+        run: git diff --exit-code
+
+  r-exhibits-smoke:
+    name: R empirical exhibits compatibility smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - uses: r-lib/actions/setup-r@465b7d8e732ca3921382b1674c59bada9cbf3399 # v2
+        with:
+          use-public-rspm: true
+      - name: Install portable publication fonts
+        run: sudo apt-get update && sudo apt-get install -y fonts-liberation fonts-noto-cjk
+      - name: Install current exhibit renderer dependencies for compatibility smoke
+        run: Rscript -e 'install.packages(c("jsonlite", "ggplot2", "svglite", "ragg", "systemfonts"))'
+      - name: Render six recipes across both publication profiles
+        working-directory: skills/empirical-research/scripts
+        run: python -m exhibits.smoke
+
+  host-bundles:
+    name: ${{ matrix.host }} build / smoke / isolated install
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        host: [codex, claude]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Build host-native bundle
+        run: python tools/build_host.py --host ${{ matrix.host }} --out .ci-build/${{ matrix.host }} --json
+      - name: Check host boundaries
+        run: python tools/host_leak_check.py .ci-build/${{ matrix.host }} --host ${{ matrix.host }}
+      - name: Smoke generated bundle
+        run: python tools/smoke_check.py .ci-build/${{ matrix.host }} --host ${{ matrix.host }}
+      - name: Check generated agents
+        run: python tools/agent_bundle_check.py .ci-build/${{ matrix.host }}/agents --host ${{ matrix.host }}
+      - name: Isolated recoverable install
+        run: python tools/install_runtime.py --host ${{ matrix.host }} --runtime-home .ci-install/${{ matrix.host }} --json
+      - name: Check installed agents
+        run: python tools/agent_bundle_check.py .ci-build/${{ matrix.host }}/agents .ci-install/${{ matrix.host }}/agents --host ${{ matrix.host }}
+      - name: Check installed runtime parity
+        run: python tools/runtime_parity.py .ci-build/${{ matrix.host }}/skills .ci-install/${{ matrix.host }}/skills --json
+      - name: Run installed doctor
+        run: python .ci-install/${{ matrix.host }}/skills/cnki-paper/scripts/avereth.py --skills-dir .ci-install/${{ matrix.host }}/skills doctor --json
+      - name: Upload validated host bundle
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: avereth-${{ matrix.host }}-${{ github.sha }}
+          path: .ci-build/${{ matrix.host }}/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14

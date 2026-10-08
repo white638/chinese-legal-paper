@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/methods/causal-panel-v1.schema.json",
+  "title": "Panel and Event-Study Causal Contract v1",
+  "allOf": [
+    {"$ref": "causal-design-v1.schema.json"},
+    {
+      "type": "object",
+      "required": ["treatment_cohorts", "control_group", "pre_treatment_window", "parallel_trends", "spillover_plan", "clustering_level", "alternative_timing_plan", "placebo_plan"],
+      "properties": {
+        "parallel_trends": {
+          "type": "object",
+          "required": ["status", "window", "diagnostic_artifact_id"]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "avereth-public-text-politics-profile/v1",
+  "profile_id": "semantic_alignment_and_reuse",
+  "title_zh": "语义对齐、文本复用与来源借用",
+  "purpose": "验证不同时点、机构或语言文本之间的条款对齐、复用和扩散，同时排除模板、套话与共同第三方来源。",
+  "core_method_families": ["text_as_data", "historical", "comparative"],
+  "core_claim_capability_refs": [
+    "../../references/method-adapter-registry.json#/claim_capabilities/text_as_data",
+    "../../references/method-adapter-registry.json#/claim_capabilities/historical",
+    "../../references/method-adapter-registry.json#/claim_capabilities/comparative"
+  ],
+  "core_method_contract_id": "text-alignment/v2",
+  "core_method_contract_schema": "../../references/schemas/methods/text-alignment-v2.schema.json",
+  "profile_contract_schema": "../contracts/semantic_alignment_and_reuse.schema.json",
+  "artifact_roles": ["source_corpus", "target_corpus", "template_lexicon", "candidate_pairs", "adjudicated_pairs", "reference_pairs", "alignment_metrics", "threshold_sensitivity", "false_match_analysis"],
+  "machine_checks": [
+    {"id": "frozen_corpora", "check_kind": "artifact_exists_and_hash_matches", "inputs": ["/corpora/source", "/corpora/target", "/matching/candidate_pairs", "/validation/reference_pairs"], "failure_code": "PTP.ALIGNMENT.ARTIFACT_HASH"},
+    {"id": "temporal_direction", "check_kind": "timestamp_direction", "inputs": ["/direction/source_time_field", "/direction/target_time_field", "/matching/candidate_pairs"], "failure_code": "PTP.ALIGNMENT.TIME_DIRECTION"},
+    {"id": "template_control", "check_kind": "template_confound_audit", "inputs": ["/normalization/template_phrases", "/normalization/legal_boilerplate", "/matching/adjudicated_pairs"], "failure_code": "PTP.ALIGNMENT.TEMPLATE_CONFOUND"},
+    {"id": "third_party_control", "check_kind": "common_source_audit", "inputs": ["/confounds/common_third_party_sources", "/matching/adjudicated_pairs"], "failure_code": "PTP.ALIGNMENT.COMMON_SOURCE"},
+    {"id": "threshold_grid", "check_kind": "threshold_sensitivity", "inputs": ["/matching/threshold_grid", "/validation/threshold_sensitivity"], "failure_code": "PTP.ALIGNMENT.THRESHOLD_SENSITIVITY"}
+  ],
+  "researcher_judgments": ["语义相似是否构成功能等价、直接借用或仅为同类制度语言", "翻译链对跨语言匹配含义造成的实质影响", "共同来源解释与直接扩散解释何者更可信"],
+  "interpretation_boundaries": {
+    "allowed": ["在时间方向和混淆审计后报告对齐或复用证据", "对阈值与翻译策略变化报告敏感性"],
+    "prohibited": ["把共同引用第三方直接称为文本扩散", "把法律套话相似直接称为政策借用", "用后出现文本解释先出现文本"]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avereth-revision-impact-v1.schema.json",
+  "title": "Avereth deterministic revision impact v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "batch_id", "before_path", "candidate_path", "before_sha256",
+    "after_sha256", "changed_unit_ids", "changed_units", "changed_unit_context", "declared_changed_unit_ids",
+    "undeclared_changed_unit_ids", "stale_declared_unit_ids", "affected_claim_ids",
+    "affected_evidence_ids", "affected_design_ids", "affected_execution_ids",
+    "undeclared_affected_identities", "changed_authorities", "unexpected_changed_authorities",
+    "target_finding_keys", "uncovered_target_finding_keys", "untracked_active_finding_keys",
+    "change_classes", "impact_radius", "required_reviewers",
+    "full_review_required", "preflight_status"
+  ],
+  "properties": {
+    "schema_version": {"const": "avereth-revision-impact/v1"},
+    "batch_id": {"type": "string", "pattern": "^RB-[0-9]{3}$"},
+    "before_path": {"type": "string", "minLength": 1},
+    "candidate_path": {"type": "string", "minLength": 1},
+    "before_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "after_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "changed_unit_ids": {"$ref": "#/$defs/idList"},
+    "changed_units": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["operation", "before_unit_ids", "after_unit_ids"],
+        "properties": {
+          "operation": {"enum": ["REPLACE", "DELETE", "INSERT"]},
+          "before_unit_ids": {"$ref": "#/$defs/idList"},
+          "after_unit_ids": {"$ref": "#/$defs/idList"}
+        }
+      }
+    },
+    "changed_unit_context": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["unit_id", "before", "after"],
+        "properties": {
+          "unit_id": {"type": "string", "minLength": 1},
+          "before": {"anyOf": [{"$ref": "#/$defs/unit"}, {"type": "null"}]},
+          "after": {"anyOf": [{"$ref": "#/$defs/unit"}, {"type": "null"}]}
+        }
+      }
+    },
+    "declared_changed_unit_ids": {"$ref": "#/$defs/idList"},
+    "undeclared_changed_unit_ids": {"$ref": "#/$defs/idList"},
+    "stale_declared_unit_ids": {"$ref": "#/$defs/idList"},
+    "affected_claim_ids": {"$ref": "#/$defs/idList"},
+    "affected_evidence_ids": {"$ref": "#/$defs/idList"},
+    "affected_design_ids": {"$ref": "#/$defs/idList"},
+    "affected_execution_ids": {"$ref": "#/$defs/idList"},
+    "undeclared_affected_identities": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_ids", "claim_ids", "design_ids", "execution_ids"],
+      "properties": {
+        "source_ids": {"$ref": "#/$defs/idList"},
+        "claim_ids": {"$ref": "#/$defs/idList"},
+        "design_ids": {"$ref": "#/$defs/idList"},
+        "execution_ids": {"$ref": "#/$defs/idList"}
+      }
+    },
+    "changed_authorities": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "unexpected_changed_authorities": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "target_finding_keys": {"$ref": "#/$defs/findingKeyList"},
+    "uncovered_target_finding_keys": {"$ref": "#/$defs/findingKeyListAllowEmpty"},
+    "untracked_active_finding_keys": {"$ref": "#/$defs/findingKeyListAllowEmpty"},
+    "change_classes": {
+      "type": "array", "uniqueItems": true,
+      "items": {"enum": ["surface", "argument", "evidence", "design", "execution"]}
+    },
+    "impact_radius": {"enum": ["LOCAL", "CROSS_SECTION", "GLOBAL"]},
+    "required_reviewers": {
+      "type": "array", "uniqueItems": true,
+      "items": {"enum": ["methods", "contribution", "clarity"]}
+    },
+    "full_review_required": {"type": "boolean"},
+    "preflight_status": {"enum": ["PASS", "FAIL"]}
+  },
+  "$defs": {
+    "unit": {
+      "type": "object", "additionalProperties": false,
+      "required": ["unit_id", "ordinal", "section", "text_sha256", "preview", "text"],
+      "properties": {
+        "unit_id": {"type": "string", "minLength": 1},
+        "ordinal": {"type": "integer", "minimum": 1},
+        "section": {"type": "string", "minLength": 1},
+        "text_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "preview": {"type": "string"},
+        "text": {"type": "string", "minLength": 1}
+      }
+    },
+    "idList": {
+      "type": "array", "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "findingKeyList": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^RFK-[A-F0-9]{24}$"}
+    },
+    "findingKeyListAllowEmpty": {
+      "type": "array", "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^RFK-[A-F0-9]{24}$"}
+    }
+  }
+}

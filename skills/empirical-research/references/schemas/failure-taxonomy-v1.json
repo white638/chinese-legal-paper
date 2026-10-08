@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/failure-taxonomy-v1.json",
+  "schema_version": "failure-taxonomy/v1",
+  "description": "Extensible research-protocol failure namespaces and their default routing boundaries.",
+  "route_patterns": [
+    "retry",
+    "narrow:<Claim ID>",
+    "withdraw:<Claim ID>",
+    "replace-implementation",
+    "reopen:acquisition",
+    "reopen:research",
+    "reopen:design",
+    "human-review"
+  ],
+  "namespaces": {
+    "ACCESS": {"default_route": "reopen:acquisition", "meaning": "access, permission, or readability"},
+    "COVERAGE": {"default_route": "reopen:research", "meaning": "time, space, object, field, or role coverage"},
+    "LINKAGE": {"default_route": "reopen:research", "meaning": "material linkage or entity resolution"},
+    "UNIT": {"default_route": "reopen:design", "meaning": "unit of analysis or aggregation mismatch"},
+    "MEASUREMENT": {"default_route": "reopen:design", "meaning": "measurement, coding, or recognition failure"},
+    "IDENTIFICATION": {"default_route": "reopen:design", "meaning": "counterfactual or identification failure"},
+    "TEMPORAL": {"default_route": "reopen:design", "meaning": "invalid or unresolved temporal ordering"},
+    "SOURCE": {"default_route": "retry", "meaning": "source independence or transmission-chain failure"},
+    "MODEL": {"default_route": "human-review", "meaning": "fit, validation, stability, or diagnostic failure"},
+    "ETHICS": {"default_route": "human-review", "meaning": "ethics, privacy, consent, or permission"},
+    "REPRO": {"default_route": "replace-implementation", "meaning": "environment, version, or reproduction failure"},
+    "CLAIM": {"default_route": "human-review", "meaning": "claim contradiction, inconclusiveness, or interpretation overreach"},
+    "PROTOCOL": {"default_route": "reopen:design", "meaning": "design-execution drift or invalid protocol graph"},
+    "EXHIBIT": {"default_route": "replace-implementation", "meaning": "empirical exhibit provenance, numeric, semantic, rendering, or manuscript-link failure"}
+  }
+}

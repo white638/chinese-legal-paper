@@ -1,0 +1,4 @@
+interface:
+  display_name: "Intl Search"
+  short_description: "Search international scholarly works"
+  default_prompt: "Use $intl-search to run the appropriate workflow."

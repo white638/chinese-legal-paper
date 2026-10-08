@@ -1,0 +1,68 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "grounded_theory",
+  "required_operation_kinds": [
+    "initial_sample_freeze",
+    "open_coding",
+    "constant_comparison",
+    "analytic_memoing",
+    "theoretical_sampling_decision",
+    "category_integration",
+    "negative_case_search",
+    "saturation_assessment",
+    "theory_generation_disposition"
+  ],
+  "optional_operation_kinds": ["axial_coding", "selective_coding", "literature_timing_audit"],
+  "required_artifact_roles": [
+    "sampling_iteration_log",
+    "coding_version_ledger",
+    "constant_comparison_log",
+    "analytic_memos",
+    "theoretical_sampling_decisions",
+    "category_model",
+    "negative_case_register",
+    "saturation_evidence"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "grounded-theory-pilot/v1",
+    "required_operation_kinds": [
+      "initial_sample_freeze",
+      "open_coding",
+      "constant_comparison",
+      "analytic_memoing",
+      "theoretical_sampling_decision",
+      "negative_case_search"
+    ],
+    "acceptance_dimensions": [
+      "codes remain linked to material excerpts",
+      "comparisons produce category revisions rather than counts alone",
+      "memos record inference changes",
+      "theoretical sampling is driven by category uncertainty"
+    ]
+  },
+  "completion_predicates": [
+    "all core categories retain links to coding and memo evidence",
+    "theoretical sampling decisions identify the category gap they address",
+    "negative cases modify, bound, or reject categories",
+    "saturation is argued from category-specific evidence rather than a fixed sample quota"
+  ],
+  "failure_routes": [
+    {"code": "LINKAGE.CATEGORY_EVIDENCE_BROKEN", "route": "reopen:research"},
+    {"code": "PROTOCOL.THEORETICAL_SAMPLING_UNGROUNDED", "route": "reopen:design"},
+    {"code": "CLAIM.SATURATION_UNSUPPORTED", "route": "narrow:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "code-to-category abstraction",
+    "comparative significance of variation",
+    "theoretical sampling priority",
+    "negative-case effect on categories",
+    "category-specific saturation"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

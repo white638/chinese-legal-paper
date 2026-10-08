@@ -1,0 +1,45 @@
+{
+  "schema_version": "avereth-public-text-politics-profile/v1",
+  "profile_id": "claim_measurement",
+  "title_zh": "主张层构念测量",
+  "purpose": "把政策主张、因果主张、证据类型、责任归因、立场、框架与叙事角色转成经过独立验证的 claim-level 测量。",
+  "core_method_families": ["text_as_data"],
+  "complementary_method_families": ["content_analysis"],
+  "core_claim_capability_refs": [
+    "../../references/method-adapter-registry.json#/claim_capabilities/text_as_data"
+  ],
+  "core_method_contract_id": "text-as-data/measurement-v2",
+  "core_method_contract_schema": "../../references/schemas/methods/text-measurement-v2.schema.json",
+  "profile_contract_schema": "../contracts/claim_measurement.schema.json",
+  "artifact_roles": [
+    "corpus_manifest",
+    "codebook",
+    "reference_labels",
+    "reference_run_manifest",
+    "reference_evidence_trace",
+    "independent_review",
+    "development_manifest",
+    "validation_manifest",
+    "predictions",
+    "class_metrics",
+    "error_analysis",
+    "measurement_sensitivity"
+  ],
+  "machine_checks": [
+    {"id": "frozen_artifacts", "check_kind": "artifact_exists_and_hash_matches", "inputs": ["/corpus/manifest", "/annotation/reference_labels", "/annotation/run_manifest", "/annotation/evidence_trace", "/annotation/independent_review", "/validation/predictions", "/validation/metrics"], "failure_code": "PTP.CLAIM.ARTIFACT_HASH"},
+    {"id": "independent_validation", "check_kind": "artifact_set_disjoint", "inputs": ["/split/development_manifest", "/split/validation_manifest"], "failure_code": "PTP.CLAIM.SPLIT_OVERLAP"},
+    {"id": "group_integrity", "check_kind": "grouped_split_integrity", "inputs": ["/split/grouping_unit", "/split/development_manifest", "/split/validation_manifest"], "failure_code": "PTP.CLAIM.GROUP_LEAKAGE"},
+    {"id": "metric_recomputation", "check_kind": "metrics_recompute", "inputs": ["/annotation/reference_labels", "/validation/predictions", "/validation/metrics"], "failure_code": "PTP.CLAIM.METRIC_MISMATCH"},
+    {"id": "minority_class_reporting", "check_kind": "class_coverage", "inputs": ["/validation/predictions", "/validation/metrics"], "failure_code": "PTP.CLAIM.CLASS_METRICS"},
+    {"id": "run_provenance", "check_kind": "run_provenance_integrity", "inputs": ["/annotation/reference_runs", "/annotation/run_manifest"], "failure_code": "PTP.CLAIM.PROVENANCE_OVERLAP"}
+  ],
+  "researcher_judgments": [
+    "构念定义是否具有理论意义并覆盖关键边界案例",
+    "独立参照的证据链、上下文隔离和分歧处置是否足以支撑目标用途",
+    "类别级误差对具体实质解释是否可以接受"
+  ],
+  "interpretation_boundaries": {
+    "allowed": ["按已验证构念报告 claim-level 分布与关联", "将低置信或未解决类别保留为不确定结果"],
+    "prohibited": ["把内部模型参照直接称为外部事实真值", "把 reference agreement 冒充 external accuracy", "用同一运行或同一上下文自我验证"]
+  }
+}

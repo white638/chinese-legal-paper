@@ -1,0 +1,145 @@
+[
+  {
+    "id": "generic-opening",
+    "text": "在数字治理不断深入推进的时代背景下，基层治理效能提升具有十分重要的现实意义，也为国家治理现代化提供了有益借鉴。",
+    "expected_triggers": [
+      "generic-background",
+      "significance-cliche",
+      "generic-borrowing"
+    ]
+  },
+  {
+    "id": "causal-overclaim",
+    "text": "本文的横截面调查充分证明了平台使用必然导致政府信任提高，并且这一结论普遍适用于所有地区。",
+    "expected_triggers": [
+      "overclaim-proof",
+      "overclaim-causality",
+      "overclaim-scope"
+    ]
+  },
+  {
+    "id": "nominalized-padding",
+    "text": "本文在对相关数据进行处理的过程中，进行了较为全面深入的分析，并在一定程度上填补了现有研究的空白。",
+    "expected_triggers": [
+      "process-padding",
+      "nominalization-shell",
+      "vague-hedge",
+      "empty-gap"
+    ]
+  },
+  {
+    "id": "novelty-claim",
+    "text": "本文首次提出一个开创性框架，用以解释不同部门的协作差异。",
+    "expected_triggers": [
+      "novelty-claim"
+    ]
+  },
+  {
+    "id": "generic-contribution",
+    "text": "上述发现进一步丰富了数字治理研究，并深化了对平台作用的理论认识。",
+    "expected_triggers": [
+      "generic-contribution"
+    ]
+  },
+  {
+    "id": "clean-bounded-claim",
+    "text": "基于2018至2024年的热线工单，本研究发现平台接入与响应时间缩短相关；由于研究未构造反事实，该结果不支持因果推断。",
+    "expected_triggers": []
+  },
+  {
+    "id": "overcautious-qualification-cluster",
+    "text": "明确的机构创设表述可以确定时间联系；不同文书中关键表述的延续则只能说明政策内容具有连续性，不能单独确定理念的因果作用。",
+    "expected_triggers": [
+      "qualification-cluster"
+    ]
+  },
+  {
+    "id": "contrastive-negation",
+    "text": "这一判断不是结论复述，而是对关系功能的解释。",
+    "expected_triggers": [
+      "contrastive-negation"
+    ]
+  },
+  {
+    "id": "authorial-intent-negation",
+    "text": "本文并不把既有内容视为新发现。",
+    "expected_triggers": [
+      "authorial-intent-negation"
+    ]
+  },
+  {
+    "id": "hypothetical-objection-disclaimer",
+    "text": "为避免误解，需要澄清的是，这并不意味着制度设计决定全部执行结果。",
+    "expected_triggers": [
+      "hypothetical-objection-disclaimer"
+    ]
+  },
+  {
+    "id": "self-undermining-contribution",
+    "text": "尽管样本范围有限，本文仍为解释部门响应差异提供了一项推进。",
+    "expected_triggers": [
+      "self-undermining-contribution"
+    ]
+  },
+  {
+    "id": "direct-positive-restatement",
+    "text": "本文以既有研究为起点，解释两类功能之间的关系。",
+    "expected_triggers": []
+  },
+  {
+    "id": "precise-method-boundary",
+    "text": "访谈用于形成机制假设，档案用于检验各环节；两类材料分开编码。",
+    "expected_triggers": []
+  },
+  {
+    "id": "internal-process-log",
+    "text": "表2显示来源获取失败，请求超时。",
+    "expected_triggers": [
+      "internal-process-log"
+    ]
+  },
+  {
+    "id": "material-condition-not-process-log",
+    "text": "现存网页只提供机构概览，相关数字因此不进入跨期比较。",
+    "expected_triggers": []
+  },
+  {
+    "id": "explanation-first-defensive-claim-trigger",
+    "text": "本文并不试图提出普遍理论，而只是有限说明事项移交权与协调速度之间的关系。",
+    "expected_triggers": [
+      "authorial-intent-negation"
+    ]
+  },
+  {
+    "id": "necessary-negative-result-is-not-defense",
+    "text": "干预实施后，样本中的政策支持度未显著提高。",
+    "expected_triggers": []
+  },
+  {
+    "id": "association-with-positive-scope-is-calibrated",
+    "text": "2019至2023年三个地级市的工单显示，平台接入与响应时间缩短相关；该判断适用于相同的事项移交安排。",
+    "expected_triggers": []
+  },
+  {
+    "id": "review-response-register-is-frontstage-leak",
+    "text": "最强的质疑认为机制解释不足，这一质疑部分成立。",
+    "expected_triggers": [
+      "simulated-reviewer-rebuttal"
+    ]
+  },
+  {
+    "id": "warrant-bridge-is-substantive-not-padding",
+    "text": "牵头部门获得直接调度权后，责任确认不再依赖逐级请示，因此工单在部门之间停留的时间缩短。",
+    "expected_triggers": []
+  },
+  {
+    "id": "positive-scope-boundary-after-claim",
+    "text": "事项移交权集中与更快的跨部门响应相关。该判断适用于具有相同授权结构的政策执行初期。",
+    "expected_triggers": []
+  },
+  {
+    "id": "actor-restored-with-term-preserved",
+    "text": "市级专班把事项移交权交给牵头部门后，后者可以直接调度参与单位，跨部门响应由逐级请示转为直接协调。",
+    "expected_triggers": []
+  }
+]

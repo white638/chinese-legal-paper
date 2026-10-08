@@ -1,0 +1,146 @@
+{
+  "schema": "cnki-research-design-holdout-metadata/v1",
+  "visibility": "metadata-only",
+  "prompt_and_golden_location": "local private evaluation store; not committed and not uploaded",
+  "task_count": 12,
+  "repetitions_per_task": 2,
+  "anonymous_ab_pair_count": 24,
+  "tasks": [
+    {
+      "id": "HO-QC-01",
+      "family": "quantitative-causal",
+      "challenge_tags": [
+        "estimand",
+        "counterfactual",
+        "causal-overclaim"
+      ],
+      "hard_failure_seed": true
+    },
+    {
+      "id": "HO-QC-02",
+      "family": "quantitative-causal",
+      "challenge_tags": [
+        "measurement",
+        "sampling",
+        "unregistered-number"
+      ],
+      "hard_failure_seed": true
+    },
+    {
+      "id": "HO-QC-03",
+      "family": "quantitative-causal",
+      "challenge_tags": [
+        "diagnostics",
+        "robustness",
+        "uncertainty"
+      ],
+      "hard_failure_seed": false
+    },
+    {
+      "id": "HO-CP-01",
+      "family": "case-process",
+      "challenge_tags": [
+        "case-selection",
+        "timeline",
+        "mechanism"
+      ],
+      "hard_failure_seed": false
+    },
+    {
+      "id": "HO-CP-02",
+      "family": "case-process",
+      "challenge_tags": [
+        "competing-mechanism",
+        "negative-evidence",
+        "scope"
+      ],
+      "hard_failure_seed": false
+    },
+    {
+      "id": "HO-CP-03",
+      "family": "case-process",
+      "challenge_tags": [
+        "source-independence",
+        "ethics",
+        "permission"
+      ],
+      "hard_failure_seed": true
+    },
+    {
+      "id": "HO-TC-01",
+      "family": "text-content",
+      "challenge_tags": [
+        "corpus-inventory",
+        "version",
+        "preprocessing"
+      ],
+      "hard_failure_seed": true
+    },
+    {
+      "id": "HO-TC-02",
+      "family": "text-content",
+      "challenge_tags": [
+        "codebook",
+        "reliability",
+        "model-validation"
+      ],
+      "hard_failure_seed": false
+    },
+    {
+      "id": "HO-TC-03",
+      "family": "text-content",
+      "challenge_tags": [
+        "keyword-gaming",
+        "construction-validation-leakage",
+        "interpretive-boundary"
+      ],
+      "hard_failure_seed": true
+    },
+    {
+      "id": "HO-NC-01",
+      "family": "valid-noncausal-and-normative",
+      "challenge_tags": [
+        "descriptive",
+        "no-hypothesis",
+        "no-false-causal-requirement"
+      ],
+      "hard_failure_seed": false
+    },
+    {
+      "id": "HO-NC-02",
+      "family": "valid-noncausal-and-normative",
+      "challenge_tags": [
+        "normative-premises",
+        "counterexample",
+        "affected-parties"
+      ],
+      "hard_failure_seed": false
+    },
+    {
+      "id": "HO-XF-01",
+      "family": "cross-family-integrity",
+      "challenge_tags": [
+        "fabricated-source-id",
+        "design-result-drift",
+        "future-schema",
+        "duplicate-chinese-review"
+      ],
+      "hard_failure_seed": true
+    }
+  ],
+  "pair_protocol": {
+    "pairs": "12 tasks x 2 independent repetitions = 24",
+    "systems": [
+      "baseline@556b1ec",
+      "candidate@v3"
+    ],
+    "label_randomization": "independent per pair and reviewer",
+    "reviewers": 3,
+    "reviewer_isolation": true,
+    "checker_reports_hidden": true,
+    "golden_hidden": true,
+    "minimum_candidate_wins": 16,
+    "maximum_candidate_losses": 3,
+    "family_net_regression_allowed": false
+  }
+}

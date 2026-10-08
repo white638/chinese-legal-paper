@@ -1,0 +1,29 @@
+{
+  "evidence_kind": "observed dispatch behavior on synthetic fixtures",
+  "production_reference_absence_frequency": "not_measured",
+  "research_quality_effect": "not_measured",
+  "cases": {
+    "published-results": {
+      "candidate_count": 1,
+      "reference_count": 2,
+      "pair_count": 2,
+      "comparable_pairs": 0,
+      "noncomparable_pairs": 2,
+      "emitted_prompt_count": 1,
+      "card_exemplar_count": 8,
+      "verbatim_exemplar_explanations_in_emitted_prompts": 0,
+      "prompt_bytes": 10801
+    },
+    "original-proposals": {
+      "candidate_count": 1,
+      "reference_count": 2,
+      "pair_count": 2,
+      "comparable_pairs": 2,
+      "noncomparable_pairs": 0,
+      "emitted_prompt_count": 1,
+      "card_exemplar_count": 8,
+      "verbatim_exemplar_explanations_in_emitted_prompts": 0,
+      "prompt_bytes": 10763
+    }
+  }
+}

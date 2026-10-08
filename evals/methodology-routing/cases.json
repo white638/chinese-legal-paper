@@ -1,0 +1,864 @@
+{
+  "schema_version": "avereth-methodology-routing-cases/v2",
+  "registry": {
+    "path": "skills/empirical-research/references/method-adapter-registry.json",
+    "schema_version": "cnki-method-adapter-registry/v3",
+    "registry_version": "5.1.0"
+  },
+  "source_manifests": {
+    "research-methods-v31": {
+      "path": "evals/research-methods-v31/fixture_manifest.json",
+      "variants_field": "automated_variants_per_family"
+    }
+  },
+  "harnesses": {
+    "method-execution-validator": {
+      "path": "evals/methodology-routing/test_methodology_routing.py",
+      "test_ids": [
+        "MethodologyRoutingEvalTests.test_manifest_cases_execute",
+        "MethodologyRoutingEvalTests.test_family_specific_error_cases_execute"
+      ]
+    }
+  },
+  "coverage_contract": {
+    "required_roles": [
+      "positive",
+      "error",
+      "boundary",
+      "inference-overreach"
+    ],
+    "minimum_family_specific_error_cases": 2,
+    "generic_error_templates_count_toward_minimum": false,
+    "family_semantic_rules": {
+      "path": "skills/empirical-research/scripts/method_execution.py",
+      "constant": "FAMILY_SEMANTIC_RULES"
+    },
+    "family_error_distinctness": [
+      "failure_mode",
+      "typed_mutation",
+      "expected_error_codes"
+    ],
+    "inference_rule": "The attempted claim type must exist in the registry vocabulary and be absent from the family's claim_capabilities."
+  },
+  "case_templates": [
+    {
+      "id": "valid-complete",
+      "role": "positive",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "positive",
+      "mutation": {
+        "operator": "none"
+      },
+      "expected": {
+        "status": "PASS",
+        "codes": []
+      }
+    },
+    {
+      "id": "repetitive-content",
+      "role": "error",
+      "generic": true,
+      "failure_mode": "semantic-content-repetition",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "keyword-gaming",
+      "mutation": {
+        "operator": "replace-actions",
+        "target": "runs[].actions",
+        "value": [
+          "执行执行执行执行执行执行"
+        ]
+      },
+      "expected": {
+        "status": "FAIL",
+        "codes": [
+          "ME.CONTENT.REPETITIVE"
+        ]
+      }
+    },
+    {
+      "id": "missing-required-field",
+      "role": "error",
+      "generic": true,
+      "failure_mode": "required-execution-field-absence",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "mutation": {
+        "operator": "remove-first-required-execution-field",
+        "target": "runs[].method_fields"
+      },
+      "expected": {
+        "status": "FAIL",
+        "codes": [
+          "ME.METHOD.FIELD_MISSING"
+        ]
+      }
+    },
+    {
+      "id": "legal-non-applicability",
+      "role": "boundary",
+      "boundary_condition": "A confirmed route becomes impossible because registered material is unavailable, so the route is closed and its claim is withdrawn.",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "legal-non-applicability",
+      "mutation": {
+        "operator": "withdraw-route-not-applicable",
+        "target": "runs[]"
+      },
+      "expected": {
+        "status": "PASS",
+        "codes": []
+      }
+    },
+    {
+      "id": "unsupported-claim",
+      "role": "inference-overreach",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "inference-overreach",
+      "mutation": {
+        "operator": "replace-result-claim-type",
+        "target": "claims[].type and runs[].results[].type",
+        "value_from_family": "inference_overreach.attempted_claim_type"
+      },
+      "expected": {
+        "status": "FAIL",
+        "codes": [
+          "ME.INFERENCE.CAPABILITY_EXCEEDED"
+        ]
+      }
+    }
+  ],
+  "family_error_cases": [
+    {
+      "id": "quantitative-regression-as-causal",
+      "family": "quantitative",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["quantitative"]},
+      "failure_mode": "ordinary-regression-relabelled-causal",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.validation_results", "value": "普通回归结果被直接写成因果效应，但未登记识别设计。"},
+      "expected": {"status": "FAIL", "codes": ["ME.QUANTITATIVE.REGRESSION_AS_CAUSAL"]}
+    },
+    {
+      "id": "quantitative-post-result-outcome-change",
+      "family": "quantitative",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["quantitative"]},
+      "failure_mode": "outcome-definition-changed-after-results",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.specification_log", "value": "看到结果后修改因变量定义，且未登记偏离。"},
+      "expected": {"status": "FAIL", "codes": ["ME.QUANTITATIVE.POST_RESULT_OUTCOME_REDEFINITION"]}
+    },
+    {
+      "id": "experiment-randomization-without-record",
+      "family": "experiment",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["experiment"]},
+      "failure_mode": "randomization-claim-without-allocation-record",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.assignment_audit", "value": "研究声称随机分配，但没有分配记录。"},
+      "expected": {"status": "FAIL", "codes": ["ME.EXPERIMENT.RANDOMIZATION_UNVERIFIED"]}
+    },
+    {
+      "id": "experiment-interference-ignored",
+      "family": "experiment",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["experiment"]},
+      "failure_mode": "observed-interference-ignored",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.interference_assessment", "value": "已经发现跨组干扰，但仍按无干扰解释结果。"},
+      "expected": {"status": "FAIL", "codes": ["ME.EXPERIMENT.INTERFERENCE_IGNORED"]}
+    },
+    {
+      "id": "survey-convenience-population-overreach",
+      "family": "survey",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["survey"]},
+      "failure_mode": "convenience-sample-generalized-to-population",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.response_and_recruitment", "value": "便利样本被推广到目标总体，且未作覆盖修正。"},
+      "expected": {"status": "FAIL", "codes": ["ME.SURVEY.POPULATION_OVERREACH"]}
+    },
+    {
+      "id": "survey-construct-unchecked",
+      "family": "survey",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["survey"]},
+      "failure_mode": "items-treated-as-construct-without-check",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.measurement_checks", "value": "这些题项未经测量检查就被视为同一构念。"},
+      "expected": {"status": "FAIL", "codes": ["ME.SURVEY.CONSTRUCT_UNCHECKED"]}
+    },
+    {
+      "id": "case-study-same-source-independent",
+      "family": "case_study",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["case_study"]},
+      "failure_mode": "same-source-reporting-counted-independent",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.source_independence_audit", "value": "两篇同源报道仍被计为独立证据。"},
+      "expected": {"status": "FAIL", "codes": ["ME.CASE_STUDY.FALSE_SOURCE_INDEPENDENCE"]}
+    },
+    {
+      "id": "case-study-post-outcome-selection",
+      "family": "case_study",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["case_study"]},
+      "failure_mode": "outcome-informed-selection-misreported-prospective",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.case_inventory", "value": "看到结局后选择案例，却报告为事前选择。"},
+      "expected": {"status": "FAIL", "codes": ["ME.CASE_STUDY.POST_OUTCOME_SELECTION"]}
+    },
+    {
+      "id": "process-tracing-rival-missing",
+      "family": "process_tracing",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["process_tracing"]},
+      "failure_mode": "preferred-mechanism-without-rival",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.rival_results", "value": "未提出竞争机制，只确认首选机制。"},
+      "expected": {"status": "FAIL", "codes": ["ME.PROCESS_TRACING.RIVAL_MISSING"]}
+    },
+    {
+      "id": "process-tracing-missing-trace-ignored",
+      "family": "process_tracing",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["process_tracing"]},
+      "failure_mode": "missing-predicted-trace-ignored",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.negative_evidence_results", "value": "关键预期痕迹缺失，但仍声称完整机制得到证实。"},
+      "expected": {"status": "FAIL", "codes": ["ME.PROCESS_TRACING.MISSING_TRACE_IGNORED"]}
+    },
+    {
+      "id": "qca-configuration-as-net-effect",
+      "family": "qca",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["qca"]},
+      "failure_mode": "configuration-rewritten-as-net-effect",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.solutions", "value": "组态结果被改写成条件净效应。"},
+      "expected": {"status": "FAIL", "codes": ["ME.INFERENCE.CONFIGURATION_AS_EFFECT"]}
+    },
+    {
+      "id": "qca-ungrounded-calibration",
+      "family": "qca",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["qca"]},
+      "failure_mode": "universal-cutoff-without-case-anchors",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.calibrated_case_table", "value": "统一固定阈值，且无案例锚点。"},
+      "expected": {"status": "FAIL", "codes": ["ME.QCA.CALIBRATION_UNGROUNDED"]}
+    },
+    {
+      "id": "congruence-single-theory",
+      "family": "congruence_analysis",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["congruence_analysis"]},
+      "failure_mode": "congruence-without-competing-theory",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.theory_fit_results", "value": "仅评估单一理论，未记录竞争理论。"},
+      "expected": {"status": "FAIL", "codes": ["ME.CONGRUENCE.COMPETITOR_MISSING"]}
+    },
+    {
+      "id": "congruence-no-discrimination",
+      "family": "congruence_analysis",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["congruence_analysis"]},
+      "failure_mode": "same-observation-confirms-conflicting-predictions",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.prediction_observation_matrix", "value": "同一观察被用来确认相互冲突预测，未比较区分力。"},
+      "expected": {"status": "FAIL", "codes": ["ME.CONGRUENCE.DISCRIMINATION_MISSING"]}
+    },
+    {
+      "id": "content-analysis-reliability-omitted",
+      "family": "content_analysis",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["content_analysis"]},
+      "failure_mode": "multi-coder-reliability-missing",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.reliability_or_na_rationale", "value": "多名编码者参与，但未计算一致性，也无不适用理由。"},
+      "expected": {"status": "FAIL", "codes": ["ME.CONTENT_ANALYSIS.RELIABILITY_OMITTED"]}
+    },
+    {
+      "id": "content-analysis-unit-aggregation-mismatch",
+      "family": "content_analysis",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["content_analysis"]},
+      "failure_mode": "coding-and-counting-units-mixed",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.coding_log", "value": "采用句子编码，却按文件计数，未记录聚合规则。"},
+      "expected": {"status": "FAIL", "codes": ["ME.CONTENT_ANALYSIS.UNIT_AGGREGATION_MISMATCH"]}
+    },
+    {
+      "id": "discourse-context-stripped",
+      "family": "discourse_analysis",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["discourse_analysis"]},
+      "failure_mode": "discourse-read-without-registered-context",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.contextual_readings", "value": "脱离历史制度语境解释话语。"},
+      "expected": {"status": "FAIL", "codes": ["ME.DISCOURSE.CONTEXT_STRIPPED"]}
+    },
+    {
+      "id": "discourse-competing-reading-omitted",
+      "family": "discourse_analysis",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["discourse_analysis"]},
+      "failure_mode": "competing-discourse-reading-suppressed",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.competing_reading_results", "value": "未分析竞争性解读，只保留首选解释。"},
+      "expected": {"status": "FAIL", "codes": ["ME.DISCOURSE.COMPETING_READING_OMITTED"]}
+    },
+    {
+      "id": "text-as-data-split-overlap",
+      "family": "text_as_data",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["text_as_data"]},
+      "failure_mode": "train-test-id-overlap",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.split_audit", "value": "训练集与测试集存在ID重叠。"},
+      "expected": {"status": "FAIL", "codes": ["ME.TEXT_AS_DATA.SPLIT_OVERLAP"]}
+    },
+    {
+      "id": "text-as-data-topic-as-attitude",
+      "family": "text_as_data",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["text_as_data"]},
+      "failure_mode": "topic-prevalence-relabelled-attitude",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.validation_results", "value": "主题比例被直接等同公众态度。"},
+      "expected": {"status": "FAIL", "codes": ["ME.TEXT_AS_DATA.TOPIC_AS_ATTITUDE"]}
+    },
+    {
+      "id": "text-as-data-sentiment-as-stance",
+      "family": "text_as_data",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["text_as_data"]},
+      "failure_mode": "sentiment-relabelled-political-stance",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.validation_results", "value": "情感极性被直接等同政治立场。"},
+      "expected": {"status": "FAIL", "codes": ["ME.TEXT_AS_DATA.SENTIMENT_AS_STANCE"]}
+    },
+    {
+      "id": "text-as-data-sentence-pseudo-n",
+      "family": "text_as_data",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["text_as_data"]},
+      "failure_mode": "sentence-count-used-as-independent-sample-size",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.validation_results", "value": "使用句子数量作为独立样本量，虽然处理发生在文件层面。"},
+      "expected": {"status": "FAIL", "codes": ["ME.TEXT_AS_DATA.SENTENCE_PSEUDO_N"]}
+    },
+    {
+      "id": "text-as-data-common-source-as-diffusion",
+      "family": "text_as_data",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["text_as_data"]},
+      "failure_mode": "shared-third-source-relabelled-diffusion",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.sensitivity_results", "value": "共同第三方文本被用来直接证明文本扩散。"},
+      "expected": {"status": "FAIL", "codes": ["ME.TEXT_AS_DATA.COMMON_SOURCE_AS_DIFFUSION"]}
+    },
+    {
+      "id": "social-network-iid-nodes",
+      "family": "social_network",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["social_network"]},
+      "failure_mode": "network-nodes-treated-iid",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.dependence_aware_models", "value": "把相连网络节点当作IID独立观测运行普通回归。"},
+      "expected": {"status": "FAIL", "codes": ["ME.SOCIAL_NETWORK.IID_ASSUMPTION"]}
+    },
+    {
+      "id": "social-network-coword-as-actor-coalition",
+      "family": "social_network",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["social_network"]},
+      "failure_mode": "coword-network-relabelled-actor-coalition",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.mechanism_results", "value": "把共词网络解释为政治行动者联盟网络。"},
+      "expected": {"status": "FAIL", "codes": ["ME.SOCIAL_NETWORK.COWORD_AS_ACTOR_NETWORK"]}
+    },
+    {
+      "id": "comparative-time-misalignment",
+      "family": "comparative",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["comparative"]},
+      "failure_mode": "noncomparable-periods-treated-synchronous",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.time_alignment_audit", "value": "案例来自不可比时期，却仍作同期比较。"},
+      "expected": {"status": "FAIL", "codes": ["ME.COMPARATIVE.TIME_MISALIGNMENT"]}
+    },
+    {
+      "id": "comparative-negative-cases-deleted",
+      "family": "comparative",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["comparative"]},
+      "failure_mode": "negative-cases-removed-after-comparison",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.negative_case_results", "value": "删除反例，只保留符合理论的案例。"},
+      "expected": {"status": "FAIL", "codes": ["ME.COMPARATIVE.NEGATIVE_CASES_REMOVED"]}
+    },
+    {
+      "id": "historical-shared-source-corroboration",
+      "family": "historical",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["historical"]},
+      "failure_mode": "shared-transmission-counted-independent",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.transmission_audit", "value": "同源材料仍被当作独立佐证。"},
+      "expected": {"status": "FAIL", "codes": ["ME.HISTORICAL.FALSE_CORROBORATION"]}
+    },
+    {
+      "id": "historical-anachronism-unresolved",
+      "family": "historical",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["historical"]},
+      "failure_mode": "later-concept-attributed-to-earlier-actor",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.anachronism_audit", "value": "用后世概念归因早期行动者，未处理时代语境。"},
+      "expected": {"status": "FAIL", "codes": ["ME.HISTORICAL.ANACHRONISM_UNRESOLVED"]}
+    },
+    {
+      "id": "grounded-theory-count-as-saturation",
+      "family": "grounded_theory",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["grounded_theory"]},
+      "failure_mode": "fixed-interview-count-substitutes-for-saturation",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.saturation_evidence", "value": "完成20次访谈就宣布理论饱和，未检查新类别。"},
+      "expected": {"status": "FAIL", "codes": ["ME.GROUNDED_THEORY.COUNT_AS_SATURATION"]}
+    },
+    {
+      "id": "grounded-theory-category-forcing",
+      "family": "grounded_theory",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["grounded_theory"]},
+      "failure_mode": "closed-prior-code-frame-forces-data",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.category_results", "value": "先验编码框架不允许新类别，并忽略反例。"},
+      "expected": {"status": "FAIL", "codes": ["ME.GROUNDED_THEORY.CATEGORY_FORCING"]}
+    },
+    {
+      "id": "computational-split-overlap",
+      "family": "computational",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["computational"]},
+      "failure_mode": "computational-train-test-id-overlap",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.split_and_leakage_audit", "value": "训练集与测试集存在ID重叠。"},
+      "expected": {"status": "FAIL", "codes": ["ME.COMPUTATIONAL.SPLIT_OVERLAP"]}
+    },
+    {
+      "id": "computational-benchmark-contaminated",
+      "family": "computational",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["computational"]},
+      "failure_mode": "training-benchmark-reported-independent",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.benchmark_results", "value": "性能只在训练集上报告，却称为独立测试结果。"},
+      "expected": {"status": "FAIL", "codes": ["ME.COMPUTATIONAL.BENCHMARK_CONTAMINATED"]}
+    },
+    {
+      "id": "review-search-unreproducible",
+      "family": "review",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["review"]},
+      "failure_mode": "systematic-search-expression-not-saved",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.search_log", "value": "系统综述未保存检索式，因此无法复算。"},
+      "expected": {"status": "FAIL", "codes": ["ME.SYSTEMATIC_REVIEW.SEARCH_UNREPRODUCIBLE"]}
+    },
+    {
+      "id": "review-duplicate-reports-independent",
+      "family": "review",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["review"]},
+      "failure_mode": "duplicate-study-reports-counted-independent",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.synthesis_results", "value": "同一研究的重复报告被作为独立证据合并。"},
+      "expected": {"status": "FAIL", "codes": ["ME.SYSTEMATIC_REVIEW.DUPLICATE_REPORTS"]}
+    },
+    {
+      "id": "conceptual-circular-definition",
+      "family": "conceptual",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["conceptual"]},
+      "failure_mode": "concept-defined-by-itself",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.definition_analysis", "value": "把待定义概念本身用作定义条件，形成循环定义。"},
+      "expected": {"status": "FAIL", "codes": ["ME.CONCEPTUAL.CIRCULAR_DEFINITION"]}
+    },
+    {
+      "id": "conceptual-post-hoc-boundary",
+      "family": "conceptual",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["conceptual"]},
+      "failure_mode": "counterexample-triggers-unregistered-boundary-change",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.counterexample_results", "value": "发现反例后改写概念边界，但未登记规则。"},
+      "expected": {"status": "FAIL", "codes": ["ME.CONCEPTUAL.POST_HOC_BOUNDARY"]}
+    },
+    {
+      "id": "interpretive-position-concealed",
+      "family": "interpretive",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["interpretive"]},
+      "failure_mode": "researcher-position-concealed-as-viewpoint-free",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.reflexive_account", "value": "研究者位置未披露，却声称无视角解释。"},
+      "expected": {"status": "FAIL", "codes": ["ME.INTERPRETIVE.POSITION_CONCEALED"]}
+    },
+    {
+      "id": "interpretive-competing-reading-excluded",
+      "family": "interpretive",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["interpretive"]},
+      "failure_mode": "competing-reading-excluded-without-basis",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.competing_reading_results", "value": "排除竞争性解读，但未提供依据。"},
+      "expected": {"status": "FAIL", "codes": ["ME.INTERPRETIVE.COMPETING_READING_EXCLUDED"]}
+    },
+    {
+      "id": "normative-fact-value-conflation",
+      "family": "normative",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["normative"]},
+      "failure_mode": "unsupported-fact-relabelled-value-premise",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.premise_audit", "value": "把未经证据支持的事实前提当作规范前提。"},
+      "expected": {"status": "FAIL", "codes": ["ME.NORMATIVE.FACT_VALUE_CONFLATION"]}
+    },
+    {
+      "id": "normative-objection-unanswered",
+      "family": "normative",
+      "generic": false,
+      "role": "error",
+      "applicability": {"families": ["normative"]},
+      "failure_mode": "strongest-objection-unanswered",
+      "harness": "method-execution-validator",
+      "source_manifest": "research-methods-v31",
+      "source_variant": "single-field-mutation",
+      "semantic_validator": "method-execution-validator",
+      "mutation": {"operator": "replace-method-field", "target": "runs[].method_fields.objection_results", "value": "未回应最强反对意见，却宣称论证完备。"},
+      "expected": {"status": "FAIL", "codes": ["ME.NORMATIVE.OBJECTION_UNANSWERED"]}
+    }
+  ],
+  "families": [
+    {
+      "family": "quantitative",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_mechanism"
+      }
+    },
+    {
+      "family": "experiment",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_configuration"
+      }
+    },
+    {
+      "family": "survey",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "case_study",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "process_tracing",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "qca",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "congruence_analysis",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "content_analysis",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "discourse_analysis",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "text_as_data",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "social_network",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "comparative",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "historical",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "grounded_theory",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "computational",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "review",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "conceptual",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "interpretive",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    },
+    {
+      "family": "normative",
+      "case_templates": ["valid-complete", "repetitive-content", "missing-required-field", "legal-non-applicability", "unsupported-claim"],
+      "inference_overreach": {
+        "template_id": "unsupported-claim",
+        "attempted_claim_type": "causal_effect"
+      }
+    }
+  ]
+}

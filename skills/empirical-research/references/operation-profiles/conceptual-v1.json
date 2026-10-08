@@ -1,0 +1,66 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "conceptual",
+  "required_operation_kinds": [
+    "concept_problem_freeze",
+    "definition_rule_articulation",
+    "argument_mapping",
+    "competing_concept_comparison",
+    "boundary_case_test",
+    "counterexample_search",
+    "concept_revision",
+    "conceptual_disposition"
+  ],
+  "optional_operation_kinds": ["concept_history_trace", "typology_construction"],
+  "required_artifact_roles": [
+    "concept_boundary_table",
+    "definition_rules",
+    "argument_map",
+    "competing_concept_matrix",
+    "boundary_case_register",
+    "counterexample_register",
+    "concept_revision_log"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "conceptual-pilot/v1",
+    "required_operation_kinds": [
+      "concept_problem_freeze",
+      "definition_rule_articulation",
+      "argument_mapping",
+      "competing_concept_comparison",
+      "boundary_case_test",
+      "counterexample_search"
+    ],
+    "acceptance_dimensions": [
+      "the concept problem identifies a concrete inferential cost",
+      "definition rules classify central and boundary cases",
+      "competing concepts are compared on the same cases",
+      "counterexamples can force revision"
+    ]
+  },
+  "completion_predicates": [
+    "all constitutive conditions have explicit inclusion and exclusion implications",
+    "central, boundary, and negative cases receive dispositions",
+    "the revised concept improves on named alternatives without absorbing their distinct domains",
+    "remaining counterexamples bound the conceptual claim"
+  ],
+  "failure_routes": [
+    {"code": "UNIT.CONCEPT_EXTENSION_INCOHERENT", "route": "reopen:design"},
+    {"code": "CLAIM.COMPETING_CONCEPT_NOT_DISTINGUISHED", "route": "narrow:<Claim ID>"},
+    {"code": "CLAIM.COUNTEREXAMPLE_FATAL", "route": "withdraw:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "intension-extension tradeoff",
+    "necessity of constitutive conditions",
+    "diagnostic value of boundary cases",
+    "comparative advantage over competing concepts",
+    "revision demanded by counterexamples"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

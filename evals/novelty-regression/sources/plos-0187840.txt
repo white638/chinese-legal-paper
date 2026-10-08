@@ -1,0 +1,15 @@
+One-shot exogenous interventions increase subsequent coordination in Denmark, Spain and Ghana
+
+Authors: Anna Lou Abatayo; Bo Jellesmark Thorsen
+DOI: 10.1371/journal.pone.0187840
+Publisher: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0187840
+License: Creative Commons Attribution 4.0 International
+License URL: https://creativecommons.org/licenses/by/4.0/
+Attribution: Abatayo AL, Thorsen BJ (2017) One-shot exogenous interventions increase subsequent coordination in Denmark, Spain and Ghana. PLoS ONE 12(11): e0187840. https://doi.org/10.1371/journal.pone.0187840
+
+Locator: Abstract, paragraph 1; normalized characters 729:868
+Excerpt (verbatim; one inspected span):
+exogenous interventions increase subsequent coordination, with earlier interventions yielding better coordination than later interventions.
+
+Editorial scope note (paraphrase): 固定配对、五轮最小努力博弈；不得据此宣称长期政策效果。
+This excerpt records the authors' report. It does not establish a universal effect, replication outcome, or absolute novelty judgment.

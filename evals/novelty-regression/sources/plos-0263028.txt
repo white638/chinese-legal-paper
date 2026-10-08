@@ -1,0 +1,15 @@
+The cost of noise: Stochastic punishment falls short of sustaining cooperation in social dilemma experiments
+
+Authors: Mohammad Salahshour; Vincent Oberhauser; Matteo Smerlak
+DOI: 10.1371/journal.pone.0263028
+Publisher: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0263028
+License: Creative Commons Attribution 4.0 International
+License URL: https://creativecommons.org/licenses/by/4.0/
+Attribution: Salahshour M, Oberhauser V, Smerlak M (2022) The cost of noise: Stochastic punishment falls short of sustaining cooperation in social dilemma experiments. PLoS ONE 17(3): e0263028. https://doi.org/10.1371/journal.pone.0263028
+
+Locator: Abstract, paragraph 1; normalized characters 490:583
+Excerpt (verbatim; one inspected span):
+stochastic punishment falls short of sustaining cooperation in the repeated public good game.
+
+Editorial scope note (paraphrase): 惩罚带有随机噪声的公共品博弈；不能仅据此推断惩罚在所有制度中无效。
+This excerpt records the authors' report. It does not establish a universal effect, replication outcome, or absolute novelty judgment.

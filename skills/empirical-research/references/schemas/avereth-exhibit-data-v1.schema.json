@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/avereth-exhibit-data-v1.schema.json",
+  "title": "Avereth normalized empirical exhibit data",
+  "type": "object",
+  "required": ["schema_version", "exhibit_id", "rows"],
+  "properties": {
+    "schema_version": {"const": "avereth-exhibit-data/v1"},
+    "exhibit_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9_-]{1,63}$"},
+    "rows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "schema_version",
+          "exhibit_id",
+          "kind",
+          "quantity",
+          "estimate",
+          "model_label",
+          "group_label",
+          "panel_label",
+          "is_reference",
+          "sample_n",
+          "estimand",
+          "unit",
+          "vcov_type",
+          "cluster_level",
+          "source_result_id",
+          "source_numeric_locator",
+          "line_type",
+          "marker"
+        ],
+        "properties": {
+          "schema_version": {"const": "avereth-exhibit-data/v1"},
+          "exhibit_id": {"type": "string"},
+          "kind": {"type": "string"},
+          "quantity": {"type": "string"},
+          "term": {"type": ["string", "null"]},
+          "x": {"type": ["number", "string", "null"]},
+          "estimate": {"type": "number"},
+          "std_error": {"type": ["number", "null"], "minimum": 0},
+          "conf_low": {"type": ["number", "null"]},
+          "conf_high": {"type": ["number", "null"]},
+          "confidence_level": {"type": ["number", "null"], "exclusiveMinimum": 0, "exclusiveMaximum": 1},
+          "model_label": {"type": "string"},
+          "group_label": {"type": "string"},
+          "panel_label": {"type": "string"},
+          "is_reference": {"type": "boolean"},
+          "sample_n": {"type": "integer", "minimum": 1},
+          "estimand": {"type": "string"},
+          "unit": {"type": "string"},
+          "vcov_type": {"type": "string"},
+          "cluster_level": {"type": "string"},
+          "source_result_id": {"type": "string"},
+          "source_numeric_locator": {"type": "string"},
+          "std_error_locator": {"type": "string"},
+          "conf_low_locator": {"type": "string"},
+          "conf_high_locator": {"type": "string"},
+          "sample_n_locator": {"type": "string"},
+          "line_type": {"type": "string"},
+          "marker": {"type": "string"},
+          "color": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

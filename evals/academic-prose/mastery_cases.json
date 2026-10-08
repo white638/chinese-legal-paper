@@ -1,0 +1,497 @@
+[
+  {
+    "id": "supported-insight",
+    "genre": "quantitative",
+    "baseline": "数字平台建设是提升基层治理效能的重要举措，因此有必要研究其治理效果。",
+    "candidate": "同样接入数字平台的部门并未获得相同的响应速度。平台是否有效，因而不能只看技术是否进入组织，还要看责任如何随技术重新配置。",
+    "expected": "candidate_preferred",
+    "focus": ["insight", "logic"],
+    "guardrail": "The candidate is acceptable only when the manuscript contains the stated between-department result."
+  },
+  {
+    "id": "ornate-but-empty",
+    "genre": "theoretical",
+    "baseline": "本文区分制度授权与行动能力，并讨论二者不一致时的治理后果。",
+    "candidate": "制度之舟行于治理之海，授权之帆与能力之舵若不能交相辉映，治理现代化便难免陷入幽微而深刻的结构性困境。",
+    "expected": "baseline_preferred",
+    "focus": ["elegance", "thought"],
+    "guardrail": "Metaphor cannot replace the analytic distinction."
+  },
+  {
+    "id": "pseudo-insight",
+    "genre": "qualitative",
+    "baseline": "案例显示专班通过跨部门协调推进政策执行。",
+    "candidate": "表面上是专班推动了协同，实质上却是协同创造了专班，这一反常事实颠覆了既有组织理论。",
+    "expected": "baseline_preferred",
+    "focus": ["insight", "fidelity"],
+    "guardrail": "A reversal and a theory-overturning claim require independent evidence."
+  },
+  {
+    "id": "concept-inflation",
+    "genre": "theoretical",
+    "baseline": "地方政府同时回应发展绩效与风险控制要求。",
+    "candidate": "本文将这一现象命名为复合双轴协同适配型韧性治理，并据此提出多维耦合的治理新范式。",
+    "expected": "baseline_preferred",
+    "focus": ["thought", "voice"],
+    "guardrail": "A new name must add boundaries, observable implications, and explanatory value."
+  },
+  {
+    "id": "prettier-but-less-precise",
+    "genre": "quantitative",
+    "baseline": "平台接入与响应时间缩短相关；由于研究未构造反事实，该结果不支持因果推断。",
+    "candidate": "平台进入组织之后，迟滞的治理齿轮由此重新转动，并最终带来了回应能力的整体跃升。",
+    "expected": "baseline_preferred",
+    "focus": ["elegance", "logic", "fidelity"],
+    "guardrail": "The candidate deletes the design boundary and overstates causality."
+  },
+  {
+    "id": "rare-phrase-imitation",
+    "genre": "qualitative",
+    "baseline": "职责清单连接了参与主体的利益与行动。",
+    "candidate": "职责清单像磁石一样吸附组织，并在制度缝隙中缝合主体利益与创新行动。",
+    "expected": "baseline_preferred",
+    "focus": ["voice", "phrase_copying"],
+    "guardrail": "Do not combine distinctive metaphors or rare collocations learned from exemplars."
+  },
+  {
+    "id": "bounded-conceptual-compression",
+    "genre": "qualitative",
+    "baseline": "政府在不同阶段采取了不同方式推动多方参与，早期主要动员，后期主要通过规则稳定合作。",
+    "candidate": "这一过程不是同一种动员的持续加码，而是从关系动员转向规则承诺：前者让合作得以启动，后者才使合作不再依赖临时协调。",
+    "expected": "candidate_preferred",
+    "focus": ["thought", "logic", "elegance"],
+    "guardrail": "The two stages and their evidence must already exist in the case record."
+  },
+  {
+    "id": "continuous-narrative-path",
+    "genre": "theoretical",
+    "baseline": "第一部分介绍平台治理研究，第二部分讨论责任配置，第三部分报告案例。",
+    "candidate": "既有研究通常把平台接入视为能力提升，但同样接入平台的部门为何仍有不同响应速度？这一差异把解释焦点从技术本身推向责任配置，后文案例据此检验两种竞争解释。",
+    "expected": "candidate_preferred",
+    "focus": ["narrative_continuity", "reader_readability", "logic"],
+    "guardrail": "The tension and the two competing explanations must be supported by the literature and case design."
+  },
+  {
+    "id": "economy-without-loss",
+    "genre": "quantitative",
+    "baseline": "从总体上看，就本文所考察的样本而言，平台接入在一定程度上与响应时间的某种程度缩短存在一定的相关关系。",
+    "candidate": "在本文样本中，平台接入与响应时间缩短相关。",
+    "expected": "candidate_preferred",
+    "focus": ["language_economy", "reader_readability", "elegance"],
+    "guardrail": "The shorter version is preferable because it preserves the sample boundary and noncausal relation."
+  },
+  {
+    "id": "actor-and-consequence-visible",
+    "genre": "qualitative",
+    "baseline": "责任配置得到调整后，跨部门协同得以实现。",
+    "candidate": "市级专班把工单移交权交给牵头部门后，部门人员不再等待逐级审批，跨部门响应时间随之缩短。",
+    "expected": "candidate_preferred",
+    "focus": ["actor_visibility", "show_explain", "reader_readability"],
+    "guardrail": "The actors, delegated authority, approval sequence, and timing result must all appear in the evidence record."
+  },
+  {
+    "id": "formulaic-five-act-labels",
+    "genre": "qualitative",
+    "baseline": "引言提出部门响应差异，案例部分解释责任配置，讨论部分处理替代解释与适用边界。",
+    "candidate": "第一幕是背景铺陈，第二幕让张力上升，第三幕迎来高潮，第四幕释放张力，第五幕给出大结局。",
+    "expected": "baseline_preferred",
+    "focus": ["narrative_continuity", "reader_readability", "voice"],
+    "guardrail": "Narrative structure must guide the reader invisibly; dramatic labels are not substantive academic moves."
+  },
+  {
+    "id": "show-without-explain",
+    "genre": "qualitative",
+    "baseline": "访谈显示，牵头部门获得移交权后不再逐级请示；这说明权限配置改变了响应链条，而不只是增加了一套技术工具。",
+    "candidate": "一名受访者说：“现在不用每次都往上报了。”另一名受访者说：“系统确实方便了很多。”",
+    "expected": "baseline_preferred",
+    "focus": ["show_explain", "logic", "reader_readability"],
+    "guardrail": "Quotes must be followed by a warranted interpretation and cannot stand in for analysis."
+  },
+  {
+    "id": "concentrated-boundary-not-audit-repetition",
+    "genre": "qualitative",
+    "baseline": "时间顺序只能说明两者先后出现，不能确认理念发挥了因果作用。文本延续也只能说明内容连续，无法确认其影响。公开材料仍不能排除其他因素，因此不能确定完整因果链。",
+    "candidate": "公开材料显示，倡议提出在先，组织章程随后延续了其中的治理主张。本文据此追踪制度转化过程；由于材料未记录闭门决策，结论限于理念与制度设计的一致性及其可观察转化，不主张排他的因果效应。",
+    "expected": "candidate_preferred",
+    "focus": ["boundary_concentration", "language_economy", "logic", "voice"],
+    "guardrail": "The candidate is preferable only if the full evidentiary boundary is stated once in a load-bearing location and no unsupported causal claim is introduced."
+  },
+  {
+    "id": "role-sorted-alternatives-not-forced-competition",
+    "genre": "qualitative",
+    "baseline": "本文同时比较理念解释、产业利益解释和制度制衡解释，三者构成竞争性解释。",
+    "candidate": "理念解释与产业利益解释都试图说明制度设计为何采取当前形式，因而可用条款来源与受益结构加以区分；制度制衡解释主要说明组织成立后的外部定位，属于后续阶段的条件解释，不与前两者作对称竞争。",
+    "expected": "candidate_preferred",
+    "focus": ["explanation_roles", "logic", "thought", "narrative_continuity"],
+    "guardrail": "An explanation should be called competing only when it targets the same outcome and stage and yields discriminating empirical expectations."
+  },
+  {
+    "id": "frozen-demand-response-object-before-defense",
+    "genre": "qualitative",
+    "baseline": "本文并不把地方公开报道当作独立效果评估，也不试图估计需求响应对全国阵地效能的平均影响，而是重建材料中可观察的行动顺序。本文的中心判断是，需求和反馈进入项目调整、资源再配置及续办退出决定时，回应便从信息记录延伸到供给调整；本文同时指出，关键连接中断会形成程序完整而供给不变的形式回应。",
+    "candidate": "地方公开材料记录了需求提出、责任处理、项目调整与续退决定的行动顺序。这些片段显示，需求和反馈进入项目调整、资源再配置及续办退出决定时，回应才从信息记录延伸为供给调整；关键连接中断则形成程序完整而供给不变的形式回应。由于材料不构成独立效果评估，该判断限于机制可行性，不估计全国平均影响。",
+    "expected": "candidate_preferred",
+    "focus": ["object_foregrounding", "reader_readability", "boundary_concentration", "fidelity"],
+    "protected_items": ["地方公开", "项目调整", "资源再配置", "续办退出", "平均影响"],
+    "guardrail": "Derived from the frozen full-flow manuscript. Both versions must preserve the same public-material basis, mechanism claim, and no-national-average-effect boundary."
+  },
+  {
+    "id": "countervoice-pressure-stays-backstage",
+    "genre": "qualitative",
+    "baseline": "项目台账显示需求反馈形成后，承办部门随即调整了服务时段；同一时期的上级考核文件没有新增时段要求。最有力的质疑认为，调整也可能来自未公开的行政协调。这一质疑部分成立。本文材料所能支持的是反馈参与调整，本文把结论限定为尚不能排除未公开的行政协调。",
+    "candidate": "项目台账显示，需求反馈形成后，承办部门随即调整了服务时段；同一时期的上级考核文件没有新增时段要求。现有材料因而更支持反馈参与调整的解释，但尚不能排除未公开的行政协调。",
+    "expected": "candidate_preferred",
+    "focus": ["backstage_control", "object_foregrounding", "show_explain", "logic"],
+    "protected_items": ["项目台账", "服务时段", "上级考核文件", "未公开的行政协调"],
+    "guardrail": "The timing, absence of a new assessment requirement, and unobserved-coordination boundary must exist in the same evidence record; the candidate integrates the objection without transcribing reviewer dialogue."
+  },
+  {
+    "id": "framework-remains-an-analytic-tool",
+    "genre": "qualitative",
+    "baseline": "本文构建“识别—吸纳—回流”框架。本文用该框架分别分析群众需求经筛选后进入项目选择、跨部门责任把事项处理连接到资源调整、评价结果影响项目续办或退出三个环节，并说明该框架如何推进回应性治理研究。",
+    "candidate": "群众需求经过筛选后进入项目选择，跨部门责任把事项处理连接到资源调整，评价结果则影响项目续办或退出。“识别—吸纳—回流”只用于比较这三个决策节点；研究判断仍落在需求信息何时改变基层服务供给。",
+    "expected": "candidate_preferred",
+    "focus": ["framework_demotion", "object_foregrounding", "actor_visibility", "reader_readability"],
+    "protected_items": ["识别—吸纳—回流", "项目选择", "资源调整", "续办或退出"],
+    "guardrail": "The framework may organize analysis but cannot replace the original object, actors, observed decisions, or substantive answer."
+  },
+  {
+    "id": "necessary-author-responsibility-is-retained",
+    "genre": "qualitative",
+    "baseline": "为避免用同一批材料同时提出和验证解释，我们将形成假设的访谈与检验假设的档案分开编码，并公开材料排除规则。",
+    "candidate": "访谈与档案得到综合分析，材料处理过程可靠，研究结论因此具有可信度。",
+    "expected": "baseline_preferred",
+    "focus": ["author_responsibility", "fidelity", "logic", "reader_readability"],
+    "protected_items": ["分开编码", "排除规则"],
+    "guardrail": "Object-first prose does not erase author responsibility when the author must disclose a consequential analytic choice, separation rule, or exclusion decision."
+  },
+  {
+    "id": "claim-first-contribution-with-scope",
+    "genre": "qualitative",
+    "baseline": "尽管本文只考察2019至2024年的三个地级市，材料也不能代表全部地区，但本研究仍具有一定价值，因为它尝试说明授权结构与协同响应的关系。",
+    "candidate": "2019至2024年三个地级市的材料显示，事项移交权进入牵头部门后，跨部门响应由逐级请示转为直接协调。这一比较说明授权结构如何改变协同路径，结论适用于具有相同事项移交安排的组织。",
+    "expected": "candidate_preferred",
+    "focus": ["anti_defensive_function", "claim_arrival", "boundary_concentration", "reader_readability"],
+    "protected_items": ["2019至2024年", "三个地级市", "授权结构", "协同"],
+    "guardrail": "The candidate should lead with the supported contribution while preserving the observed period, cases, mechanism relation, and scope."
+  },
+  {
+    "id": "positive-meta-rewording-is-not-a-revision",
+    "genre": "quantitative",
+    "baseline": "本文不主张热线平台普遍提高治理效能。2019至2023年三市工单显示，平台接入与响应时间缩短相关，但设计未构造反事实。",
+    "candidate": "本文聚焦热线平台对治理效能的积极作用。",
+    "expected": "baseline_preferred",
+    "focus": ["anti_defensive_function", "fidelity", "epistemic_calibration", "reader_readability"],
+    "protected_items": ["2019至2023年", "三市工单", "相关", "未构造反事实"],
+    "guardrail": "Replacing a negative author-intent sentence with positive meta-language fails when it deletes the actual evidence and causal boundary."
+  },
+  {
+    "id": "hypothetical-objection-becomes-substantive-relation",
+    "genre": "qualitative",
+    "baseline": "为避免误解，需要说明的是，强调政策设计并不意味着行政能力不重要，也不能据此把执行结果完全归因于制度条款。",
+    "candidate": "执行结果取决于政策设计与行政能力的共同作用：制度条款分配行动权限，行政能力则决定这些权限能否转化为持续协调。",
+    "expected": "candidate_preferred",
+    "focus": ["anti_defensive_function", "claim_arrival", "thought", "logic"],
+    "guardrail": "The interaction and the distinct role of each factor must already be supported; removing a hypothetical objection cannot create a new mechanism."
+  },
+  {
+    "id": "hedge-pile-becomes-sourced-uncertainty",
+    "genre": "quantitative",
+    "baseline": "这一结果似乎可能在一定程度上说明，平台接入或许会改善部门回应能力。",
+    "candidate": "平台接入与部门回应时间缩短相关；横截面设计未构造反事实，因此该结果不支持因果效应判断。",
+    "expected": "candidate_preferred",
+    "focus": ["anti_defensive_function", "epistemic_calibration", "language_economy", "logic"],
+    "protected_items": ["平台接入", "部门回应"],
+    "guardrail": "The candidate is preferable only when the observed relation is correlational and the missing counterfactual is the actual source of uncertainty."
+  },
+  {
+    "id": "ethical-boundary-survives-confidence-edit",
+    "genre": "qualitative",
+    "baseline": "为保护受访者，本文隐去可识别的单位与职位信息；这一处理限制了对具体组织的外部核查，但不改变对访谈材料的主题比较。",
+    "candidate": "访谈材料清楚呈现了不同组织的共同主题，足以支持本文判断。",
+    "expected": "baseline_preferred",
+    "focus": ["anti_defensive_function", "protected_boundary", "author_responsibility", "fidelity"],
+    "protected_items": ["保护受访者", "隐去", "外部核查", "主题比较"],
+    "guardrail": "Anti-defensive editing must retain confidentiality duties and the verification consequence of de-identification."
+  },
+  {
+    "id": "peer-usable-abstract-not-a-research-plan",
+    "genre": "qualitative",
+    "baseline": "本文旨在构建国家形象知识公开核验框架，全文分为概念界定、框架构建、案例分析和结论四部分。",
+    "candidate": "权威发布进入国际传播后，读者凭什么找到并理解支持具体主张的原始依据？本文比较公开文本中的链接、材料名称、日期、生产者和版本信息，发现可核验性取决于这些线索能否共同指向正确材料，而非链接是否出现。该结论把国家形象研究从信息发布推进到证据如何被同行复核，同时限于公开材料可观察的呈现条件。",
+    "expected": "candidate_preferred",
+    "focus": ["peer_usability", "reader_readability", "logic", "epistemic_calibration"],
+    "protected_items": ["国家形象", "公开核验", "公开材料"],
+    "guardrail": "The candidate is preferable only when the comparison and the stated joint role of locators are supported by the manuscript evidence; an abstract must report the question and answer, not merely a framework and section plan."
+  },
+  {
+    "id": "table-values-describe-materials-not-workflow-failures",
+    "genre": "qualitative",
+    "baseline": "表中依次写作：不作独立外部验证、未见原始表、来源获取失败、不能直接核验。",
+    "candidate": "表中依次写作：材料身份为发布机构自述；可核对信息包括正式名称、发布日期与版本；当前公开页提供概览而未附原始数据表；该项用于核对发布内容，不承担独立效果验证。",
+    "expected": "candidate_preferred",
+    "focus": ["peer_usability", "object_foregrounding", "language_economy", "boundary_concentration"],
+    "protected_items": ["发布机构自述", "正式名称", "发布日期", "版本", "原始数据表", "独立效果验证"],
+    "guardrail": "Positive wording must not invent access or verification. The candidate wins because it exposes the observable material condition and claim responsibility while keeping acquisition failures backstage."
+  },
+  {
+    "id": "zero-observation-needs-an-inference-bridge",
+    "genre": "qualitative",
+    "baseline": "“直接完整”为零而“检索中介完整”持续出现，说明证据呈现不能简化为给文本加链接。",
+    "candidate": "样本中没有链接能够直接提供全部核对信息，多数材料需要读者依据正式名称、日期、生产者或版本继续定位。这一分布只说明本样本中的链接没有单独完成核对任务。进一步比较显示，能够直达稳定原始表的链接减少了版本辨认步骤，而通向概览页的链接仍需其他定位信息；因此，链接的作用取决于它是否与找到正确材料所需的线索共同出现。",
+    "expected": "candidate_preferred",
+    "focus": ["logic", "epistemic_calibration", "show_explain", "peer_usability"],
+    "protected_items": ["直接完整", "正式名称", "日期", "生产者", "版本", "链接"],
+    "guardrail": "The comparison between direct source links and overview links must exist in the coded material. A zero count alone cannot establish impossibility or necessity."
+  },
+  {
+    "id": "retrieval-failure-stays-backstage",
+    "genre": "qualitative",
+    "baseline": "在来源检查与来源获取失败部分，本文共有27个句子无法通过工具访问。",
+    "candidate": "27个句子引用的公开页面只提供机构概览，未附支撑相关数字的原始表格；这些句子因而只用于分析机构如何呈现信息，不用于比较数字的跨期变化。",
+    "expected": "candidate_preferred",
+    "focus": ["backstage_control", "object_foregrounding", "epistemic_calibration", "peer_usability"],
+    "protected_items": ["27个句子", "公开页面", "机构概览", "原始表格", "跨期变化"],
+    "guardrail": "The candidate must describe the actual public-material condition and its consequence for the claim. It may not replace a failed source with an unverified assertion."
+  },
+  {
+    "id": "semantic-paraphrase-removes-author-defense",
+    "genre": "qualitative",
+    "baseline": "本文并不试图提出一个普遍理论，而只是有限说明，在政策执行初期的三个地级市场景中，事项移交权集中与跨部门协调速度提高相关。",
+    "candidate": "在政策执行初期的三个地级市场景中，事项移交权越集中，跨部门协调通常越快。",
+    "expected": "candidate_preferred",
+    "focus": ["semantic_fidelity", "positive_formulation", "claim_arrival", "reader_readability"],
+    "protected_items": ["政策执行初期", "三个地级市", "事项移交权", "跨部门协调"],
+    "semantic_contract": {"polarity": "positive", "inferential_strength": "association", "scope": "政策执行初期的三个地级市"},
+    "guardrail": "The candidate may change syntax and framing but must preserve the object, positive direction, associational strength, and exact scope."
+  },
+  {
+    "id": "negative-result-remains-negative-and-explained",
+    "genre": "quantitative",
+    "baseline": "干预并未显著提高政策支持度。",
+    "candidate": "干预实施后，样本中的政策支持度未显著提高；现有结果因而不支持该干预能够改变政策态度的预期。",
+    "expected": "candidate_preferred",
+    "focus": ["semantic_fidelity", "substantive_explanation", "epistemic_calibration", "show_explain"],
+    "protected_items": ["未显著提高", "政策支持度"],
+    "semantic_contract": {"polarity": "negative_result", "inferential_strength": "null_result", "scope": "样本中的政策支持度"},
+    "guardrail": "Positive formulation never licenses turning a registered null result into a vague benefit or omitting its negative polarity."
+  },
+  {
+    "id": "association-does-not-become-causation",
+    "genre": "quantitative",
+    "baseline": "平台接入必然缩短响应时间，并提高所有地区的治理能力。",
+    "candidate": "2019至2023年三个地级市的工单显示，平台接入与响应时间缩短相关；该判断适用于具有相同事项移交安排的组织。",
+    "expected": "candidate_preferred",
+    "focus": ["semantic_fidelity", "epistemic_calibration", "boundary_concentration", "positive_formulation"],
+    "protected_items": ["2019至2023年", "三个地级市", "平台接入", "响应时间缩短", "相关"],
+    "semantic_contract": {"direction": "response_time_decreases", "polarity": "positive_relation", "inferential_strength": "association", "scope": "相同事项移交安排"},
+    "guardrail": "The candidate must preserve direction and scope while refusing causal or universal strengthening."
+  },
+  {
+    "id": "review-comment-becomes-clean-research-logic",
+    "genre": "qualitative",
+    "baseline": "为回应审稿人关于机制解释不足的意见，本文进一步补充：权力集中减少逐级请示。尽管这一回应仍可能不够充分，但本文已作出修改。",
+    "candidate": "牵头部门获得直接调度权后，责任确认由多部门协商转为牵头部门判定，工单不再逐级请示。三个案例中的响应时间变化与这一过程一致。",
+    "expected": "candidate_preferred",
+    "focus": ["revision_cleanliness", "clean_read", "substantive_explanation", "narrative_continuity"],
+    "protected_items": ["逐级请示", "机制"],
+    "semantic_contract": {"reader_question": "权力集中为什么会缩短响应时间？", "forbidden_process_language": ["审稿人", "回应", "修改"]},
+    "guardrail": "The clean-read candidate must stand on research logic alone and reveal neither the comment sequence nor patch seams."
+  },
+  {
+    "id": "registered-warrant-bridge-may-grow-locally",
+    "genre": "qualitative",
+    "baseline": "共享权限组的中位响应时间为14小时，逐级审批组为31小时。因此，责任配置影响协调效率。",
+    "candidate": "共享权限组的中位响应时间为14小时，逐级审批组为31小时。共享权限让牵头部门直接确认责任并调度参与单位，减少了工单在逐级请示中的等待。因此，责任配置与协调效率差异相关。",
+    "expected": "candidate_preferred",
+    "focus": ["substantive_explanation", "show_explain", "semantic_fidelity", "local_growth"],
+    "protected_items": ["14小时", "31小时", "责任配置", "协调效率"],
+    "semantic_contract": {"allowed_action": "BRIDGE", "source_kind": "warrant", "inferential_strength": "association", "forbid_new_fact_or_citation": true},
+    "guardrail": "Local growth is justified only by a registered warrant that restores the evidence-to-claim bridge without adding facts, citations, or causal strength."
+  },
+  {
+    "id": "boundary-is-positive-concentrated-and-post-claim",
+    "genre": "qualitative",
+    "baseline": "本研究不能外推到所有地区。事项移交权集中与更快响应相关。由于不能外推，本文不认为这一关系适用于全部政策场景。再次需要说明的是，样本范围有限。",
+    "candidate": "事项移交权集中与更快的跨部门响应相关。该判断适用于政策执行初期具有相同授权结构的地级市场景。",
+    "expected": "candidate_preferred",
+    "focus": ["boundary_concentration", "positive_formulation", "claim_arrival", "semantic_fidelity"],
+    "protected_items": ["事项移交权", "跨部门响应", "政策执行初期", "授权结构"],
+    "semantic_contract": {"boundary_id": "B-SCOPE-01", "preferred_realization": "positive_scope", "full_statement_occurrences": 1, "placement": "after_claim"},
+    "guardrail": "The same Boundary ID is realized fully once, positively, and after the claim it limits."
+  },
+  {
+    "id": "nominalization-restores-actor-without-term-loss",
+    "genre": "qualitative",
+    "baseline": "事项移交权配置的集中化通过跨部门协调机制的重构实现了响应效率的改善。",
+    "candidate": "市级专班把事项移交权交给牵头部门后，后者可以直接调度参与单位，跨部门响应由逐级请示转为直接协调。",
+    "expected": "candidate_preferred",
+    "focus": ["actor_visibility", "substantive_explanation", "reader_readability", "terminology_fidelity"],
+    "protected_items": ["事项移交权", "跨部门协调"],
+    "semantic_contract": {"actors": ["市级专班", "牵头部门", "参与单位"], "protected_terms": ["事项移交权", "跨部门协调"]},
+    "guardrail": "Restoring actors, actions, and consequences must not dilute or replace the registered technical terms."
+  },
+  {
+    "id": "problem-arc-changes-the-live-question",
+    "genre": "theoretical",
+    "baseline": "第一类研究讨论技术能力，第二类研究讨论组织结构，第三类研究讨论政策环境。",
+    "candidate": "技术能力说把接入视为充分条件，但同平台部门的响应差异对这一判断形成压力。问题因而不再是平台是否有效，而是责任配置何时把技术能力转化为组织行动。",
+    "expected": "candidate_preferred",
+    "focus": ["problem_arc", "thought_movement", "narrative_continuity", "logic"],
+    "guardrail": "The candidate wins only when the registered literature and evidence support both the provisional answer and the pressure that revises the live question."
+  },
+  {
+    "id": "problem-arc-refuses-false-teleology",
+    "genre": "historical",
+    "baseline": "随着治理现代化不断推进，关系动员必然让位于规则治理，制度演进最终走向成熟。",
+    "candidate": "关系动员启动了早期合作，但成员更替使临时协调成本上升；随后出现的规则承诺解决了这一具体压力。现有材料说明转向如何发生，不足以把它写成制度演进的必然终点。",
+    "expected": "candidate_preferred",
+    "focus": ["problem_arc", "false_teleology", "epistemic_calibration", "fidelity"],
+    "guardrail": "A temporal sequence becomes an explanatory transition only when registered pressure and mechanism evidence support it; chronology alone cannot establish inevitability."
+  },
+  {
+    "id": "thought-move-distinguishes-before-it-advances",
+    "genre": "qualitative",
+    "baseline": "责任配置很重要。进一步说，责任配置仍然很重要。",
+    "candidate": "职责清单并未直接缩短响应时间；它先把争议事项的判定权交给牵头部门。责任配置的作用因此从一般协调条件收窄为改变责任确认路径。",
+    "expected": "candidate_preferred",
+    "focus": ["thought_movement", "substantive_explanation", "logic", "reader_readability"],
+    "guardrail": "A Thought Move must register a before-state, a real distinction or revision, and a changed after-state without inventing a mechanism."
+  },
+  {
+    "id": "epistemic-hook-delays-only-the-registered-answer",
+    "genre": "qualitative",
+    "baseline": "究竟是什么神秘力量改变了部门回应？答案将在后文揭晓。",
+    "candidate": "同一平台为何产生两种响应速度？分组结果先排除了接入差异，下一节再比较责任配置与人员规模两种解释。",
+    "expected": "candidate_preferred",
+    "focus": ["epistemic_hook", "narrative_continuity", "logic", "voice"],
+    "guardrail": "A hook may defer a registered comparison, but it may not manufacture mystery, hide an already available answer, or promise evidence the paper does not contain."
+  },
+  {
+    "id": "epistemic-hook-payment-deepens-the-question",
+    "genre": "quantitative",
+    "baseline": "引言追问平台为何有效。结果表明平台有效，回答了前述问题。",
+    "candidate": "引言追问同平台部门为何响应不同。结果显示差异集中在事项需要跨部门移交时；回答因此把一般的平台效果问题推进为授权结构如何改变移交成本的问题。",
+    "expected": "candidate_preferred",
+    "focus": ["epistemic_hook", "thought_movement", "substantive_explanation", "reader_payoff"],
+    "guardrail": "Payment must do more than repeat the hook: the registered result must answer it and leave a more precise problem or bounded implication."
+  },
+  {
+    "id": "quotation-keeps-context-and-does-analytic-work",
+    "genre": "historical",
+    "baseline": "一位干部说：“办法总比困难多。”这句生动的话体现了基层治理智慧。",
+    "candidate": "在讨论跨部门事项积压时，该干部说“办法总比困难多”（访谈12，第18段）。这句话并非一般乐观表态；紧随其后的移交记录显示，他所说的“办法”具体指牵头部门获得直接调度权。",
+    "expected": "candidate_preferred",
+    "focus": ["context_anchor", "show_explain", "voice", "fidelity"],
+    "protected_items": ["办法总比困难多", "访谈12", "第18段", "直接调度权"],
+    "guardrail": "The quotation must retain its exact span, locator, original problem, protected qualifiers, and logical role; the interpretation must be warranted by registered surrounding evidence."
+  },
+  {
+    "id": "source-voice-does-not-displace-author-analysis",
+    "genre": "theoretical",
+    "baseline": "甲认为平台整合信息，乙指出组织惯性，丙强调权力结构，丁则讨论执行能力。",
+    "candidate": "甲和乙都解释平台接入后的平均变化，但无法说明同平台部门差异；丙关于权力结构的判断提出了可区分预期，丁的执行能力解释则限定在人员不足的部门。本文据此比较两种同结果解释，而不把四种立场并列成目录。",
+    "expected": "candidate_preferred",
+    "focus": ["source_voice", "problem_arc", "explanation_roles", "logic"],
+    "guardrail": "Fair source attribution remains necessary, but the author's comparison, distinction, and response must be recoverable without misrepresenting any position."
+  },
+  {
+    "id": "scene-return-changes-the-opening-understanding",
+    "genre": "qualitative",
+    "baseline": "开头写工作人员反复等待审批。结尾再次写工作人员反复等待审批，形成首尾呼应。",
+    "candidate": "开头，工作人员把积压归因于平台卡顿；结尾回到同一份移交记录，读者已经看到真正被反复等待的是责任确认。场景没有改变，问题的解释对象从技术故障转向授权结构。",
+    "expected": "candidate_preferred",
+    "focus": ["context_anchor", "closure", "thought_movement", "reader_payoff"],
+    "guardrail": "A return must bind the same verified scene and deepen or revise its meaning; repetition alone is not closure."
+  },
+  {
+    "id": "closure-stays-grounded-in-the-evidence-chain",
+    "genre": "qualitative",
+    "baseline": "由此可见，数字治理正在开启国家治理现代化的崭新时代，并将深刻重塑未来。",
+    "candidate": "三个部门的比较表明，平台接入只有在事项移交权同步下放时才与更快响应相伴。本文改变的不是对技术价值的一般评价，而是判断平台作用时应先追问谁能确认责任并调度行动。",
+    "expected": "candidate_preferred",
+    "focus": ["closure", "epistemic_calibration", "reader_payoff", "fidelity"],
+    "guardrail": "The closing elevation must remain within the registered cases, relation strength, and evidence-to-claim warrant."
+  },
+  {
+    "id": "title-resonance-is-explained-in-the-body",
+    "genre": "theoretical",
+    "baseline": "标题：《看不见的手：平台治理的深层密码》。正文只讨论部门响应差异，从未解释“手”或“密码”对应什么关系。",
+    "candidate": "标题：《谁握有移交权？平台接入与部门响应差异》。正文在机制段解释：问题不在于谁能登录平台，而在于谁有权确认责任并把事项移交给参与单位。",
+    "expected": "candidate_preferred",
+    "focus": ["title_body_fulfillment", "thought_movement", "reader_readability", "voice"],
+    "guardrail": "A resonant title is admissible only when a registered body Move explains the substantive relation without adding a new claim or decorative metaphor."
+  },
+  {
+    "id": "cn-syntax-long-attributive-split",
+    "genre": "qualitative",
+    "baseline": "基于2019年以来三个地级市热线工单数据所反映出来的跨部门事项在移交环节反复退回现象的成因，需要从事项移交权的配置来解释。",
+    "candidate": "2019年以来，三个地级市的热线工单显示，跨部门事项在移交环节反复退回。退回的成因在于事项移交权的配置。",
+    "expected": "candidate_preferred",
+    "focus": ["reader_readability", "language_economy", "logic", "fidelity"],
+    "guardrail": "Splitting a stacked prenominal modifier into two clauses must keep the period, the three cities, the returned-transfer phenomenon, and the same explanatory claim without strengthening it."
+  },
+  {
+    "id": "cn-syntax-light-verb-restored",
+    "genre": "qualitative",
+    "baseline": "牵头部门对退回工单予以了重新分派，并对责任归属加以明确，协调效率的提升由此得以实现。",
+    "candidate": "牵头部门重新分派了退回工单，并明确了责任归属；协调效率由此提高。",
+    "expected": "candidate_preferred",
+    "focus": ["actor_visibility", "language_economy", "reader_readability", "terminology_fidelity"],
+    "guardrail": "Restoring the action to the verb must keep the same actor, the two actions, and the same link strength between them and the efficiency change; it may not add a mechanism or a number."
+  },
+  {
+    "id": "cn-syntax-enumeration-levels",
+    "genre": "quantitative",
+    "baseline": "财政透明度受到领导重视程度、公开平台建设、上级考核压力、公众关注度、信息公开条例等因素的影响。",
+    "candidate": "财政透明度的差异来自两类条件：制度约束（信息公开条例的强制条款、上级考核指标）与地方动力（主要领导的重视、公众关注引发的问询）；公开平台是两类条件发挥作用的载体，不是独立原因。",
+    "expected": "candidate_preferred",
+    "focus": ["logic", "thought", "reader_readability", "epistemic_calibration"],
+    "guardrail": "The two-level grouping and the demotion of the platform to a channel must already be supported by the analysis; layering an enumeration cannot invent a causal hierarchy."
+  },
+  {
+    "id": "cn-syntax-triple-escalation-to-single-judgment",
+    "genre": "qualitative",
+    "baseline": "热线工单制度不仅改变了信息传递方式，而且重塑了部门间的责任关系，更从根本上推动了治理理念的转型。",
+    "candidate": "热线工单制度改变了部门间的责任关系：责任确认由多部门协商转为牵头部门判定。材料不支持关于治理理念转型的判断。",
+    "expected": "candidate_preferred",
+    "focus": ["epistemic_calibration", "language_economy", "logic", "elegance"],
+    "guardrail": "The single judgment must be the one the case record supports; dropping the unsupported third step is calibration rather than compression loss only when no registered evidence for the ideational shift exists."
+  },
+  {
+    "id": "cn-cliche-paragraph-closing-elevation-removed",
+    "genre": "qualitative",
+    "baseline": "三个案例中退回工单的减少都发生在移交权下放之后。总之，事项移交权的下放是推进国家治理体系和治理能力现代化的关键一环，具有深远意义。",
+    "candidate": "三个案例中退回工单的减少都发生在移交权下放之后。这一时间顺序支持移交权与退回率相关，但尚不能排除同期人员增配的作用；下一节比较人员规模相近的两个部门。",
+    "expected": "candidate_preferred",
+    "focus": ["closure", "epistemic_calibration", "narrative_continuity", "boundary_concentration"],
+    "guardrail": "The closing sentence must finish the paragraph's own judgment and hand over a registered next comparison; the staffing alternative and the next-section comparison must exist in the design."
+  },
+  {
+    "id": "cn-cliche-tier-a-deletion",
+    "genre": "quantitative",
+    "baseline": "在国家治理体系和治理能力现代化不断深入推进的时代背景下，财政透明度作为现代财政制度的重要抓手，具有十分重要的理论与现实意义。本文发现，2016年后省内21个地市的部门预算公开率趋同，但公开文本的说明深度分化。",
+    "candidate": "2016年后，省内21个地市的部门预算公开率趋同，但公开文本的说明深度分化。",
+    "expected": "candidate_preferred",
+    "focus": ["language_economy", "claim_arrival", "reader_readability", "object_foregrounding"],
+    "guardrail": "Tier-A formulas may be deleted outright because no object, judgment, mechanism, evidence, or boundary is lost; the finding, the year, and the 21-city sample must survive unchanged."
+  },
+  {
+    "id": "cn-cliche-tier-b-metadiscourse-retained",
+    "genre": "quantitative",
+    "baseline": "三市公开率在改革后趋同。值得注意的是，公开文本对预算调整原因的说明反而减少：改革前有两市在报表后附说明，改革后三市均只附报表。",
+    "candidate": "三市公开率在改革后趋同，公开文本的说明方式也随之调整。",
+    "expected": "baseline_preferred",
+    "focus": ["fidelity", "epistemic_calibration", "language_economy", "show_explain"],
+    "guardrail": "A tier-B signal is kept when what follows is new, checkable, and contrary to expectation; stripping the marker together with the direction of change and the two-city versus three-city comparison is information loss, not economy."
+  },
+  {
+    "id": "cn-cliche-abstract-elements-completed",
+    "genre": "qualitative",
+    "baseline": "本文以X市政务热线为例，运用案例研究方法，对热线工单处理中的跨部门协同问题进行了较为系统的分析，揭示了影响协同效率的深层次原因，并提出了优化路径，以期为提升基层治理效能提供有益借鉴。",
+    "candidate": "同一热线平台上，为什么有的跨部门工单一次办结，有的反复退回？本文比较X市2021至2023年三个牵头部门的跨部门工单及移交记录，发现退回集中于责任归属不明的事项；事项移交权交给牵头部门后，退回率由27%降至9%。热线效能的差异因而来自责任确认路径而非技术接入；结论适用于具有相同移交安排的地级市热线，不支持全国平均效应的推断。",
+    "expected": "candidate_preferred",
+    "focus": ["peer_usability", "reader_readability", "epistemic_calibration", "claim_arrival"],
+    "guardrail": "The four abstract elements (question, material, finding, bounded contribution) must each be backed by the manuscript; numbers and the scope condition may not be invented to make the abstract look complete."
+  }
+]

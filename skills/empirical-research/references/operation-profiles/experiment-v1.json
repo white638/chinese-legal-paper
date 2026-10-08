@@ -1,0 +1,64 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "experiment",
+  "required_operation_kinds": [
+    "assignment_schedule_freeze",
+    "treatment_delivery_audit",
+    "randomization_verification",
+    "participant_flow_accounting",
+    "outcome_estimation",
+    "attrition_assessment",
+    "interference_assessment",
+    "causal_disposition"
+  ],
+  "optional_operation_kinds": ["manipulation_check", "noncompliance_analysis"],
+  "required_artifact_roles": [
+    "assignment_manifest",
+    "treatment_delivery_log",
+    "participant_flow",
+    "randomization_audit",
+    "outcome_results",
+    "attrition_report",
+    "interference_report"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "experiment-pilot/v1",
+    "required_operation_kinds": [
+      "assignment_schedule_freeze",
+      "treatment_delivery_audit",
+      "randomization_verification",
+      "participant_flow_accounting",
+      "outcome_estimation"
+    ],
+    "acceptance_dimensions": [
+      "assignment is reconstructable",
+      "treatment delivery is distinguishable from assignment",
+      "participant exclusions are accounted for",
+      "outcome timing matches the estimand"
+    ]
+  },
+  "completion_predicates": [
+    "all randomized units are represented in the participant flow",
+    "assignment, exposure, attrition, and outcome artifacts use compatible unit identifiers",
+    "causal disposition incorporates noncompliance and interference when applicable"
+  ],
+  "failure_routes": [
+    {"code": "IDENTIFICATION.ASSIGNMENT_FAILURE", "route": "reopen:design"},
+    {"code": "MEASUREMENT.TREATMENT_DELIVERY_FAILURE", "route": "narrow:<Claim ID>"},
+    {"code": "ETHICS.PROTOCOL_DEVIATION", "route": "human-review"}
+  ],
+  "judgment_nodes": [
+    "assignment integrity",
+    "manipulation validity",
+    "attrition-induced bias",
+    "estimand choice under noncompliance",
+    "interference boundary"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

@@ -1,0 +1,936 @@
+{
+  "schema_version": "cnki-method-adapter-registry/v3",
+  "registry_version": "5.1.0",
+  "answer_protocol_version": "1.4.0",
+  "failure_taxonomy_asset": "references/schemas/failure-taxonomy-v1.json",
+  "operation_profile_schema_asset": "references/schemas/method-operation-v1.schema.json",
+  "researcher_dispatch_policy": {
+    "schema_version": "avereth-researcher-dispatch-policy/v1",
+    "policy_version": "1.0.0",
+    "task_operation_map": {
+      "pilot_codebook_calibration": [
+        "codebook_freeze",
+        "codebook_revision",
+        "review_protocol_freeze",
+        "definition_rule_articulation",
+        "open_coding"
+      ],
+      "independent_coding": [
+        "content_coding",
+        "eligibility_screening",
+        "evidence_extraction",
+        "quality_appraisal",
+        "open_coding",
+        "institutional_grammar_coding"
+      ],
+      "agreement_calculation": [
+        "reliability_or_validation_assessment",
+        "reference_validation"
+      ],
+      "disagreement_adjudication": [
+        "coder_disagreement_adjudication"
+      ],
+      "reference_set_construction": [
+        "reference_validation"
+      ],
+      "holdout_validation": [
+        "reference_validation",
+        "domain_shift_test"
+      ],
+      "boundary_case_review": [
+        "context_boundary_audit",
+        "error_analysis",
+        "boundary_case_test",
+        "counterexample_search",
+        "negative_case_search",
+        "competing_reading_test",
+        "contradictory_evidence_analysis"
+      ],
+      "inference_audit": [
+        "content_inference_disposition",
+        "interpretation_boundary_disposition",
+        "review_disposition",
+        "gap_test",
+        "conceptual_disposition",
+        "theory_generation_disposition",
+        "interpretive_disposition",
+        "normative_disposition",
+        "causal_inference_disposition"
+      ]
+    },
+    "always_isolated_tasks": [
+      "independent_coding",
+      "reference_set_construction",
+      "holdout_validation"
+    ],
+    "conditional_isolated_tasks": [
+      "pilot_codebook_calibration",
+      "boundary_case_review",
+      "inference_audit"
+    ],
+    "agreement_tasks": [
+      "independent_coding",
+      "reference_set_construction",
+      "holdout_validation",
+      "boundary_case_review",
+      "inference_audit"
+    ],
+    "adjudication_on_disagreement_tasks": [
+      "independent_coding",
+      "reference_set_construction",
+      "boundary_case_review",
+      "inference_audit"
+    ],
+    "high_consequence_claim_types": [
+      "causal_effect",
+      "causal_mechanism",
+      "causal_configuration",
+      "normative",
+      "theory_generation",
+      "theory_evaluation"
+    ]
+  },
+  "retired_method_contracts": {
+    "text-as-data/measurement-v1": {"successor": "text-as-data/measurement-v2", "migration_required": true},
+    "text-alignment/v1": {"successor": "text-alignment/v2", "migration_required": true},
+    "text-matching/v1": {"successor": "text-matching/v2", "migration_required": true}
+  },
+  "method_contracts": {
+    "text-as-data/measurement-v2": {
+      "asset": "references/schemas/methods/text-measurement-v2.schema.json",
+      "validator": "text_measurement",
+      "revision": "1",
+      "design_required": ["construct", "unit_of_analysis", "split_plan", "validation_plan", "interpretation"],
+      "supplemental_profiles": [
+        {
+          "id": "claim_measurement",
+          "profile_asset": "packs/public-text-politics/profiles/claim_measurement.json",
+          "schema_asset": "packs/public-text-politics/contracts/claim_measurement.schema.json",
+          "core_method_contract_id": "text-as-data/measurement-v2",
+          "core_method_contract_revision": "1"
+        }
+      ]
+    },
+    "text-alignment/v2": {
+      "asset": "references/schemas/methods/text-alignment-v2.schema.json",
+      "validator": "text_alignment",
+      "revision": "1",
+      "design_required": ["alignment_unit", "direction_rule", "boilerplate_policy", "third_source_policy", "translation_policy", "threshold_plan"],
+      "supplemental_profiles": [
+        {
+          "id": "semantic_alignment_and_reuse",
+          "profile_asset": "packs/public-text-politics/profiles/semantic_alignment_and_reuse.json",
+          "schema_asset": "packs/public-text-politics/contracts/semantic_alignment_and_reuse.schema.json",
+          "core_method_contract_id": "text-alignment/v2",
+          "core_method_contract_revision": "1"
+        }
+      ]
+    },
+    "event-history/v1": {
+      "asset": "references/schemas/methods/event-history-v1.schema.json",
+      "validator": "event_history",
+      "revision": "1",
+      "design_required": ["estimand", "unit_of_treatment", "unit_of_analysis", "independence_unit", "time_origin", "censoring_rule", "event_types"],
+      "supplemental_profiles": [
+        {
+          "id": "legislative_process",
+          "profile_asset": "packs/public-text-politics/profiles/legislative_process.json",
+          "schema_asset": "packs/public-text-politics/contracts/legislative_process.schema.json",
+          "core_method_contract_id": "event-history/v1",
+          "core_method_contract_revision": "1"
+        }
+      ]
+    },
+    "causal-design/v1": {
+      "asset": "references/schemas/methods/causal-design-v1.schema.json",
+      "validator": "causal_design",
+      "revision": "1",
+      "design_required": ["estimand", "unit_of_treatment", "unit_of_analysis", "independence_unit", "counterfactual", "identification_assumptions"],
+      "supplemental_profiles": [
+        {
+          "id": "text_in_causal_design",
+          "profile_asset": "packs/public-text-politics/profiles/text_in_causal_design.json",
+          "schema_asset": "packs/public-text-politics/contracts/text_in_causal_design.schema.json",
+          "core_method_contract_id": "causal-design/v1",
+          "core_method_contract_revision": "1"
+        }
+      ]
+    },
+    "causal-panel/v1": {
+      "asset": "references/schemas/methods/causal-panel-v1.schema.json",
+      "validator": "causal_design",
+      "revision": "1",
+      "design_required": ["estimand", "unit_of_treatment", "unit_of_analysis", "independence_unit", "counterfactual", "identification_assumptions", "treatment_cohorts", "control_group", "pre_treatment_window", "parallel_trends"]
+    },
+    "text-matching/v2": {
+      "asset": "references/schemas/methods/text-matching-v2.schema.json",
+      "validator": "causal_design",
+      "revision": "1",
+      "design_required": ["estimand", "unit_of_treatment", "unit_of_analysis", "independence_unit", "counterfactual", "identification_assumptions", "matching_unit", "text_representation", "distance_function", "matching_threshold", "template_handling", "data_role_separation"]
+    },
+    "process-tracing/v1": {
+      "asset": "references/schemas/methods/process-tracing-v1.schema.json",
+      "validator": "process_tracing",
+      "revision": "1",
+      "design_required": ["mechanism", "strongest_competing_mechanism", "predicted_traces", "source_independence_plan", "inference_boundary"],
+      "supplemental_profiles": [
+        {
+          "id": "public_source_process_tracing",
+          "profile_asset": "packs/public-text-politics/profiles/public_source_process_tracing.json",
+          "schema_asset": "packs/public-text-politics/contracts/public_source_process_tracing.schema.json",
+          "core_method_contract_id": "process-tracing/v1",
+          "core_method_contract_revision": "1"
+        }
+      ]
+    },
+    "institutional-grammar/v1": {
+      "asset": "references/schemas/methods/institutional-grammar-v1.schema.json",
+      "validator": "institutional_grammar",
+      "revision": "1",
+      "design_required": ["clause_unit", "grammar_fields", "match_categories", "ambiguity_policy"],
+      "supplemental_profiles": [
+        {
+          "id": "institutional_grammar",
+          "profile_asset": "packs/public-text-politics/profiles/institutional_grammar.json",
+          "schema_asset": "packs/public-text-politics/contracts/institutional_grammar.schema.json",
+          "core_method_contract_id": "institutional-grammar/v1",
+          "core_method_contract_revision": "1"
+        }
+      ]
+    },
+    "discourse-network/v1": {
+      "asset": "references/schemas/methods/discourse-network-v1.schema.json",
+      "validator": "network",
+      "revision": "1",
+      "design_required": ["network_kind", "edge_schema", "network_boundary", "dependence_plan", "source_identity_policy"],
+      "supplemental_profiles": [
+        {
+          "id": "discourse_network",
+          "profile_asset": "packs/public-text-politics/profiles/discourse_network.json",
+          "schema_asset": "packs/public-text-politics/contracts/discourse_network.schema.json",
+          "core_method_contract_id": "discourse-network/v1",
+          "core_method_contract_revision": "1"
+        }
+      ]
+    }
+  },
+  "principle": "Route by the research question and warranted inference, never by a hierarchy of methods.",
+  "integration_strategies": [
+    "sequential",
+    "convergent",
+    "nested",
+    "complementary",
+    "adjudicative"
+  ],
+  "excluded_universal_rules": [
+    "ordinary regression automatically identifies causality",
+    "an experiment automatically proves a causal claim",
+    "digital traces represent the target population",
+    "one p-value, sample-size, reliability, validity, QCA, or saturation threshold fits every study",
+    "randomized controlled trials are intrinsically superior to every other design",
+    "every study must state hypotheses"
+  ],
+  "case_oriented_profiles": [
+    "case_study",
+    "process_tracing",
+    "qca",
+    "comparative",
+    "congruence_analysis"
+  ],
+  "claim_capabilities": {
+    "quantitative": [
+      "descriptive",
+      "association",
+      "prediction",
+      "causal_effect"
+    ],
+    "experiment": [
+      "descriptive",
+      "association",
+      "causal_effect",
+      "causal_mechanism"
+    ],
+    "survey": [
+      "descriptive",
+      "association",
+      "interpretive"
+    ],
+    "case_study": [
+      "descriptive",
+      "interpretive",
+      "theory_generation",
+      "theory_evaluation"
+    ],
+    "process_tracing": [
+      "descriptive",
+      "causal_mechanism",
+      "theory_generation",
+      "theory_evaluation"
+    ],
+    "qca": [
+      "descriptive",
+      "causal_configuration",
+      "theory_evaluation"
+    ],
+    "congruence_analysis": [
+      "descriptive",
+      "theory_evaluation"
+    ],
+    "content_analysis": [
+      "descriptive",
+      "association",
+      "interpretive"
+    ],
+    "discourse_analysis": [
+      "descriptive",
+      "interpretive"
+    ],
+    "text_as_data": [
+      "descriptive",
+      "association",
+      "prediction"
+    ],
+    "social_network": [
+      "descriptive",
+      "association",
+      "prediction"
+    ],
+    "comparative": [
+      "descriptive",
+      "association",
+      "operational",
+      "interpretive",
+      "theory_generation",
+      "theory_evaluation"
+    ],
+    "historical": [
+      "descriptive",
+      "interpretive",
+      "theory_generation",
+      "theory_evaluation"
+    ],
+    "grounded_theory": [
+      "descriptive",
+      "theory_generation"
+    ],
+    "computational": [
+      "descriptive",
+      "association",
+      "prediction"
+    ],
+    "review": [
+      "descriptive",
+      "review_synthesis",
+      "theory_evaluation"
+    ],
+    "conceptual": [
+      "descriptive",
+      "operational",
+      "theory_generation",
+      "theory_evaluation"
+    ],
+    "interpretive": [
+      "descriptive",
+      "interpretive",
+      "theory_evaluation"
+    ],
+    "normative": [
+      "operational",
+      "normative"
+    ],
+    "unresolved": []
+  },
+  "claim_capability_conditions": {
+    "quantitative.causal_effect": "method_fields.task_type must equal causal",
+    "causal_effect": "requires an identification route and an explicit comparison or counterfactual basis",
+    "causal_mechanism": "requires a mechanism-capable route; an ordinary case study is insufficient",
+    "causal_configuration": "requires a configurational route and must not be restated as an average effect",
+    "theory_evaluation": "supports relative evaluation of theories, not automatic proof of an effect or mechanism"
+  },
+  "families": {
+    "quantitative": {
+      "label_zh": "定量研究",
+      "adapter_version": "2.0.0",
+      "operation_profile_asset": "references/operation-profiles/quantitative-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": "quant-causal-inference",
+      "method_contract_profiles": [
+        "causal-design/v1",
+        "event-history/v1",
+        "causal-panel/v1",
+        "text-matching/v2"
+      ],
+      "empirical": true,
+      "design_fields": [
+        "task_type",
+        "estimand_or_target",
+        "variables_or_features",
+        "temporal_structure",
+        "comparison_basis",
+        "assumptions",
+        "missing_data_plan",
+        "uncertainty_plan",
+        "validation_plan",
+        "robustness_plan"
+      ],
+      "execution_fields": [
+        "analytic_sample",
+        "specification_log",
+        "diagnostics",
+        "uncertainty_results",
+        "validation_results",
+        "robustness_results"
+      ],
+      "inference_tasks": [
+        "descriptive",
+        "associational",
+        "predictive",
+        "causal"
+      ]
+    },
+    "experiment": {
+      "label_zh": "实验研究",
+      "adapter_version": "2.0.0",
+      "operation_profile_asset": "references/operation-profiles/experiment-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "method_contract_profiles": [
+        "causal-design/v1"
+      ],
+      "empirical": true,
+      "design_fields": [
+        "intervention",
+        "comparator",
+        "assignment_mechanism",
+        "randomization_verification",
+        "outcome_timing",
+        "manipulation_checks",
+        "attrition_plan",
+        "noncompliance_plan",
+        "interference_plan",
+        "preregistration",
+        "deception_and_debriefing",
+        "validity_plan"
+      ],
+      "execution_fields": [
+        "assignment_audit",
+        "baseline_and_flow",
+        "manipulation_results",
+        "attrition_results",
+        "noncompliance_results",
+        "interference_assessment",
+        "outcome_results",
+        "validity_diagnostics"
+      ]
+    },
+    "survey": {
+      "label_zh": "调查研究",
+      "adapter_version": "1.0.0",
+      "operation_profile_asset": "references/operation-profiles/survey-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "empirical": true,
+      "design_fields": [
+        "modes",
+        "target_population",
+        "sampling_or_recruitment_frame",
+        "instrument_version",
+        "pretest",
+        "fieldworker_training",
+        "response_process",
+        "missing_data_plan",
+        "weighting_plan",
+        "measurement_error_plan",
+        "data_protection"
+      ],
+      "execution_fields": [
+        "actual_modes",
+        "fieldwork_log",
+        "response_and_recruitment",
+        "missing_data",
+        "weights",
+        "measurement_checks",
+        "data_protection_actions"
+      ],
+      "modes": [
+        "observation",
+        "interview",
+        "focus_group",
+        "questionnaire"
+      ]
+    },
+    "case_study": {
+      "label_zh": "案例研究",
+      "adapter_version": "1.1.1",
+      "operation_profile_asset": "references/operation-profiles/case-study-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "empirical": true,
+      "design_fields": [
+        "case_population",
+        "case_selection",
+        "embedded_units",
+        "evidence_chain",
+        "source_independence",
+        "timeline",
+        "theoretical_replication",
+        "theory_dialogue"
+      ],
+      "execution_fields": [
+        "case_inventory",
+        "embedded_unit_log",
+        "evidence_chain_results",
+        "source_independence_audit",
+        "timeline_results",
+        "theoretical_replication_results"
+      ]
+    },
+    "process_tracing": {
+      "label_zh": "过程追踪",
+      "adapter_version": "2.0.0",
+      "operation_profile_asset": "references/operation-profiles/process-tracing-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": "qual-process-tracing",
+      "method_contract_profiles": [
+        "process-tracing/v1"
+      ],
+      "empirical": true,
+      "design_fields": [
+        "case_selection",
+        "timeline",
+        "mechanism_nodes",
+        "evidence_diagnosticity",
+        "competing_mechanisms",
+        "negative_evidence",
+        "scope_conditions",
+        "source_independence"
+      ],
+      "execution_fields": [
+        "observed_timeline",
+        "mechanism_tests",
+        "evidence_ledger",
+        "rival_results",
+        "negative_evidence_results",
+        "source_independence_audit"
+      ]
+    },
+    "qca": {
+      "label_zh": "定性比较分析",
+      "adapter_version": "1.1.0",
+      "operation_profile_asset": "references/operation-profiles/qca-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": "qual-qca",
+      "empirical": true,
+      "design_fields": [
+        "set_type",
+        "conditions",
+        "outcome",
+        "calibration_basis",
+        "truth_table_plan",
+        "contradictory_configurations",
+        "logical_remainders",
+        "solution_types",
+        "robustness_plan",
+        "case_return_plan"
+      ],
+      "execution_fields": [
+        "calibrated_case_table",
+        "truth_table",
+        "contradiction_analysis",
+        "remainder_decisions",
+        "solutions",
+        "robustness_results",
+        "case_return_results"
+      ]
+    },
+    "congruence_analysis": {
+      "label_zh": "一致性分析",
+      "adapter_version": "1.0.0",
+      "operation_profile_asset": "references/operation-profiles/congruence-analysis-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "empirical": true,
+      "design_fields": [
+        "case_selection",
+        "competing_theories",
+        "theory_predictions",
+        "observable_implications",
+        "prediction_discrimination",
+        "source_independence",
+        "scope_conditions",
+        "inference_boundary"
+      ],
+      "execution_fields": [
+        "actual_cases",
+        "prediction_observation_matrix",
+        "theory_fit_results",
+        "anomalous_observations",
+        "source_independence_audit",
+        "scope_revisions",
+        "inference_boundary_audit"
+      ]
+    },
+    "content_analysis": {
+      "label_zh": "内容分析",
+      "adapter_version": "1.1.0",
+      "operation_profile_asset": "references/operation-profiles/content-analysis-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": "qual-content-analysis",
+      "method_contract_profiles": [
+        "text-alignment/v2",
+        "institutional-grammar/v1"
+      ],
+      "empirical": true,
+      "design_fields": [
+        "corpus_manifest",
+        "unit_of_analysis",
+        "versions_and_preprocessing",
+        "codebook",
+        "reliability_applicability",
+        "validation_plan",
+        "context_boundary"
+      ],
+      "execution_fields": [
+        "frozen_corpus",
+        "codebook_versions",
+        "coding_log",
+        "reliability_or_na_rationale",
+        "validation_results",
+        "context_audit"
+      ]
+    },
+    "discourse_analysis": {
+      "label_zh": "话语分析",
+      "adapter_version": "1.2.0",
+      "operation_profile_asset": "references/operation-profiles/discourse-analysis-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "empirical": true,
+      "design_fields": [
+        "corpus_manifest",
+        "discourse_context",
+        "power_relations",
+        "researcher_position",
+        "competing_readings",
+        "reflexivity",
+        "interpretive_boundary"
+      ],
+      "execution_fields": [
+        "frozen_corpus",
+        "contextual_readings",
+        "power_analysis",
+        "competing_reading_results",
+        "reflexive_memos",
+        "interpretive_boundary_audit"
+      ]
+    },
+    "text_as_data": {
+      "label_zh": "文本即数据",
+      "adapter_version": "2.0.0",
+      "operation_profile_asset": "references/operation-profiles/text-as-data-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": "text-as-data-cn",
+      "method_contract_profiles": [
+        "text-as-data/measurement-v2",
+        "text-alignment/v2"
+      ],
+      "empirical": true,
+      "design_fields": [
+        "corpus_manifest",
+        "unit_of_analysis",
+        "versions_and_preprocessing",
+        "representation",
+        "train_validation_test",
+        "model_validation",
+        "context_boundary",
+        "interpretation_boundary"
+      ],
+      "execution_fields": [
+        "frozen_corpus",
+        "preprocessing_log",
+        "split_audit",
+        "model_log",
+        "validation_results",
+        "sensitivity_results",
+        "interpretation_boundary_audit"
+      ]
+    },
+    "social_network": {
+      "label_zh": "社会网络分析",
+      "adapter_version": "2.0.0",
+      "operation_profile_asset": "references/operation-profiles/social-network-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "method_contract_profiles": [
+        "discourse-network/v1"
+      ],
+      "empirical": true,
+      "design_fields": [
+        "nodes",
+        "ties",
+        "network_boundary",
+        "direction_weight_time",
+        "missing_ties",
+        "dependence_structure",
+        "model_diagnostics",
+        "mechanism_claims",
+        "reidentification_risk"
+      ],
+      "execution_fields": [
+        "node_and_tie_inventory",
+        "boundary_audit",
+        "missing_tie_assessment",
+        "dependence_aware_models",
+        "diagnostics",
+        "mechanism_results",
+        "reidentification_controls"
+      ]
+    },
+    "comparative": {
+      "label_zh": "比较与类型学",
+      "adapter_version": "1.2.0",
+      "operation_profile_asset": "references/operation-profiles/comparative-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "method_contract_profiles": [
+        "text-alignment/v2",
+        "institutional-grammar/v1"
+      ],
+      "empirical": true,
+      "design_fields": [
+        "comparison_mode",
+        "cases",
+        "comparability",
+        "time_alignment",
+        "mill_logic",
+        "negative_cases",
+        "type_space",
+        "set_theoretic_integration"
+      ],
+      "execution_fields": [
+        "case_comparison_table",
+        "comparability_audit",
+        "time_alignment_audit",
+        "mill_analysis",
+        "negative_case_results",
+        "type_space_results"
+      ]
+    },
+    "historical": {
+      "label_zh": "历史研究",
+      "adapter_version": "1.2.0",
+      "operation_profile_asset": "references/operation-profiles/historical-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "method_contract_profiles": [
+        "text-alignment/v2",
+        "institutional-grammar/v1"
+      ],
+      "empirical": true,
+      "design_fields": [
+        "source_provenance",
+        "transmission_chain",
+        "primary_secondary_status",
+        "source_criticism",
+        "corroboration",
+        "silence_evidence",
+        "archive_gaps",
+        "anachronism_controls",
+        "oral_history_ethics"
+      ],
+      "execution_fields": [
+        "source_inventory",
+        "transmission_audit",
+        "source_criticism_results",
+        "corroboration_results",
+        "silence_assessment",
+        "archive_gap_log",
+        "anachronism_audit",
+        "oral_history_ethics_actions"
+      ]
+    },
+    "grounded_theory": {
+      "label_zh": "扎根理论",
+      "adapter_version": "1.1.0",
+      "operation_profile_asset": "references/operation-profiles/grounded-theory-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "empirical": true,
+      "design_fields": [
+        "tradition",
+        "initial_sampling",
+        "theoretical_sampling",
+        "constant_comparison",
+        "coding",
+        "memos",
+        "category_development",
+        "negative_cases",
+        "saturation_rationale",
+        "reflexivity",
+        "literature_timing"
+      ],
+      "execution_fields": [
+        "sampling_iterations",
+        "comparison_log",
+        "coding_versions",
+        "memos",
+        "category_results",
+        "negative_case_results",
+        "saturation_evidence",
+        "reflexive_account"
+      ]
+    },
+    "computational": {
+      "label_zh": "计算社会科学",
+      "adapter_version": "1.0.0",
+      "operation_profile_asset": "references/operation-profiles/computational-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "empirical": true,
+      "design_fields": [
+        "digital_trace_source",
+        "platform_terms",
+        "feature_construction",
+        "train_validation_test",
+        "simulation_rules",
+        "benchmarks",
+        "drift",
+        "interpretability",
+        "algorithmic_bias",
+        "fairness",
+        "privacy",
+        "environment"
+      ],
+      "execution_fields": [
+        "data_snapshot",
+        "terms_and_access_audit",
+        "feature_log",
+        "split_and_leakage_audit",
+        "simulation_log",
+        "benchmark_results",
+        "drift_results",
+        "interpretability_results",
+        "bias_and_fairness_results",
+        "privacy_actions",
+        "environment_lock"
+      ]
+    },
+    "review": {
+      "label_zh": "文献综述",
+      "adapter_version": "1.2.0",
+      "operation_profile_asset": "references/operation-profiles/review-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": "aers-prisma-slr",
+      "empirical": false,
+      "design_fields": [
+        "review_type",
+        "search_scope",
+        "screening_rules",
+        "reading_records",
+        "quality_appraisal",
+        "synthesis_logic",
+        "contradictory_evidence",
+        "gap_test"
+      ],
+      "execution_fields": [
+        "search_log",
+        "screening_log",
+        "reading_and_extraction",
+        "appraisal_results",
+        "synthesis_results",
+        "contradiction_results",
+        "gap_results",
+        "reporting_standard"
+      ],
+      "review_types": [
+        "embedded",
+        "narrative",
+        "scoping",
+        "systematic"
+      ]
+    },
+    "conceptual": {
+      "label_zh": "概念与理论研究",
+      "adapter_version": "1.0.0",
+      "operation_profile_asset": "references/operation-profiles/conceptual-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "empirical": false,
+      "design_fields": [
+        "concept_problem",
+        "definition_rules",
+        "argument_map",
+        "competing_concepts",
+        "boundary_cases",
+        "counterexamples"
+      ],
+      "execution_fields": [
+        "definition_analysis",
+        "argument_tests",
+        "competing_concept_results",
+        "boundary_case_results",
+        "counterexample_results"
+      ]
+    },
+    "interpretive": {
+      "label_zh": "诠释研究",
+      "adapter_version": "1.2.0",
+      "operation_profile_asset": "references/operation-profiles/interpretive-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "empirical": false,
+      "design_fields": [
+        "corpus_or_materials",
+        "context",
+        "interpretive_rules",
+        "researcher_position",
+        "competing_readings",
+        "reflexivity"
+      ],
+      "execution_fields": [
+        "material_inventory",
+        "contextual_readings",
+        "interpretive_steps",
+        "competing_reading_results",
+        "reflexive_account"
+      ]
+    },
+    "normative": {
+      "label_zh": "规范研究",
+      "adapter_version": "1.0.0",
+      "operation_profile_asset": "references/operation-profiles/normative-v1.json",
+      "declared_support_status": "experimental_method_support",
+      "top_level_engine": null,
+      "empirical": false,
+      "design_fields": [
+        "value_premises",
+        "factual_premises",
+        "affected_stakeholders",
+        "argument_map",
+        "strongest_objection",
+        "counterexamples",
+        "institutional_constraints"
+      ],
+      "execution_fields": [
+        "premise_audit",
+        "argument_tests",
+        "stakeholder_analysis",
+        "objection_results",
+        "counterexample_results",
+        "institutional_constraint_results"
+      ]
+    },
+    "unresolved": {
+      "label_zh": "待独立证据判定的迁移路线",
+      "adapter_version": "1.0.0",
+      "top_level_engine": null,
+      "empirical": false,
+      "migration_only": true,
+      "design_fields": [
+        "legacy_family",
+        "resolution_note"
+      ],
+      "execution_fields": []
+    }
+  }
+}

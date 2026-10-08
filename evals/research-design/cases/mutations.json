@@ -1,0 +1,239 @@
+{
+  "schema": "cnki-research-design-executable-fixtures/v1",
+  "fixture_kind": "single-condition-mutation",
+  "materializer": "skills/cnki-paper/scripts/test_research_design.py::base_contract",
+  "registry_source_ids": [
+    "S01",
+    "S02"
+  ],
+  "invariant": "Every case contains exactly one replace operation against a valid materialized base contract.",
+  "cases": [
+    {
+      "id": "MUT-SOURCE-UNKNOWN-001",
+      "base_contract": {
+        "family": "quantitative_causal",
+        "claim_type": "causal_effect",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claims/0/source_ids/0",
+          "from": "S01",
+          "value": "S999"
+        }
+      ],
+      "expected_code": "RD.SOURCE.UNKNOWN"
+    },
+    {
+      "id": "MUT-ID-DUPLICATE-001",
+      "base_contract": {
+        "family": "quantitative_causal",
+        "claim_type": "causal_effect",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claims/0/id",
+          "from": "CL01",
+          "value": "C01"
+        }
+      ],
+      "expected_code": "RD.ID.DUPLICATE"
+    },
+    {
+      "id": "MUT-BOUNDARY-MISSING-001",
+      "base_contract": {
+        "family": "quantitative_causal",
+        "claim_type": "causal_effect",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/design/evidence_boundary",
+          "from": "只使用登记来源、预定样本和2012—2025年材料回答该问题。",
+          "value": ""
+        }
+      ],
+      "expected_code": "RD.BOUNDARY.MISSING"
+    },
+    {
+      "id": "MUT-CAUSAL-NO-COUNTERFACTUAL-001",
+      "base_contract": {
+        "family": "quantitative_causal",
+        "claim_type": "causal_effect",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/routes/quantitative_causal/comparison_or_counterfactual",
+          "from": "以尚未处理的同类单元构造同期反事实并检验共同趋势。",
+          "value": ""
+        }
+      ],
+      "expected_code": "RD.CAUSAL.NO_COUNTERFACTUAL"
+    },
+    {
+      "id": "MUT-CAUSAL-OVERCLAIM-001",
+      "base_contract": {
+        "family": "interpretive",
+        "claim_type": "interpretive",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claims/0/text",
+          "from": "行动者在资源约束语境中将制度信号理解为差异化行动理由。",
+          "value": "The evidence causally proves that the policy always produces the result."
+        }
+      ],
+      "expected_code": "RD.CAUSAL.OVERCLAIM"
+    },
+    {
+      "id": "MUT-CONSISTENCY-DRIFT-001",
+      "base_contract": {
+        "family": "quantitative_causal",
+        "claim_type": "causal_effect",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "workspace_files": [
+        {
+          "path": "confirmed_motivation.md",
+          "content": "current confirmed motivation"
+        }
+      ],
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/artifact_fingerprints",
+          "from": [],
+          "value": [
+            {
+              "path": "confirmed_motivation.md",
+              "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          ]
+        }
+      ],
+      "expected_code": "RD.CONSISTENCY.DRIFT"
+    },
+    {
+      "id": "MUT-MEASUREMENT-MISSING-001",
+      "base_contract": {
+        "family": "quantitative_causal",
+        "claim_type": "causal_effect",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/concepts/0/measurement/reliability",
+          "from": "双人独立编码并报告一致性；行政指标核对修订记录。",
+          "value": ""
+        }
+      ],
+      "expected_code": "RD.MEASUREMENT.MISSING"
+    },
+    {
+      "id": "MUT-SAMPLING-MISSING-001",
+      "base_contract": {
+        "family": "quantitative_causal",
+        "claim_type": "causal_effect",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/sampling/frame",
+          "from": "版本化行政名录与政策生效清单。",
+          "value": ""
+        }
+      ],
+      "expected_code": "RD.SAMPLING.MISSING"
+    },
+    {
+      "id": "MUT-ETHICS-MISSING-001",
+      "base_contract": {
+        "family": "case_process",
+        "claim_type": "causal_mechanism",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/design/ethics/status",
+          "from": "exempt",
+          "value": ""
+        }
+      ],
+      "expected_code": "RD.ETHICS.MISSING"
+    },
+    {
+      "id": "MUT-CIRCULAR-VALIDATION-001",
+      "base_contract": {
+        "family": "quantitative_causal",
+        "claim_type": "causal_effect",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/design/evidence_separation/status",
+          "from": "separated",
+          "value": "same-material-claimed-validation"
+        }
+      ],
+      "expected_code": "RD.VALIDATION.LEAKAGE"
+    },
+    {
+      "id": "MUT-UNCONFIRMED-001",
+      "base_contract": {
+        "family": "normative",
+        "claim_type": "normative",
+        "question_type": "normative"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/status",
+          "from": "confirmed",
+          "value": "needs-review"
+        }
+      ],
+      "expected_code": "RD.CONFIRMATION.MISSING"
+    },
+    {
+      "id": "MUT-FUTURE-SCHEMA-001",
+      "base_contract": {
+        "family": "text_content",
+        "claim_type": "descriptive",
+        "question_type": "descriptive"
+      },
+      "stage": "design",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/schema_version",
+          "from": "cnki-research-design/v1",
+          "value": "cnki-research-design/v99"
+        }
+      ],
+      "expected_code": "RD.SCHEMA.FUTURE"
+    }
+  ]
+}

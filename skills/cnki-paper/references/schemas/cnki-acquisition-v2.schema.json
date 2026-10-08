@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper1.local/schemas/cnki-acquisition-v2.schema.json",
+  "title": "CNKI-Paper acquisition registry v2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "target_name",
+    "tier",
+    "access",
+    "queries",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cnki-acquisition/v2"
+    },
+    "target_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tier": {
+      "enum": [
+        "flash",
+        "pro"
+      ]
+    },
+    "publication_track": {
+      "enum": [
+        "cnki-cn",
+        "international-ssci",
+        "mixed"
+      ]
+    },
+    "access": {
+      "type": "object"
+    },
+    "queries": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "channel",
+        "title",
+        "query_ids",
+        "state",
+        "citation_scope",
+        "collected_at"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
+        },
+        "channel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string"
+        },
+        "query_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "state": {
+          "enum": [
+            "discovered",
+            "metadata-exported",
+            "content-verified",
+            "pdf-downloaded"
+          ]
+        },
+        "citation_scope": {
+          "enum": [
+            "candidate-only",
+            "final-source",
+            "not-for-citation"
+          ]
+        },
+        "collected_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "credibility": {
+          "$ref": "#/$defs/credibility"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "allOf": [
+              {
+                "properties": {
+                  "citation_scope": {
+                    "const": "final-source"
+                  }
+                },
+                "required": [
+                  "citation_scope"
+                ]
+              },
+              {
+                "anyOf": [
+                  {
+                    "properties": {
+                      "url": {
+                        "pattern": "^https?://"
+                      }
+                    },
+                    "required": [
+                      "url"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "channel": {
+                        "enum": [
+                          "web",
+                          "public-web",
+                          "open-web",
+                          "news",
+                          "news-media",
+                          "media",
+                          "ngo",
+                          "ngo-web",
+                          "commercial",
+                          "commercial-web",
+                          "blog",
+                          "wechat",
+                          "wechat-public-account",
+                          "social-media"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "channel"
+                    ]
+                  }
+                ]
+              },
+              {
+                "not": {
+                  "properties": {
+                    "channel": {
+                      "enum": [
+                        "CNKI",
+                        "cnki",
+                        "official",
+                        "official-web",
+                        "government",
+                        "government-web",
+                        "institutional-primary",
+                        "official-record"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "channel"
+                  ]
+                }
+              }
+            ]
+          },
+          "then": {
+            "required": [
+              "credibility"
+            ]
+          }
+        }
+      ],
+      "additionalProperties": true
+    },
+    "credibility": {
+      "type": "object",
+      "required": [
+        "source_class",
+        "authorship_publisher",
+        "sponsorship_interest",
+        "corroborating_source_ids",
+        "contradicting_source_ids",
+        "checked_at",
+        "status",
+        "note"
+      ],
+      "properties": {
+        "source_class": {
+          "enum": [
+            "official-primary",
+            "scholarly-publisher",
+            "news-media",
+            "ngo",
+            "commercial",
+            "personal",
+            "open-web",
+            "other-public-web"
+          ]
+        },
+        "authorship_publisher": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sponsorship_interest": {
+          "type": "string",
+          "minLength": 1
+        },
+        "corroborating_source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "contradicting_source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "needs-review",
+            "not-applicable",
+            "rejected"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

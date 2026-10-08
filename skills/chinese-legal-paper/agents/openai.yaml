@@ -1,0 +1,6 @@
+interface:
+  display_name: "中文法学论文"
+  short_description: "研究中国法学问题，核验法源、案例与引注，并沿用 paper1 完成写作"
+  default_prompt: "使用 $chinese-legal-paper 帮我研究并撰写中文法学论文，先检查问题、材料和访问权限。"
+policy:
+  allow_implicit_invocation: true

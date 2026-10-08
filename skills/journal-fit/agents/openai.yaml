@@ -1,0 +1,4 @@
+interface:
+  display_name: "Journal Fit"
+  short_description: "Select journals and tailor manuscripts to verified venue rules"
+  default_prompt: "Use $journal-fit to rank suitable journals for this manuscript and identify venue-specific revisions."

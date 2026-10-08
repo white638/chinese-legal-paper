@@ -1,0 +1,64 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "interpretive",
+  "required_operation_kinds": [
+    "materials_freeze",
+    "contextualization",
+    "interpretive_rule_application",
+    "researcher_position_memo",
+    "competing_reading_test",
+    "reflexive_audit",
+    "interpretive_disposition"
+  ],
+  "optional_operation_kinds": ["horizon_comparison", "translation_choice_audit"],
+  "required_artifact_roles": [
+    "material_inventory",
+    "context_dossier",
+    "interpretive_step_ledger",
+    "researcher_position_memo",
+    "competing_reading_matrix",
+    "reflexive_account",
+    "interpretive_boundary_report"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "interpretive-pilot/v1",
+    "required_operation_kinds": [
+      "materials_freeze",
+      "contextualization",
+      "interpretive_rule_application",
+      "researcher_position_memo",
+      "competing_reading_test"
+    ],
+    "acceptance_dimensions": [
+      "materials and relevant contexts are identifiable",
+      "interpretive steps connect locators to meanings",
+      "researcher position identifies consequential presuppositions",
+      "competing readings can alter or bound the account"
+    ]
+  },
+  "completion_predicates": [
+    "every central interpretation resolves to a material locator and contextual warrant",
+    "interpretive rules are applied consistently or deviations are explained",
+    "competing readings and reflexive effects receive explicit dispositions",
+    "claims remain within the stated interpretive boundary"
+  ],
+  "failure_routes": [
+    {"code": "SOURCE.CONTEXT_UNRESOLVED", "route": "reopen:research"},
+    {"code": "LINKAGE.INTERPRETIVE_STEP_BROKEN", "route": "retry"},
+    {"code": "CLAIM.COMPETING_READING_UNRESOLVED", "route": "narrow:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "contextual relevance",
+    "text-to-meaning warrant",
+    "consistency of interpretive rules",
+    "force of competing readings",
+    "researcher-position and reflexivity effect"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

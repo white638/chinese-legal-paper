@@ -1,0 +1,64 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "congruence_analysis",
+  "required_operation_kinds": [
+    "theory_set_freeze",
+    "prediction_derivation",
+    "observable_implication_mapping",
+    "evidence_coding",
+    "prediction_observation_comparison",
+    "theory_fit_assessment",
+    "anomaly_analysis",
+    "congruence_disposition"
+  ],
+  "optional_operation_kinds": ["scope_condition_revision"],
+  "required_artifact_roles": [
+    "theory_registry",
+    "prediction_matrix",
+    "observation_ledger",
+    "prediction_observation_matrix",
+    "theory_fit_results",
+    "anomaly_register",
+    "source_dependency_graph"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "congruence-analysis-pilot/v1",
+    "required_operation_kinds": [
+      "theory_set_freeze",
+      "prediction_derivation",
+      "observable_implication_mapping",
+      "prediction_observation_comparison",
+      "anomaly_analysis"
+    ],
+    "acceptance_dimensions": [
+      "competing theories produce discriminating predictions",
+      "observable implications precede evidence scoring",
+      "observations are traceable to sources",
+      "anomalies can count against a favored theory"
+    ]
+  },
+  "completion_predicates": [
+    "all competing theories are assessed against the same observation set",
+    "non-discriminating predictions are excluded from comparative fit claims",
+    "anomalous observations and theory ties receive explicit dispositions"
+  ],
+  "failure_routes": [
+    {"code": "PROTOCOL.PREDICTIONS_NONDISCRIMINATING", "route": "reopen:design"},
+    {"code": "SOURCE.OBSERVATION_DEPENDENCE_UNRESOLVED", "route": "retry"},
+    {"code": "CLAIM.THEORY_FIT_TIED", "route": "narrow:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "prediction discriminating power",
+    "observation-to-prediction coding",
+    "relative weight of anomalous observations",
+    "theory-fit tie disposition",
+    "scope-condition revision"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

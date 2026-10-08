@@ -1,0 +1,64 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "discourse_analysis",
+  "required_operation_kinds": [
+    "corpus_freeze",
+    "discourse_context_reconstruction",
+    "discursive_feature_interpretation",
+    "power_relation_analysis",
+    "competing_reading_test",
+    "reflexive_memoing",
+    "interpretive_boundary_disposition"
+  ],
+  "optional_operation_kinds": ["genealogical_comparison", "interdiscursivity_mapping"],
+  "required_artifact_roles": [
+    "corpus_manifest",
+    "context_dossier",
+    "interpretive_ledger",
+    "power_relation_map",
+    "competing_reading_matrix",
+    "reflexive_memos",
+    "interpretive_boundary_report"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "discourse-analysis-pilot/v1",
+    "required_operation_kinds": [
+      "corpus_freeze",
+      "discourse_context_reconstruction",
+      "discursive_feature_interpretation",
+      "competing_reading_test",
+      "reflexive_memoing"
+    ],
+    "acceptance_dimensions": [
+      "text selection and discourse context are linked",
+      "interpretations identify textual locators",
+      "power claims identify a relational basis",
+      "a plausible competing reading can alter the interpretation"
+    ]
+  },
+  "completion_predicates": [
+    "every major interpretation resolves to text and context evidence",
+    "power-relation claims identify actors, positions, and discursive effects",
+    "competing readings and researcher-position effects receive dispositions"
+  ],
+  "failure_routes": [
+    {"code": "SOURCE.DISCOURSE_CONTEXT_MISSING", "route": "reopen:research"},
+    {"code": "MEASUREMENT.DECONTEXTUALIZED_READING", "route": "reopen:design"},
+    {"code": "CLAIM.COMPETING_READING_UNRESOLVED", "route": "narrow:<Claim ID>"},
+    {"code": "ETHICS.PARTICIPANT_REIDENTIFICATION_RISK", "route": "human-review"}
+  ],
+  "judgment_nodes": [
+    "context sufficiency",
+    "text-to-interpretation warrant",
+    "power-relation attribution",
+    "relative plausibility of competing readings",
+    "researcher-position effect"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

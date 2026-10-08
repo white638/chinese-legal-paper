@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/public-text-politics/public-source-process-tracing-v1.schema.json",
+  "title": "Public-source process-tracing supplemental profile contract",
+  "x-profile-contract-role": "supplement-over-core-method-contract",
+  "x-core-method-contract-id": "process-tracing/v1",
+  "type": "object",
+  "required": ["schema_version", "profile_id", "case", "mechanism", "evidence", "core_inference_result", "interpretation"],
+  "properties": {
+    "schema_version": {"const": "avereth-public-text-politics/public-source-process-tracing/v1"},
+    "profile_id": {"const": "public_source_process_tracing"},
+    "case": {
+      "type": "object",
+      "required": ["boundary", "period", "materials_scope"],
+      "properties": {
+        "boundary": {"type": "string", "minLength": 20},
+        "period": {"type": "string", "minLength": 5},
+        "materials_scope": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "mechanism": {
+      "type": "object",
+      "required": ["nodes", "strongest_rivals"],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "required": ["node_id", "theoretical_prediction", "expected_trace", "diagnosticity"],
+            "properties": {
+              "node_id": {"type": "string", "pattern": "^M-[0-9]+$"},
+              "theoretical_prediction": {"type": "string", "minLength": 10},
+              "expected_trace": {"type": "string", "minLength": 10},
+              "diagnosticity": {"enum": ["straw_in_the_wind", "hoop", "smoking_gun", "doubly_decisive"]}
+            },
+            "additionalProperties": false
+          }
+        },
+        "strongest_rivals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["rival_id", "prediction", "disconfirming_observation"],
+            "properties": {
+              "rival_id": {"type": "string", "pattern": "^R-[0-9]+$"},
+              "prediction": {"type": "string", "minLength": 10},
+              "disconfirming_observation": {"type": "string", "minLength": 10}
+            },
+            "additionalProperties": false
+          },
+          "x-error-code": "PTP.TRACING.RIVAL_MATRIX"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["ledger", "source_chain", "independence_audit", "missing_traces", "public_record_silence"],
+      "properties": {
+        "ledger": {"$ref": "#/$defs/artifact"},
+        "source_chain": {"$ref": "#/$defs/artifact"},
+        "independence_audit": {"$ref": "#/$defs/artifact"},
+        "missing_traces": {"$ref": "#/$defs/artifact"},
+        "public_record_silence": {
+          "type": "object",
+          "required": ["log", "absence_wording"],
+          "properties": {
+            "log": {"$ref": "#/$defs/artifact"},
+            "absence_wording": {"const": "not_found_in_defined_public_record", "x-error-code": "PTP.TRACING.SILENCE_OVERCLAIM"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "core_inference_result": {
+      "$ref": "#/$defs/artifact",
+      "x-error-code": "PTP.TRACING.INFERENCE_OVERREACH"
+    },
+    "interpretation": {"$ref": "#/$defs/interpretation"}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "string",
+      "pattern": "^ART-[A-Z0-9][A-Z0-9_-]*$",
+      "x-error-code": "PTP.ARTIFACT.ID"
+    },
+    "interpretation": {
+      "type": "object",
+      "required": ["allowed", "prohibited"],
+      "properties": {
+        "allowed": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}},
+        "prohibited": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

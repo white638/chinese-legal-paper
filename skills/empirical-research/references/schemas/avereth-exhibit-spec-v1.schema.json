@@ -1,0 +1,252 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/avereth-exhibit-spec-v1.schema.json",
+  "title": "Avereth empirical exhibit specification",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "exhibit_id",
+    "kind",
+    "placement",
+    "argument_role",
+    "source_result_ids",
+    "quantity",
+    "unit",
+    "confidence_levels",
+    "style_profile",
+    "style_profile_sha256",
+    "recipe_sha256",
+    "formats",
+    "caption_requirements"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "avereth-exhibit-spec/v1"
+    },
+    "exhibit_id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]{1,63}$"
+    },
+    "kind": {
+      "enum": [
+        "coefficient_forest",
+        "event_study",
+        "marginal_effects",
+        "predicted_probability",
+        "trend_or_binscatter",
+        "regression_or_balance_table"
+      ]
+    },
+    "placement": {
+      "enum": [
+        "main",
+        "appendix"
+      ]
+    },
+    "argument_role": {
+      "enum": [
+        "description",
+        "measurement",
+        "identification",
+        "estimation",
+        "heterogeneity",
+        "mechanism",
+        "robustness"
+      ]
+    },
+    "source_result_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z][A-Z0-9_-]{1,63}$"
+      }
+    },
+    "quantity": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confidence_levels": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "exclusiveMaximum": 1
+      }
+    },
+    "reference_value": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "reference_period": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "treatment_boundary": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "response_scale": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "x_scale": {
+      "enum": [
+        "continuous",
+        "ordered_category"
+      ]
+    },
+    "sample_n": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "style_profile": {
+      "enum": [
+        "cn-social-science",
+        "international-polisci-econ"
+      ]
+    },
+    "style_profile_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "recipe_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "formats": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "pdf",
+          "svg",
+          "png"
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "enum": [
+              "pdf",
+              "svg"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "const": "png"
+          }
+        }
+      ]
+    },
+    "caption_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "x_label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Optional horizontal axis label; defaults come from the style profile labels."
+    },
+    "y_label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Optional vertical axis label; defaults to quantity (unit)."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "event_study"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "reference_value",
+          "reference_period",
+          "treatment_boundary"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "coefficient_forest"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "reference_value"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "marginal_effects",
+              "predicted_probability"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "response_scale",
+          "x_scale"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "trend_or_binscatter"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "x_scale"
+        ],
+        "properties": {
+          "x_scale": {
+            "const": "continuous"
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

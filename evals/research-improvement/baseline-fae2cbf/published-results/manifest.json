@@ -1,0 +1,12 @@
+{
+  "schema_version": "avereth-agent-declared-capture/v1",
+  "model_revision": "synthetic-capture-no-model-run",
+  "steps": {
+    "taste-base-CAND-01": {
+      "prompt_sha256": "3246677fbe104a5444f16b68dc20f647cb112a986f17a24da4f515f991ee892b",
+      "prompt_path": "taste-base-CAND-01.prompt.md",
+      "response_path": "taste-base-CAND-01.response.json",
+      "context_path": "taste-base-CAND-01.context.txt"
+    }
+  }
+}

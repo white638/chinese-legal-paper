@@ -1,0 +1,67 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "social_network",
+  "required_operation_kinds": [
+    "node_tie_schema_freeze",
+    "network_boundary_freeze",
+    "graph_construction",
+    "missing_tie_assessment",
+    "dependence_aware_analysis",
+    "network_diagnostic",
+    "reidentification_control",
+    "network_inference_disposition"
+  ],
+  "optional_operation_kinds": ["temporal_network_alignment", "alternative_boundary_analysis"],
+  "required_artifact_roles": [
+    "node_inventory",
+    "tie_inventory",
+    "boundary_audit",
+    "graph_snapshot",
+    "missing_tie_report",
+    "dependence_model_results",
+    "network_diagnostics",
+    "reidentification_controls"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "social-network-pilot/v1",
+    "required_operation_kinds": [
+      "node_tie_schema_freeze",
+      "network_boundary_freeze",
+      "graph_construction",
+      "missing_tie_assessment",
+      "network_diagnostic"
+    ],
+    "acceptance_dimensions": [
+      "node and tie identities are reproducible",
+      "boundary exclusions are observable",
+      "direction, weight, and time semantics are preserved",
+      "missing ties can be distinguished from absent ties"
+    ]
+  },
+  "completion_predicates": [
+    "all reported network measures resolve to a frozen graph snapshot",
+    "dependence and boundary choices receive diagnostics or sensitivity analysis",
+    "mechanism claims are separated from structural descriptions",
+    "reidentification controls cover released node and tie attributes"
+  ],
+  "failure_routes": [
+    {"code": "UNIT.NODE_OR_TIE_MISMATCH", "route": "reopen:design"},
+    {"code": "COVERAGE.NETWORK_BOUNDARY_FAILURE", "route": "reopen:research"},
+    {"code": "MODEL.NETWORK_DEPENDENCE_IGNORED", "route": "replace-implementation"},
+    {"code": "ETHICS.NETWORK_REIDENTIFICATION_RISK", "route": "human-review"}
+  ],
+  "judgment_nodes": [
+    "network boundary validity",
+    "missing-tie mechanism",
+    "meaning of edge direction and weight",
+    "dependence-aware model adequacy",
+    "mechanism versus topology inference"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

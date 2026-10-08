@@ -1,0 +1,46 @@
+{
+  "schema_version": "avereth-public-text-politics-executable-fixtures/v1",
+  "profile_id": "legislative_process",
+  "artifact_token_prefix": "artifact:",
+  "base_contract": {
+    "schema_version": "avereth-public-text-politics/legislative-process/v1",
+    "profile_id": "legislative_process",
+    "corpus": "artifact:artifacts/legislative_corpus.jsonl",
+    "bill_family": {
+      "identity_rules": "Group substantively identical introduced texts while preserving legal-form transitions.",
+      "mapping": "artifact:artifacts/bill_family_map.csv",
+      "version_deduplication": true
+    },
+    "units": {"risk_unit": "bill_family_id", "cluster_level": "bill_family_id"},
+    "risk_set": {
+      "event_history": "artifact:artifacts/event_history.csv",
+      "start_field": "introduced_at",
+      "end_field": "event_or_censor_at",
+      "session_end_field": "session_end_at",
+      "censoring_rule": "right_censor_at_session_end"
+    },
+    "events": {
+      "first_substantive_action": "first committee markup, report, floor vote, or equivalent action",
+      "competing_risks": ["committee_advance", "cross_chamber_advance", "enactment", "session_expiry"],
+      "legal_forms": ["bill", "joint_resolution", "concurrent_resolution"]
+    },
+    "model": {
+      "model_family": "competing_risks",
+      "time_varying_covariates": "artifact:artifacts/time_varying_covariates.csv",
+      "output": "artifact:artifacts/competing_risks_results.json",
+      "diagnostics": "artifact:artifacts/model_diagnostics.json",
+      "sensitivity": "artifact:artifacts/model_sensitivity.json"
+    },
+    "interpretation": {
+      "allowed": ["Report time to first substantive action by bill family."],
+      "prohibited": ["Count document sentences as independent legislative units."]
+    }
+  },
+  "cases": [
+    {"id": "legislative-positive", "kind": "positive", "operations": [], "expected_status": "PASS", "expected_codes": []},
+    {"id": "legislative-version-duplication", "kind": "typical-error", "operations": [{"op": "replace", "path": "/bill_family/version_deduplication", "from": true, "value": false}], "expected_status": "FAIL", "expected_codes": ["PTP.LEGISLATIVE.DUPLICATE_FAMILY"]},
+    {"id": "legislative-sentence-risk-unit", "kind": "typical-error", "operations": [{"op": "replace", "path": "/units/risk_unit", "from": "bill_family_id", "value": "sentence_id"}], "expected_status": "FAIL", "expected_codes": ["PTP.LEGISLATIVE.EFFECTIVE_N"]},
+    {"id": "legislative-multi-state", "kind": "boundary", "operations": [{"op": "replace", "path": "/model/model_family", "from": "competing_risks", "value": "multi_state"}], "expected_status": "PASS", "expected_codes": []},
+    {"id": "legislative-no-session-censoring", "kind": "inference-overreach", "operations": [{"op": "replace", "path": "/risk_set/censoring_rule", "from": "right_censor_at_session_end", "value": "treat_expiry_as_success"}], "expected_status": "FAIL", "expected_codes": ["PTP.LEGISLATIVE.CENSORING"]}
+  ]
+}

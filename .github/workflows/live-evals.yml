@@ -1,0 +1,199 @@
+name: Avereth live evaluation
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        type: choice
+        description: Bounded task regression or host transport smoke
+        options: [targeted, broader, host-smoke]
+        default: targeted
+      tags:
+        type: string
+        description: Comma-separated case tags (paired scopes)
+        default: ''
+      exclude_tags:
+        type: string
+        description: Comma-separated excluded case tags
+        default: ''
+      baseline_ref:
+        type: string
+        description: Exact baseline commit SHA; otherwise use configured baseline
+        default: ''
+      max_cases:
+        type: number
+        description: Case limit; zero uses scope default
+        default: 0
+      repeat_on_uncertain:
+        type: number
+        description: Additional complete paired rounds after UNCERTAIN (0 to 2)
+        default: 0
+  push:
+    branches: [unified-maintenance]
+    paths:
+      - 'evals/lean-core-v7/**'
+      - 'evals/commonplace-writing/**'
+      - 'evals/novelty-regression/**'
+      - 'skills/**'
+      - 'agent-specs/**'
+      - 'overlays/**'
+      - 'tools/**'
+      - '.github/workflows/live-evals.yml'
+
+concurrency:
+  group: avereth-live-eval-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: "1"
+  PYTHONIOENCODING: "utf-8"
+
+jobs:
+  configure:
+    name: Resolve bounded evaluation inputs
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.inputs.outputs.ready }}
+      scope: ${{ steps.inputs.outputs.scope }}
+      tags: ${{ steps.inputs.outputs.tags }}
+      exclude_tags: ${{ steps.inputs.outputs.exclude_tags }}
+      baseline_ref: ${{ steps.inputs.outputs.baseline_ref }}
+      max_cases: ${{ steps.inputs.outputs.max_cases }}
+      repeat_on_uncertain: ${{ steps.inputs.outputs.repeat_on_uncertain }}
+    steps:
+      - name: Validate inputs and live prerequisites
+        id: inputs
+        env:
+          SCOPE: ${{ inputs.scope || 'targeted' }}
+          TAGS: ${{ inputs.tags }}
+          EXCLUDE_TAGS: ${{ inputs.exclude_tags }}
+          BASELINE_REF: ${{ inputs.baseline_ref || vars.AVERETH_LEAN_BASELINE_REF }}
+          MAX_CASES: ${{ inputs.max_cases || '0' }}
+          REPEAT_ON_UNCERTAIN: ${{ inputs.repeat_on_uncertain || '0' }}
+          INPUT_REPOSITORY: ${{ vars.AVERETH_LEAN_INPUT_REPOSITORY }}
+          INPUT_REF: ${{ vars.AVERETH_LEAN_INPUT_REF }}
+          INPUT_TOKEN: ${{ secrets.AVERETH_LEAN_INPUT_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SMOKE_MODEL: ${{ vars.AVERETH_EVAL_MODEL }}
+        run: |
+          python - <<'PY'
+          import os, re
+          from pathlib import Path
+          scope = os.environ['SCOPE']
+          if scope not in {'targeted', 'broader', 'host-smoke'}:
+              raise SystemExit('Unsupported scope')
+          values = {'scope': scope}
+          for name in ('TAGS', 'EXCLUDE_TAGS'):
+              raw = os.environ.get(name, '')
+              if len(raw) > 256 or any(not re.fullmatch(r'[a-z][a-z0-9-]*', tag.strip()) for tag in raw.split(',') if tag.strip()):
+                  raise SystemExit('Invalid case tags')
+              values[name.lower()] = ','.join(tag.strip() for tag in raw.split(',') if tag.strip())
+          for name in ('MAX_CASES', 'REPEAT_ON_UNCERTAIN'):
+              raw = os.environ.get(name, '0')
+              if not re.fullmatch(r'[0-9]{1,5}', raw):
+                  raise SystemExit('Invalid numeric evaluation limit')
+              values[name.lower()] = int(raw)
+          limit, repeats = values['max_cases'], values['repeat_on_uncertain']
+          if repeats > 2 or limit > 10000 or (scope == 'targeted' and limit not in {0, 3, 4, 5, 6, 7, 8}):
+              raise SystemExit('Evaluation limits exceed the selected scope')
+          if scope == 'host-smoke' and (limit not in {0, 1, 2, 3} or repeats or values['tags'] or values['exclude_tags']):
+              raise SystemExit('Host smoke supports 1 to 3 transports; case filters and uncertainty repeats apply to paired scopes')
+          baseline = os.environ.get('BASELINE_REF', '')
+          if baseline and not re.fullmatch(r'[0-9a-f]{40}', baseline):
+              raise SystemExit('baseline_ref must be an exact commit SHA')
+          values['baseline_ref'] = baseline
+          ready = bool(os.environ.get('OPENAI_API_KEY'))
+          if scope == 'host-smoke':
+              ready = ready and bool(os.environ.get('SMOKE_MODEL'))
+          else:
+              ready = ready and bool(baseline) and bool(os.environ.get('INPUT_TOKEN')) and bool(re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', os.environ.get('INPUT_REPOSITORY', ''))) and bool(re.fullmatch(r'[0-9a-f]{40}', os.environ.get('INPUT_REF', '')))
+          values['ready'] = str(ready).lower()
+          with Path(os.environ['GITHUB_OUTPUT']).open('a') as handle:
+              for key, value in values.items():
+                  handle.write(f'{key}={value}\n')
+          if not ready:
+              with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as handle:
+                  handle.write('NOT RUN: required credentials, pinned case materials/configuration, baseline, or smoke model are unavailable. Model calls: 0.\n')
+          PY
+  evaluate:
+    name: Selected workflow comparison
+    needs: configure
+    if: needs.configure.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          path: candidate-code
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: needs.configure.outputs.scope != 'host-smoke'
+        with:
+          repository: ${{ vars.AVERETH_LEAN_INPUT_REPOSITORY }}
+          ref: ${{ vars.AVERETH_LEAN_INPUT_REF }}
+          token: ${{ secrets.AVERETH_LEAN_INPUT_TOKEN }}
+          path: eval-inputs
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: needs.configure.outputs.scope != 'host-smoke'
+        with:
+          ref: ${{ needs.configure.outputs.baseline_ref }}
+          path: baseline-code
+          persist-credentials: false
+      - name: Install pinned host CLI
+        run: npm install --global @openai/codex@0.153.4
+      - name: Execute bounded selected evaluation
+        env:
+          SCOPE: ${{ needs.configure.outputs.scope }}
+          TAGS: ${{ needs.configure.outputs.tags }}
+          EXCLUDE_TAGS: ${{ needs.configure.outputs.exclude_tags }}
+          BASELINE_REF: ${{ needs.configure.outputs.baseline_ref }}
+          MAX_CASES: ${{ needs.configure.outputs.max_cases }}
+          REPEAT_ON_UNCERTAIN: ${{ needs.configure.outputs.repeat_on_uncertain }}
+          SMOKE_MODEL: ${{ vars.AVERETH_EVAL_MODEL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          CODEX_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess, sys
+          from pathlib import Path
+          directory = Path('candidate-code/evals/lean-core-v7')
+          scope, limit = os.environ['SCOPE'], int(os.environ['MAX_CASES'])
+          if scope == 'host-smoke':
+              results = []
+              for index in range(limit or 1):
+                  results.append(subprocess.run([sys.executable, str(directory / 'codex_workflow_adapter.py'), 'smoke', '--codex', 'codex', '--model', os.environ['SMOKE_MODEL'], '--timeout', '120', '--output-root', f'host-smoke-{index + 1}'], check=False).returncode)
+              with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as handle:
+                  handle.write(f'Host smoke only: {len(results)} attempts, {results.count(0)} passed. Selected research tasks executed: 0.\n')
+              raise SystemExit(0 if all(code == 0 for code in results) else 1)
+          command = [sys.executable, str(directory / 'paired_run.py'), 'eval-inputs/baseline/execution-spec.json', 'eval-inputs/candidate/execution-spec.json', '--experiment', 'eval-inputs/experiment.json', '--bank', str(directory / 'manifest.json'), '--scope', scope, '--tags', os.environ['TAGS'], '--exclude-tags', os.environ['EXCLUDE_TAGS'], '--baseline-code', 'baseline-code', '--candidate-code', 'candidate-code', '--baseline-ref', os.environ['BASELINE_REF'], '--repeat-on-uncertain', os.environ['REPEAT_ON_UNCERTAIN'], '--judge-config', 'eval-inputs/judge-config.json', '--output-root', 'paired-run', '--execute']
+          if limit:
+              command.extend(['--max-cases', str(limit)])
+          if scope == 'targeted':
+              changed = subprocess.run(['git', '-C', 'candidate-code', 'diff', '--name-only', os.environ['BASELINE_REF'], 'HEAD', '--'], capture_output=True, text=True, check=True).stdout.splitlines()
+              Path('changed-paths.json').write_text(json.dumps(changed), encoding='utf-8')
+              command.extend(['--changed-paths', 'changed-paths.json'])
+          completed = subprocess.run(command, check=False)
+          result = Path('paired-run/paired-result.json')
+          not_run = Path('paired-run/not-run-execution.json')
+          with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as handle:
+              if result.exists():
+                  payload = json.loads(result.read_text())
+                  handle.write(f"{payload.get('status')}: selected cases={payload.get('selected_cases')}; promotion eligible={payload.get('auto_promotion_eligible')}. All executed rounds retained locally.\n")
+              elif not_run.exists():
+                  payload = json.loads(not_run.read_text())
+                  if payload.get('status') == 'NOT RUN' and payload.get('model_calls') == 0:
+                      handle.write('NOT RUN: selected case execution preflight is blocked. Model calls: 0.\n')
+                  else:
+                      handle.write('UNCERTAIN: a later paired round was blocked. Earlier executed rounds remain in the denominator.\n')
+              else:
+                  handle.write('NOT RUN or interrupted before a complete paired report. No improvement or promotion is established.\n')
+          raise SystemExit(completed.returncode)
+          PY

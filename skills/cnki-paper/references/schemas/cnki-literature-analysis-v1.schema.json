@@ -1,0 +1,356 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper1.local/schemas/cnki-literature-analysis-v1.schema.json",
+  "title": "CNKI-Paper critical reading and literature synthesis v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry_digest",
+    "migration_status",
+    "review_scope",
+    "source_readings",
+    "syntheses"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cnki-literature-analysis/v1"
+    },
+    "registry_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "migration_status": {
+      "enum": ["current", "needs-review", "legacy-limited"]
+    },
+    "review_scope": {
+      "$ref": "#/$defs/review_scope"
+    },
+    "source_readings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source_reading"
+      }
+    },
+    "syntheses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/synthesis"
+      }
+    },
+    "unreviewed_final_source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "legacy_declaration": {
+      "type": "object",
+      "required": ["audit_only", "no_new_literature_claims", "limitation_note"],
+      "properties": {
+        "audit_only": {"const": true},
+        "no_new_literature_claims": {"const": true},
+        "limitation_note": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "review_scope": {
+      "type": "object",
+      "required": [
+        "review_type",
+        "review_question",
+        "search_scope",
+        "inclusion_boundary",
+        "exclusion_boundary",
+        "synthesis_logic"
+      ],
+      "properties": {
+        "review_type": {
+          "enum": ["embedded", "narrative", "scoping", "systematic"]
+        },
+        "review_question": {"type": "string"},
+        "search_scope": {"type": "string"},
+        "inclusion_boundary": {"type": "string"},
+        "exclusion_boundary": {"type": "string"},
+        "synthesis_logic": {"type": "string"},
+        "reporting_standard": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "source_reading": {
+      "type": "object",
+      "required": [
+        "reading_id",
+        "source_id",
+        "source_fingerprint",
+        "source_type",
+        "evidence_level",
+        "status"
+      ],
+      "properties": {
+        "reading_id": {
+          "type": "string",
+          "pattern": "^CR-[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"
+        },
+        "source_id": {"type": "string", "minLength": 1},
+        "source_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "source_type": {
+          "enum": [
+            "empirical-quantitative",
+            "empirical-qualitative",
+            "historical-primary",
+            "theoretical-normative",
+            "review-synthesis",
+            "official-data-primary",
+            "other"
+          ]
+        },
+        "evidence_level": {
+          "enum": ["abstract", "detail", "full-text", "unknown"]
+        },
+        "status": {
+          "enum": ["complete", "limited", "needs-review"]
+        },
+        "analysis_sequence": {
+          "const": [
+            "aerial-view",
+            "independent-evidence-interpretation",
+            "author-discussion-comparison",
+            "alternative-explanations"
+          ]
+        },
+        "aerial_view": {
+          "type": "object",
+          "required": ["scope_and_design", "core_question_or_purpose", "stated_gap_or_context"],
+          "properties": {
+            "scope_and_design": {"type": "string"},
+            "core_question_or_purpose": {"type": "string"},
+            "stated_gap_or_context": {"type": "string"}
+          },
+          "additionalProperties": true
+        },
+        "interrogation": {
+          "type": "object",
+          "required": ["method_or_argument_fit", "independent_interpretation", "appraisal"],
+          "properties": {
+            "method_or_argument_fit": {"type": "string"},
+            "independent_interpretation": {
+              "type": "object",
+              "required": ["status", "judgment", "anchors"],
+              "properties": {
+                "status": {"enum": ["assessed", "not-assessable"]},
+                "judgment": {"type": "string"},
+                "anchors": {
+                  "type": "array",
+                  "items": {"$ref": "#/$defs/anchor"}
+                }
+              },
+              "additionalProperties": true
+            },
+            "appraisal": {
+              "type": "object",
+              "required": ["profile", "criteria"],
+              "properties": {
+                "profile": {
+                  "enum": [
+                    "empirical-quantitative",
+                    "empirical-qualitative",
+                    "historical-primary",
+                    "theoretical-normative",
+                    "review-synthesis",
+                    "official-data-primary",
+                    "other"
+                  ]
+                },
+                "criteria": {
+                  "type": "array",
+                  "items": {"$ref": "#/$defs/criterion"}
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        },
+        "verdict": {
+          "type": "object",
+          "required": [
+            "author_conclusion",
+            "reader_author_comparison",
+            "alternative_explanations",
+            "limitations",
+            "conflicts_of_interest",
+            "bounded_verdict"
+          ],
+          "properties": {
+            "author_conclusion": {"type": "string"},
+            "reader_author_comparison": {"type": "string"},
+            "alternative_explanations": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "limitations": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "conflicts_of_interest": {"type": "string"},
+            "bounded_verdict": {"type": "string"}
+          },
+          "additionalProperties": true
+        },
+        "claim_permissions": {
+          "type": "object",
+          "required": ["allowed", "forbidden"],
+          "properties": {
+            "allowed": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/claim_permission"}
+            },
+            "forbidden": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/claim_permission"}
+            }
+          },
+          "additionalProperties": false
+        },
+        "missing_evidence": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "additionalProperties": true
+    },
+    "anchor": {
+      "type": "object",
+      "required": ["anchor_type", "locator", "observation"],
+      "properties": {
+        "anchor_type": {
+          "enum": [
+            "abstract",
+            "detail-page",
+            "page",
+            "section",
+            "figure",
+            "table",
+            "dataset",
+            "appendix",
+            "paragraph",
+            "url"
+          ]
+        },
+        "locator": {"type": "string"},
+        "observation": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "criterion": {
+      "type": "object",
+      "required": ["criterion_id", "status", "judgment"],
+      "properties": {
+        "criterion_id": {"type": "string", "minLength": 1},
+        "status": {
+          "enum": ["supported", "concern", "unclear", "not-applicable"]
+        },
+        "judgment": {"type": "string"},
+        "anchors": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "additionalProperties": true
+    },
+    "claim_permission": {
+      "enum": [
+        "author-reported-position",
+        "background-context",
+        "narrow-descriptive-claim",
+        "method-quality",
+        "independent-result-interpretation",
+        "causal-mechanism",
+        "robustness-generalization",
+        "conflict-adjudication"
+      ]
+    },
+    "synthesis": {
+      "type": "object",
+      "required": [
+        "synthesis_id",
+        "kind",
+        "claim_class",
+        "review_question",
+        "proposition",
+        "source_links",
+        "comparability_basis",
+        "appraisal_weighting",
+        "conflict_or_heterogeneity",
+        "analyst_judgment",
+        "residual_uncertainty",
+        "writing_role"
+      ],
+      "properties": {
+        "synthesis_id": {
+          "type": "string",
+          "pattern": "^SYN-[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"
+        },
+        "kind": {
+          "enum": ["single-source-position", "cross-source-synthesis"]
+        },
+        "claim_class": {
+          "enum": [
+            "author-position",
+            "background-context",
+            "narrow-descriptive",
+            "method-quality",
+            "result-interpretation",
+            "causal-mechanism",
+            "robustness-generalization",
+            "conflict-adjudication"
+          ]
+        },
+        "review_question": {"type": "string"},
+        "proposition": {"type": "string"},
+        "source_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["source_id", "relation", "use", "comparability", "rationale"],
+            "properties": {
+              "source_id": {"type": "string", "minLength": 1},
+              "relation": {
+                "enum": ["supports", "qualifies", "contradicts", "uncertain", "context"]
+              },
+              "use": {"enum": ["author-position", "context", "evidence"]},
+              "comparability": {
+                "enum": ["comparable", "partially-comparable", "not-comparable"]
+              },
+              "rationale": {"type": "string"}
+            },
+            "additionalProperties": true
+          }
+        },
+        "comparability_basis": {"type": "string"},
+        "appraisal_weighting": {"type": "string"},
+        "conflict_or_heterogeneity": {"type": "string"},
+        "analyst_judgment": {"type": "string"},
+        "residual_uncertainty": {"type": "string"},
+        "writing_role": {
+          "enum": [
+            "existing-knowledge",
+            "debate",
+            "gap",
+            "boundary",
+            "method-choice",
+            "implication"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

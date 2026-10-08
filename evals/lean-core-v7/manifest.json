@@ -1,0 +1,1710 @@
+{
+  "schema_version": "avereth-lean-core-eval/v1",
+  "suite_id": "lean-core-v7-30",
+  "baseline_ref": "2e5b2a3a2204b2a35af2b9d247fe412c6609e726",
+  "candidate_branch": "codex-lean-core-v7",
+  "evaluation_status": "fixtures_frozen_model_runs_pending",
+  "purpose": "Select versioned regression and capability cases relevant to the changed component; measure integrity and workflow behavior before removing constraints.",
+  "quality_metrics": [
+    "task_completion",
+    "fact_and_citation_accuracy",
+    "claim_evidence_fit",
+    "argument_clarity",
+    "natural_academic_prose"
+  ],
+  "cost_metrics": [
+    "context_files_loaded",
+    "context_bytes_loaded",
+    "tool_calls",
+    "agent_calls",
+    "persistent_artifacts_created"
+  ],
+  "comparison_runs": [
+    "v6_9_baseline",
+    "v7_lean_candidate"
+  ],
+  "tasks": [
+    {
+      "id": "LCV7-THEORY-01",
+      "category": "political_theory_and_concepts",
+      "task": "解释政治代表为何不能被还原为偏好聚合，并形成一篇可投稿的概念论文论证方案。",
+      "paper_type": "theoretical",
+      "expected_route": "project",
+      "required_capabilities": [
+        "problem-led-research",
+        "critical-synthesis",
+        "argument-writing"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "概念区分有来源依据",
+        "核心矛盾与竞争解释明确",
+        "不虚构经验结果"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "checkpoint",
+        "citation",
+        "claim-evidence",
+        "context",
+        "knowledge-change",
+        "method",
+        "negative-result",
+        "novelty",
+        "prose",
+        "reference-loading",
+        "refutation",
+        "routing"
+      ],
+      "failure_mode": "unsupported_conceptual_inference",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-THEORY-02",
+      "category": "political_theory_and_concepts",
+      "task": "比较国家能力与国家自主性两个概念，判断二者在发展型国家研究中如何连接。",
+      "paper_type": "conceptual",
+      "expected_route": "project",
+      "required_capabilities": [
+        "international-search",
+        "critical-synthesis",
+        "argument-writing"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "概念关系不被混同",
+        "经典与近期争论均有承重来源",
+        "结论力度与文献相称"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "negative-result",
+        "prose",
+        "reference-loading"
+      ],
+      "failure_mode": "unsupported_conceptual_inference",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-THEORY-03",
+      "category": "political_theory_and_concepts",
+      "task": "以协商民主中的沉默问题为中心，提出一个规范性而非统计性的研究问题。",
+      "paper_type": "normative",
+      "expected_route": "project",
+      "required_capabilities": [
+        "problem-led-research",
+        "critical-synthesis",
+        "argument-writing"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "规范前提公开",
+        "最强反方改变论证",
+        "不因无数据而阻塞"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "checkpoint",
+        "citation",
+        "claim-evidence",
+        "context",
+        "knowledge-change",
+        "method",
+        "negative-result",
+        "novelty",
+        "prose",
+        "reference-loading",
+        "refutation",
+        "routing"
+      ],
+      "failure_mode": "unsupported_conceptual_inference",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-THEORY-04",
+      "category": "political_theory_and_concepts",
+      "task": "重构韧性治理概念，识别其与适应性治理的真实差异及可能的概念冗余。",
+      "paper_type": "conceptual",
+      "expected_route": "project",
+      "required_capabilities": [
+        "collision-search",
+        "critical-synthesis",
+        "argument-writing"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "直接撞车检索完成",
+        "没有用新术语冒充贡献",
+        "保留可撤回的判断"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "checkpoint",
+        "citation",
+        "claim-evidence",
+        "context",
+        "knowledge-change",
+        "method",
+        "negative-result",
+        "novelty",
+        "prose",
+        "reference-loading",
+        "refutation",
+        "routing"
+      ],
+      "failure_mode": "unsupported_conceptual_inference",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-THEORY-05",
+      "category": "political_theory_and_concepts",
+      "task": "围绕公共性在数字平台治理中的变化撰写中文期刊论文提纲。",
+      "paper_type": "theoretical",
+      "expected_route": "project",
+      "required_capabilities": [
+        "cnki-search",
+        "critical-synthesis",
+        "argument-writing"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "中文证据生态匹配目标刊",
+        "提纲由问题而非框架名统领",
+        "无结果型标题预断"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "negative-result",
+        "prose",
+        "reference-loading"
+      ],
+      "failure_mode": "unsupported_conceptual_inference",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-HISTORY-01",
+      "category": "history_and_textual_research",
+      "task": "利用公开政策文本解释一个政策概念在十年间的语义转移。",
+      "paper_type": "historical_textual",
+      "expected_route": "project",
+      "required_capabilities": [
+        "source-verification",
+        "historical-analysis",
+        "argument-writing"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "材料版本和时间可追溯",
+        "语义变化与制度变化分开",
+        "不把词频当机制"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "negative-result",
+        "prose",
+        "reference-loading"
+      ],
+      "failure_mode": "source_voice_or_locator_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-HISTORY-02",
+      "category": "history_and_textual_research",
+      "task": "比较两个历史时期同一政治口号的行动者、对象和制度功能。",
+      "paper_type": "comparative_history",
+      "expected_route": "project",
+      "required_capabilities": [
+        "source-verification",
+        "historical-analysis",
+        "claim-citation-check"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "时期边界明确",
+        "一手材料承担事实",
+        "避免目的论"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "reference-loading"
+      ],
+      "failure_mode": "source_voice_or_locator_mismatch",
+      "risk": "medium",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-HISTORY-03",
+      "category": "history_and_textual_research",
+      "task": "审读一组外交公报，判断其中的承诺表述是否发生阶段性变化。",
+      "paper_type": "archival_textual",
+      "expected_route": "project",
+      "required_capabilities": [
+        "source-verification",
+        "textual-analysis",
+        "claim-citation-check"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "公开表述不被当作闭门谈判实录",
+        "承诺与愿景分类",
+        "定位信息完整"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "reference-loading"
+      ],
+      "failure_mode": "source_voice_or_locator_mismatch",
+      "risk": "medium",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-HISTORY-04",
+      "category": "history_and_textual_research",
+      "task": "从地方志和报刊材料解释一项基层制度的形成过程。",
+      "paper_type": "historical",
+      "expected_route": "project",
+      "required_capabilities": [
+        "source-verification",
+        "historical-analysis",
+        "argument-writing"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "材料来源角色清楚",
+        "形成过程不是年代罗列",
+        "反例与断裂被处理"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "negative-result",
+        "prose",
+        "reference-loading"
+      ],
+      "failure_mode": "source_voice_or_locator_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-HISTORY-05",
+      "category": "history_and_textual_research",
+      "task": "审计一篇思想史旧稿，纠正作者观点、文本证据和后人解释之间的声音混淆。",
+      "paper_type": "manuscript_revision",
+      "expected_route": "project",
+      "required_capabilities": [
+        "source-verification",
+        "controlled-revision",
+        "clean-read-review"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "声音身份分离",
+        "直接引文逐字保真",
+        "修订不静默扩大主张"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "artifact",
+        "citation",
+        "claim-evidence",
+        "context",
+        "negative-result",
+        "prose",
+        "reference-loading"
+      ],
+      "failure_mode": "source_voice_or_locator_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-QUAL-01",
+      "category": "qualitative_case_and_comparative",
+      "task": "为两个地方治理案例设计最小可行的结构化比较。",
+      "paper_type": "qualitative_comparative",
+      "expected_route": "project",
+      "required_capabilities": [
+        "problem-led-research",
+        "method-routing",
+        "material-feasibility"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "案例选择服从问题",
+        "比较维度可观察",
+        "材料取得真实核验"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 8,
+      "tags": [
+        "checkpoint",
+        "citation",
+        "claim-evidence",
+        "context",
+        "method",
+        "reference-loading",
+        "routing"
+      ],
+      "failure_mode": "method_or_permission_mismatch",
+      "risk": "medium",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-QUAL-02",
+      "category": "qualitative_case_and_comparative",
+      "task": "判断一个政策过程研究是否适合过程追踪，并给出可证伪的证据预期。",
+      "paper_type": "qualitative",
+      "expected_route": "project",
+      "required_capabilities": [
+        "method-routing",
+        "material-feasibility",
+        "analysis-claim-check"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "证据诊断力明确",
+        "不存在就方法贴标签",
+        "替代机制可区分"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 8,
+      "tags": [
+        "checkpoint",
+        "claim-evidence",
+        "context",
+        "knowledge-change",
+        "method",
+        "novelty",
+        "reference-loading",
+        "refutation",
+        "routing"
+      ],
+      "failure_mode": "method_or_permission_mismatch",
+      "risk": "medium",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-QUAL-03",
+      "category": "qualitative_case_and_comparative",
+      "task": "基于访谈与文件材料设计一个组织决策研究，明确伦理和权限前置条件。",
+      "paper_type": "qualitative",
+      "expected_route": "project",
+      "required_capabilities": [
+        "material-feasibility",
+        "method-routing",
+        "analysis-claim-check"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "伦理未清不以试访绕过",
+        "访谈和文件互证责任明确",
+        "推断边界具体"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 8,
+      "tags": [
+        "checkpoint",
+        "claim-evidence",
+        "context",
+        "method",
+        "permissions",
+        "reference-loading",
+        "routing"
+      ],
+      "failure_mode": "method_or_permission_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-QUAL-04",
+      "category": "qualitative_case_and_comparative",
+      "task": "对一组政策文本进行模型主导的定性编码，并设计独立复算与分歧处置。",
+      "paper_type": "qualitative_coding",
+      "expected_route": "project",
+      "required_capabilities": [
+        "material-feasibility",
+        "method-routing",
+        "researcher-on-demand"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "冻结输入与首轮输出",
+        "分歧才触发仲裁",
+        "provenance可复现"
+      ],
+      "max_default_agents": 2,
+      "max_core_artifacts": 8,
+      "tags": [
+        "checkpoint",
+        "citation",
+        "claim-evidence",
+        "context",
+        "method",
+        "reference-loading",
+        "routing"
+      ],
+      "failure_mode": "method_or_permission_mismatch",
+      "risk": "medium",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "method_result_consistent"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-QUAL-05",
+      "category": "qualitative_case_and_comparative",
+      "task": "比较三个制度案例，判断最相似设计是否能识别提出的解释。",
+      "paper_type": "comparative_case",
+      "expected_route": "project",
+      "required_capabilities": [
+        "method-routing",
+        "material-feasibility",
+        "analysis-claim-check"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "比较单位同质性被审查",
+        "差异与机制相连",
+        "不把案例数当识别质量"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 8,
+      "tags": [
+        "checkpoint",
+        "claim-evidence",
+        "context",
+        "method",
+        "reference-loading",
+        "routing"
+      ],
+      "failure_mode": "method_or_permission_mismatch",
+      "risk": "medium",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-QUANT-01",
+      "category": "quantitative_topic_and_design",
+      "task": "评估一项家庭调查数据能否支持公共服务获得感的面板研究。",
+      "paper_type": "quantitative",
+      "expected_route": "project",
+      "required_capabilities": [
+        "problem-led-research",
+        "quantitative-data-check",
+        "method-routing"
+      ],
+      "must_not_default": [
+        "global-data-catalog",
+        "automatic-data-matching",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "真实代码本或样本已核验",
+        "面板键和波次明确",
+        "数据可读不等于设计可行"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 8,
+      "tags": [
+        "checkpoint",
+        "citation",
+        "claim-evidence",
+        "context",
+        "method",
+        "quantitative",
+        "reference-loading",
+        "routing"
+      ],
+      "failure_mode": "data_design_or_result_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "numbers_consistent"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-QUANT-02",
+      "category": "quantitative_topic_and_design",
+      "task": "比较公开下载、API和申请三种来源，选择适合城市政策评估的数据。",
+      "paper_type": "quantitative",
+      "expected_route": "project",
+      "required_capabilities": [
+        "quantitative-data-check",
+        "source-verification",
+        "method-routing"
+      ],
+      "must_not_default": [
+        "global-data-catalog",
+        "automatic-data-matching",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "本地文件没有优先权",
+        "覆盖和变量决定选择",
+        "访问成本与许可可追溯"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 8,
+      "tags": [
+        "checkpoint",
+        "citation",
+        "claim-evidence",
+        "context",
+        "method",
+        "quantitative",
+        "reference-loading",
+        "routing"
+      ],
+      "failure_mode": "data_design_or_result_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "numbers_consistent"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-QUANT-03",
+      "category": "quantitative_topic_and_design",
+      "task": "为企业政策冲击研究核验处理时间、企业标识和结果变量后再判断DID是否可做。",
+      "paper_type": "quantitative_causal",
+      "expected_route": "project",
+      "required_capabilities": [
+        "quantitative-data-check",
+        "method-routing",
+        "analysis-claim-check"
+      ],
+      "must_not_default": [
+        "global-data-catalog",
+        "automatic-data-matching",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "字段和真实变异已核验",
+        "识别先于估计",
+        "平行趋势未执行前不预断"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 8,
+      "tags": [
+        "checkpoint",
+        "claim-evidence",
+        "context",
+        "method",
+        "quantitative",
+        "reference-loading",
+        "routing"
+      ],
+      "failure_mode": "data_design_or_result_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "numbers_consistent",
+        "table_text_consistent",
+        "method_result_consistent"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-QUANT-04",
+      "category": "quantitative_topic_and_design",
+      "task": "判断一组平台文本是否足以训练可复现的监督分类器并形成论文结果。",
+      "paper_type": "computational",
+      "expected_route": "project",
+      "required_capabilities": [
+        "quantitative-data-check",
+        "method-routing",
+        "analysis-claim-check",
+        "researcher-on-demand"
+      ],
+      "must_not_default": [
+        "global-data-catalog",
+        "automatic-data-matching",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "标签来源与切分无泄漏",
+        "指标从逐项结果复算",
+        "文本取得许可明确"
+      ],
+      "max_default_agents": 2,
+      "max_core_artifacts": 8,
+      "tags": [
+        "checkpoint",
+        "citation",
+        "claim-evidence",
+        "context",
+        "method",
+        "permissions",
+        "quantitative",
+        "reference-loading",
+        "routing"
+      ],
+      "failure_mode": "data_design_or_result_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "numbers_consistent",
+        "table_text_consistent",
+        "method_result_consistent"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-QUANT-05",
+      "category": "quantitative_topic_and_design",
+      "task": "用户上传CSV后，只检查字段、缺失和键，不从该文件自动生成选题。",
+      "paper_type": "quantitative_feasibility",
+      "expected_route": "project",
+      "required_capabilities": [
+        "quantitative-data-check"
+      ],
+      "must_not_default": [
+        "global-data-catalog",
+        "automatic-data-matching",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "不回显原始行和绝对路径",
+        "输出一张可行性卡",
+        "ready不由脚本自动取得"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 8,
+      "tags": [
+        "checkpoint",
+        "claim-evidence",
+        "context",
+        "permissions",
+        "quantitative",
+        "reference-loading"
+      ],
+      "failure_mode": "data_design_or_result_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "numbers_consistent"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-REVIEW-01",
+      "category": "literature_review_and_journal_fit",
+      "task": "围绕一个明确问题写嵌入式文献综述，不按作者顺序串联摘要。",
+      "paper_type": "literature_review",
+      "expected_route": "project",
+      "required_capabilities": [
+        "international-search",
+        "critical-synthesis",
+        "argument-writing"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "来源关系而非摘要串",
+        "真实争议与剩余未知明确",
+        "综述服务论文问题"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "negative-result",
+        "prose",
+        "reference-loading"
+      ],
+      "failure_mode": "citation_or_scope_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-REVIEW-02",
+      "category": "literature_review_and_journal_fit",
+      "task": "为中文公共管理选题核验目标刊近年主题和写作结构。",
+      "paper_type": "journal_fit",
+      "expected_route": "project",
+      "required_capabilities": [
+        "cnki-search",
+        "journal-fit",
+        "source-verification"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "投稿要求当次核验",
+        "目标刊范文内容核验",
+        "刊性不由刊名推断"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "reference-loading"
+      ],
+      "failure_mode": "citation_or_scope_mismatch",
+      "risk": "medium",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-REVIEW-03",
+      "category": "literature_review_and_journal_fit",
+      "task": "为SSCI选题完成直接撞车、证据可得性、设计可重建和期刊适配检查。",
+      "paper_type": "topic_selection",
+      "expected_route": "project",
+      "required_capabilities": [
+        "international-search",
+        "collision-search",
+        "journal-fit"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "方向选择不等于问题确认",
+        "实质撞车会触发重构",
+        "确认前不进入设计"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "checkpoint",
+        "citation",
+        "claim-evidence",
+        "context",
+        "knowledge-change",
+        "method",
+        "novelty",
+        "permissions",
+        "reference-loading",
+        "refutation",
+        "routing"
+      ],
+      "failure_mode": "citation_or_scope_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-REVIEW-04",
+      "category": "literature_review_and_journal_fit",
+      "task": "审计一篇范围综述的检索边界、纳排逻辑和综合结论。",
+      "paper_type": "scoping_review",
+      "expected_route": "project",
+      "required_capabilities": [
+        "search",
+        "critical-synthesis",
+        "claim-citation-check"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "检索可复现",
+        "纳排与问题一致",
+        "数量不替代覆盖判断"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "reference-loading"
+      ],
+      "failure_mode": "citation_or_scope_mismatch",
+      "risk": "medium",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-REVIEW-05",
+      "category": "literature_review_and_journal_fit",
+      "task": "判断一篇论文的贡献是否只是换地区、换年份或换方法。",
+      "paper_type": "contribution_audit",
+      "expected_route": "project",
+      "required_capabilities": [
+        "collision-search",
+        "critical-synthesis",
+        "clean-read-review"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "最强碰撞真实存在",
+        "贡献连接实际结果",
+        "可以得出撤回结论"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "checkpoint",
+        "citation",
+        "claim-evidence",
+        "context",
+        "knowledge-change",
+        "method",
+        "negative-result",
+        "novelty",
+        "prose",
+        "reference-loading",
+        "refutation",
+        "routing"
+      ],
+      "failure_mode": "citation_or_scope_mismatch",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-REVISION-01",
+      "category": "full_revision_and_reviewer_response",
+      "task": "系统修订一篇完整论文，修复引用、论证跳跃和防御性写作并交付DOCX。",
+      "paper_type": "manuscript_revision",
+      "expected_route": "project",
+      "required_capabilities": [
+        "controlled-revision",
+        "claim-citation-check",
+        "final-output-check"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "实质修改回到事实所有阶段",
+        "正文不泄露控制面",
+        "最终文件可打开并核验"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "artifact",
+        "citation",
+        "claim-evidence",
+        "context",
+        "negative-result",
+        "prose",
+        "reference-loading"
+      ],
+      "failure_mode": "protected_detail_or_delivery_regression",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "table_text_consistent",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-REVISION-02",
+      "category": "full_revision_and_reviewer_response",
+      "task": "把审稿意见整理为finding、revision、recheck闭环并起草逐点回复。",
+      "paper_type": "reviewer_response",
+      "expected_route": "project",
+      "required_capabilities": [
+        "controlled-revision",
+        "reviewer-on-demand",
+        "claim-citation-check"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "问题不重复制造身份",
+        "回复与实际改稿一致",
+        "可选润色不阻塞"
+      ],
+      "max_default_agents": 2,
+      "max_core_artifacts": 6,
+      "tags": [
+        "artifact",
+        "citation",
+        "claim-evidence",
+        "context",
+        "negative-result",
+        "prose",
+        "reference-loading"
+      ],
+      "failure_mode": "protected_detail_or_delivery_regression",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-REVISION-03",
+      "category": "full_revision_and_reviewer_response",
+      "task": "对英文SSCI全文做一次综合审阅，区分方法、贡献和清晰度问题。",
+      "paper_type": "manuscript_audit",
+      "expected_route": "project",
+      "required_capabilities": [
+        "reviewer-on-demand",
+        "claim-citation-check",
+        "clean-read-review"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "默认一次综合审阅",
+        "问题严重性影响修改顺序",
+        "不为数量制造意见"
+      ],
+      "max_default_agents": 2,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "knowledge-change",
+        "negative-result",
+        "novelty",
+        "prose",
+        "reference-loading",
+        "refutation"
+      ],
+      "failure_mode": "protected_detail_or_delivery_regression",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-REVISION-04",
+      "category": "full_revision_and_reviewer_response",
+      "task": "核对摘要、结果、讨论和结论中的数字及推断强度是否一致。",
+      "paper_type": "result_consistency_audit",
+      "expected_route": "project",
+      "required_capabilities": [
+        "analysis-claim-check",
+        "claim-citation-check",
+        "clean-read-review"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "数字回到实际结果",
+        "因果措辞不超过设计",
+        "无需Move级证明链"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "citation",
+        "claim-evidence",
+        "context",
+        "negative-result",
+        "prose",
+        "reference-loading"
+      ],
+      "failure_mode": "protected_detail_or_delivery_regression",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "citation_metadata_valid",
+        "protected_facts_preserved",
+        "numbers_consistent",
+        "table_text_consistent",
+        "method_result_consistent",
+        "semantic_fidelity"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls",
+        "pairwise_preference"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    },
+    {
+      "id": "LCV7-REVISION-05",
+      "category": "full_revision_and_reviewer_response",
+      "task": "从Markdown重建匿名投稿DOCX和PDF并完成最终视觉核验。",
+      "paper_type": "final_delivery",
+      "expected_route": "project",
+      "required_capabilities": [
+        "renderer",
+        "final-output-check"
+      ],
+      "must_not_default": [
+        "quantitative-data-check",
+        "specialist-reviewers",
+        "manuscript-compiler"
+      ],
+      "outcome_checks": [
+        "匿名信息清理",
+        "引用脚注图表正常",
+        "最终文件哈希和视觉检查完成"
+      ],
+      "max_default_agents": 1,
+      "max_core_artifacts": 6,
+      "tags": [
+        "artifact",
+        "checkpoint",
+        "claim-evidence",
+        "context",
+        "permissions",
+        "reference-loading"
+      ],
+      "failure_mode": "protected_detail_or_delivery_regression",
+      "risk": "high",
+      "hard_checks": [
+        "no_fabricated_sources",
+        "no_inference_strengthening",
+        "negative_results_preserved",
+        "authorization_respected",
+        "claims_supported",
+        "scientific_state_preserved",
+        "table_text_consistent"
+      ],
+      "target_metrics": [
+        "task_completion_rate",
+        "context_bytes_loaded",
+        "tool_calls"
+      ],
+      "lifecycle": {
+        "status": "active",
+        "origin": "legacy_curated_capability",
+        "introduced_bank_version": 1
+      }
+    }
+  ],
+  "bank_version": 2,
+  "bank_role": "versioned_regression_and_capability_bank",
+  "historical_suite_id": "lean-core-v7-30"
+}

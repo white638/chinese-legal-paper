@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/avereth-exhibit-render-log-v1.schema.json",
+  "title": "Avereth empirical exhibit render log",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "exhibit_id",
+    "renderer",
+    "R",
+    "packages",
+    "requested_fonts",
+    "resolved_fonts",
+    "software_environment_id",
+    "software_environment",
+    "software_environment_sha256",
+    "inputs",
+    "outputs",
+    "render_checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "avereth-exhibit-render-log/v1"
+    },
+    "exhibit_id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]{1,63}$"
+    },
+    "renderer": {
+      "const": "r/generic-ggplot2-v1"
+    },
+    "R": {
+      "type": "string",
+      "minLength": 1
+    },
+    "packages": {
+      "type": "object"
+    },
+    "requested_fonts": {
+      "type": "object"
+    },
+    "resolved_fonts": {
+      "type": "object"
+    },
+    "software_environment_id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]{1,63}$"
+    },
+    "software_environment": {
+      "$ref": "avereth-exhibit-renderer-environment-v1.schema.json"
+    },
+    "software_environment_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "inputs": {
+      "type": "object",
+      "required": [
+        "spec_sha256",
+        "data_sha256",
+        "style_sha256",
+        "recipe_sha256",
+        "backend_sha256"
+      ],
+      "properties": {
+        "spec_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "data_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "style_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "recipe_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "backend_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "format",
+          "sha256"
+        ],
+        "properties": {
+          "format": {
+            "enum": [
+              "pdf",
+              "svg",
+              "png"
+            ]
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{64}$"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "render_checks": {
+      "type": "object",
+      "required": [
+        "font_min_pt",
+        "requested_fonts_available",
+        "font_fallback_used",
+        "glyph_fallback_checked",
+        "dpi"
+      ],
+      "properties": {
+        "font_min_pt": {
+          "type": "number",
+          "minimum": 1
+        },
+        "requested_fonts_available": {
+          "type": "boolean"
+        },
+        "font_fallback_used": {
+          "type": "boolean"
+        },
+        "glyph_fallback_checked": {
+          "type": "boolean"
+        },
+        "dpi": {
+          "type": "number",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,15 @@
+Can trade and security alliance help reduce interstate war?
+
+Authors: Seung-Whan Choi
+DOI: 10.1371/journal.pone.0304482
+Publisher: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304482
+License: Creative Commons Attribution 4.0 International
+License URL: https://creativecommons.org/licenses/by/4.0/
+Attribution: Choi S-W (2024) Can trade and security alliance help reduce interstate war? PLoS ONE 19(6): e0304482. https://doi.org/10.1371/journal.pone.0304482
+
+Locator: Abstract, paragraph 1; normalized characters 828:921
+Excerpt (verbatim; one inspected span):
+I uncover no peace-building effect, with regards to war, attributable to Extended Dependence.
+
+Editorial scope note (paraphrase): 结果变量为战争，区别于未升级至战争的军事争端；结论来自该统计检验。
+This excerpt records the authors' report. It does not establish a universal effect, replication outcome, or absolute novelty judgment.

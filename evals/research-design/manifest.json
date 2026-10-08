@@ -1,0 +1,91 @@
+{
+  "schema": "cnki-research-design-eval-manifest/v1",
+  "suite": "cnki-paper-research-design-current-with-legacy-regression",
+  "version": "1.1.0",
+  "baseline": {
+    "git_commit": "556b1ec",
+    "label": "v2-baseline",
+    "frozen": true
+  },
+  "assets": {
+    "rules": "rules.json",
+    "current_contract_materializer": "skills/cnki-paper/scripts/test_research_design_v3.py::confirmed_design",
+    "rubric": "rubric.md",
+    "positive_cases": "cases/positive.json",
+    "keyword_gaming_cases": "cases/keyword-gaming.json",
+    "single_condition_mutations": "cases/mutations.json",
+    "holdout_metadata": "cases/holdout.json"
+  },
+  "fixture_policy": {
+    "default_material": [
+      "recomputable synthetic cases",
+      "local anonymized real cases"
+    ],
+    "external_upload": false,
+    "golden_visible_to_reviewers": false,
+    "checker_report_visible_to_reviewers": false,
+    "future_schema_expected": "safe-block",
+    "needs_review_may_not_be_promoted_to_pass": true
+  },
+  "coverage": {
+    "positive_case_count": 4,
+    "keyword_gaming_case_count": 4,
+    "single_condition_mutation_count": 12,
+    "holdout_task_count": 12,
+    "ab_repetitions_per_task": 2,
+    "anonymous_ab_pair_count": 24,
+    "isolated_reviewer_count": 3,
+    "method_families": [
+      "quantitative-causal",
+      "case-process",
+      "text-content",
+      "valid-noncausal-and-normative"
+    ],
+    "required_failure_coverage": [
+      "fabricated Source ID",
+      "writing without confirmation",
+      "design-result drift",
+      "unregistered number",
+      "measurement gap",
+      "sampling or material-boundary gap",
+      "ethics or permission gap",
+      "duplicate Chinese reviews",
+      "causal overclaim",
+      "future schema"
+    ]
+  },
+  "ab_protocol": {
+    "unit": "one hidden task, one repetition, one anonymous baseline-candidate pair",
+    "pair_generation": "12 hidden tasks x 2 independent repetitions",
+    "assignment": "Randomize A/B labels independently for every pair and reviewer.",
+    "review_isolation": "Each of three reviewers works independently and receives only the task materials and anonymous outputs.",
+    "reviewer_exclusions": [
+      "checker reports",
+      "golden answers",
+      "version labels",
+      "other reviewers' scores",
+      "generation logs"
+    ],
+    "adjudication": "Use the median dimension score and majority pair preference; preserve all three location-based review records.",
+    "tie_handling": "A pair is tied when no output wins a majority or the median total is equal without a decisive design-answer-match advantage."
+  },
+  "release_thresholds": {
+    "hard_failure_detection_rate": 1.0,
+    "automatic_end_to_end_overall_pass_rate": 0.9,
+    "automatic_end_to_end_family_pass_rate": 0.8,
+    "automatic_hard_error_count": 0,
+    "blind_ab_minimum_v3_wins": 16,
+    "blind_ab_maximum_v3_losses": 3,
+    "family_net_regression_allowed": false,
+    "zero_score_allowed_for": [],
+    "zero_score_forbidden_for": [
+      "design_answer_match",
+      "inference_calibration"
+    ],
+    "required_canaries": [
+      "one full frozen-material workflow",
+      "one CNKI flash canary under lawful permission",
+      "one final Word render acceptance"
+    ]
+  }
+}

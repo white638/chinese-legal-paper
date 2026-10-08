@@ -1,0 +1,22 @@
+{
+  "schema_version": "avereth-exa-run/v1",
+  "query_id": "Q-EXA-COLLISION-001",
+  "purpose": "collision",
+  "workstream": "near-duplicate-research",
+  "query": "Find recent research asking the same mechanism question with different terminology.",
+  "executed_at": "2026-08-21T03:00:00Z",
+  "tool": "web_search_exa",
+  "results_reviewed": 1,
+  "results": [
+    {
+      "rank": 1,
+      "title": "A candidate near-duplicate study",
+      "url": "https://example.org/candidate",
+      "author": "Example Author",
+      "published_at": "2026-08-01",
+      "highlights": ["Discovery-only highlight used for screening."],
+      "content_fetch": "not-fetched",
+      "citation_scope": "candidate-only"
+    }
+  ]
+}

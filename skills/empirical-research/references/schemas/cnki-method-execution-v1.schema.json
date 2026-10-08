@@ -1,0 +1,410 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cnki-paper.local/schemas/cnki-method-execution-v1.schema.json",
+  "title": "CNKI Method Execution Contract v1",
+  "description": "Machine-authoritative record of method execution, results, deviations, negative findings, environments, and artifact hashes.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "design_schema_version",
+    "status",
+    "runs",
+    "reporting",
+    "software_environments"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cnki-method-execution/v1"
+    },
+    "design_schema_version": {
+      "const": "cnki-research-design/v2"
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "in-progress",
+        "needs-review"
+      ]
+    },
+    "runs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/run"
+      }
+    },
+    "reporting": {
+      "type": "object",
+      "required": [
+        "outcome_inventory_status",
+        "negative_findings_status",
+        "deviations_status",
+        "selective_reporting_declaration"
+      ],
+      "properties": {
+        "outcome_inventory_status": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "negative_findings_status": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "deviations_status": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "selective_reporting_declaration": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "software_environments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/software_environment"
+      }
+    },
+    "migration": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "nonempty": {
+      "type": "string",
+      "minLength": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]{1,31}$"
+    },
+    "id_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/id"
+      },
+      "uniqueItems": true
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{64}$"
+    },
+    "artifact": {
+      "type": "object",
+      "required": [
+        "id",
+        "path",
+        "role",
+        "sha256"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "path": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "role": {
+          "enum": [
+            "input",
+            "code",
+            "log",
+            "intermediate",
+            "result",
+            "table",
+            "figure",
+            "codebook",
+            "corpus",
+            "data",
+            "evidence"
+          ]
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "id",
+        "text",
+        "type",
+        "claim_ids",
+        "evidence_ids",
+        "artifact_ids",
+        "status",
+        "allowed_interpretation",
+        "prohibited_interpretation"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "text": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "type": {
+          "enum": [
+            "descriptive",
+            "association",
+            "causal_effect",
+            "causal_mechanism",
+            "prediction",
+            "operational",
+            "interpretive",
+            "theory_generation",
+            "normative",
+            "review_synthesis"
+          ]
+        },
+        "claim_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "artifact_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "status": {
+          "enum": [
+            "supported",
+            "qualified",
+            "null",
+            "negative",
+            "not-supported",
+            "withdrawn",
+            "not-applicable"
+          ]
+        },
+        "allowed_interpretation": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "prohibited_interpretation": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "numeric_values": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "deviation": {
+      "type": "object",
+      "required": [
+        "id",
+        "planned",
+        "actual",
+        "reason",
+        "affected_claim_ids",
+        "classification",
+        "disposition"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "planned": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "actual": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "reason": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "affected_claim_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "classification": {
+          "enum": [
+            "confirmatory",
+            "exploratory",
+            "post-hoc",
+            "administrative"
+          ]
+        },
+        "disposition": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "negative_finding": {
+      "type": "object",
+      "required": [
+        "id",
+        "text",
+        "claim_ids",
+        "evidence_ids",
+        "reported_in"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "text": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "claim_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "reported_in": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "run": {
+      "type": "object",
+      "required": [
+        "id",
+        "design_id",
+        "route_family",
+        "adapter_version",
+        "design_route_sha256",
+        "question_ids",
+        "claim_ids",
+        "evidence_ids",
+        "status",
+        "actions",
+        "method_fields",
+        "artifacts",
+        "results",
+        "deviations",
+        "negative_findings",
+        "ethics_events",
+        "software_environment_ids",
+        "inference_ceiling_observed",
+        "prohibited_inferences_observed"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "design_id": {
+          "$ref": "#/$defs/id"
+        },
+        "route_family": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "adapter_version": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "design_route_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "question_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "claim_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "qualified",
+            "null",
+            "negative",
+            "not-applicable",
+            "withdrawn",
+            "planned",
+            "needs-review"
+          ]
+        },
+        "not_applicable_reason": {
+          "type": "string"
+        },
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/nonempty"
+          }
+        },
+        "method_fields": {
+          "type": "object"
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifact"
+          }
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/result"
+          }
+        },
+        "deviations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/deviation"
+          }
+        },
+        "negative_findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/negative_finding"
+          }
+        },
+        "ethics_events": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "software_environment_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "inference_ceiling_observed": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "prohibited_inferences_observed": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "software_environment": {
+      "type": "object",
+      "required": [
+        "id",
+        "runtime",
+        "versions",
+        "lock_or_capture",
+        "reproduction_command"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "runtime": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "versions": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "lock_or_capture": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "reproduction_command": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    }
+  }
+}

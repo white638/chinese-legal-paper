@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avereth-discovery-candidates-v1.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "request_id",
+    "candidates",
+    "search_log",
+    "gaps"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "avereth-discovery-candidates/v1"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^scout-[a-f0-9]{64}$"
+    },
+    "candidates": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "required": [
+          "url",
+          "title",
+          "snippet",
+          "query",
+          "evidence_status"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "snippet": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "evidence_status": {
+            "const": "unverified_candidate"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "search_log": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "required": [
+          "tool",
+          "query",
+          "attempt",
+          "status",
+          "hits",
+          "error"
+        ],
+        "properties": {
+          "tool": {
+            "enum": [
+              "exa.search",
+              "web.search"
+            ]
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "attempt": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2
+          },
+          "status": {
+            "enum": [
+              "success",
+              "temporary_error",
+              "blocked"
+            ]
+          },
+          "hits": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "type": "object",
+              "required": [
+                "url",
+                "title",
+                "snippet"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1000
+                },
+                "snippet": {
+                  "type": "string",
+                  "maxLength": 12000
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      }
+    }
+  },
+  "additionalProperties": false
+}

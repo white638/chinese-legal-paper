@@ -1,0 +1,437 @@
+{
+  "schema_version": "avereth-explanation-first-corpus/v2",
+  "cases": [
+    {
+      "id": "semantic-defensive-claim-rewrite",
+      "behavior": "semantic_paraphrase",
+      "expected": "pass",
+      "registered_ids": ["CLM-101", "EVD-101"],
+      "baseline": "本文并不试图提出一个普遍理论，而只是有限说明，在政策执行初期的三个地级市场景中，事项移交权集中与跨部门协调速度提高相关。",
+      "required_text": ["政策执行初期", "三个地级市", "事项移交权", "跨部门协调"],
+      "forbidden_text": ["本文并不试图", "只是有限说明"],
+      "expect_exact_claim_absent": true,
+      "expect_positive_growth": false,
+      "request": {
+        "section_role": "results",
+        "object": "政策执行初期的跨部门协调",
+        "claim": {
+          "id": "CLM-101",
+          "canonical_proposition": "本文并不试图提出一个普遍理论，而只是有限说明，在政策执行初期的三个地级市场景中，事项移交权集中与跨部门协调速度提高相关。",
+          "strength": "association",
+          "realization_mode": "semantic",
+          "protected_atoms": {
+            "subject": "事项移交权",
+            "relation": "跨部门协调",
+            "direction": "positive",
+            "polarity": "affirmative",
+            "inferential_strength": "association",
+            "scope": "政策执行初期的三个地级市场景",
+            "protected_literals": ["政策执行初期", "三个地级市", "事项移交权", "跨部门协调"],
+            "protected_numbers": [],
+            "citation_anchors": []
+          }
+        },
+        "evidence_items": [
+          {
+            "id": "EVD-101",
+            "text": "三个案例均记录了事项移交权集中后协调时间缩短",
+            "evidence_function": "用于识别事项移交权与协调速度的关系方向"
+          }
+        ],
+        "warrant": "直接调度减少了责任确认与逐级请示之间的等待",
+        "reader_question": "事项移交权为什么与跨部门协调速度相关？",
+        "plain_core": "在政策执行初期的三个地级市场景中，事项移交权越集中，跨部门协调通常越快。",
+        "explanation_path": [
+          {"order": 1, "function": "claim", "content": "事项移交权集中与跨部门协调速度提高相关", "anchor_id": "CLM-101"},
+          {"order": 2, "function": "evidence_role", "content": "三个案例的时间变化用于识别这一关系的方向", "anchor_id": "EVD-101"},
+          {"order": 3, "function": "mechanism", "content": "直接调度减少了责任确认与逐级请示之间的等待"}
+        ],
+        "reader_update": "协调效率取决于责任与调度权是否同步转移",
+        "boundaries": [],
+        "countervoices": []
+      }
+    },
+    {
+      "id": "negative-result-polarity-survives",
+      "behavior": "negative_result",
+      "expected": "pass",
+      "registered_ids": ["CLM-102", "EVD-102"],
+      "baseline": "干预并未显著提高政策支持度。",
+      "required_text": ["干预", "政策支持度", "未显著提高", "预期"],
+      "forbidden_text": ["提高了政策支持度", "产生积极效果"],
+      "required_polarity_markers": ["未显著提高"],
+      "expect_positive_growth": false,
+      "request": {
+        "section_role": "results",
+        "object": "干预后的政策支持度",
+        "claim": {
+          "id": "CLM-102",
+          "canonical_proposition": "干预并未显著提高政策支持度。",
+          "strength": "null_result",
+          "realization_mode": "semantic",
+          "protected_atoms": {
+            "subject": "干预",
+            "relation": "政策支持度",
+            "direction": "null",
+            "polarity": "negative",
+            "inferential_strength": "null_result",
+            "scope": "本研究样本",
+            "protected_literals": ["干预", "政策支持度", "未显著提高"],
+            "protected_numbers": [],
+            "citation_anchors": []
+          }
+        },
+        "evidence_items": [
+          {
+            "id": "EVD-102",
+            "text": "干预组与对照组的政策支持度差异未达到预设显著性标准",
+            "evidence_function": "检验干预是否改变政策支持度"
+          }
+        ],
+        "warrant": "未达到预设显著性标准意味着样本没有支持预期改善",
+        "reader_question": "干预是否提高了样本中的政策支持度？",
+        "plain_core": "干预实施后，本研究样本中的政策支持度未显著提高。",
+        "explanation_path": [
+          {"order": 1, "function": "claim", "content": "干预未显著提高样本中的政策支持度", "anchor_id": "CLM-102"},
+          {"order": 2, "function": "evidence_role", "content": "组间差异用于检验预期改善", "anchor_id": "EVD-102"},
+          {"order": 3, "function": "warrant", "content": "未达到预设标准使改善预期未获样本支持"}
+        ],
+        "reader_update": "这一负结果要求重新检查干预影响政策态度的预期",
+        "boundaries": [],
+        "countervoices": []
+      }
+    },
+    {
+      "id": "association-strength-direction-scope-stable",
+      "behavior": "epistemic_calibration",
+      "expected": "pass",
+      "registered_ids": ["CLM-103", "EVD-103", "DESIGN-103"],
+      "baseline": "现有数据不能证明平台接入造成响应时间缩短，也不能据此主张这一结果适用于所有地区。",
+      "required_text": ["2019", "2023", "三个地级市", "平台接入", "响应时间缩短", "相关", "local-results-103"],
+      "forbidden_text": ["导致", "造成", "必然", "所有地区"],
+      "required_scope_text": "具有相同事项移交安排的地级市政策执行场景",
+      "expect_positive_growth": false,
+      "request": {
+        "section_role": "results",
+        "object": "平台接入与部门响应时间",
+        "claim": {
+          "id": "CLM-103",
+          "canonical_proposition": "2019至2023年三个地级市的工单显示，平台接入与响应时间缩短相关。",
+          "strength": "association",
+          "realization_mode": "semantic",
+          "protected_atoms": {
+            "subject": "平台接入",
+            "relation": "响应时间缩短",
+            "direction": "positive",
+            "polarity": "affirmative",
+            "inferential_strength": "association",
+            "scope": "2019至2023年三个地级市且具有相同事项移交安排",
+            "protected_literals": ["三个地级市", "平台接入", "响应时间缩短", "相关"],
+            "protected_numbers": ["2019", "2023"],
+            "citation_anchors": ["local-results-103"]
+          }
+        },
+        "evidence_items": [
+          {
+            "id": "EVD-103",
+            "text": "2019至2023年三个地级市中，平台接入部门的响应时间更短",
+            "locator": "结果表3",
+            "citation_key": "local-results-103",
+            "evidence_function": "支持平台接入与响应时间之间的相关方向"
+          }
+        ],
+        "warrant": "横截面工单比较识别共同变化但没有构造反事实",
+        "reader_question": "现有工单能够支持多强的平台效果判断？",
+        "plain_core": "2019至2023年三个地级市的工单显示，平台接入与响应时间缩短相关。",
+        "explanation_path": [
+          {"order": 1, "function": "claim", "content": "平台接入与响应时间缩短相关", "anchor_id": "CLM-103"},
+          {"order": 2, "function": "evidence_role", "content": "跨部门工单比较用于识别关系方向", "anchor_id": "EVD-103"},
+          {"order": 3, "function": "warrant", "content": "横截面共同变化只支持相关性判断", "anchor_id": "DESIGN-103"}
+        ],
+        "reader_update": "平台进入组织与响应变化相联系但不构成因果识别",
+        "boundaries": [
+          {
+            "boundary_id": "B-SCOPE-103",
+            "anchor_type": "design",
+            "anchor_id": "DESIGN-103",
+            "materiality": "load_bearing",
+            "claim_id": "CLM-103",
+            "claim_delta": "将范围限定为相同事项移交安排下的地级市政策执行场景",
+            "preferred_realization": "positive_scope",
+            "activation_reason": "授权结构决定当前比较可以转移到哪些组织",
+            "statement": "该判断适用于具有相同事项移交安排的地级市政策执行场景。"
+          }
+        ],
+        "countervoices": []
+      }
+    },
+    {
+      "id": "review-comment-translates-to-writer-safe-delta",
+      "behavior": "revision_cleanliness",
+      "expected": "pass",
+      "registered_ids": ["CLM-104", "EVD-104"],
+      "response_view": {
+        "comment_id": "R2.C3",
+        "reviewer_comment": "机制解释不足",
+        "author_decision": "accept",
+        "action_taken": "补充责任确认、直接调度和逐级请示三个环节"
+      },
+      "firewall_probe_key": "reviewer_comment",
+      "baseline": "为回应审稿人关于机制解释不足的意见，本文进一步补充：权力集中减少逐级请示。尽管这一回应仍可能不够充分，但本文已作出修改。",
+      "required_text": ["牵头部门", "责任确认", "直接调度", "逐级请示", "三个案例"],
+      "forbidden_text": ["审稿人", "回应", "意见", "修改稿", "质疑部分成立"],
+      "expect_positive_growth": false,
+      "request": {
+        "section_role": "discussion",
+        "object": "事项移交权集中后的协调过程",
+        "claim": {
+          "id": "CLM-104",
+          "canonical_proposition": "事项移交权集中通过改变责任确认和调度过程与更快响应相关。",
+          "strength": "association",
+          "realization_mode": "semantic",
+          "protected_atoms": {
+            "subject": "事项移交权",
+            "relation": "更快响应",
+            "direction": "positive",
+            "polarity": "affirmative",
+            "inferential_strength": "association",
+            "scope": "三个案例中的相同授权结构",
+            "protected_literals": ["事项移交权", "责任确认", "直接调度", "逐级请示", "三个案例"],
+            "protected_numbers": [],
+            "citation_anchors": []
+          }
+        },
+        "evidence_items": [
+          {
+            "id": "EVD-104",
+            "text": "三个案例都记录了责任确认转由牵头部门后逐级请示减少",
+            "evidence_function": "支持责任确认和直接调度构成中间过程"
+          }
+        ],
+        "warrant": "牵头部门能够直接确认责任并调度参与单位，减少工单等待",
+        "reader_question": "事项移交权集中为什么与更快响应相关？",
+        "plain_core": "事项移交权集中后，牵头部门能够直接确认责任并调度参与单位。",
+        "explanation_path": [
+          {"order": 1, "function": "claim", "content": "事项移交权集中与更快响应相关", "anchor_id": "CLM-104"},
+          {"order": 2, "function": "mechanism", "content": "责任确认由多部门协商转为牵头部门判定并直接调度"},
+          {"order": 3, "function": "evidence_role", "content": "三个案例的过程记录支持逐级请示减少", "anchor_id": "EVD-104"}
+        ],
+        "reader_update": "响应速度取决于责任与调度权是否一起转移",
+        "boundaries": [],
+        "countervoices": []
+      }
+    },
+    {
+      "id": "registered-warrant-bridge-allows-local-growth",
+      "behavior": "clarity_bridge",
+      "expected": "pass",
+      "registered_ids": ["CLM-105", "EVD-105", "EVD-106"],
+      "baseline": "共享权限组的中位响应时间为14小时，逐级审批组为31小时。因此，责任配置影响协调效率。",
+      "required_text": ["14", "31", "责任配置", "协调效率", "直接调度", "逐级请示", "local-results-105"],
+      "forbidden_text": ["导致协调效率提高", "证明了因果效应"],
+      "expect_positive_growth": true,
+      "expected_clarity_actions": ["BRIDGE"],
+      "clarity_scope": "paragraph",
+      "clarity_plan": [
+        {
+          "action": "BRIDGE",
+          "source_kind": "explanation_path",
+          "source_anchor": "explanation_path:3",
+          "content": "直接调度减少逐级请示等待。",
+          "reader_understanding": "读者能够从权限变化恢复响应时间差异的中间环节"
+        }
+      ],
+      "request": {
+        "section_role": "results",
+        "object": "责任配置与协调效率",
+        "claim": {
+          "id": "CLM-105",
+          "canonical_proposition": "责任配置与协调效率差异相关。",
+          "strength": "association",
+          "realization_mode": "semantic",
+          "protected_atoms": {
+            "subject": "责任配置",
+            "relation": "协调效率",
+            "direction": "positive",
+            "polarity": "affirmative",
+            "inferential_strength": "association",
+            "scope": "共享权限组与逐级审批组的当前比较",
+            "protected_literals": ["责任配置", "协调效率"],
+            "protected_numbers": ["14", "31"],
+            "citation_anchors": ["local-results-105"]
+          }
+        },
+        "evidence_items": [
+          {
+            "id": "EVD-105",
+            "text": "共享权限组的中位响应时间为14小时",
+            "locator": "结果表5第1行",
+            "citation_key": "local-results-105",
+            "evidence_function": "提供共享权限组的响应时间"
+          },
+          {
+            "id": "EVD-106",
+            "text": "逐级审批组的中位响应时间为31小时",
+            "locator": "结果表5第2行",
+            "evidence_function": "提供逐级审批组的响应时间"
+          }
+        ],
+        "warrant": "直接调度减少逐级请示等待",
+        "reader_question": "两组响应时间为什么不同？",
+        "plain_core": "责任配置与协调效率差异相关。",
+        "explanation_path": [
+          {"order": 1, "function": "claim", "content": "责任配置与协调效率差异相关", "anchor_id": "CLM-105"},
+          {"order": 2, "function": "compare", "content": "14小时与31小时的组间差异提供关系证据", "anchor_id": "EVD-105"},
+          {"order": 3, "function": "warrant", "content": "直接调度减少逐级请示等待"}
+        ],
+        "reader_update": "权限是否直接进入调度过程解释了两组差异",
+        "boundaries": [],
+        "countervoices": []
+      }
+    },
+    {
+      "id": "boundary-positive-scope-once-after-claim",
+      "behavior": "boundary_deduplication",
+      "expected": "pass",
+      "registered_ids": ["CLM-106", "EVD-107", "DESIGN-106"],
+      "baseline": "本研究不能外推到所有地区。事项移交权集中与更快响应相关。由于不能外推，本文不认为这一关系适用于全部政策场景。再次需要说明的是，样本范围有限。",
+      "required_text": ["事项移交权", "跨部门响应", "政策执行初期", "相同授权结构"],
+      "forbidden_text": ["不能外推", "所有地区", "再次需要说明"],
+      "expected_boundary_id": "B-SCOPE-106",
+      "expected_boundary_text": "该判断适用于政策执行初期具有相同授权结构的地级市场景。",
+      "expect_positive_growth": false,
+      "request": {
+        "section_role": "conclusion",
+        "object": "事项移交权与跨部门响应",
+        "claim": {
+          "id": "CLM-106",
+          "canonical_proposition": "事项移交权集中与更快的跨部门响应相关。",
+          "strength": "association",
+          "realization_mode": "semantic",
+          "protected_atoms": {
+            "subject": "事项移交权",
+            "relation": "跨部门响应",
+            "direction": "positive",
+            "polarity": "affirmative",
+            "inferential_strength": "association",
+            "scope": "政策执行初期具有相同授权结构的地级市场景",
+            "protected_literals": ["事项移交权", "跨部门响应", "政策执行初期", "相同授权结构"],
+            "protected_numbers": [],
+            "citation_anchors": []
+          }
+        },
+        "evidence_items": [
+          {
+            "id": "EVD-107",
+            "text": "政策执行初期的地级市案例呈现相同的权限与响应关系",
+            "evidence_function": "界定关系出现的场景"
+          }
+        ],
+        "warrant": "相同授权结构使案例之间的权限与响应关系具有可比性",
+        "reader_question": "这一关系适用于哪些政策执行场景？",
+        "plain_core": "事项移交权集中与更快的跨部门响应相关。",
+        "explanation_path": [
+          {"order": 1, "function": "claim", "content": "事项移交权集中与跨部门响应速度相关", "anchor_id": "CLM-106"},
+          {"order": 2, "function": "evidence_role", "content": "案例共同授权结构界定比较范围", "anchor_id": "EVD-107"},
+          {"order": 3, "function": "warrant", "content": "授权结构相同使关系可比较", "anchor_id": "DESIGN-106"}
+        ],
+        "reader_update": "范围由授权结构和政策执行阶段共同界定",
+        "boundaries": [
+          {
+            "boundary_id": "B-SCOPE-106",
+            "anchor_type": "design",
+            "anchor_id": "DESIGN-106",
+            "materiality": "load_bearing",
+            "claim_id": "CLM-106",
+            "claim_delta": "把结论限制到政策执行初期具有相同授权结构的场景",
+            "preferred_realization": "positive_scope",
+            "activation_reason": "案例可比性取决于执行阶段与授权结构",
+            "statement": "该判断适用于政策执行初期具有相同授权结构的地级市场景。"
+          }
+        ],
+        "countervoices": []
+      }
+    },
+    {
+      "id": "nominalization-restores-actors-and-terms",
+      "behavior": "actor_visibility",
+      "expected": "pass",
+      "registered_ids": ["CLM-107", "EVD-108"],
+      "baseline": "事项移交权配置的集中化通过跨部门协调机制的重构实现了响应效率的改善。",
+      "required_text": ["市级专班", "事项移交权", "牵头部门", "参与单位", "跨部门协调", "逐级请示"],
+      "forbidden_text": ["配置的集中化通过", "机制的重构实现"],
+      "expect_positive_growth": false,
+      "request": {
+        "section_role": "discussion",
+        "object": "市级专班调整事项移交权后的协调过程",
+        "claim": {
+          "id": "CLM-107",
+          "canonical_proposition": "事项移交权配置的集中化通过跨部门协调机制的重构实现了响应效率的改善。",
+          "strength": "mechanism_interpretation",
+          "realization_mode": "semantic",
+          "protected_atoms": {
+            "subject": "事项移交权",
+            "relation": "跨部门协调",
+            "direction": "positive",
+            "polarity": "affirmative",
+            "inferential_strength": "mechanism_interpretation",
+            "scope": "市级专班与牵头部门的案例过程",
+            "protected_literals": ["市级专班", "事项移交权", "牵头部门", "参与单位", "跨部门协调"],
+            "protected_numbers": [],
+            "citation_anchors": []
+          }
+        },
+        "evidence_items": [
+          {
+            "id": "EVD-108",
+            "text": "市级专班把事项移交权交给牵头部门后，牵头部门开始直接调度参与单位",
+            "evidence_function": "呈现权限转移后的行动主体与过程"
+          }
+        ],
+        "warrant": "直接调度使跨部门协调从逐级请示转为直接协作",
+        "reader_question": "事项移交权如何改变跨部门协调？",
+        "plain_core": "市级专班把事项移交权交给牵头部门后，后者可以直接调度参与单位。",
+        "explanation_path": [
+          {"order": 1, "function": "claim", "content": "事项移交权改变了跨部门协调过程", "anchor_id": "CLM-107"},
+          {"order": 2, "function": "evidence_role", "content": "过程记录让行动主体和权限转移可见", "anchor_id": "EVD-108"},
+          {"order": 3, "function": "process", "content": "跨部门协调由逐级请示转为直接协作"}
+        ],
+        "reader_update": "权限转移通过改变谁能直接调度参与单位而影响响应过程",
+        "boundaries": [],
+        "countervoices": []
+      }
+    },
+    {
+      "id": "verbatim-formal-hypothesis-remains-exact",
+      "behavior": "verbatim_compatibility",
+      "expected": "pass",
+      "registered_ids": ["CLM-108", "EVD-109"],
+      "baseline": "H1：事项移交权集中与跨部门响应速度正相关。",
+      "required_text": ["H1：事项移交权集中与跨部门响应速度正相关。"],
+      "forbidden_text": [],
+      "expect_exact_claim_present": true,
+      "expect_positive_growth": false,
+      "request": {
+        "section_role": "introduction",
+        "object": "事项移交权与跨部门响应速度",
+        "claim": {
+          "id": "CLM-108",
+          "canonical_proposition": "H1：事项移交权集中与跨部门响应速度正相关。",
+          "strength": "formal_hypothesis",
+          "realization_mode": "verbatim",
+          "verbatim_reason": "formal_hypothesis"
+        },
+        "evidence_items": [
+          {
+            "id": "EVD-109",
+            "text": "既有案例为事项移交权与响应速度的关系提供理论预期"
+          }
+        ],
+        "warrant": "权限集中使牵头部门能够减少跨部门等待",
+        "reader_update": "该假设把权限配置与响应速度连接为待检验关系",
+        "boundaries": [],
+        "countervoices": []
+      }
+    }
+  ]
+}

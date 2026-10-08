@@ -1,0 +1,878 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cnki-paper.local/schemas/cnki-research-design-v2.schema.json",
+  "title": "CNKI-Paper Research Design Contract v2",
+  "description": "Portable multi-route design contract. research_design.py remains authoritative for registry, stage, adapter, migration, and cross-artifact semantics.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "research_questions",
+    "knowledge_state",
+    "epistemic_position",
+    "concepts",
+    "claims",
+    "evidence",
+    "method_routes",
+    "integration",
+    "governance",
+    "alternatives",
+    "falsification_conditions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cnki-research-design/v2"
+    },
+    "status": {
+      "enum": [
+        "confirmed",
+        "draft",
+        "needs-review"
+      ]
+    },
+    "research_questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/research_question"
+      }
+    },
+    "knowledge_state": {
+      "type": "object",
+      "required": [
+        "known",
+        "unknown",
+        "gap_authenticity",
+        "maturity",
+        "expected_contribution",
+        "review_type",
+        "search_scope",
+        "screening_rules",
+        "reading_records",
+        "quality_appraisal",
+        "synthesis_logic",
+        "contradictory_evidence"
+      ],
+      "properties": {
+        "known": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "unknown": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "gap_authenticity": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "maturity": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "expected_contribution": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "review_type": {
+          "enum": [
+            "embedded",
+            "narrative",
+            "scoping",
+            "systematic"
+          ]
+        },
+        "search_scope": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "screening_rules": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "reading_records": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "quality_appraisal": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "synthesis_logic": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "contradictory_evidence": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "epistemic_position": {
+      "type": "object",
+      "required": [
+        "ontology",
+        "epistemology",
+        "paradigm",
+        "research_logic",
+        "researcher_position",
+        "compatibility_rationale"
+      ],
+      "properties": {
+        "ontology": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "epistemology": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "paradigm": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "research_logic": {
+          "enum": [
+            "inductive",
+            "deductive",
+            "abductive",
+            "mixed"
+          ]
+        },
+        "researcher_position": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "compatibility_rationale": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "concepts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/concept"
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/theory_object"
+      },
+      "default": []
+    },
+    "propositions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/theory_object"
+      },
+      "default": []
+    },
+    "frameworks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/theory_object"
+      },
+      "default": []
+    },
+    "method_routes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/method_route"
+      }
+    },
+    "integration": {
+      "$ref": "#/$defs/integration"
+    },
+    "governance": {
+      "$ref": "#/$defs/governance"
+    },
+    "alternatives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "question_ids",
+          "claim_ids",
+          "discriminating_evidence"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "text": {
+            "$ref": "#/$defs/nonempty"
+          },
+          "question_ids": {
+            "$ref": "#/$defs/id_refs"
+          },
+          "claim_ids": {
+            "$ref": "#/$defs/id_refs"
+          },
+          "discriminating_evidence": {
+            "$ref": "#/$defs/nonempty"
+          }
+        }
+      }
+    },
+    "falsification_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "condition",
+          "claim_ids",
+          "response"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "condition": {
+            "$ref": "#/$defs/nonempty"
+          },
+          "claim_ids": {
+            "$ref": "#/$defs/id_refs"
+          },
+          "response": {
+            "$ref": "#/$defs/nonempty"
+          }
+        }
+      }
+    },
+    "artifact_fingerprints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/fingerprint"
+      },
+      "default": []
+    },
+    "change_log": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": []
+    },
+    "migration": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "nonempty": {
+      "type": "string",
+      "minLength": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]{1,31}$"
+    },
+    "id_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/id"
+      },
+      "uniqueItems": true
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "research_question": {
+      "type": "object",
+      "required": [
+        "id",
+        "role",
+        "text",
+        "primary_type",
+        "answer_task",
+        "otipr",
+        "task_fields",
+        "confirmation"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "role": {
+          "enum": [
+            "primary",
+            "subquestion"
+          ]
+        },
+        "parent_question_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "text": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "primary_type": {
+          "enum": [
+            "descriptive",
+            "explanatory",
+            "predictive",
+            "operational",
+            "normative"
+          ]
+        },
+        "answer_task": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "otipr": {
+          "type": "object",
+          "required": [
+            "object",
+            "time",
+            "issue",
+            "perspective",
+            "relation"
+          ],
+          "properties": {
+            "object": {
+              "$ref": "#/$defs/nonempty"
+            },
+            "time": {
+              "$ref": "#/$defs/nonempty"
+            },
+            "issue": {
+              "$ref": "#/$defs/nonempty"
+            },
+            "perspective": {
+              "$ref": "#/$defs/nonempty"
+            },
+            "relation": {
+              "type": "object",
+              "required": [
+                "strength",
+                "statement"
+              ],
+              "properties": {
+                "strength": {
+                  "enum": [
+                    "strong",
+                    "weak"
+                  ]
+                },
+                "statement": {
+                  "$ref": "#/$defs/nonempty"
+                }
+              }
+            }
+          }
+        },
+        "task_fields": {
+          "type": "object"
+        },
+        "confirmation": {
+          "type": "object",
+          "required": [
+            "status",
+            "source",
+            "confirmed_at"
+          ]
+        }
+      }
+    },
+    "concept": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "definition",
+        "boundary",
+        "source_ids",
+        "question_ids",
+        "operationalization_or_recognition",
+        "measurement"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "definition": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "boundary": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "source_ids": {
+          "$ref": "#/$defs/source_ids"
+        },
+        "question_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "operationalization_or_recognition": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/nonempty"
+              },
+              {
+                "type": "object",
+                "minProperties": 1
+              }
+            ]
+          }
+        },
+        "measurement": {
+          "$ref": "#/$defs/status_declaration"
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "required": [
+        "id",
+        "text",
+        "type",
+        "question_ids",
+        "design_ids",
+        "concept_ids",
+        "evidence_ids",
+        "source_ids",
+        "allowed_scope",
+        "prohibited_scope",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "text": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "type": {
+          "enum": [
+            "descriptive",
+            "association",
+            "causal_effect",
+            "causal_mechanism",
+            "prediction",
+            "operational",
+            "interpretive",
+            "theory_generation",
+            "normative",
+            "review_synthesis"
+          ]
+        },
+        "question_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "design_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "concept_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "source_ids": {
+          "$ref": "#/$defs/source_ids"
+        },
+        "allowed_scope": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "prohibited_scope": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "inactive",
+            "superseded",
+            "withdrawn"
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "description",
+        "source_ids",
+        "location",
+        "time_scope",
+        "question_ids",
+        "design_ids",
+        "supports_claim_ids",
+        "role",
+        "independence"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "kind": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "description": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "source_ids": {
+          "$ref": "#/$defs/source_ids"
+        },
+        "location": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "time_scope": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "question_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "design_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "supports_claim_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "role": {
+          "enum": [
+            "construction",
+            "exploration",
+            "training",
+            "validation",
+            "illustration",
+            "adjudication"
+          ]
+        },
+        "independence": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "theory_object": {
+      "type": "object",
+      "required": [
+        "id",
+        "text",
+        "question_ids",
+        "claim_ids"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "text": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "question_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "claim_ids": {
+          "$ref": "#/$defs/id_refs"
+        }
+      }
+    },
+    "status_declaration": {
+      "type": "object",
+      "required": [
+        "status",
+        "note"
+      ],
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "note": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "evidence": {
+          "type": "string"
+        }
+      }
+    },
+    "material_boundary": {
+      "type": "object",
+      "required": [
+        "universe",
+        "inclusion",
+        "exclusion",
+        "actual_scope",
+        "time_scope",
+        "version"
+      ],
+      "properties": {
+        "universe": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "inclusion": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "exclusion": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "actual_scope": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "time_scope": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "version": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "method_route": {
+      "type": "object",
+      "required": [
+        "id",
+        "family",
+        "function",
+        "role",
+        "depends_on_design_ids",
+        "question_ids",
+        "claim_ids",
+        "evidence_ids",
+        "empirical",
+        "method",
+        "method_rationale",
+        "units",
+        "material_boundary",
+        "sampling_or_selection",
+        "inference_ceiling",
+        "prohibited_inferences",
+        "limitations",
+        "permissions",
+        "ethics",
+        "reproducibility",
+        "evidence_separation",
+        "reporting_plan",
+        "method_fields",
+        "artifact_paths"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "family": {
+          "enum": [
+            "quantitative",
+            "experiment",
+            "survey",
+            "case_study",
+            "process_tracing",
+            "qca",
+            "content_analysis",
+            "discourse_analysis",
+            "text_as_data",
+            "social_network",
+            "comparative",
+            "historical",
+            "grounded_theory",
+            "computational",
+            "review",
+            "conceptual",
+            "interpretive",
+            "normative",
+            "unresolved"
+          ]
+        },
+        "function": {
+          "enum": [
+            "collection",
+            "analysis",
+            "identification",
+            "synthesis",
+            "argument"
+          ]
+        },
+        "role": {
+          "enum": [
+            "primary",
+            "supporting",
+            "validation"
+          ]
+        },
+        "depends_on_design_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "question_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "claim_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "empirical": {
+          "type": "boolean"
+        },
+        "method": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "method_rationale": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "units": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "material_boundary": {
+          "$ref": "#/$defs/material_boundary"
+        },
+        "sampling_or_selection": {
+          "type": "object"
+        },
+        "inference_ceiling": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "prohibited_inferences": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "limitations": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "permissions": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "ethics": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "reproducibility": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "evidence_separation": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "reporting_plan": {
+          "type": "object",
+          "required": [
+            "confirmatory_exploratory",
+            "negative_findings",
+            "deviations",
+            "outcome_inventory"
+          ]
+        },
+        "method_fields": {
+          "type": "object"
+        },
+        "artifact_paths": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "integration": {
+      "type": "object",
+      "required": [
+        "strategy",
+        "route_order",
+        "handoffs",
+        "material_independence",
+        "conflict_policy",
+        "inference_ceiling"
+      ],
+      "properties": {
+        "strategy": {
+          "enum": [
+            "single",
+            "sequential",
+            "convergent",
+            "nested",
+            "complementary",
+            "adjudicative"
+          ]
+        },
+        "route_order": {
+          "$ref": "#/$defs/id_refs"
+        },
+        "handoffs": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "material_independence": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "conflict_policy": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "inference_ceiling": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "required": [
+        "selective_reporting",
+        "data_authenticity",
+        "citation_integrity",
+        "authorship",
+        "prior_publication",
+        "simultaneous_submission",
+        "conflicts_of_interest",
+        "ai_assistance",
+        "privacy_confidentiality"
+      ],
+      "properties": {
+        "selective_reporting": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "data_authenticity": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "citation_integrity": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "authorship": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "prior_publication": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "simultaneous_submission": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "conflicts_of_interest": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "ai_assistance": {
+          "$ref": "#/$defs/status_declaration"
+        },
+        "privacy_confidentiality": {
+          "$ref": "#/$defs/status_declaration"
+        }
+      }
+    },
+    "fingerprint": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{64}$"
+        }
+      }
+    }
+  }
+}

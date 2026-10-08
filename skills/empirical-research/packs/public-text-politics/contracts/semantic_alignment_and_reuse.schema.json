@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/public-text-politics/semantic-alignment-and-reuse-v1.schema.json",
+  "title": "Semantic alignment and reuse supplemental profile contract",
+  "x-profile-contract-role": "supplement-over-core-method-contract",
+  "x-core-method-contract-id": "text-alignment/v2",
+  "type": "object",
+  "required": ["schema_version", "profile_id", "corpora", "direction", "normalization", "matching", "validation", "confounds", "interpretation"],
+  "properties": {
+    "schema_version": {"const": "avereth-public-text-politics/semantic-alignment-and-reuse/v1"},
+    "profile_id": {"const": "semantic_alignment_and_reuse"},
+    "corpora": {
+      "type": "object",
+      "required": ["source", "target", "alignment_unit"],
+      "properties": {
+        "source": {"$ref": "#/$defs/artifact"},
+        "target": {"$ref": "#/$defs/artifact"},
+        "alignment_unit": {"enum": ["claim", "clause", "paragraph", "document"]}
+      },
+      "additionalProperties": false
+    },
+    "direction": {
+      "type": "object",
+      "required": ["source_precedes_target", "source_time_field", "target_time_field"],
+      "properties": {
+        "source_precedes_target": {"const": true, "x-error-code": "PTP.ALIGNMENT.TIME_DIRECTION"},
+        "source_time_field": {"type": "string", "minLength": 2},
+        "target_time_field": {"type": "string", "minLength": 2}
+      },
+      "additionalProperties": false
+    },
+    "normalization": {
+      "type": "object",
+      "required": ["template_phrases", "legal_boilerplate", "translation_strategy"],
+      "properties": {
+        "template_phrases": {"$ref": "#/$defs/artifact"},
+        "legal_boilerplate": {"$ref": "#/$defs/artifact"},
+        "translation_strategy": {"enum": ["same_language", "parallel_official", "double_translation", "multilingual_model_with_audit"]}
+      },
+      "additionalProperties": false
+    },
+    "matching": {
+      "type": "object",
+      "required": ["representation", "similarity_measure", "threshold_grid", "candidate_pairs", "adjudicated_pairs"],
+      "properties": {
+        "representation": {"type": "string", "minLength": 2},
+        "similarity_measure": {"type": "string", "minLength": 2},
+        "threshold_grid": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "number"}, "x-error-code": "PTP.ALIGNMENT.THRESHOLD_GRID"},
+        "candidate_pairs": {"$ref": "#/$defs/artifact"},
+        "adjudicated_pairs": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "validation": {
+      "type": "object",
+      "required": ["reference_pairs", "metrics", "threshold_sensitivity", "false_match_analysis"],
+      "properties": {
+        "reference_pairs": {"$ref": "#/$defs/artifact"},
+        "metrics": {"$ref": "#/$defs/artifact"},
+        "threshold_sensitivity": {"$ref": "#/$defs/artifact"},
+        "false_match_analysis": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "confounds": {
+      "type": "object",
+      "required": ["common_third_party_sources", "template_language_audited", "translation_chain_audited"],
+      "properties": {
+        "common_third_party_sources": {"$ref": "#/$defs/artifact"},
+        "template_language_audited": {"const": true, "x-error-code": "PTP.ALIGNMENT.TEMPLATE_CONFOUND"},
+        "translation_chain_audited": {"const": true, "x-error-code": "PTP.ALIGNMENT.TRANSLATION_CHAIN"}
+      },
+      "additionalProperties": false
+    },
+    "interpretation": {"$ref": "#/$defs/interpretation"}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "string",
+      "pattern": "^ART-[A-Z0-9][A-Z0-9_-]*$",
+      "x-error-code": "PTP.ARTIFACT.ID"
+    },
+    "interpretation": {
+      "type": "object",
+      "required": ["allowed", "prohibited"],
+      "properties": {
+        "allowed": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}},
+        "prohibited": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

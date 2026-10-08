@@ -1,0 +1,62 @@
+{
+  "schema": "cnki-research-design-executable-fixtures/v1",
+  "fixture_kind": "positive",
+  "materializer": "skills/cnki-paper/scripts/test_research_design.py::base_contract",
+  "registry_source_ids": [
+    "S01",
+    "S02"
+  ],
+  "cases": [
+    {
+      "id": "POS-QUANTITATIVE-CAUSAL-001",
+      "family": "quantitative-causal",
+      "base_contract": {
+        "family": "quantitative_causal",
+        "claim_type": "causal_effect",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [],
+      "expected_status": "PASS"
+    },
+    {
+      "id": "POS-CASE-PROCESS-001",
+      "family": "case-process",
+      "base_contract": {
+        "family": "case_process",
+        "claim_type": "causal_mechanism",
+        "question_type": "explanatory"
+      },
+      "stage": "design",
+      "operations": [],
+      "expected_status": "PASS",
+      "guardrail": "Hypotheses remain optional; process evidence and the mechanism route carry the design."
+    },
+    {
+      "id": "POS-TEXT-CONTENT-001",
+      "family": "text-content",
+      "base_contract": {
+        "family": "text_content",
+        "claim_type": "descriptive",
+        "question_type": "descriptive"
+      },
+      "stage": "design",
+      "operations": [],
+      "expected_status": "PASS",
+      "guardrail": "A descriptive text design is not required to invent a causal counterfactual."
+    },
+    {
+      "id": "POS-NORMATIVE-001",
+      "family": "valid-noncausal-and-normative",
+      "base_contract": {
+        "family": "normative",
+        "claim_type": "normative",
+        "question_type": "normative"
+      },
+      "stage": "design",
+      "operations": [],
+      "expected_status": "PASS",
+      "guardrail": "A normative argument is valid without empirical artifacts, hypotheses, or causal identification."
+    }
+  ]
+}

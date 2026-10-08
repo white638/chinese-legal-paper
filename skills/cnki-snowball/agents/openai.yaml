@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNKI Citation Snowball"
+  short_description: "Trace CNKI references and citing papers in six directions"
+  default_prompt: "Use $cnki-snowball to trace backward and forward citations from this CNKI paper."

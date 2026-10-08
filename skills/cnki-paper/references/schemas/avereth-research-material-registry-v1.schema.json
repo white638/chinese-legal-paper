@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/avereth-research-material-registry-v1.schema.json",
+  "title": "Avereth Research Material Registry v1",
+  "description": "Acquisition-owned facts about material identity, access, permission, probes, and cached failures. Secrets and credential values are forbidden.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry_id",
+    "probe_implementation_version",
+    "applicability",
+    "materials",
+    "failures"
+  ],
+  "properties": {
+    "schema_version": {"const": "avereth-research-material-registry/v1"},
+    "registry_id": {"type": "string", "pattern": "^MATREG-[0-9]{3,}$"},
+    "probe_implementation_version": {"type": "string", "minLength": 1},
+    "applicability": {
+      "type": "object",
+      "required": ["status", "rationale"],
+      "properties": {
+        "status": {"enum": ["APPLICABLE", "NOT_APPLICABLE", "NEEDS_REVIEW"]},
+        "rationale": {"type": "string", "minLength": 8}
+      },
+      "additionalProperties": true
+    },
+    "materials": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/material"}
+    },
+    "failures": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/failure"}
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "evidence_file": {
+      "type": "object",
+      "required": ["path", "sha256", "role"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "role": {"type": "string", "minLength": 2}
+      },
+      "additionalProperties": false
+    },
+    "probe_error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "properties": {
+        "code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"},
+        "message": {"type": "string", "minLength": 4}
+      },
+      "additionalProperties": false
+    },
+    "probe": {
+      "type": "object",
+      "required": [
+        "probe_id",
+        "performed_at",
+        "adapter",
+        "status",
+        "format",
+        "parse_status",
+        "evidence_files",
+        "observed_fields",
+        "time_coverage",
+        "spatial_coverage",
+        "unit_coverage",
+        "errors"
+      ],
+      "properties": {
+        "probe_id": {"type": "string", "pattern": "^PROBE-[0-9]{3,}$"},
+        "performed_at": {"type": "string", "format": "date-time"},
+        "adapter": {"enum": ["local-file", "tabular", "api", "public-text", "archive", "human-subject", "restricted-data", "manual-evidence"]},
+        "status": {"enum": ["PASS", "BLOCKED", "FAIL", "NOT_APPLICABLE"]},
+        "format": {"type": "string", "minLength": 1},
+        "parse_status": {"enum": ["PASS", "BLOCKED", "FAIL", "NOT_APPLICABLE"]},
+        "observed_rows": {"type": "integer", "minimum": 0},
+        "observed_documents": {"type": "integer", "minimum": 0},
+        "observed_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "key_assessment": {"type": "string"},
+        "query_summary": {"type": "string"},
+        "pagination_status": {"type": "string"},
+        "rate_limit_status": {"type": "string"},
+        "deduplication_status": {"type": "string"},
+        "time_coverage": {"type": "object"},
+        "spatial_coverage": {"type": "object"},
+        "unit_coverage": {"type": "object"},
+        "evidence_files": {"type": "array", "items": {"$ref": "#/$defs/evidence_file"}},
+        "errors": {"type": "array", "items": {"$ref": "#/$defs/probe_error"}}
+      },
+      "additionalProperties": true
+    },
+    "material": {
+      "type": "object",
+      "required": ["material_id", "material_type", "source_ids", "material_locator", "access", "probes"],
+      "properties": {
+        "material_id": {"type": "string", "pattern": "^MAT-[0-9]{3,}$"},
+        "material_type": {
+          "enum": [
+            "structured_dataset",
+            "api",
+            "public_text",
+            "policy_legal_text",
+            "archive_case",
+            "interview",
+            "survey",
+            "restricted_data",
+            "systematic_review_corpus",
+            "manual_evidence"
+          ]
+        },
+        "source_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "material_locator": {
+          "type": "object",
+          "description": "Technical dataset/catalog/version locator only. Bibliographic/provider/URL identity stays in literature_registry.json.",
+          "minProperties": 1
+        },
+        "access": {
+          "type": "object",
+          "required": ["status", "credential_required", "permission_status"],
+          "properties": {
+            "status": {"enum": ["VERIFIED", "BLOCKED", "FAILED", "UNKNOWN", "NOT_APPLICABLE"]},
+            "credential_required": {"type": "boolean"},
+            "credential_ref": {"type": ["string", "null"]},
+            "permission_status": {"enum": ["PERMITTED", "PENDING", "DENIED", "NOT_REQUIRED", "UNKNOWN"]},
+            "legal_basis": {"type": "string"},
+            "ethics_status": {"enum": ["CLEARED", "PENDING", "NOT_REQUIRED", "UNKNOWN"]}
+          },
+          "additionalProperties": true
+        },
+        "probes": {"type": "array", "items": {"$ref": "#/$defs/probe"}}
+      },
+      "additionalProperties": true
+    },
+    "failure": {
+      "type": "object",
+      "required": [
+        "failure_code",
+        "cache_key",
+        "candidate_semantic_digest",
+        "question_version_digest",
+        "material_identity_digest",
+        "probe_implementation_version",
+        "observed_at",
+        "status",
+        "details"
+      ],
+      "properties": {
+        "failure_code": {
+          "enum": [
+            "NO_ACTUAL_ACCESS",
+            "AUTHORIZATION_PENDING",
+            "REQUIRED_PERIOD_ABSENT",
+            "REQUIRED_UNIT_ABSENT",
+            "REQUIRED_FIELD_ABSENT",
+            "PARSER_FAILED",
+            "NO_LINKAGE_KEY",
+            "NO_REQUIRED_VARIATION",
+            "LEGAL_RESTRICTION",
+            "ETHICS_NOT_CLEARED",
+            "COST_EXCEEDS_POLICY",
+            "SOURCE_UNSTABLE"
+          ]
+        },
+        "cache_key": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "candidate_semantic_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "question_version_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "material_identity_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "probe_implementation_version": {"type": "string", "minLength": 1},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "status": {"enum": ["ACTIVE", "RESOLVED"]},
+        "details": {"type": "string", "minLength": 4}
+      },
+      "additionalProperties": false
+    }
+  }
+}

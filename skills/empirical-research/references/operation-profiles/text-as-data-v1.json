@@ -1,0 +1,69 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "text_as_data",
+  "required_operation_kinds": [
+    "corpus_freeze",
+    "preprocessing_specification_freeze",
+    "train_validation_test_split",
+    "representation_fit_assessment",
+    "model_run",
+    "reference_validation",
+    "error_analysis",
+    "sensitivity_analysis",
+    "interpretation_boundary_disposition"
+  ],
+  "optional_operation_kinds": ["domain_shift_test", "model_run_replication"],
+  "required_artifact_roles": [
+    "corpus_manifest",
+    "preprocessing_log",
+    "split_manifest",
+    "model_run_manifest",
+    "predictions",
+    "validation_metrics",
+    "error_analysis",
+    "sensitivity_results",
+    "interpretation_boundary_report"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "text-as-data-pilot/v1",
+    "required_operation_kinds": [
+      "corpus_freeze",
+      "preprocessing_specification_freeze",
+      "train_validation_test_split",
+      "model_run",
+      "reference_validation",
+      "error_analysis"
+    ],
+    "acceptance_dimensions": [
+      "corpus and preprocessing versions are frozen",
+      "split grouping prevents material leakage",
+      "reference labels have a stated evidentiary basis",
+      "error analysis distinguishes measurement error from substantive variation"
+    ]
+  },
+  "completion_predicates": [
+    "every prediction artifact resolves to corpus, preprocessing, split, and model versions",
+    "validation metrics state whether they measure accuracy, reference agreement, or stability",
+    "sensitivity results bound the interpretation of the measured construct"
+  ],
+  "failure_routes": [
+    {"code": "COVERAGE.CORPUS_SHIFT", "route": "reopen:research"},
+    {"code": "MEASUREMENT.REFERENCE_STANDARD_INVALID", "route": "reopen:design"},
+    {"code": "MODEL.SPLIT_LEAKAGE", "route": "replace-implementation"},
+    {"code": "CLAIM.PREDICTION_AS_CONSTRUCT", "route": "narrow:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "construct-to-representation fit",
+    "split independence",
+    "reference-standard adequacy",
+    "meaning of performance metrics",
+    "domain and interpretation boundary"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

@@ -1,0 +1,15 @@
+Reputation Effects in Social Networks Do Not Promote Cooperation: An Experimental Test of the Raub & Weesie Model
+
+Authors: Rense Corten; Stephanie Rosenkranz; Vincent Buskens; Karen S. Cook
+DOI: 10.1371/journal.pone.0155703
+Publisher: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155703
+License: Creative Commons Attribution 4.0 International
+License URL: https://creativecommons.org/licenses/by/4.0/
+Attribution: Corten R, Rosenkranz S, Buskens V, Cook KS (2016) Reputation Effects in Social Networks Do Not Promote Cooperation: An Experimental Test of the Raub & Weesie Model. PLoS ONE 11(7): e0155703. https://doi.org/10.1371/journal.pone.0155703
+
+Locator: Abstract, paragraph 1; normalized characters 1059:1160
+Excerpt (verbatim; one inspected span):
+we do not find that cooperation is higher in the embedded condition than in the atomized interaction.
+
+Editorial scope note (paraphrase): 对Raub与Weesie模型的两项激励实验；不能将未发现差异写成精确零效应。
+This excerpt records the authors' report. It does not establish a universal effect, replication outcome, or absolute novelty judgment.

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper1.local/schemas/avereth-zotero-snapshot-v1.schema.json",
+  "title": "Avereth Zotero identity snapshot v1",
+  "type": "object",
+  "required": ["schema_version", "server_id", "library_id", "library_version", "captured_at", "items"],
+  "properties": {
+    "schema_version": {"const": "avereth-zotero-snapshot/v1"},
+    "server_id": {"type": "string", "minLength": 1},
+    "library_id": {"type": "integer", "minimum": 0},
+    "library_version": {"type": "integer", "minimum": 0},
+    "captured_at": {"type": "string", "format": "date-time"},
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "item_key", "item_version", "citation_key", "identity_digest", "attachment_keys"],
+        "properties": {
+          "source_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"},
+          "item_key": {"type": "string", "pattern": "^[A-Z0-9]{8}$"},
+          "item_version": {"type": "integer", "minimum": 0},
+          "citation_key": {"type": "string", "minLength": 1},
+          "doi": {"type": "string"},
+          "identity_digest": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$",
+            "description": "SHA-256 of canonical JSON over server/library/source/item/version/citation-key/DOI/attachment identity fields."
+          },
+          "attachment_keys": {"type": "array", "items": {"type": "string", "pattern": "^[A-Z0-9]{8}$"}, "uniqueItems": true}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

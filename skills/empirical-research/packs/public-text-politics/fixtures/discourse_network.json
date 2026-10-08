@@ -1,0 +1,35 @@
+{
+  "schema_version": "avereth-public-text-politics-executable-fixtures/v1",
+  "profile_id": "discourse_network",
+  "artifact_token_prefix": "artifact:",
+  "base_contract": {
+    "schema_version": "avereth-public-text-politics/discourse-network/v1",
+    "profile_id": "discourse_network",
+    "corpus": "artifact:artifacts/discourse_corpus.jsonl",
+    "measurement": {
+      "actor_resolution": "artifact:artifacts/actor_resolution.csv",
+      "claim_labels": "artifact:artifacts/claim_labels.csv",
+      "position_labels": "artifact:artifacts/position_labels.csv",
+      "validation": "artifact:artifacts/discourse_measurement_metrics.json"
+    },
+    "network": {
+      "tuple_fields": ["actor", "claim", "position", "time", "source"],
+      "tuples": "artifact:artifacts/discourse_tuples.csv",
+      "edge_list": "artifact:artifacts/actor_claim_edges.csv",
+      "time_windows": "artifact:artifacts/time_windows.json",
+      "network_kind": "actor_claim_position",
+      "dependence_diagnostics": "artifact:artifacts/network_diagnostics.json"
+    },
+    "interpretation": {
+      "allowed": ["Interpret validated actor-claim-position relations."],
+      "prohibited": ["Rename a co-word network as a political coalition."]
+    }
+  },
+  "cases": [
+    {"id": "network-positive", "kind": "positive", "operations": [], "expected_status": "PASS", "expected_codes": []},
+    {"id": "network-missing-source", "kind": "typical-error", "operations": [{"op": "replace", "path": "/network/tuple_fields", "from": ["actor", "claim", "position", "time", "source"], "value": ["actor", "claim", "position", "time"]}], "expected_status": "FAIL", "expected_codes": ["PTP.NETWORK.TUPLE_SHAPE"]},
+    {"id": "network-invalid-actor-artifact", "kind": "typical-error", "operations": [{"op": "replace", "path": "/measurement/actor_resolution", "from": "ART-ARTIFACTS-ACTOR-RESOLUTION-CSV", "value": "unknown"}], "expected_status": "FAIL", "expected_codes": ["PTP.ARTIFACT.ID"]},
+    {"id": "network-alternative-time-window", "kind": "boundary", "operations": [{"op": "replace", "path": "/network/time_windows", "from": "ART-ARTIFACTS-TIME-WINDOWS-JSON", "value": "ART-ALTERNATIVE-TIME-WINDOWS"}], "expected_status": "PASS", "expected_codes": []},
+    {"id": "network-coword-as-alliance", "kind": "inference-overreach", "operations": [{"op": "replace", "path": "/network/network_kind", "from": "actor_claim_position", "value": "co_word"}], "expected_status": "FAIL", "expected_codes": ["PTP.NETWORK.COWORD_CONFUSION"]}
+  ]
+}

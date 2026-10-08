@@ -1,0 +1,55 @@
+{
+  "schema_version": "avereth-exhibit-style/v1",
+  "id": "cn-social-science",
+  "width_inches": 6.5,
+  "height_inches": 4.2,
+  "min_font_pt": 9,
+  "dpi": 320,
+  "max_series": 4,
+  "palette": [
+    "#1F1F1F",
+    "#666666",
+    "#8B1A1A",
+    "#A6A6A6"
+  ],
+  "line_types": [
+    "solid",
+    "dashed",
+    "dotted",
+    "dotdash"
+  ],
+  "markers": [
+    16,
+    17,
+    15,
+    18
+  ],
+  "fonts": {
+    "base": "Noto Serif CJK SC"
+  },
+  "font_fallbacks": {
+    "base": [
+      "Source Han Serif SC",
+      "SimSun",
+      "STSong"
+    ]
+  },
+  "labels": {
+    "relative_period": "相对期",
+    "term": "变量",
+    "observations": "样本量",
+    "note": "注",
+    "series_separator": "／",
+    "estimand": "估计量",
+    "unit_label": "单位",
+    "vcov": "标准误类型",
+    "cluster": "聚类层级",
+    "ci": "置信水平",
+    "se_in_parentheses": "括号内为标准误",
+    "ci_in_brackets": "方括号内为置信区间"
+  },
+  "grayscale_required": true,
+  "vector_required": true,
+  "caption_location": "manuscript",
+  "plot_title": false
+}

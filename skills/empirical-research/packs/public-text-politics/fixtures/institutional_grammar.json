@@ -1,0 +1,43 @@
+{
+  "schema_version": "avereth-public-text-politics-executable-fixtures/v1",
+  "profile_id": "institutional_grammar",
+  "artifact_token_prefix": "artifact:",
+  "base_contract": {
+    "schema_version": "avereth-public-text-politics/institutional-grammar/v1",
+    "profile_id": "institutional_grammar",
+    "corpus": {"manifest": "artifact:artifacts/clause_corpus.jsonl", "unit": "clause"},
+    "grammar": {
+      "components": ["actor", "deontic", "action", "object", "condition", "exception", "enforcement_body", "consequence"],
+      "codebook": "artifact:artifacts/institutional_grammar_codebook.yaml"
+    },
+    "coding": {
+      "annotations": "artifact:artifacts/component_annotations.csv",
+      "disagreement_log": "artifact:artifacts/coding_disagreements.csv"
+    },
+    "matching": {
+      "categories": ["full_alignment", "partial_alignment", "functional_equivalence", "parallel_compatible", "procedural_gap", "substantive_conflict", "indeterminate"],
+      "results": "artifact:artifacts/compatibility_matches.csv"
+    },
+    "validation": {
+      "reference_labels": "artifact:artifacts/reference_labels.csv",
+      "metrics": "artifact:artifacts/grammar_metrics.json",
+      "disagreements": "artifact:artifacts/validation_disagreements.md",
+      "weight_sensitivity": "artifact:artifacts/weight_sensitivity.json"
+    },
+    "reporting": {
+      "dimensions": ["textual", "legal", "implementation_mechanism", "governance_capacity"],
+      "primary_composite_score": false
+    },
+    "interpretation": {
+      "allowed": ["Report compatibility dimensions separately."],
+      "prohibited": ["Hide substantive conflict in a weighted composite."]
+    }
+  },
+  "cases": [
+    {"id": "grammar-positive", "kind": "positive", "operations": [], "expected_status": "PASS", "expected_codes": []},
+    {"id": "grammar-drops-exception", "kind": "typical-error", "operations": [{"op": "replace", "path": "/grammar/components", "from": ["actor", "deontic", "action", "object", "condition", "exception", "enforcement_body", "consequence"], "value": ["actor", "deontic", "action", "object", "condition", "enforcement_body", "consequence"]}], "expected_status": "FAIL", "expected_codes": ["PTP.GRAMMAR.COMPONENTS"]},
+    {"id": "grammar-drops-indeterminate", "kind": "typical-error", "operations": [{"op": "replace", "path": "/matching/categories", "from": ["full_alignment", "partial_alignment", "functional_equivalence", "parallel_compatible", "procedural_gap", "substantive_conflict", "indeterminate"], "value": ["full_alignment", "partial_alignment", "functional_equivalence", "parallel_compatible", "procedural_gap", "substantive_conflict"]}], "expected_status": "FAIL", "expected_codes": ["PTP.GRAMMAR.CATEGORIES"]},
+    {"id": "grammar-boundary-case-reporting", "kind": "boundary", "operations": [{"op": "replace", "path": "/interpretation/allowed/0", "from": "Report compatibility dimensions separately.", "value": "Report indeterminate boundary clauses separately."}], "expected_status": "PASS", "expected_codes": []},
+    {"id": "grammar-composite-overclaim", "kind": "inference-overreach", "operations": [{"op": "replace", "path": "/reporting/primary_composite_score", "from": false, "value": true}], "expected_status": "FAIL", "expected_codes": ["PTP.GRAMMAR.DIMENSION_COLLAPSE"]}
+  ]
+}

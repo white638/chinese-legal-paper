@@ -1,0 +1,15 @@
+Neighborly social pressure and collective action: Evidence from a field experiment in Tunisia
+
+Authors: Prisca Jöst
+DOI: 10.1371/journal.pone.0304269
+Publisher: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304269
+License: Creative Commons Attribution 4.0 International
+License URL: https://creativecommons.org/licenses/by/4.0/
+Attribution: Jöst P (2024) Neighborly social pressure and collective action: Evidence from a field experiment in Tunisia. PLoS ONE 19(7): e0304269. https://doi.org/10.1371/journal.pone.0304269
+
+Locator: Abstract, paragraph 1; normalized characters 632:747
+Excerpt (verbatim; one inspected span):
+I do not find evidence to suggest that neighborly social pressure encourages participation in neighborhood cleanups
+
+Editorial scope note (paraphrase): 邻居与社区外人员发出邀请的比较，结果是实际集体清洁参与。
+This excerpt records the authors' report. It does not establish a universal effect, replication outcome, or absolute novelty judgment.

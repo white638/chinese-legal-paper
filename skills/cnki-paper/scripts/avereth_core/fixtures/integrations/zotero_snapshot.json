@@ -1,0 +1,18 @@
+{
+  "schema_version": "avereth-zotero-snapshot/v1",
+  "server_id": "local-profile-fixture",
+  "library_id": 1,
+  "library_version": 182,
+  "captured_at": "2026-08-21T03:05:00Z",
+  "items": [
+    {
+      "source_id": "INTL-S014",
+      "item_key": "PXW99EKT",
+      "item_version": 17,
+      "citation_key": "farrellNewInterdependence2019",
+      "doi": "10.0000/example",
+      "identity_digest": "7df1e791008e44bc0c5ffab7d90ab7cb6b378966d4b76fac8372d281d608205c",
+      "attachment_keys": ["2JAZS9U8"]
+    }
+  ]
+}

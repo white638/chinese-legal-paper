@@ -1,0 +1,8 @@
+{
+  "schema_version": "avereth-exhibit-recipe/v1",
+  "id": "trend_or_binscatter",
+  "required_fields": ["x", "estimate", "sample_n", "unit"],
+  "semantic_checks": ["numeric x values", "source Result is eligible for downstream reporting"],
+  "author_review_requirements": ["binning or smoothing rule declared", "controls identified when residualized", "causal language matches the registered identification design"],
+  "recommended_for": ["descriptive trends", "conditional associations"]
+}

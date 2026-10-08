@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/public-text-politics/institutional-grammar-v1.schema.json",
+  "title": "Institutional grammar supplemental profile contract",
+  "x-profile-contract-role": "supplement-over-core-method-contract",
+  "x-core-method-contract-id": "institutional-grammar/v1",
+  "type": "object",
+  "required": ["schema_version", "profile_id", "corpus", "grammar", "coding", "matching", "validation", "reporting", "interpretation"],
+  "properties": {
+    "schema_version": {"const": "avereth-public-text-politics/institutional-grammar/v1"},
+    "profile_id": {"const": "institutional_grammar"},
+    "corpus": {
+      "type": "object",
+      "required": ["manifest", "unit"],
+      "properties": {
+        "manifest": {"$ref": "#/$defs/artifact"},
+        "unit": {"const": "clause", "x-error-code": "PTP.GRAMMAR.UNIT"}
+      },
+      "additionalProperties": false
+    },
+    "grammar": {
+      "type": "object",
+      "required": ["components", "codebook"],
+      "properties": {
+        "components": {
+          "const": ["actor", "deontic", "action", "object", "condition", "exception", "enforcement_body", "consequence"],
+          "x-error-code": "PTP.GRAMMAR.COMPONENTS"
+        },
+        "codebook": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "coding": {
+      "type": "object",
+      "required": ["annotations", "disagreement_log"],
+      "properties": {
+        "annotations": {"$ref": "#/$defs/artifact"},
+        "disagreement_log": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "matching": {
+      "type": "object",
+      "required": ["categories", "results"],
+      "properties": {
+        "categories": {
+          "const": ["full_alignment", "partial_alignment", "functional_equivalence", "parallel_compatible", "procedural_gap", "substantive_conflict", "indeterminate"],
+          "x-error-code": "PTP.GRAMMAR.CATEGORIES"
+        },
+        "results": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "validation": {
+      "type": "object",
+      "required": ["reference_labels", "metrics", "disagreements", "weight_sensitivity"],
+      "properties": {
+        "reference_labels": {"$ref": "#/$defs/artifact"},
+        "metrics": {"$ref": "#/$defs/artifact"},
+        "disagreements": {"$ref": "#/$defs/artifact"},
+        "weight_sensitivity": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "reporting": {
+      "type": "object",
+      "required": ["dimensions", "primary_composite_score"],
+      "properties": {
+        "dimensions": {
+          "const": ["textual", "legal", "implementation_mechanism", "governance_capacity"],
+          "x-error-code": "PTP.GRAMMAR.DIMENSIONS"
+        },
+        "primary_composite_score": {"const": false, "x-error-code": "PTP.GRAMMAR.DIMENSION_COLLAPSE"}
+      },
+      "additionalProperties": false
+    },
+    "interpretation": {"$ref": "#/$defs/interpretation"}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "string",
+      "pattern": "^ART-[A-Z0-9][A-Z0-9_-]*$",
+      "x-error-code": "PTP.ARTIFACT.ID"
+    },
+    "interpretation": {
+      "type": "object",
+      "required": ["allowed", "prohibited"],
+      "properties": {
+        "allowed": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}},
+        "prohibited": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

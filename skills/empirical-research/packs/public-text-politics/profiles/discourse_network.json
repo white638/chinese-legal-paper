@@ -1,0 +1,27 @@
+{
+  "schema_version": "avereth-public-text-politics-profile/v1",
+  "profile_id": "discourse_network",
+  "title_zh": "行动者—主张—立场话语网络",
+  "purpose": "以 Actor–Claim–Position–Time–Source 五元组构造政治话语网络，并验证行动者解析、主张测量、立场测量和网络依赖。",
+  "core_method_families": ["social_network"],
+  "complementary_method_families": ["content_analysis", "text_as_data"],
+  "core_claim_capability_refs": [
+    "../../references/method-adapter-registry.json#/claim_capabilities/social_network"
+  ],
+  "core_method_contract_id": "discourse-network/v1",
+  "core_method_contract_schema": "../../references/schemas/methods/discourse-network-v1.schema.json",
+  "profile_contract_schema": "../contracts/discourse_network.schema.json",
+  "artifact_roles": ["corpus_manifest", "discourse_tuples", "actor_resolution", "claim_labels", "position_labels", "edge_list", "time_windows", "network_diagnostics", "validation_results"],
+  "machine_checks": [
+    {"id": "tuple_structure", "check_kind": "tuple_shape", "inputs": ["/network/tuple_fields", "/network/tuples"], "failure_code": "PTP.NETWORK.TUPLE_SHAPE"},
+    {"id": "actors", "check_kind": "entity_resolution", "inputs": ["/measurement/actor_resolution", "/network/tuples"], "failure_code": "PTP.NETWORK.ACTOR_RESOLUTION"},
+    {"id": "positions", "check_kind": "position_validation", "inputs": ["/measurement/position_labels", "/measurement/validation", "/network/tuples"], "failure_code": "PTP.NETWORK.POSITION_VALIDATION"},
+    {"id": "dependence", "check_kind": "network_dependence", "inputs": ["/network/edge_list", "/network/dependence_diagnostics"], "failure_code": "PTP.NETWORK.IID_ASSUMPTION"},
+    {"id": "hashed_network", "check_kind": "artifact_exists_and_hash_matches", "inputs": ["/network/tuples", "/network/edge_list", "/network/dependence_diagnostics"], "failure_code": "PTP.NETWORK.ARTIFACT_HASH"}
+  ],
+  "researcher_judgments": ["行动者边界与别名归并是否保留政治上重要差异", "主张与立场类别是否适合目标政治语境", "网络团簇可否被解释为联盟而不仅是结构接近"],
+  "interpretation_boundaries": {
+    "allowed": ["从验证后的五元组构造行动者—主张—立场关系", "用依赖感知模型报告网络关联"],
+    "prohibited": ["把共词网络直接称为政治联盟网络", "把节点或边当作 IID 观测", "忽略时间与来源身份合并立场"]
+  }
+}

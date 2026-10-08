@@ -1,0 +1,15 @@
+Direct replication of Gervais & Norenzayan (2012): No evidence that analytic thinking decreases religious belief
+
+Authors: Clinton Sanchez; Brian Sundermeier; Kenneth Gray; Robert J. Calin-Jageman
+DOI: 10.1371/journal.pone.0172636
+Publisher: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0172636
+License: Creative Commons Attribution 4.0 International
+License URL: https://creativecommons.org/licenses/by/4.0/
+Attribution: Sanchez C, Sundermeier B, Gray K, Calin-Jageman RJ (2017) Direct replication of Gervais & Norenzayan (2012): No evidence that analytic thinking decreases religious belief. PLoS ONE 12(2): e0172636. https://doi.org/10.1371/journal.pone.0172636
+
+Locator: Abstract, paragraph 1; normalized characters 260:344
+Excerpt (verbatim; one inspected span):
+We observed little to no effect of the experimental manipulation on religious belief
+
+Editorial scope note (paraphrase): 复制原研究的一项图片启动实验；不是对所有分析性思考形式的检验。
+This excerpt records the authors' report. It does not establish a universal effect, replication outcome, or absolute novelty judgment.

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/methods/text-alignment-v2.schema.json",
+  "title": "Model-Researcher Semantic Alignment and Reuse Contract v2",
+  "type": "object",
+  "required": ["alignment_unit", "direction_rule", "boilerplate_policy", "third_source_policy", "translation_policy", "threshold_plan", "source_manifest_artifact_id", "target_manifest_artifact_id", "matches_artifact_id", "threshold_sensitivity_artifact_id", "independent_validation_artifact_id", "researcher_run_manifest_artifact_id", "disagreement_log_artifact_id"],
+  "properties": {
+    "alignment_unit": {"type": "string", "minLength": 1},
+    "direction_rule": {"enum": ["source-precedes-target", "target-precedes-source", "non-directional"]},
+    "boilerplate_policy": {"type": "string", "minLength": 1},
+    "third_source_policy": {"type": "string", "minLength": 1},
+    "translation_policy": {"type": "string", "minLength": 1},
+    "threshold_plan": {
+      "type": "object",
+      "required": ["selection_basis", "sensitivity_range"]
+    },
+    "independent_validation_artifact_id": {"type": "string", "minLength": 1},
+    "researcher_run_manifest_artifact_id": {"type": "string", "minLength": 1},
+    "disagreement_log_artifact_id": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}

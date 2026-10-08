@@ -1,0 +1,2564 @@
+{
+  "schema_version": "avereth-branch-taste-cards/v1",
+  "discipline_umbrella": "political-science",
+  "doctrine": {
+    "authority": "signal-not-gate",
+    "resolution": "direction_contract.field resolves to one card by alias; topic_selection.taste_card pins it explicitly; no card means the pairwise taste judge and branch calibration stay off and only the existing validity gates run.",
+    "exemplars": "Journal-year citation strata provide sampling pools only. The anonymous mixed pool includes high, low and middle citation samples; readers may select across strata, abstain or choose no positive or negative examples. Selection limits are budgets, never quotas. Legacy identities and praise remain historical registration, not verified argument evidence or calibration. Optional research_move records teach source-bounded research actions and never serve as original proposal comparators.",
+    "hot_terms": "Hot-strip is a semantic probe, not a banned-word list. Removing a term can change the research object or scope; until semantic preservation is verified, preference flips remain uninterpreted and cannot establish agenda-fashion bias. Order-swap keeps content unchanged and measures position inconsistency."
+  },
+  "generic_hot_terms": [
+    "中国式现代化",
+    "新质生产力",
+    "高质量发展",
+    "全过程人民民主",
+    "国家治理体系和治理能力现代化",
+    "治理现代化",
+    "共同富裕",
+    "数字化转型",
+    "数字时代",
+    "人工智能",
+    "大模型",
+    "二十大",
+    "二十届三中全会",
+    "双碳",
+    "乡村振兴",
+    "新时代",
+    "百年未有之大变局",
+    "自主知识体系",
+    "赋能",
+    "COVID-19",
+    "pandemic",
+    "Belt and Road",
+    "Global South",
+    "generative AI",
+    "ChatGPT",
+    "large language model"
+  ],
+  "cards": [
+    {
+      "slug": "political-theory",
+      "names": {
+        "zh": "政治学理论与思想史",
+        "en": "Political theory and history of political thought"
+      },
+      "aliases": [
+        "政治学理论",
+        "政治理论",
+        "政治思想史",
+        "政治哲学",
+        "规范政治理论",
+        "西方政治思想",
+        "中国政治思想",
+        "political theory",
+        "political philosophy",
+        "history of political thought",
+        "normative theory"
+      ],
+      "flavors": {
+        "clear": "真问题来自概念张力或经典文本的当代困境，不是为“建构自主知识体系”或周年纪念写作。",
+        "thick": "增量是一个新的区分、一条被重画的谱系，或一项被改变的既有规范判断；不是把旧文本再讲一遍。",
+        "elegant": "概念经济、论证层递、少造词；引文版本与页码忠实，译名有谱系。",
+        "interesting": "用旧文本照亮当下的困境，或得出一个反直觉但可辩护的规范结论。"
+      },
+      "mediocrity_smells": [
+        "“X 思想的当代价值”三段式：生平、思想、意义",
+        "以引经典代替论证，引语堆砌后直接下结论",
+        "综述式概念梳理，没有作者自己的区分",
+        "为新而新的概念命名，与既有术语无谱系关系"
+      ],
+      "calibration_signals": {
+        "cn_journals": [
+          "政治学研究",
+          "政治思想史",
+          "哲学研究",
+          "开放时代",
+          "学术月刊",
+          "中国社会科学"
+        ],
+        "en_journals": [
+          "Political Theory",
+          "Journal of Political Philosophy",
+          "History of Political Thought",
+          "American Political Science Review",
+          "Review of Politics"
+        ],
+        "non_citation_signals": [
+          "人大复印报刊资料《政治学》转载",
+          "被后续论文以带立场的 cites 边当作对话对象",
+          "被教材或权威综述作为标准读法引用"
+        ],
+        "citation_reliability": "low"
+      },
+      "hot_terms": [
+        "自主知识体系",
+        "文明互鉴",
+        "中华优秀传统文化的创造性转化",
+        "第二个结合"
+      ],
+      "adjacent_branches": [
+        "comparative-politics",
+        "marxism",
+        "historical-political-science"
+      ],
+      "exemplars": {
+        "positive": [
+          {
+            "title": "Aristotle and Natural Law",
+            "venue": "The Review of Politics",
+            "year": 2019,
+            "identifier": "10.1017/s0034670519000743",
+            "why": "四味俱全：真问题出自经典文本的内部张力——摘要以《尼各马可伦理学》V.7\"the just by nature\"的细读为前提，重画了亚里士多德与斯多亚、阿奎那自然法之间的谱系，且\"nature serves as a normative ground for just law\"是可辩护的规范结论。概念经济、不造新词，雅味突出。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 52,
+              "cohort_size": 22,
+              "cohort_percentile": 97.73,
+              "openalex_percentile_year": {
+                "min": 89,
+                "max": 100
+              },
+              "fwci": 36.6531,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:24Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-theory-6e3781ab34cb43598fb218fa2bb79942",
+            "selection_context_id": "20a1de12-3694-468f-94a9-6256a8cc270c",
+            "selection_model_revision": "claude-opus-5",
+            "research_move": {
+              "schema_version": "avereth-research-move/v1",
+              "version": "2026-09-06.abstract.1",
+              "source": {
+                "identifier": "10.1017/s0034670519000743",
+                "level": "abstract",
+                "origin": "published_result",
+                "content": "a close analysis of the Nicomachean Ethics V.7\nnature serves as a normative ground for just law.",
+                "content_sha256": "137fc5d03ae6913705a8a9e17c09ead507bb8869b019078b887fd1991e106a93",
+                "locator": "https://www.cambridge.org/core/journals/review-of-politics/article/abs/aristotle-and-natural-law/F64425EAB83AF3BA5ED89E77C7F381FC ; Abstract, two short non-contiguous excerpts.",
+                "verification": {
+                  "status": "content-verified",
+                  "basis": "Publisher page and DOI matched; public abstract read on 2026-09-06 using Exa fetch. The retained source content consists of two verbatim excerpts, not the full abstract or article."
+                },
+                "permission": {
+                  "status": "permitted",
+                  "basis": "Public publisher abstract; only 17 words are quoted for attributed research criticism and explanation. No permission for full-text reproduction is claimed."
+                }
+              },
+              "prior_understanding": "作者将亚里士多德与自然法传统的关系视为长期争议，摘要未说明哪种立场占主流。",
+              "move": "先细读《尼各马可伦理学》V.7，再区分亚里士多德与后来自然法思想的差异和联系。这是依据摘要重建的论证动作。",
+              "support": {
+                "basis": "author_claim",
+                "text": "作者声称，该细读支持自然作为正当法律的规范根据；摘要可见论证路线与作者结论。"
+              },
+              "without_move": {
+                "kind": "synthetic_ablation",
+                "text": "若删去文本细读，只给思想家贴上自然法标签，就失去摘要所指明的论据。这是教学构造。"
+              },
+              "limits": "仅核对摘要，未检验全文释读与反驳的充分性；不能把作者声称视为已独立验证的思想史结论。"
+            }
+          },
+          {
+            "title": "论马克思辩证法的“实在主体”",
+            "venue": "哲学研究",
+            "year": 2020,
+            "identifier": "cnki:哲学研究:2020:论马克思辩证法的“实在主体”",
+            "why": "清味在于概念张力本身：\"辩证法几乎完全被当作'形式方法'来理解\"是一个被指认的误认，而非纪念性写作。厚味在于给出新区分——黑格尔的\"实体-主体\"与马克思经由本体论革命重建的\"实在主体\"即\"既定社会\"，并由此改写了辩证法的归属。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 85,
+              "cohort_size": 154,
+              "cohort_percentile": 99.68,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:24Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-theory-6e3781ab34cb43598fb218fa2bb79942",
+            "selection_context_id": "20a1de12-3694-468f-94a9-6256a8cc270c",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "On citizens' right to information: Justification and analysis of the democratic right to be well informed",
+            "venue": "Journal of Political Philosophy",
+            "year": 2023,
+            "identifier": "10.1111/jopp.12298",
+            "why": "用旧问题（Lippmann、Habermas 对言论权不足的抱怨）照亮当下困境，趣味在于反直觉却可辩护的结论：\"a positive right of the citizenry to be provided with quality news is—contrary to appearances—fully compatible with free speech\"。厚味是把模糊说法锻造为 CRI 这一有道德义务结构的权利概念。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 23,
+              "cohort_size": 16,
+              "cohort_percentile": 96.88,
+              "openalex_percentile_year": {
+                "min": 93,
+                "max": 100
+              },
+              "fwci": 8.626,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:24Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-theory-6e3781ab34cb43598fb218fa2bb79942",
+            "selection_context_id": "20a1de12-3694-468f-94a9-6256a8cc270c",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "行政发包制与中国特色的国家能力",
+            "venue": "开放时代",
+            "year": 2022,
+            "identifier": "cnki:开放时代:2022:行政发包制与中国特色的国家能力",
+            "why": "厚味明确：\"两者缺乏直接的对话和衔接\"点出真问题，随后以\"基础能力\"这一新区分连结委托-代理进路与基础性权力进路，并\"纠正以主流的国家能力理论来解读中国国家能力存在的偏误\"，是被改变的既有判断而非旧论复述。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 233,
+              "cohort_size": 95,
+              "cohort_percentile": 99.47,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": [
+                "国家治理体系和治理能力现代化"
+              ]
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:24Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-theory-6e3781ab34cb43598fb218fa2bb79942",
+            "selection_context_id": "20a1de12-3694-468f-94a9-6256a8cc270c",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Partisan Polarization Is the Primary Psychological Motivation behind Political Fake News Sharing on Twitter",
+            "venue": "American Political Science Review",
+            "year": 2021,
+            "identifier": "10.1017/s0003055421000290",
+            "why": "清味来自三个互斥假说的干净对峙（ignorance / disruption / partisan polarization），趣味在于反直觉裁决——\"The findings contradict the ignorance perspective\"，假新闻传播与转发可信媒体的党派行为出自同一动机。论证层递、无冗余造词，雅味亦在。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 578,
+              "cohort_size": 137,
+              "cohort_percentile": 99.64,
+              "openalex_percentile_year": {
+                "min": 93,
+                "max": 100
+              },
+              "fwci": 115.5927,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:24Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-theory-6e3781ab34cb43598fb218fa2bb79942",
+            "selection_context_id": "20a1de12-3694-468f-94a9-6256a8cc270c",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ],
+        "negative": [
+          {
+            "title": "康德“自主启蒙”与现代社会互动机制",
+            "venue": "中国社会科学",
+            "year": 2024,
+            "identifier": "cnki:中国社会科学:2024:康德“自主启蒙”与现代社会互动机制",
+            "why": "典型的\"X 思想的当代价值\"三段式，缺清味：真问题不是康德文本内的张力，而是预先给定的\"现代社会互动机制\"结论。\"交往在信息化时代已成为生产方式变革枢纽\"从康德直跳信息化时代，以引经典代替论证。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 5,
+              "cohort_size": 137,
+              "cohort_percentile": 18.98,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:24Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-theory-6e3781ab34cb43598fb218fa2bb79942",
+            "selection_context_id": "20a1de12-3694-468f-94a9-6256a8cc270c",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "政治学的量子转向及其当代重构",
+            "venue": "政治学研究",
+            "year": 2024,
+            "identifier": "cnki:政治学研究:2024:政治学的量子转向及其当代重构",
+            "why": "缺雅味：\"纠缠化的内关联\"\"世界化成\"等新造词与既有政治学术语无谱系关系，为新而新。整体是把量子词汇平移过来宣告\"激进挑战\"牛顿主义范式，没有作者自己可检验的区分。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 3,
+              "cohort_size": 100,
+              "cohort_percentile": 11.5,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:24Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-theory-6e3781ab34cb43598fb218fa2bb79942",
+            "selection_context_id": "20a1de12-3694-468f-94a9-6256a8cc270c",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "企业家的环境适应度与创新",
+            "venue": "开放时代",
+            "year": 2022,
+            "identifier": "cnki:开放时代:2022:企业家的环境适应度与创新",
+            "why": "缺清味：问题来自变量拼接而非概念张力，\"环境适应度\"是为回归式而设的自定义度量。结论全部落在预期方向（\"显著的正向促进作用\"\"愈发显著\"），规范完整却没有任何被改变的判断，是精致的平庸。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 1,
+              "cohort_size": 95,
+              "cohort_percentile": 12.63,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:24Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-theory-6e3781ab34cb43598fb218fa2bb79942",
+            "selection_context_id": "20a1de12-3694-468f-94a9-6256a8cc270c",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "comparative-politics",
+      "names": {
+        "zh": "比较政治",
+        "en": "Comparative politics"
+      },
+      "aliases": [
+        "比较政治",
+        "比较政治学",
+        "比较政治经济学",
+        "比较制度",
+        "威权政治",
+        "民主化",
+        "comparative politics",
+        "comparative institutions",
+        "democratization",
+        "authoritarian politics"
+      ],
+      "flavors": {
+        "clear": "真问题来自反常案例或既有机制在某类条件下的失效，不是为凑案例而比较。",
+        "thick": "增量是阶 2 的范围条件或阶 3 的机制，案例选择本身就是识别策略。",
+        "elegant": "少变量、多解释；比较逻辑（最相似或最相异系统）一句话能说清。",
+        "interesting": "最不可能案例、被忽视的负例，或一个让既有类型学失灵的观察。"
+      },
+      "mediocrity_smells": [
+        "多国描述并列，结尾一段“启示”",
+        "案例只说“具有典型性”，不交代换一个案例结论会不会变",
+        "把类型学当结论，类型之间没有机制差异",
+        "用西方理论套一个中国案例后宣布“验证”或“不适用”"
+      ],
+      "calibration_signals": {
+        "cn_journals": [
+          "比较政治学研究",
+          "政治学研究",
+          "经济社会体制比较",
+          "开放时代",
+          "世界经济与政治"
+        ],
+        "en_journals": [
+          "Comparative Political Studies",
+          "World Politics",
+          "Comparative Politics",
+          "British Journal of Political Science",
+          "American Journal of Political Science",
+          "Journal of Politics"
+        ],
+        "non_citation_signals": [
+          "OpenAlex 引文边与颠覆指数",
+          "被后续比较研究当作案例选择范本",
+          "人大复印报刊资料《政治学》转载"
+        ],
+        "citation_reliability": "high"
+      },
+      "hot_terms": [
+        "民主衰退",
+        "民粹主义",
+        "全球南方"
+      ],
+      "adjacent_branches": [
+        "chinese-politics",
+        "political-sociology-economy",
+        "area-studies"
+      ],
+      "exemplars": {
+        "positive": [
+          {
+            "title": "Repression Works (Just Not in Moderation)",
+            "venue": "Comparative Political Studies",
+            "year": 2023,
+            "identifier": "10.1177/00104140231152778",
+            "why": "清味来自一个明写的反常：\"Why does government violence deter political challengers in one context but inflame them in the next?\"；厚味是阶 3 的门槛机制（\"a threshold level of violence, where the opposition becomes unable to recruit new members\"）并交代门槛高低的条件，少变量而多解释，结论反直觉又可辩护。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 73,
+              "cohort_size": 94,
+              "cohort_percentile": 99.47,
+              "openalex_percentile_year": {
+                "min": 88,
+                "max": 100
+              },
+              "fwci": 33.098,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-comparative-politics-a6332648d7524d1ab29cb84d56d5d294",
+            "selection_context_id": "0645b6ec-9d6e-44a9-8cdf-e7c2913306e1",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Performative Governance",
+            "venue": "World Politics",
+            "year": 2020,
+            "identifier": "10.1017/s0043887120000131",
+            "why": "问题干净：\"What does the state do when public expectations exceed its actual governing capacity?\"；厚味在于\"performative governance\"与 inertia、paternalism、实质回应之间有机制差异而非只是类型标签，范围条件写成\"low state capacity and high public scrutiny\"两变量，趣味在于揭出 performance 的双重含义。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 202,
+              "cohort_size": 19,
+              "cohort_percentile": 97.37,
+              "openalex_percentile_year": {
+                "min": 93,
+                "max": 100
+              },
+              "fwci": 52.1164,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-comparative-politics-a6332648d7524d1ab29cb84d56d5d294",
+            "selection_context_id": "0645b6ec-9d6e-44a9-8cdf-e7c2913306e1",
+            "selection_model_revision": "claude-opus-5",
+            "research_move": {
+              "schema_version": "avereth-research-move/v1",
+              "version": "2026-09-06.abstract.1",
+              "source": {
+                "identifier": "10.1017/s0043887120000131",
+                "level": "abstract",
+                "origin": "published_result",
+                "content": "What does the state do when public expectations exceed its actual governing capacity?\nthe essential distinction between the substantive and the theatrical.",
+                "content_sha256": "f0e28092eee433ef171bb28e701a7f444366b317a05c92de383d263ded0aa7a7",
+                "locator": "https://www.cambridge.org/core/journals/world-politics/article/abs/performative-governance/AAC558378BEA651DB7E2480ECFFB4E10 ; Abstract, two short non-contiguous excerpts.",
+                "verification": {
+                  "status": "content-verified",
+                  "basis": "Publisher page, title and DOI matched; public abstract read on 2026-09-06 using Exa fetch. The retained content consists of two short excerpts, not the full abstract or article."
+                },
+                "permission": {
+                  "status": "permitted",
+                  "basis": "Public publisher abstract; only 22 words are quoted for attributed research criticism and explanation. No permission for full-text reproduction is claimed."
+                }
+              },
+              "prior_understanding": "作者的问题是公众期待超过实际治理能力时，政府如何回应。摘要不要求先认定回应必然等于问题解决。",
+              "move": "区分实质治理与展示性回应，考察低能力和高公众关注下的政府行为。这是依据摘要重建的概念与解释动作。",
+              "support": {
+                "basis": "author_claim",
+                "text": "作者报告使用某市环保局的参与观察说明这一概念；摘要声称有关行为用于缓解公众抱怨。"
+              },
+              "without_move": {
+                "kind": "synthetic_ablation",
+                "text": "若把公开姿态直接算作实质改善，就失去该研究要建立的行为区分。这是教学构造。"
+              },
+              "limits": "仅核对摘要，未检查观察记录、替代解释和适用范围；不据此确认因果机制或把展示性回应当作所有治理的解释。"
+            }
+          },
+          {
+            "title": "How Autocrats Manipulate Economic News: Evidence from Russia’s State-Controlled Television",
+            "venue": "The Journal of Politics",
+            "year": 2019,
+            "identifier": "10.1086/703208",
+            "why": "清味是既有机制在特定条件下失效——审查在经济议题上不管用，因为\"citizens can benchmark the official news against their incomes, market prices\"；厚味是替代机制\"selective attribution\"（坏消息归外因、好消息归本国政客）并给出选举/抗议期与高支持度两项范围条件。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 240,
+              "cohort_size": 185,
+              "cohort_percentile": 99.73,
+              "openalex_percentile_year": {
+                "min": 90,
+                "max": 100
+              },
+              "fwci": 51.4705,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-comparative-politics-a6332648d7524d1ab29cb84d56d5d294",
+            "selection_context_id": "0645b6ec-9d6e-44a9-8cdf-e7c2913306e1",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Austerity, economic vulnerability, and populism",
+            "venue": "American Journal of Political Science",
+            "year": 2024,
+            "identifier": "10.1111/ajps.12865",
+            "why": "增量正是阶 2 的范围条件：紧缩\"increases support for populist parties in economically vulnerable regions, but has little effect in less vulnerable regions\"，脆弱性用低技能、制造业、常规任务密度三项界定，少变量多解释；趣味在于把民粹的起因从外部冲击翻回国内公共政策。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 59,
+              "cohort_size": 106,
+              "cohort_percentile": 99.53,
+              "openalex_percentile_year": {
+                "min": 99,
+                "max": 100
+              },
+              "fwci": 37.5047,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-comparative-politics-a6332648d7524d1ab29cb84d56d5d294",
+            "selection_context_id": "0645b6ec-9d6e-44a9-8cdf-e7c2913306e1",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Consuming Cross-Cutting Media Causes Learning and Moderates Attitudes: A Field Experiment with Fox News Viewers",
+            "venue": "The Journal of Politics",
+            "year": 2024,
+            "identifier": "10.1086/730725",
+            "why": "清味来自既有机制的失效点——动机性推理预测跨立场接触会\"backfire\"；设计只有一个处理（付费让 Fox 观众改看 CNN 一个月），趣味在于\"Contrary to predictions from motivated reasoning\"的裁决，且态度缓和被限定在\"in covered domains\"这一范围条件内，不夸大。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 48,
+              "cohort_size": 190,
+              "cohort_percentile": 99.74,
+              "openalex_percentile_year": {
+                "min": 89,
+                "max": 100
+              },
+              "fwci": 37.3944,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-comparative-politics-a6332648d7524d1ab29cb84d56d5d294",
+            "selection_context_id": "0645b6ec-9d6e-44a9-8cdf-e7c2913306e1",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ],
+        "negative": [
+          {
+            "title": "西方“腐败—增长”关系研究五十年:回顾与启示",
+            "venue": "经济社会体制比较",
+            "year": 2019,
+            "identifier": "cnki:经济社会体制比较:2019:西方“腐败—增长”关系研究五十年:回顾与启示",
+            "why": "缺厚味：通篇是四种论点的并列回顾（\"腐败有利增长、腐败有害增长、非线性关系和腐败无关增长\"），结尾以三条\"政策启示\"收束，正是多方描述并列加一段启示的写法，作者自己没有给出新的范围条件或机制。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 2,
+              "cohort_size": 114,
+              "cohort_percentile": 9.65,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-comparative-politics-a6332648d7524d1ab29cb84d56d5d294",
+            "selection_context_id": "0645b6ec-9d6e-44a9-8cdf-e7c2913306e1",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "评估规范扩散的效果——以《网络犯罪公约》为例",
+            "venue": "世界经济与政治",
+            "year": 2019,
+            "identifier": "cnki:世界经济与政治:2019:评估规范扩散的效果——以《网络犯罪公约》为例",
+            "why": "缺厚味：把评估框架（广度上的数量、同质性、关键国家；深度上的法律化程度、替代框架）当作结论，指标之间没有机制差异；《网络犯罪公约》只作\"以……为例\"的例证，不交代换一个规范案例结论会不会变。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 19,
+              "cohort_size": 80,
+              "cohort_percentile": 24.38,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-comparative-politics-a6332648d7524d1ab29cb84d56d5d294",
+            "selection_context_id": "0645b6ec-9d6e-44a9-8cdf-e7c2913306e1",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "On Constitutionalizing a Balanced Budget",
+            "venue": "The Journal of Politics",
+            "year": 2019,
+            "identifier": "10.1086/707618",
+            "why": "缺趣味与清味：问题是通用型的\"Do constitutional rules that mandate a balanced budget promote fiscal discipline?\"，答案\"robustly associated with fiscal discipline\"确认预期，摘要只能靠\"The results will be surprising to those who…\"自我宣告意外；跨国面板并列，案例选择不承担识别功能。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 15,
+              "cohort_size": 185,
+              "cohort_percentile": 20.81,
+              "openalex_percentile_year": {
+                "min": 90,
+                "max": 98
+              },
+              "fwci": 3.9498,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-comparative-politics-a6332648d7524d1ab29cb84d56d5d294",
+            "selection_context_id": "0645b6ec-9d6e-44a9-8cdf-e7c2913306e1",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "international-politics",
+      "names": {
+        "zh": "国际政治与国际关系",
+        "en": "International politics and international relations"
+      },
+      "aliases": [
+        "国际政治",
+        "国际关系",
+        "国际关系理论",
+        "国际安全",
+        "国际政治经济学",
+        "外交",
+        "全球治理",
+        "international politics",
+        "international relations",
+        "IR",
+        "international security",
+        "international political economy",
+        "foreign policy"
+      ],
+      "flavors": {
+        "clear": "真问题来自与大理论或中层理论的真分歧，不是外交议程或年度热点。",
+        "thick": "增量是可证伪的结构性或机制性预期，能解释旧理论解释不了的事件或模式。",
+        "elegant": "概念对接英文学界既有术语，不以“中国学派”式命名空转；政策话语不冒充理论概念。",
+        "interesting": "反直觉的结构解释，或用一个被忽略的案例让通行预期失灵。"
+      },
+      "mediocrity_smells": [
+        "时评式论文：“X 背景下 Y 的挑战与应对”",
+        "把外交政策口号当分析概念",
+        "理论综述后接形势判断，没有可观察预期",
+        "对策建议与正文论证无对应"
+      ],
+      "calibration_signals": {
+        "cn_journals": [
+          "世界经济与政治",
+          "国际政治研究",
+          "国际政治科学",
+          "国际安全研究",
+          "外交评论",
+          "当代亚太",
+          "国际展望"
+        ],
+        "en_journals": [
+          "International Organization",
+          "International Studies Quarterly",
+          "International Security",
+          "Security Studies",
+          "European Journal of International Relations",
+          "World Politics"
+        ],
+        "non_citation_signals": [
+          "中英双轨引文边",
+          "人大复印报刊资料《国际政治》转载",
+          "被后续论文作为理论对话对象"
+        ],
+        "citation_reliability": "medium"
+      },
+      "hot_terms": [
+        "一带一路",
+        "人类命运共同体",
+        "全球南方",
+        "中美竞争",
+        "中美关系",
+        "百年未有之大变局",
+        "全球治理",
+        "大国竞争",
+        "地缘政治"
+      ],
+      "adjacent_branches": [
+        "comparative-politics",
+        "area-studies",
+        "political-sociology-economy"
+      ],
+      "exemplars": {
+        "positive": [
+          {
+            "title": "解析美国的半导体产业霸权：产业权力的政治经济学分析",
+            "venue": "外交评论",
+            "year": 2022,
+            "identifier": "cnki:外交评论:2022:解析美国的半导体产业霸权：产业权力的政治经济学分析",
+            "why": "厚味在于一个可证伪的结构性预期：把\"产业控制力\"与\"产业竞争力\"分开，指出\"美国在该产业仍拥有十分强悍的霸权地位,且主要体现在其产业控制力而非产业竞争力上\"，并落成技术链、金融链、消费链三重控制；趣味即在竞争力衰退而权力不减这一反直觉结构解释。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 171,
+              "cohort_size": 36,
+              "cohort_percentile": 98.61,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-international-politics-4a7663235ffa42c99af3dcd3f90c2264",
+            "selection_context_id": "108d2515-da04-40c2-8f60-99231737bb04",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Counterterrorism and Preventive Repression: China's Changing Strategy in Xinjiang",
+            "venue": "International Security",
+            "year": 2020,
+            "identifier": "10.1162/isec_a_00368",
+            "why": "清味来自与既有解释的真分歧：\"Commonly proposed explanations for this shift focus on domestic factors\"，本文改以跨国威胁感知与\"perceived domestic vulnerability\"作因；厚味是该机制能解释旧解释解释不了的时点与形态（为何 2017—18 转向集体羁押、再教育与针对海外侨民）。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 151,
+              "cohort_size": 20,
+              "cohort_percentile": 97.5,
+              "openalex_percentile_year": {
+                "min": 89,
+                "max": 100
+              },
+              "fwci": 31.4199,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-international-politics-4a7663235ffa42c99af3dcd3f90c2264",
+            "selection_context_id": "108d2515-da04-40c2-8f60-99231737bb04",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Right-wing populism with Chinese characteristics? Identity, otherness and global imaginaries in debating world politics online",
+            "venue": "European Journal of International Relations",
+            "year": 2019,
+            "identifier": "10.1177/1354066119850253",
+            "why": "趣味来自一个悖论式观察：受过良好教育的中国网民\"appropriate the rhetoric of 'Western-style' right-wing populism to paradoxically criticise Western hegemony\"；厚味是给出\"anti-Western Eurocentrism and anti-hegemonic hegemonies\"这一有内容的机制命名，且概念全程对接英文学界的民粹、自我—他者与欧洲中心主义术语，不空转。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 162,
+              "cohort_size": 55,
+              "cohort_percentile": 99.09,
+              "openalex_percentile_year": {
+                "min": 90,
+                "max": 100
+              },
+              "fwci": 22.097,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-international-politics-4a7663235ffa42c99af3dcd3f90c2264",
+            "selection_context_id": "108d2515-da04-40c2-8f60-99231737bb04",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Performative Governance",
+            "venue": "World Politics",
+            "year": 2020,
+            "identifier": "10.1017/s0043887120000131",
+            "why": "问题干净且非议程驱动：\"What does the state do when public expectations exceed its actual governing capacity?\"；厚味在于\"performative governance\"与 inertia、paternalism、实质满足之间被划出机制差异，并给出低能力加高监督的可观察条件，趣味在于剥出 performance 的双重含义。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 202,
+              "cohort_size": 19,
+              "cohort_percentile": 97.37,
+              "openalex_percentile_year": {
+                "min": 93,
+                "max": 100
+              },
+              "fwci": 52.1164,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-international-politics-4a7663235ffa42c99af3dcd3f90c2264",
+            "selection_context_id": "108d2515-da04-40c2-8f60-99231737bb04",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Positionality Statements as a Function of Coloniality: Interrogating Reflexive Methodologies",
+            "venue": "International Studies Quarterly",
+            "year": 2024,
+            "identifier": "10.1093/isq/sqae038",
+            "why": "清味来自与学科内新正统的真分歧——反思性方法论已成\"increasingly encouraged reflexive practice\"，本文反过来审问它；趣味是彻底反直觉的结论：坦承特权\"paradoxically acts as a means of centering whiteness\"，位置性声明反成\"hidden power moves\"。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 289,
+              "cohort_size": 157,
+              "cohort_percentile": 99.68,
+              "openalex_percentile_year": {
+                "min": 99,
+                "max": 100
+              },
+              "fwci": 229.9356,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-international-politics-4a7663235ffa42c99af3dcd3f90c2264",
+            "selection_context_id": "108d2515-da04-40c2-8f60-99231737bb04",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ],
+        "negative": [
+          {
+            "title": "国际秩序的“正义赤字”与中国对策",
+            "venue": "国际展望",
+            "year": 2023,
+            "identifier": "cnki:国际展望:2023:国际秩序的“正义赤字”与中国对策",
+            "why": "缺雅味与厚味：把政策话语当分析概念（\"真正的多边主义\"\"构建人类命运共同体\"直接充当中国的\"正义观\"内容），赤字类型学之后接三层对策，全篇没有一条可观察、可被证伪的预期。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 5,
+              "cohort_size": 54,
+              "cohort_percentile": 24.07,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": [
+                "人类命运共同体",
+                "中国式现代化"
+              ]
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-international-politics-4a7663235ffa42c99af3dcd3f90c2264",
+            "selection_context_id": "108d2515-da04-40c2-8f60-99231737bb04",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "美国的拉美政治研究:兴起、进展与镜鉴",
+            "venue": "国际政治研究",
+            "year": 2020,
+            "identifier": "cnki:国际政治研究:2020:美国的拉美政治研究:兴起、进展与镜鉴",
+            "why": "缺厚味：是学科史综述加形势判断——回顾兴起、核心争论与多元化发展后，以\"其研究经验仍值得借鉴\"作结，既无自己的机制性主张，\"镜鉴\"也与正文论证无对应。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 6,
+              "cohort_size": 52,
+              "cohort_percentile": 17.31,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-international-politics-4a7663235ffa42c99af3dcd3f90c2264",
+            "selection_context_id": "108d2515-da04-40c2-8f60-99231737bb04",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "联合国维和行动成功的条件——以东帝汶维和行动为个案",
+            "venue": "外交评论",
+            "year": 2022,
+            "identifier": "cnki:外交评论:2022:联合国维和行动成功的条件——以东帝汶维和行动为个案",
+            "why": "缺雅味：核心条件被写成源自\"中华文明圈实践经验的发展和平\"去弥补自由和平的不足，属命名式空转而非对接既有 peacebuilding 术语；且只取东帝汶这一成功个案印证假设，不交代失败案例如何检验。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 8,
+              "cohort_size": 36,
+              "cohort_percentile": 4.17,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:25Z",
+            "selected_at": "2026-09-04T14:54:18Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-international-politics-4a7663235ffa42c99af3dcd3f90c2264",
+            "selection_context_id": "108d2515-da04-40c2-8f60-99231737bb04",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "chinese-politics",
+      "names": {
+        "zh": "中国政治",
+        "en": "Chinese politics"
+      },
+      "aliases": [
+        "中国政治",
+        "国内政治",
+        "当代中国政治",
+        "中国政府与政治",
+        "基层政治",
+        "地方政治",
+        "党政关系",
+        "chinese politics",
+        "domestic politics",
+        "local politics in china"
+      ],
+      "flavors": {
+        "clear": "真问题来自田野或档案中的经验异象，不是文件解读或政策宣讲。",
+        "thick": "增量是制度运作过程的可见性与有过程证据的机制，不是给现象起一个治理模式的名字。",
+        "elegant": "主体、行动、约束清楚；框架是工具，对象不被框架遮住。",
+        "interesting": "细节里的“坐直”瞬间：一份文件、一次会议或一个数据反转了通行判断。"
+      },
+      "mediocrity_smells": [
+        "“X 治理的逻辑与路径”，正文复述政策叙事",
+        "把政策口号当研究发现",
+        "案例只用来印证既有框架，没有反例",
+        "机制只有名字没有过程证据"
+      ],
+      "calibration_signals": {
+        "cn_journals": [
+          "政治学研究",
+          "开放时代",
+          "社会",
+          "社会学研究",
+          "中国社会科学",
+          "学海",
+          "探索与争鸣"
+        ],
+        "en_journals": [
+          "China Quarterly",
+          "China Journal",
+          "Journal of Contemporary China",
+          "Modern China",
+          "Journal of Chinese Political Science"
+        ],
+        "non_citation_signals": [
+          "人大复印报刊资料《中国政治》转载",
+          "新华文摘或中国社会科学文摘转载",
+          "被后续田野研究当作机制对话对象"
+        ],
+        "citation_reliability": "medium"
+      },
+      "hot_terms": [
+        "全过程人民民主",
+        "基层治理",
+        "整体性治理",
+        "党建引领",
+        "枫桥经验",
+        "共同富裕",
+        "乡村振兴",
+        "数字政府"
+      ],
+      "adjacent_branches": [
+        "public-administration-policy",
+        "comparative-politics",
+        "historical-political-science"
+      ],
+      "exemplars": {
+        "positive": [
+          {
+            "title": "Policy Experimentation under Pressure in Contemporary China",
+            "venue": "The China Quarterly",
+            "year": 2023,
+            "identifier": "10.1017/s0305741022001801",
+            "why": "四味俱全：真问题来自经验异象——通行叙事说集权后地方不敢试点，作者却发现\"local cadres now have no choice but to experiment\"，是典型的\"坐直\"反转（趣味、清味）；\"over 3,000 local government regulations and fieldwork data\"在佛山、赣州两地落到实处，把\"experimentation under pressure\"做成有过程证据的机制而非新标签（厚味、雅味）。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 67,
+              "cohort_size": 72,
+              "cohort_percentile": 99.31,
+              "openalex_percentile_year": {
+                "min": 98,
+                "max": 100
+              },
+              "fwci": 66.0146,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:26Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-chinese-politics-41aef65ef12a439c95ffd95d665fd85d",
+            "selection_context_id": "a1285141-91db-42e5-b505-77de52a22163",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "不稳定就业与农民工市民化悖论:基于劳动过程的视角",
+            "venue": "社会",
+            "year": 2022,
+            "identifier": "cnki:社会:2022:不稳定就业与农民工市民化悖论:基于劳动过程的视角",
+            "why": "厚味与趣味在场：机制不是名字而是可追踪的资本积累过程，\"雇主通过掐尖式用工以保证资本的利润率\"给出了运作细节；结论本身是反转——\"不稳定就业有助于提高农民工个体的工资水平,但是不利于其家庭成员随迁\"，个体收益与家庭代价的悖论让人坐直。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 118,
+              "cohort_size": 53,
+              "cohort_percentile": 99.06,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:26Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-chinese-politics-41aef65ef12a439c95ffd95d665fd85d",
+            "selection_context_id": "a1285141-91db-42e5-b505-77de52a22163",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "行政发包制与中国特色的国家能力",
+            "venue": "开放时代",
+            "year": 2022,
+            "identifier": "cnki:开放时代:2022:行政发包制与中国特色的国家能力",
+            "why": "雅味与厚味突出：主体（中央—地方）、行动（发包）、约束（激励与基础能力）交代得干净，且明确以\"最近30年的水环境治理为例加以论析\"让框架落到可见的运作过程；\"纠正以主流的国家能力理论来解读中国国家能力存在的偏误\"是对通行判断的正面顶撞，趣味亦在。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 233,
+              "cohort_size": 95,
+              "cohort_percentile": 99.47,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": [
+                "国家治理体系和治理能力现代化"
+              ]
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:26Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-chinese-politics-41aef65ef12a439c95ffd95d665fd85d",
+            "selection_context_id": "a1285141-91db-42e5-b505-77de52a22163",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "认同与参与——城市居民的社区公共文化生活逻辑研究",
+            "venue": "社会学研究",
+            "year": 2019,
+            "identifier": "cnki:社会学研究:2019:认同与参与——城市居民的社区公共文化生活逻辑研究",
+            "why": "清味来自田野而非文件：\"通过对居民在参与行动中……过程的深描\"把问题扎在具体的社区生活里；厚味在于给出三重认同的运作链条与\"认同和参与在公共文化生活中的循环互构\"，是有过程证据的动力机制，而非替参与现象起一个治理模式的名字。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 422,
+              "cohort_size": 63,
+              "cohort_percentile": 99.21,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:26Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-chinese-politics-41aef65ef12a439c95ffd95d665fd85d",
+            "selection_context_id": "a1285141-91db-42e5-b505-77de52a22163",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "The Analysis of Chinese Rural Society: Fei Xiaotong Revisited",
+            "venue": "Modern China",
+            "year": 2020,
+            "identifier": "10.1177/0097700419894921",
+            "why": "趣味与雅味在场：对被奉为定论的经典下手，指出费孝通\"neglected Confucianism and the derivative nature of his conceptualization of 'the differential mode of association'\"，一次文本重读就动摇了通行判断；并进一步用\"the importance of nonkin relations in rural society\"把被村庄中心视角遮住的对象重新露出来。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 41,
+              "cohort_size": 31,
+              "cohort_percentile": 98.39,
+              "openalex_percentile_year": {
+                "min": 95,
+                "max": 99
+              },
+              "fwci": 18.7503,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:26Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-chinese-politics-41aef65ef12a439c95ffd95d665fd85d",
+            "selection_context_id": "a1285141-91db-42e5-b505-77de52a22163",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ],
+        "negative": [
+          {
+            "title": "论中国特色社会主义理论的社会空间思想",
+            "venue": "学海",
+            "year": 2019,
+            "identifier": "cnki:学海:2019:论中国特色社会主义理论的社会空间思想",
+            "why": "清味与厚味双缺：没有任何经验异象，通篇是概念铺陈——\"社会空间是生产力的实体要素,区域整合、生态空间的优化等是推动经济社会发展的巨大动力\"；结尾\"具有重大的实践价值和理论意义\"把政策叙事复述当成研究发现，机制只有名字没有过程。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 3,
+              "cohort_size": 172,
+              "cohort_percentile": 18.02,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:26Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-chinese-politics-41aef65ef12a439c95ffd95d665fd85d",
+            "selection_context_id": "a1285141-91db-42e5-b505-77de52a22163",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "政治学的量子转向及其当代重构",
+            "venue": "政治学研究",
+            "year": 2024,
+            "identifier": "cnki:政治学研究:2024:政治学的量子转向及其当代重构",
+            "why": "雅味缺失：框架把对象整个吞掉，\"'世界'在本体论层面上是不确定的、开放的\"之后已看不见任何具体主体、行动与约束；同时无经验异象可言，只有对\"牛顿主义-人类主义范式\"的整体宣告，属于工整而无所指的精致平庸。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 3,
+              "cohort_size": 100,
+              "cohort_percentile": 11.5,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:26Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-chinese-politics-41aef65ef12a439c95ffd95d665fd85d",
+            "selection_context_id": "a1285141-91db-42e5-b505-77de52a22163",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Affiliated Associations in China's Education Sector: Between Passive Autonomy, Discretion and Control",
+            "venue": "The China Quarterly",
+            "year": 2023,
+            "identifier": "10.1017/s0305741023000024",
+            "why": "证据规范但趣味与清味不足：63 次访谈只用来印证既有的碎片化国家框架——\"contributes to broader understandings of the complex and fragmentary nature of the Chinese state\"，没有反例也没有反转；增量停在给自主性程度贴标签（\"varying degrees of operational autonomy\"），而不是让控制的运作过程变得可见。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 0,
+              "cohort_size": 72,
+              "cohort_percentile": 3.47,
+              "openalex_percentile_year": null,
+              "fwci": 0.0,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:26Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-chinese-politics-41aef65ef12a439c95ffd95d665fd85d",
+            "selection_context_id": "a1285141-91db-42e5-b505-77de52a22163",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "public-administration-policy",
+      "names": {
+        "zh": "公共管理与公共政策",
+        "en": "Public administration and public policy"
+      },
+      "aliases": [
+        "公共管理",
+        "公共管理学",
+        "行政管理",
+        "行政管理学",
+        "公共政策",
+        "政策过程",
+        "政策执行",
+        "公共行政",
+        "政府管理",
+        "public administration",
+        "public management",
+        "public policy",
+        "policy process",
+        "policy implementation"
+      ],
+      "flavors": {
+        "clear": "真问题来自组织或政策过程中的真困惑，不是为命名一种治理模式造词，也不是解读新出台文件。",
+        "thick": "增量是可迁移的中观命题：政策工具、议程、执行或组织行为的机制，能跨政策域或跨层级复用。",
+        "elegant": "少盒子多解释：框架的盒子数不多于能解释的独立观察；调节和中介先有理论张力再进模型。",
+        "interesting": "反常的执行偏差或组织行为，一个让通行模型失灵的现场观察。"
+      },
+      "mediocrity_smells": [
+        "“X 政策的现状、问题与对策”",
+        "换样本的有调节中介模型，没有条件两侧的反面观察",
+        "“X 型治理”命名无机制、无撞车检索",
+        "多源流或倡导联盟框架套一个案例后宣布适用"
+      ],
+      "calibration_signals": {
+        "cn_journals": [
+          "中国行政管理",
+          "公共管理学报",
+          "公共行政评论",
+          "公共管理与政策评论",
+          "治理研究",
+          "公共管理评论"
+        ],
+        "en_journals": [
+          "Public Administration Review",
+          "Journal of Public Administration Research and Theory",
+          "Governance",
+          "Public Administration",
+          "Public Management Review",
+          "Policy Sciences",
+          "Journal of Public Policy"
+        ],
+        "non_citation_signals": [
+          "人大复印报刊资料《公共行政》转载",
+          "被后续论文当作机制或测量范本",
+          "OpenAlex 引文边"
+        ],
+        "citation_reliability": "high"
+      },
+      "hot_terms": [
+        "数字政府",
+        "整体性治理",
+        "敏捷治理",
+        "协同治理",
+        "韧性治理",
+        "放管服",
+        "营商环境",
+        "一网通办",
+        "基层减负",
+        "共同富裕",
+        "新质生产力"
+      ],
+      "adjacent_branches": [
+        "chinese-politics",
+        "political-sociology-economy",
+        "comparative-politics"
+      ],
+      "exemplars": {
+        "positive": [
+          {
+            "title": "领导高度重视:一种科层运作的注意力分配方式",
+            "venue": "中国行政管理",
+            "year": 2019,
+            "identifier": "cnki:中国行政管理:2019:领导高度重视:一种科层运作的注意力分配方式",
+            "why": "清味来自科层现场的真困惑——\"'高度重视'普遍存在于领导话语体系之中\"这一人人熟视无睹的口头禅被当成待解释的对象；厚味在于\"避责式重视和邀功式重视两个维度\"是可跨政策域复用的注意力分配中观命题，且给出\"延缓了非重视事件的'政策之窗'开启时间\"这一让通行注意力模型失灵的代价，趣味亦在。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 723,
+              "cohort_size": 380,
+              "cohort_percentile": 99.87,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:27Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-public-administration-policy-8dff7e30021f46a8b1e2750ec95d65af",
+            "selection_context_id": "6f4e33b7-fb1a-4da0-a31a-d3cdf52ff450",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Administrative Capital and Citizens’ Responses to Administrative Burden",
+            "venue": "Journal of Public Administration Research and Theory",
+            "year": 2020,
+            "identifier": "10.1093/jopart/muaa031",
+            "why": "趣味十足：巴基斯坦医生申请产假的民族志里长出\"administrative capital\"，并发现\"the different costs imposed by public policies can be interchangeable, which may be used by citizens to their advantage\"——成本可互换直接顶翻行政负担文献默认的成本叠加模型；概念有田野过程支撑而非命名游戏，厚味与清味俱全。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 226,
+              "cohort_size": 52,
+              "cohort_percentile": 99.04,
+              "openalex_percentile_year": {
+                "min": 95,
+                "max": 100
+              },
+              "fwci": 63.5187,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:27Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-public-administration-policy-8dff7e30021f46a8b1e2750ec95d65af",
+            "selection_context_id": "6f4e33b7-fb1a-4da0-a31a-d3cdf52ff450",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Government policy performance and central–local political trust in China",
+            "venue": "Journal of Public Policy",
+            "year": 2022,
+            "identifier": "10.1017/s0143814x22000162",
+            "why": "清味在于问题是真的责任归属困惑——\"how citizens attribute responsibility to different levels of government within an authoritarian unitary context\"；趣味在于结论反转了中央免责的通行判断：\"The central government cannot always avoid blame, depending on different policy issues\"，并给出按政策域分化的可迁移命题。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 45,
+              "cohort_size": 39,
+              "cohort_percentile": 98.72,
+              "openalex_percentile_year": {
+                "min": 99,
+                "max": 100
+              },
+              "fwci": 26.7809,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:27Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-public-administration-policy-8dff7e30021f46a8b1e2750ec95d65af",
+            "selection_context_id": "6f4e33b7-fb1a-4da0-a31a-d3cdf52ff450",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Narratives of digital sovereignty in German political discourse",
+            "venue": "Governance",
+            "year": 2022,
+            "identifier": "10.1111/gove.12690",
+            "why": "趣味鲜明：把七种相互矛盾的数字主权叙事的并存判为\"this diversity is not a bug, but a feature\"，一句话掀翻了\"概念含混即缺陷\"的通行处理；厚味在于给出机制——\"rich internarrative linkages which benefit the broader resonance of each individual narrative\"，可迁移到其他模糊政策概念。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 174,
+              "cohort_size": 71,
+              "cohort_percentile": 99.3,
+              "openalex_percentile_year": {
+                "min": 98,
+                "max": 100
+              },
+              "fwci": 47.2025,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:27Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-public-administration-policy-8dff7e30021f46a8b1e2750ec95d65af",
+            "selection_context_id": "6f4e33b7-fb1a-4da0-a31a-d3cdf52ff450",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "中国语境下的“协同治理”概念有什么不同?——基于概念史的考察",
+            "venue": "公共管理评论",
+            "year": 2021,
+            "identifier": "cnki:公共管理评论:2021:中国语境下的“协同治理”概念有什么不同?——基于概念史的考察",
+            "why": "清味在于不造新词而是追问既有词的分野——\"在内涵、外延以及国内外的概念表达上存在一定的解读和应用分野\"；雅味在于\"词语—概念—情境\"三格框架不多不少，且落到\"中国共产党的领导嵌入协同治理链条\"这一可检验的判别性结论，框架没有遮住对象。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 412,
+              "cohort_size": 47,
+              "cohort_percentile": 98.94,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": [
+                "协同治理"
+              ]
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:27Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-public-administration-policy-8dff7e30021f46a8b1e2750ec95d65af",
+            "selection_context_id": "6f4e33b7-fb1a-4da0-a31a-d3cdf52ff450",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ],
+        "negative": [
+          {
+            "title": "Comparing Cost Accounting Use across European Countries: The Role of Administrative Traditions, NPM Instruments, and Fiscal Stress",
+            "venue": "Public Administration Review",
+            "year": 2020,
+            "identifier": "10.1111/puar.13162",
+            "why": "趣味缺失：三个自变量全部来自文献清单——\"administrative traditions, NPM instruments, and fiscal stress\"，结论也止于两项相关一项不相关，没有任何让通行模型失灵的现场观察；换国别样本跑一遍因素检验，规范完整却无增量机制。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 17,
+              "cohort_size": 140,
+              "cohort_percentile": 18.93,
+              "openalex_percentile_year": {
+                "min": 93,
+                "max": 99
+              },
+              "fwci": 1.8341,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:27Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-public-administration-policy-8dff7e30021f46a8b1e2750ec95d65af",
+            "selection_context_id": "6f4e33b7-fb1a-4da0-a31a-d3cdf52ff450",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Dramaturgy and crisis management: A third act",
+            "venue": "Public Administration",
+            "year": 2021,
+            "identifier": "10.1111/padm.12775",
+            "why": "厚味缺失：增量是又一层框架而非机制，\"we present an analytical model, which will allow future researchers to analyze\"把解释工作留给了别人；案例只是\"illustrating the model's analytical capacity\"式的印证，正是框架套一案例后宣布适用的写法。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 9,
+              "cohort_size": 85,
+              "cohort_percentile": 18.24,
+              "openalex_percentile_year": {
+                "min": 91,
+                "max": 97
+              },
+              "fwci": 2.0128,
+              "reprints": [],
+              "hot_term_hits": [
+                "pandemic"
+              ]
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:27Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-public-administration-policy-8dff7e30021f46a8b1e2750ec95d65af",
+            "selection_context_id": "6f4e33b7-fb1a-4da0-a31a-d3cdf52ff450",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "The effects of political design and organizational dynamics on structural disaggregation and integration in Norway 1947–2019",
+            "venue": "Governance",
+            "year": 2022,
+            "identifier": "10.1111/gove.12669",
+            "why": "趣味缺失：1947—2019 年的长时段数据做得规范，结论却是两边都对的和局——\"political motives matter a great deal ... but that structural path dependencies may also be at play\"，两个盒子（political design / organizational dynamics）之间没有事先的理论张力，也没有条件两侧的反常观察。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 5,
+              "cohort_size": 71,
+              "cohort_percentile": 19.72,
+              "openalex_percentile_year": {
+                "min": 89,
+                "max": 97
+              },
+              "fwci": 0.9636,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:27Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-public-administration-policy-8dff7e30021f46a8b1e2750ec95d65af",
+            "selection_context_id": "6f4e33b7-fb1a-4da0-a31a-d3cdf52ff450",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "marxism",
+      "names": {
+        "zh": "马克思主义理论",
+        "en": "Marxist theory"
+      },
+      "aliases": [
+        "马克思主义",
+        "马克思主义理论",
+        "马克思主义基本原理",
+        "马克思主义中国化",
+        "马克思主义政治经济学",
+        "科学社会主义",
+        "国外马克思主义",
+        "党史党建",
+        "marxism",
+        "marxist theory",
+        "historical materialism"
+      ],
+      "flavors": {
+        "clear": "真问题来自文本与现实之间的真张力，不是周年应景或会议精神的注释。",
+        "thick": "增量同时有文本学依据、理论史定位和对新现象的解释力；注释和复述不算增量。",
+        "elegant": "版本、译本与页码忠实，术语沿用通行译名；不堆口号，不用排比替代推理。",
+        "interesting": "用马克思的问题意识看新事物，例如平台劳动、数字资本、国家与市场的新关系，并得出可争论的判断。"
+      },
+      "mediocrity_smells": [
+        "“X 思想的当代意义”三段式",
+        "引语堆砌后直接下结论，没有文本解读",
+        "把政策表述当理论命题反向论证",
+        "文本、理论史、现实三者只有一者在场"
+      ],
+      "calibration_signals": {
+        "cn_journals": [
+          "马克思主义研究",
+          "马克思主义与现实",
+          "教学与研究",
+          "当代世界与社会主义",
+          "哲学研究",
+          "中国社会科学"
+        ],
+        "en_journals": [
+          "Historical Materialism",
+          "Rethinking Marxism",
+          "Science & Society",
+          "Capital & Class",
+          "New Left Review"
+        ],
+        "non_citation_signals": [
+          "人大复印报刊资料《马克思列宁主义研究》转载",
+          "新华文摘转载",
+          "被专业刊后续论文以带立场的 cites 边当作对话对象"
+        ],
+        "citation_reliability": "low"
+      },
+      "hot_terms": [
+        "第二个结合",
+        "中国式现代化",
+        "新质生产力",
+        "两个确立",
+        "共同富裕",
+        "人类文明新形态",
+        "自主知识体系"
+      ],
+      "adjacent_branches": [
+        "political-theory",
+        "political-sociology-economy",
+        "chinese-politics"
+      ],
+      "exemplars": {
+        "positive": [
+          {
+            "title": "The platform as factory: Crowdwork and the hidden labour behind artificial intelligence",
+            "venue": "Capital & Class",
+            "year": 2020,
+            "identifier": "10.1177/0309816819899410",
+            "why": "四味齐备：以众包平台这一新事物为对象，把它读成\"an emerging digital Taylorism\"并指出资本借此\"bypassing the need to spatially and subjectively homogenise them\"，这是可争论的判断（趣味、清味）；同时回接《资本论》的老范畴——\"the return of very old forms of exploitation such as the piece wage\"，文本、理论史与新现象三者同时在场（厚味）。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 233,
+              "cohort_size": 37,
+              "cohort_percentile": 98.65,
+              "openalex_percentile_year": {
+                "min": 97,
+                "max": 100
+              },
+              "fwci": 34.2952,
+              "reprints": [],
+              "hot_term_hits": [
+                "Global South"
+              ]
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:28Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-marxism-dd58af5688da41b2bdaac6b33d806802",
+            "selection_context_id": "7a59f09a-2742-4c06-be21-c648d267cafe",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Class, Assets and Work in Rentier Capitalism",
+            "venue": "Historical Materialism",
+            "year": 2021,
+            "identifier": "10.1163/1569206x-29021234",
+            "why": "清味来自文本与现实之间的真张力：食利资本主义下\"company-owned assets and corporate rents\"这一被忽略的现象逼着重新处理阶级概念；难得的是它不替马克思打圆场，而是直面\"the challenges that those developments potentially pose to Marxian concepts\"，判断可争论，趣味在场。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 60,
+              "cohort_size": 38,
+              "cohort_percentile": 98.68,
+              "openalex_percentile_year": {
+                "min": 93,
+                "max": 100
+              },
+              "fwci": 11.5275,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:28Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-marxism-dd58af5688da41b2bdaac6b33d806802",
+            "selection_context_id": "7a59f09a-2742-4c06-be21-c648d267cafe",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "如何理解数字劳动、数字剥削、数字资本?——当代数字资本主义的马克思主义政治经济学批判",
+            "venue": "教学与研究",
+            "year": 2021,
+            "identifier": "cnki:教学与研究:2021:如何理解数字劳动、数字剥削、数字资本?——当代数字资本主义的马克思主义政治经济学批判",
+            "why": "清味在于问题是真争论而非应景——\"数字劳动是否改变了资本主义的剥削机制?西方学界对此观点各异\"；厚味在于先做数字劳动的物质属性分析再论证\"数字劳动产品向数字资本过渡的进阶逻辑\"，最后给出\"数字劳动在本质上仍属于生产性劳动\"这一可被反驳的政治经济学判断。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 385,
+              "cohort_size": 163,
+              "cohort_percentile": 99.69,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:28Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-marxism-dd58af5688da41b2bdaac6b33d806802",
+            "selection_context_id": "7a59f09a-2742-4c06-be21-c648d267cafe",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Democratic Economic Planning, Social Metabolism and the Environment",
+            "venue": "Science & Society",
+            "year": 2022,
+            "identifier": "10.1521/siso.2022.86.2.291",
+            "why": "厚味与雅味俱在：把三种具体的民主计划模型（negotiated coordination、participatory economics、computerized central planning）逐一放到生态复杂性面前检验，理论史定位清楚且不堆口号；题材冷门却给出\"they are shown to contain a number of problematic areas\"这样有靶子的判断，趣味不靠热点。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 20,
+              "cohort_size": 18,
+              "cohort_percentile": 97.22,
+              "openalex_percentile_year": {
+                "min": 93,
+                "max": 98
+              },
+              "fwci": 1.6929,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:28Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-marxism-dd58af5688da41b2bdaac6b33d806802",
+            "selection_context_id": "7a59f09a-2742-4c06-be21-c648d267cafe",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Social Constructionism: Critical Analysis from a Vygotskian Perspective",
+            "venue": "Rethinking Marxism",
+            "year": 2024,
+            "identifier": "10.1080/08935696.2024.2328667",
+            "why": "清味在于真张力：社会建构论\"there is no reference to an objective reality\"与唯物主义立场正面冲突，问题不是周年注释；雅味在于不喊口号而以\"a dialectical overcoming of this dipole between relativism and positivism\"给出可操作的理论出路，把维果茨基学派的理论史位置交代清楚。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 6,
+              "cohort_size": 30,
+              "cohort_percentile": 98.33,
+              "openalex_percentile_year": {
+                "min": 96,
+                "max": 98
+              },
+              "fwci": 2.8913,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:28Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-marxism-dd58af5688da41b2bdaac6b33d806802",
+            "selection_context_id": "7a59f09a-2742-4c06-be21-c648d267cafe",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ],
+        "negative": [
+          {
+            "title": "重构中国现代性的三重意识——基于毛泽东的探索性实践及其当代效应",
+            "venue": "马克思主义与现实",
+            "year": 2019,
+            "identifier": "cnki:马克思主义与现实:2019:重构中国现代性的三重意识——基于毛泽东的探索性实践及其当代效应",
+            "why": "标准的\"X思想的当代意义\"三段式：\"心理意识—愿景意识—理论意识\"三分之后直接落到\"对当下进一步推动中国现代性的探索性建构具有重要借鉴和启示意义\"，缺厚味——没有文本解读，只有对既有判断的重述与并列。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 7,
+              "cohort_size": 178,
+              "cohort_percentile": 23.03,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:28Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-marxism-dd58af5688da41b2bdaac6b33d806802",
+            "selection_context_id": "7a59f09a-2742-4c06-be21-c648d267cafe",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Force of the Postmodern: The Deconstructive Drive in Jack Amariglio’s Writings",
+            "venue": "Rethinking Marxism",
+            "year": 2024,
+            "identifier": "10.1080/08935696.2024.2368408",
+            "why": "厚味缺失：全文是对一人著作的谱系复述——\"traces the genealogy of the concept of the postmodern in Jack Amariglio's body of work\"，增量停在梳理与致敬；没有可争论的判断，也没有任何新现象被这套概念照亮，注释不等于增量。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 0,
+              "cohort_size": 30,
+              "cohort_percentile": 21.67,
+              "openalex_percentile_year": null,
+              "fwci": 0.0,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:28Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-marxism-dd58af5688da41b2bdaac6b33d806802",
+            "selection_context_id": "7a59f09a-2742-4c06-be21-c648d267cafe",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "康德“自主启蒙”与现代社会互动机制",
+            "venue": "中国社会科学",
+            "year": 2024,
+            "identifier": "cnki:中国社会科学:2024:康德“自主启蒙”与现代社会互动机制",
+            "why": "缺厚味与雅味：康德只提供了一个论断的名号\"自主启蒙\"，没有版本与文本层面的解读，随后便直接跳到结论\"交往在信息化时代已成为生产方式变革枢纽\"；三者中现实一维是宣告出来的，不是论证出来的。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 5,
+              "cohort_size": 137,
+              "cohort_percentile": 18.98,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:28Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-marxism-dd58af5688da41b2bdaac6b33d806802",
+            "selection_context_id": "7a59f09a-2742-4c06-be21-c648d267cafe",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "historical-political-science",
+      "names": {
+        "zh": "历史政治学",
+        "en": "Historical political science"
+      },
+      "aliases": [
+        "历史政治学",
+        "历史制度主义",
+        "制度史",
+        "政治史",
+        "历史社会学",
+        "国家形成",
+        "historical political science",
+        "historical institutionalism",
+        "state formation",
+        "political history"
+      ],
+      "flavors": {
+        "clear": "真问题来自制度史料中的真反常，不是为“历史政治学”标签去找古代案例，也不是以史证今的比附。",
+        "thick": "增量是重建制度运作过程或纠正既有叙事，通常落在阶 3 新机制或阶 5 反转结论。",
+        "elegant": "史料层级与版本忠实，一条档案改写一个通说；概念对接当代政治学而不强加。",
+        "interesting": "被忽视的档案、时间序列上的反转，或一个让教科书叙事失灵的事件。"
+      },
+      "mediocrity_smells": [
+        "史料罗列后接现代概念，没有史料批判",
+        "以史证今：先有今天的结论再回历史找例证",
+        "制度描述冒充机制解释",
+        "只用二手叙事，没有一手档案或原始文献"
+      ],
+      "calibration_signals": {
+        "cn_journals": [
+          "历史研究",
+          "清史研究",
+          "近代史研究",
+          "中国史研究",
+          "史学月刊",
+          "政治学研究",
+          "开放时代"
+        ],
+        "en_journals": [
+          "Comparative Studies in Society and History",
+          "Studies in American Political Development",
+          "World Politics",
+          "Journal of Asian Studies",
+          "Late Imperial China"
+        ],
+        "non_citation_signals": [
+          "被后续论文以带立场的 cites 边当作对话对象",
+          "人大复印报刊资料《历史学》或《政治学》转载",
+          "被史学综述作为新解释登记"
+        ],
+        "citation_reliability": "low"
+      },
+      "hot_terms": [
+        "自主知识体系",
+        "中华文明",
+        "大一统",
+        "中国式现代化"
+      ],
+      "adjacent_branches": [
+        "chinese-politics",
+        "comparative-politics",
+        "political-theory"
+      ],
+      "exemplars": {
+        "positive": [
+          {
+            "title": "清代捐纳、捐输概念考辨",
+            "venue": "清史研究",
+            "year": 2023,
+            "identifier": "cnki:清史研究:2023:清代捐纳、捐输概念考辨",
+            "why": "清味与雅味俱在：真问题来自制度史料本身的反常——“研究者往往将其混为一谈”，而非替概念找古代例证；靠政策依据、款项数额、道德色彩等五个维度的原始区分改写通说，属阶5的辨伪式反转。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 21,
+              "cohort_size": 87,
+              "cohort_percentile": 99.43,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:29Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-historical-political-science-0dca0256f5d5475289ba0e5b710b3f1d",
+            "selection_context_id": "6d6492db-ae0e-43a4-9b04-9ea4a36fd981",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "宋代的疆界形态与疆界意识",
+            "venue": "历史研究",
+            "year": 2019,
+            "identifier": "cnki:历史研究:2019:宋代的疆界形态与疆界意识",
+            "why": "厚味与趣味并存：不满足于描述疆界，而是给出“疆界清晰程度与关系的对抗程度呈正比”这一可检验机制，并以“分隔版籍与非版籍的民和地”落到赋役实务上。雅味见于结尾拒绝比附——“不必用‘近代性’加以阐释”，正是抵住了以史证今的诱惑。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 50,
+              "cohort_size": 86,
+              "cohort_percentile": 99.42,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:29Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-historical-political-science-0dca0256f5d5475289ba0e5b710b3f1d",
+            "selection_context_id": "6d6492db-ae0e-43a4-9b04-9ea4a36fd981",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "From Many Divides, One? The Polarization and Nationalization of American State Party Platforms, 1918–2017",
+            "venue": "Studies in American Political Development",
+            "year": 2022,
+            "identifier": "10.1017/s0898588x22000013",
+            "why": "清厚雅趣齐全：以 1,783 份州党纲这一被忽视的一手文本序列，做出时间序列上的反转——“innovative phrases increasingly debut in state (not national) platforms”，直接推翻自上而下极化的通说。史料层级明确（1918–2017 原始纲领），概念对接当代政党政治而不强加。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 34,
+              "cohort_size": 19,
+              "cohort_percentile": 97.37,
+              "openalex_percentile_year": {
+                "min": 88,
+                "max": 99
+              },
+              "fwci": 21.2672,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:29Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-historical-political-science-0dca0256f5d5475289ba0e5b710b3f1d",
+            "selection_context_id": "6d6492db-ae0e-43a4-9b04-9ea4a36fd981",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "The Asian Anthropocene: Electricity and Fossil Developmentalism",
+            "venue": "The Journal of Asian Studies",
+            "year": 2019,
+            "identifier": "10.1017/s0021911819000573",
+            "why": "清味在于真反常：亚洲电气化史“refute the notion of any simple relationship between colonialism and fossil capitalism”，不是给既有人类世叙事补例证。厚味落在阶3新机制“fossil developmentalism”——能源扩张成为国家主导的道德工程，且跨越市场与计划经济之别。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 94,
+              "cohort_size": 38,
+              "cohort_percentile": 98.68,
+              "openalex_percentile_year": {
+                "min": 95,
+                "max": 100
+              },
+              "fwci": 24.0008,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:29Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-historical-political-science-0dca0256f5d5475289ba0e5b710b3f1d",
+            "selection_context_id": "6d6492db-ae0e-43a4-9b04-9ea4a36fd981",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Performative Governance",
+            "venue": "World Politics",
+            "year": 2020,
+            "identifier": "10.1017/s0043887120000131",
+            "why": "清味来自一个真反常——“public expectations exceed its actual governing capacity”时国家做什么；厚味是阶3新机制“performative governance”，并与惰性、家长制、实质回应逐一切分。趣味在于揭出 performance 的双重含义，让“治理绩效”这一教科书读法失灵。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 202,
+              "cohort_size": 19,
+              "cohort_percentile": 97.37,
+              "openalex_percentile_year": {
+                "min": 93,
+                "max": 100
+              },
+              "fwci": 52.1164,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:29Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-historical-political-science-0dca0256f5d5475289ba0e5b710b3f1d",
+            "selection_context_id": "6d6492db-ae0e-43a4-9b04-9ea4a36fd981",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ],
+        "negative": [
+          {
+            "title": "种族主义与北美毛皮边疆印白通婚的兴衰",
+            "venue": "历史研究",
+            "year": 2019,
+            "identifier": "cnki:历史研究:2019:种族主义与北美毛皮边疆印白通婚的兴衰",
+            "why": "缺厚味：全文是“乡村婚姻”从流行到被禁的完整兴衰叙述，因果一律归给现成概念——“白人的种族主义偏见日益暴露出来”，没有机制拆解也没有史料批判。这正是史料罗列后接现代概念的味道。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 4,
+              "cohort_size": 86,
+              "cohort_percentile": 15.12,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:29Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-historical-political-science-0dca0256f5d5475289ba0e5b710b3f1d",
+            "selection_context_id": "6d6492db-ae0e-43a4-9b04-9ea4a36fd981",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "The Iconic Paths of La Verge de Montserrat in Catalonia and Beyond: A Comparative Approach from History and Anthropology",
+            "venue": "Comparative Studies in Society and History",
+            "year": 2022,
+            "identifier": "10.1017/s0010417522000330",
+            "why": "缺清味：追踪一尊圣像“from its inception until the present day”并旁及波多黎各、赤道几内亚、撒丁，规范完整却没有任何被挑战的通说或反常。所许诺的“relational and processual model”是程序性口号，描述冒充了解释。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 0,
+              "cohort_size": 41,
+              "cohort_percentile": 3.66,
+              "openalex_percentile_year": null,
+              "fwci": 0.0,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:29Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-historical-political-science-0dca0256f5d5475289ba0e5b710b3f1d",
+            "selection_context_id": "6d6492db-ae0e-43a4-9b04-9ea4a36fd981",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Whither India? 1919 and the Aftermath of the First World War",
+            "venue": "The Journal of Asian Studies",
+            "year": 2019,
+            "identifier": "10.1017/s0021911819000044",
+            "why": "缺厚味与清味：摘要通篇是 1919 年印度的背景铺陈——参战、流感、饥荒、罗拉特法与印度政府法的并置——最后以拉伊“revolution is in the air”的引语收束，止于叙事而没有给出可争辩的机制或增量结论。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 0,
+              "cohort_size": 38,
+              "cohort_percentile": 6.58,
+              "openalex_percentile_year": null,
+              "fwci": 0.0,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:29Z",
+            "selected_at": "2026-09-04T14:54:19Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-historical-political-science-0dca0256f5d5475289ba0e5b710b3f1d",
+            "selection_context_id": "6d6492db-ae0e-43a4-9b04-9ea4a36fd981",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "political-sociology-economy",
+      "names": {
+        "zh": "政治社会学与政治经济学",
+        "en": "Political sociology and political economy"
+      },
+      "aliases": [
+        "政治社会学",
+        "政治经济学",
+        "国家与社会",
+        "社会运动",
+        "利益集团",
+        "发展政治经济学",
+        "political sociology",
+        "political economy",
+        "state-society relations",
+        "social movements"
+      ],
+      "flavors": {
+        "clear": "真问题来自结构与行动之间的真张力，不是用一个大理论下压一个案例。",
+        "thick": "增量是有过程证据的机制加上可测量的结构条件，说明什么条件下行动改变结构。",
+        "elegant": "概念对接社会学与经济学既有术语，不另造平行词汇；模型服务于机制而非相反。",
+        "interesting": "结构预期与行动结果相反的案例，或一个被忽略的分配后果。"
+      },
+      "mediocrity_smells": [
+        "大理论下压一个案例，案例只作插图",
+        "回归有结果无识别，机制只在讨论部分出现",
+        "结构与行动两张皮",
+        "分配后果只作结尾提醒"
+      ],
+      "calibration_signals": {
+        "cn_journals": [
+          "社会学研究",
+          "社会",
+          "经济社会体制比较",
+          "开放时代",
+          "政治学研究",
+          "中国社会科学"
+        ],
+        "en_journals": [
+          "Comparative Political Studies",
+          "World Politics",
+          "Politics & Society",
+          "Socio-Economic Review",
+          "American Sociological Review"
+        ],
+        "non_citation_signals": [
+          "中英双轨引文边",
+          "人大复印报刊资料《社会学》或《政治学》转载",
+          "被后续研究作为测量或机制范本"
+        ],
+        "citation_reliability": "high"
+      },
+      "hot_terms": [
+        "共同富裕",
+        "新质生产力",
+        "平台经济",
+        "数字经济",
+        "乡村振兴"
+      ],
+      "adjacent_branches": [
+        "comparative-politics",
+        "public-administration-policy",
+        "marxism"
+      ],
+      "exemplars": {
+        "positive": [
+          {
+            "title": "Repression Works (Just Not in Moderation)",
+            "venue": "Comparative Political Studies",
+            "year": 2023,
+            "identifier": "10.1177/00104140231152778",
+            "why": "四味齐全：清味在开篇的真张力——“Why does government violence deter political challengers in one context but inflame them in the next?”；厚味是有阈值的招募机制加上可测量的结构条件（车臣分解数据与71国次国家元分析），趣味则在“even if the government kills more innocents”这一与直觉相反的转折，且把减少暴力与保全公民自由的取舍写进结论而非结尾提醒。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 73,
+              "cohort_size": 94,
+              "cohort_percentile": 99.47,
+              "openalex_percentile_year": {
+                "min": 88,
+                "max": 100
+              },
+              "fwci": 33.098,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-sociology-economy-cfdfa47dbcd24eb3974de7ded37b4203",
+            "selection_context_id": "21b5ee92-3ce9-4ad0-af1f-cf9ecf3711ae",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "不稳定就业与农民工市民化悖论:基于劳动过程的视角",
+            "venue": "社会",
+            "year": 2022,
+            "identifier": "cnki:社会:2022:不稳定就业与农民工市民化悖论:基于劳动过程的视角",
+            "why": "清味来自结构与行动的真张力：“所谓的农民工流动自由其实是雇主通过掐尖式用工以保证资本的利润率”。厚味是劳动过程机制配上全国代表性调查、广义倾向值匹配与企业访谈的双重证据；趣味在那个可测的悖论——“不稳定就业有助于提高农民工个体的工资水平，但是不利于其家庭成员随迁”。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 118,
+              "cohort_size": 53,
+              "cohort_percentile": 99.06,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-sociology-economy-cfdfa47dbcd24eb3974de7ded37b4203",
+            "selection_context_id": "21b5ee92-3ce9-4ad0-af1f-cf9ecf3711ae",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Measuring Stability and Change in Personal Culture Using Panel Data",
+            "venue": "American Sociological Review",
+            "year": 2020,
+            "identifier": "10.1177/0003122420921538",
+            "why": "清味是两种个体变迁模型之间的真张力（active updating 对 settled dispositions），并未用大理论下压；雅味在于把两者形式化为“a simple combined model”后用面板直接对判，模型服务于机制。趣味见于反直觉结论——GSS 中多数变化“appears to be short-term attitude change or measurement error rather than persisting changes”。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 272,
+              "cohort_size": 44,
+              "cohort_percentile": 98.86,
+              "openalex_percentile_year": {
+                "min": 99,
+                "max": 100
+              },
+              "fwci": 32.5166,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-sociology-economy-cfdfa47dbcd24eb3974de7ded37b4203",
+            "selection_context_id": "21b5ee92-3ce9-4ad0-af1f-cf9ecf3711ae",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Performative Governance",
+            "venue": "World Politics",
+            "year": 2020,
+            "identifier": "10.1017/s0043887120000131",
+            "why": "清味在“public expectations exceed its actual governing capacity”这一结构约束与官僚行动的张力；厚味是参与观察给出的过程证据加上明确的结构条件——“the dual burdens of low state capacity and high public scrutiny”。雅味在于与惰性、家长制、实质回应逐一切分而不另造平行词汇。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 202,
+              "cohort_size": 19,
+              "cohort_percentile": 97.37,
+              "openalex_percentile_year": {
+                "min": 93,
+                "max": 100
+              },
+              "fwci": 52.1164,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-sociology-economy-cfdfa47dbcd24eb3974de7ded37b4203",
+            "selection_context_id": "21b5ee92-3ce9-4ad0-af1f-cf9ecf3711ae",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "外部融资需求、印象管理与企业漂绿",
+            "venue": "经济社会体制比较",
+            "year": 2019,
+            "identifier": "cnki:经济社会体制比较:2019:外部融资需求、印象管理与企业漂绿",
+            "why": "清味来自“形式上适应而实质上对抗”的结构—行动张力；厚味不止于相关，机制检验给出可测后果——“漂绿企业更容易获得银行的债务融资”，异质性又指明失效条件（媒体负面报道、绿色试点单位）。趣味正在这一被忽略的分配后果：装绿反而换来信贷。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 579,
+              "cohort_size": 114,
+              "cohort_percentile": 99.56,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-sociology-economy-cfdfa47dbcd24eb3974de7ded37b4203",
+            "selection_context_id": "21b5ee92-3ce9-4ad0-af1f-cf9ecf3711ae",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ],
+        "negative": [
+          {
+            "title": "西方“腐败—增长”关系研究五十年:回顾与启示",
+            "venue": "经济社会体制比较",
+            "year": 2019,
+            "identifier": "cnki:经济社会体制比较:2019:西方“腐败—增长”关系研究五十年:回顾与启示",
+            "why": "缺厚味：把西方五十年研究归为四种论点后以“会因宏观政治经济变量的差异而表现出不同的效应”折中收束，没有自己的过程证据与识别，机制只停在“通过投资、贸易、人力资本……间接影响”的通道罗列，随后直接跳到三条政策启示。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 2,
+              "cohort_size": 114,
+              "cohort_percentile": 9.65,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-sociology-economy-cfdfa47dbcd24eb3974de7ded37b4203",
+            "selection_context_id": "21b5ee92-3ce9-4ad0-af1f-cf9ecf3711ae",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Measuring Racial Status Beliefs with Implicit Associations",
+            "venue": "American Sociological Review",
+            "year": 2020,
+            "identifier": "10.1177/0003122420968553",
+            "why": "缺趣味：全文规范完整地为一个测量工具辩护——“status and evaluations load on distinct underlying constructs”——但没有任何结构预期与行动结果相反的发现，也没有触及这一测量所指向的分配后果，止于“ways to further refine the racial status IAT”。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 8,
+              "cohort_size": 44,
+              "cohort_percentile": 2.27,
+              "openalex_percentile_year": {
+                "min": 89,
+                "max": 97
+              },
+              "fwci": 2.1182,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-sociology-economy-cfdfa47dbcd24eb3974de7ded37b4203",
+            "selection_context_id": "21b5ee92-3ce9-4ad0-af1f-cf9ecf3711ae",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "环境治理中的知识生产与呈现——对垃圾焚烧技术争议的论域分析",
+            "venue": "社会学研究",
+            "year": 2019,
+            "identifier": "cnki:社会学研究:2019:环境治理中的知识生产与呈现——对垃圾焚烧技术争议的论域分析",
+            "why": "缺厚味且结构与行动两张皮：民族志把两个话语世界并置呈现“知识是如何……生产、应用、循环和竞争的”，却未说明什么条件下运动的行动改变了焚烧设施的结构安排，落点退回方法论许诺——“提供一个可用的方法包”。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 26,
+              "cohort_size": 63,
+              "cohort_percentile": 20.63,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-political-sociology-economy-cfdfa47dbcd24eb3974de7ded37b4203",
+            "selection_context_id": "21b5ee92-3ce9-4ad0-af1f-cf9ecf3711ae",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "area-studies",
+      "names": {
+        "zh": "区域国别研究",
+        "en": "Area studies"
+      },
+      "aliases": [
+        "区域国别",
+        "区域国别研究",
+        "国别研究",
+        "美国研究",
+        "欧洲研究",
+        "日本研究",
+        "俄罗斯研究",
+        "东南亚研究",
+        "非洲研究",
+        "拉美研究",
+        "中东研究",
+        "area studies",
+        "country studies",
+        "american politics",
+        "european politics"
+      ],
+      "flavors": {
+        "clear": "真问题是该国或该地区的某项制度为何如此演化，不是形势分析或国情介绍。",
+        "thick": "增量是过程追踪得到的制度机制，并与比较政治或国际政治的一般命题对话。",
+        "elegant": "中外两套文献都接得上，术语用对象国学界的通行表达；不把对象国政策文件当理论。",
+        "interesting": "对象国内部一个反直觉的制度事实，或一个让通行区域刻板印象失灵的观察。"
+      },
+      "mediocrity_smells": [
+        "国情介绍加“对我国启示”",
+        "只用中文二手文献，不接对象国学界",
+        "形势判断冒充机制解释",
+        "案例不与任何一般命题对话"
+      ],
+      "calibration_signals": {
+        "cn_journals": [
+          "美国研究",
+          "欧洲研究",
+          "俄罗斯东欧中亚研究",
+          "日本学刊",
+          "东南亚研究",
+          "西亚非洲",
+          "拉丁美洲研究",
+          "国际政治研究"
+        ],
+        "en_journals": [
+          "Comparative Political Studies",
+          "World Politics",
+          "Journal of Asian Studies",
+          "Europe-Asia Studies",
+          "Journal of Democracy"
+        ],
+        "non_citation_signals": [
+          "中英双轨引文边",
+          "被对象国学界后续研究引用",
+          "人大复印报刊资料《国际政治》转载"
+        ],
+        "citation_reliability": "medium"
+      },
+      "hot_terms": [
+        "一带一路",
+        "全球南方",
+        "中美竞争",
+        "地缘政治",
+        "大国竞争",
+        "百年未有之大变局"
+      ],
+      "adjacent_branches": [
+        "international-politics",
+        "comparative-politics",
+        "historical-political-science"
+      ],
+      "exemplars": {
+        "positive": [
+          {
+            "title": "Repression Works (Just Not in Moderation)",
+            "venue": "Comparative Political Studies",
+            "year": 2023,
+            "identifier": "10.1177/00104140231152778",
+            "why": "厚味在于把车臣的分解数据做成有阈值的机制——“the opposition becomes unable to recruit new members, and the rebellion unravels”——并与71国次国家冲突动态的元分析对话，区域个案没有停在个案。趣味则是那句反直觉的“even if the government kills more innocents”。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 73,
+              "cohort_size": 94,
+              "cohort_percentile": 99.47,
+              "openalex_percentile_year": {
+                "min": 88,
+                "max": 100
+              },
+              "fwci": 33.098,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-area-studies-87ebb04b11544a1b9be3bd5cd0e608e7",
+            "selection_context_id": "745a4749-3b0c-451b-aea0-9a70f659fbe0",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "The Asian Anthropocene: Electricity and Fossil Developmentalism",
+            "venue": "The Journal of Asian Studies",
+            "year": 2019,
+            "identifier": "10.1017/s0021911819000573",
+            "why": "趣味十足：亚洲电气化史“refute the notion of any simple relationship between colonialism and fossil capitalism”，让人类世叙事里的欧洲中心刻板印象失灵。厚味是给出“fossil developmentalism”这一国家主导的道德工程机制，并说明它如何跨越市场与计划经济、跨越政体类型。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 94,
+              "cohort_size": 38,
+              "cohort_percentile": 98.68,
+              "openalex_percentile_year": {
+                "min": 95,
+                "max": 100
+              },
+              "fwci": 24.0008,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-area-studies-87ebb04b11544a1b9be3bd5cd0e608e7",
+            "selection_context_id": "745a4749-3b0c-451b-aea0-9a70f659fbe0",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "个人数据跨境传输的欧盟标准——规则建构、司法推动与范式扩张",
+            "venue": "欧洲研究",
+            "year": 2021,
+            "identifier": "cnki:欧洲研究:2021:个人数据跨境传输的欧盟标准——规则建构、司法推动与范式扩张",
+            "why": "清味在于追问某项制度为何如此演化——“规则建构、司法推动与范式扩张”三段构成机制链，而非欧盟法律介绍。雅味见于术语沿用对象国学界通行表达（充分性决定、标准数据保护条款、欧洲法院司法审查），趣味则是以基本权利之名达成“对数据流动的全球监管”这一扩张后果。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 147,
+              "cohort_size": 49,
+              "cohort_percentile": 98.98,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-area-studies-87ebb04b11544a1b9be3bd5cd0e608e7",
+            "selection_context_id": "745a4749-3b0c-451b-aea0-9a70f659fbe0",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "A New Look at Region, Language, Ethnicity and Civic National Identity in Ukraine",
+            "venue": "Europe Asia Studies",
+            "year": 2022,
+            "identifier": "10.1080/09668136.2022.2032606",
+            "why": "趣味在于打掉区域刻板印象：不预设东西乌克兰的地域—语言—族群同构，而用封闭与开放两种作答追问“how and why some residents of Ukraine see the language they speak as part of their identity”，并给出公民身份型民族认同的证据。雅味在于概念接得上民族主义研究的既有区分，不另造词。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 46,
+              "cohort_size": 86,
+              "cohort_percentile": 99.42,
+              "openalex_percentile_year": {
+                "min": 98,
+                "max": 100
+              },
+              "fwci": 13.8929,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-area-studies-87ebb04b11544a1b9be3bd5cd0e608e7",
+            "selection_context_id": "745a4749-3b0c-451b-aea0-9a70f659fbe0",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "Polarization versus Democracy",
+            "venue": "Journal of democracy",
+            "year": 2019,
+            "identifier": "10.1353/jod.2019.0039",
+            "why": "清味来自一个真问题——“When can we realistically expect ordinary people to check the authoritarian ambitions of elected politicians?”；厚味是给出选民层面的机制：极化电民“are willing to trade off democratic principles for partisan interests”，并顺带质疑常规民主支持度测量的现实相关性，这一反身性正是趣味所在。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 574,
+              "cohort_size": 27,
+              "cohort_percentile": 98.15,
+              "openalex_percentile_year": {
+                "min": 89,
+                "max": 100
+              },
+              "fwci": 173.7477,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-area-studies-87ebb04b11544a1b9be3bd5cd0e608e7",
+            "selection_context_id": "745a4749-3b0c-451b-aea0-9a70f659fbe0",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ],
+        "negative": [
+          {
+            "title": "美国的拉美政治研究:兴起、进展与镜鉴",
+            "venue": "国际政治研究",
+            "year": 2020,
+            "identifier": "cnki:国际政治研究:2020:美国的拉美政治研究:兴起、进展与镜鉴",
+            "why": "缺清味与厚味：全文是美国拉美研究的学术史梳理，问题不是拉美某项制度为何如此演化，结论落在“尽管……存在价值立场和历史视角的偏见,但其研究经验仍值得借鉴”，正是介绍加镜鉴的写法。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 6,
+              "cohort_size": 52,
+              "cohort_percentile": 17.31,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-area-studies-87ebb04b11544a1b9be3bd5cd0e608e7",
+            "selection_context_id": "745a4749-3b0c-451b-aea0-9a70f659fbe0",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "乌拉圭广泛阵线的政党特征与执政经验",
+            "venue": "拉丁美洲研究",
+            "year": 2021,
+            "identifier": "cnki:拉丁美洲研究:2021:乌拉圭广泛阵线的政党特征与执政经验",
+            "why": "缺厚味：把广泛阵线拆成意识形态多元化、组织结构制度化、社会基础覆盖全国等特征逐条罗列，执政成绩与2019年落败原因并列陈述，没有过程追踪出的机制，案例只被归入“典型温和左翼”而未与任何一般命题真正交锋。",
+            "signals": {
+              "source": "cnki",
+              "cited_by": 1,
+              "cohort_size": 60,
+              "cohort_percentile": 17.5,
+              "openalex_percentile_year": null,
+              "fwci": null,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-area-studies-87ebb04b11544a1b9be3bd5cd0e608e7",
+            "selection_context_id": "745a4749-3b0c-451b-aea0-9a70f659fbe0",
+            "selection_model_revision": "claude-opus-5"
+          },
+          {
+            "title": "30 Years After Tiananmen: Memory in the Era of Xi Jinping",
+            "venue": "Journal of democracy",
+            "year": 2019,
+            "identifier": "10.1353/jod.2019.0022",
+            "why": "缺厚味：核心断言“Xi Jinping has quietly taken Tiananmen as a guiding light, reading it as a cautionary tale of regime decay and a playbook for revival”是形势判断，没有过程证据说明这一记忆如何转化为反腐、意识形态整肃与文化重估的具体机制。",
+            "signals": {
+              "source": "openalex",
+              "cited_by": 9,
+              "cohort_size": 27,
+              "cohort_percentile": 16.67,
+              "openalex_percentile_year": {
+                "min": 89,
+                "max": 97
+              },
+              "fwci": 0.9554,
+              "reprints": [],
+              "hot_term_hits": []
+            },
+            "selected_by": "cohort-signal+isolated-reading",
+            "harvested_at": "2026-09-04T14:46:30Z",
+            "selected_at": "2026-09-04T14:54:20Z",
+            "selection_run_id": "AGENT-DECLARED-taste-exemplars-area-studies-87ebb04b11544a1b9be3bd5cd0e608e7",
+            "selection_context_id": "745a4749-3b0c-451b-aea0-9a70f659fbe0",
+            "selection_model_revision": "claude-opus-5"
+          }
+        ]
+      }
+    }
+  ]
+}

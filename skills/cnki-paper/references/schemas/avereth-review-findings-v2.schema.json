@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avereth-review-findings-v2.schema.json",
+  "title": "Avereth Review Finding Registry v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "review_run_id", "status", "manuscript", "input_digests", "venue_contract",
+    "provenance", "source_reviews", "findings"
+  ],
+  "properties": {
+    "schema_version": {"const": "avereth-review-findings/v2"},
+    "review_run_id": {"type": "string", "pattern": "^REV-[A-F0-9]{16}$"},
+    "status": {"enum": ["HAS_FINDINGS", "NO_MATERIAL_OBJECTIONS"]},
+    "manuscript": {"$ref": "#/$defs/fileIdentity"},
+    "input_digests": {
+      "type": "object",
+      "required": ["confirmed_motivation.md", "confirmed_contribution.md"],
+      "properties": {
+        "confirmed_motivation.md": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "confirmed_contribution.md": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+    },
+    "venue_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["applicability", "target_name", "basis"],
+      "properties": {
+        "applicability": {"enum": ["APPLICABLE", "NOT_APPLICABLE", "BLOCKED"]},
+        "target_name": {"type": "string"},
+        "basis": {"type": "string", "minLength": 1}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "provenance_independence", "review_assurance_sha256", "textual_overlap"],
+      "properties": {
+        "mode": {"enum": ["independent", "single_agent"]},
+        "provenance_independence": {"type": "boolean"},
+        "review_assurance_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "textual_overlap": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["metric", "textual_diversity_score"],
+          "properties": {
+            "metric": {"const": "diagnostic_only"},
+            "textual_diversity_score": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        }
+      }
+    },
+    "source_reviews": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "role", "verdict", "context_id", "prompt_path", "prompt_sha256",
+          "output_path", "output_sha256", "input_scope", "isolation_declared", "rubric"
+        ],
+        "properties": {
+          "role": {"enum": ["methods", "contribution", "clarity"]},
+          "verdict": {"enum": ["PASS", "FINDINGS"]},
+          "context_id": {"type": "string", "minLength": 1},
+          "prompt_path": {"type": "string", "minLength": 1},
+          "prompt_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "output_path": {"type": "string", "minLength": 1},
+          "output_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "input_scope": {
+            "enum": ["manuscript_only", "manuscript_and_sanitized_confirmed_semantics"]
+          },
+          "isolation_declared": {"type": "boolean"},
+          "rubric": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/rubricRow"}
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/finding"}
+    }
+  },
+  "$defs": {
+    "fileIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_id", "source", "severity", "confidence", "category",
+        "manuscript_locator", "identity_mapping", "problem",
+        "reader_consequence", "recommended_action"
+      ],
+      "properties": {
+        "finding_id": {"type": "string", "pattern": "^REV-(MET|CON|CLR)-[0-9]{3}$"},
+        "source": {"$ref": "#/$defs/findingSource"},
+        "severity": {"enum": ["CRITICAL", "MAJOR", "MINOR", "OBSERVATION"]},
+        "confidence": {"enum": ["HIGH", "MEDIUM", "LOW"]},
+        "category": {"type": "string", "pattern": "^[a-z][a-z0-9_]{2,63}$"},
+        "manuscript_locator": {"$ref": "#/$defs/manuscriptLocator"},
+        "identity_mapping": {"$ref": "#/$defs/identityMapping"},
+        "problem": {"type": "string", "minLength": 1},
+        "reader_consequence": {"type": "string", "minLength": 1},
+        "recommended_action": {"$ref": "#/$defs/recommendedAction"}
+      }
+    },
+    "rubricRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension_id", "applicability", "score", "reason", "manuscript_location"],
+      "properties": {
+        "dimension_id": {"type": "string", "minLength": 1},
+        "applicability": {"enum": ["APPLICABLE", "NOT_APPLICABLE", "BLOCKED"]},
+        "score": {"type": "string"},
+        "reason": {"type": "string", "minLength": 1},
+        "manuscript_location": {"type": "string", "minLength": 1}
+      }
+    },
+    "findingSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewer_role", "context_id", "output_path", "output_sha256",
+        "source_heading", "source_block_sha256"
+      ],
+      "properties": {
+        "reviewer_role": {"enum": ["methods", "contribution", "clarity"]},
+        "context_id": {"type": "string", "minLength": 1},
+        "output_path": {"type": "string", "minLength": 1},
+        "output_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "source_heading": {"type": "string", "minLength": 1},
+        "source_block_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "manuscriptLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["location", "quoted_span", "quoted_span_sha256"],
+      "properties": {
+        "location": {"type": "string", "minLength": 1},
+        "quoted_span": {"type": "string", "minLength": 1},
+        "quoted_span_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "identityMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_ids", "evidence_ids", "design_ids", "execution_ids",
+        "mapping_status", "mapping_basis"
+      ],
+      "properties": {
+        "claim_ids": {"$ref": "#/$defs/idList"},
+        "evidence_ids": {"$ref": "#/$defs/idList"},
+        "design_ids": {"$ref": "#/$defs/idList"},
+        "execution_ids": {"$ref": "#/$defs/idList"},
+        "mapping_status": {"enum": ["exact", "inferred", "unresolved", "not_applicable"]},
+        "mapping_basis": {"type": "string", "minLength": 1}
+      }
+    },
+    "idList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "recommendedAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repair_kind", "text_action", "owner_stage", "change_class",
+        "instruction", "net_word_delta"
+      ],
+      "properties": {
+        "repair_kind": {
+          "enum": [
+            "TEXT_EDIT", "ADD_EVIDENCE", "RERUN_ANALYSIS", "REDESIGN",
+            "REOPEN_RESEARCH", "NARROW_CLAIM", "REMOVE_CLAIM", "NO_ACTION"
+          ]
+        },
+        "text_action": {"enum": ["DELETE", "REPLACE", "MOVE", "ADD", "NO_ACTION"]},
+        "owner_stage": {"enum": ["research", "design", "execution", "build"]},
+        "change_class": {"enum": ["surface", "argument", "evidence", "design", "execution"]},
+        "instruction": {"type": "string", "minLength": 1},
+        "net_word_delta": {"type": "integer"}
+      }
+    }
+  }
+}

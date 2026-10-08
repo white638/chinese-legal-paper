@@ -1,0 +1,27 @@
+{
+  "schema_version": "avereth-public-text-politics-profile/v1",
+  "profile_id": "legislative_process",
+  "title_zh": "立法程序、法案家族与竞争风险",
+  "purpose": "把法案版本归并为稳定家族，登记程序时间、首次实质推进、届期删失和互斥推进结果，支持事件史或竞争风险分析。",
+  "core_method_families": ["quantitative"],
+  "complementary_method_families": ["historical", "social_network"],
+  "core_claim_capability_refs": [
+    "../../references/method-adapter-registry.json#/claim_capabilities/quantitative"
+  ],
+  "core_method_contract_id": "event-history/v1",
+  "core_method_contract_schema": "../../references/schemas/methods/event-history-v1.schema.json",
+  "profile_contract_schema": "../contracts/legislative_process.schema.json",
+  "artifact_roles": ["legislative_corpus", "bill_family_map", "event_history", "competing_risk_codes", "time_varying_covariates", "model_output", "diagnostics", "sensitivity_results"],
+  "machine_checks": [
+    {"id": "family_identity", "check_kind": "family_identity_uniqueness", "inputs": ["/bill_family/mapping", "/bill_family/identity_rules"], "failure_code": "PTP.LEGISLATIVE.DUPLICATE_FAMILY"},
+    {"id": "event_order", "check_kind": "event_sequence_consistency", "inputs": ["/risk_set/event_history", "/risk_set/start_field", "/risk_set/end_field"], "failure_code": "PTP.LEGISLATIVE.EVENT_ORDER"},
+    {"id": "session_censoring", "check_kind": "censoring_consistency", "inputs": ["/risk_set/event_history", "/risk_set/session_end_field", "/risk_set/censoring_rule"], "failure_code": "PTP.LEGISLATIVE.CENSORING"},
+    {"id": "sample_unit", "check_kind": "effective_sample_unit", "inputs": ["/units/risk_unit", "/bill_family/mapping", "/model/output"], "failure_code": "PTP.LEGISLATIVE.EFFECTIVE_N"},
+    {"id": "hashed_results", "check_kind": "artifact_exists_and_hash_matches", "inputs": ["/model/output", "/model/diagnostics", "/model/sensitivity"], "failure_code": "PTP.LEGISLATIVE.ARTIFACT_HASH"}
+  ],
+  "researcher_judgments": ["何种程序动作在本研究中构成首次实质推进", "法案家族规则是否保留了理论上重要的法律形式差异", "不同竞争风险退出类型的制度含义"],
+  "interpretation_boundaries": {
+    "allowed": ["以 bill family 为风险单位报告时间与退出类型", "分别解释委员会推进、跨院行动与法律化"],
+    "prohibited": ["把法案句子数量当成独立风险单位", "把同一家族重提版本当成独立成功", "忽略届期结束造成的删失"]
+  }
+}

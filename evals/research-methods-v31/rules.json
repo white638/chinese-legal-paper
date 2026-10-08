@@ -1,0 +1,222 @@
+{
+  "schema_version": "cnki-v31-rule-catalog/v1",
+  "hard_rules": [
+    {
+      "code": "RD.SOURCE.UNKNOWN",
+      "risk": "fabricated or unresolved Source ID",
+      "basis_type": "method-and-integrity",
+      "textbook_basis": ["C06S02", "C19S03"],
+      "external_basis": ["AUTH-AERA-REPORTING", "AUTH-COPE"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "RD.BOUNDARY.MISSING",
+      "risk": "missing population, case, corpus, archive, or argument-material boundary",
+      "basis_type": "method",
+      "textbook_basis": ["C05S02", "C10S02", "C12S01", "C15S02"],
+      "external_basis": ["AUTH-AERA-REPORTING", "AUTH-SRQR"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "RD.EXPERIMENT.RANDOMIZATION_UNVERIFIED",
+      "risk": "random allocation claimed without an auditable mechanism",
+      "basis_type": "method",
+      "textbook_basis": ["C08S03", "C08S04"],
+      "external_basis": ["AUTH-CONSORT"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "RD.VALIDATION.LEAKAGE",
+      "risk": "construction/training material represented as independent validation",
+      "basis_type": "method",
+      "textbook_basis": ["C18S02", "C18S04"],
+      "external_basis": ["AUTH-DATASHEETS", "AUTH-MODELCARDS"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "RD.EVIDENCE.FALSE_INDEPENDENCE",
+      "risk": "shared provenance represented as independent corroboration",
+      "basis_type": "method",
+      "textbook_basis": ["C10S03", "C15S02"],
+      "external_basis": ["AUTH-PROCESS", "AUTH-AHA"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "RD.CAUSAL.ROUTE_UNDECLARED",
+      "risk": "causal claim without a causal-capable route",
+      "basis_type": "method",
+      "textbook_basis": ["C07S01", "C07S02", "C07S03"],
+      "external_basis": ["AUTH-CAUSAL"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "RD.GOVERNANCE.UNRESOLVED",
+      "risk": "objective research-integrity declaration missing or adverse",
+      "basis_type": "integrity",
+      "textbook_basis": ["C19S03"],
+      "external_basis": ["AUTH-COPE", "AUTH-ICMJE-AI"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.DESIGN.DRIFT",
+      "risk": "execution no longer matches its hashed Design ID route",
+      "basis_type": "method-and-integrity",
+      "textbook_basis": ["C17S05", "C19S03"],
+      "external_basis": ["AUTH-NASEM-REPRO", "AUTH-AERA-REPORTING"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.ARTIFACT.HASH_CHANGED",
+      "risk": "registered execution artifact content changed",
+      "basis_type": "reproducibility",
+      "textbook_basis": ["C17S06", "C18S02", "C19S03"],
+      "external_basis": ["AUTH-NASEM-REPRO", "AUTH-DATASHEETS"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.RESULT.UNREGISTERED_CLAIM",
+      "risk": "active claim or result omitted from execution inventory",
+      "basis_type": "method-and-reporting",
+      "textbook_basis": ["C17S05", "C19S01", "C19S03"],
+      "external_basis": ["AUTH-AERA-REPORTING", "AUTH-COPE"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.NUMBER.UNREGISTERED",
+      "risk": "numeric claim lacks Evidence ID and hashed artifact",
+      "basis_type": "method-and-reporting",
+      "textbook_basis": ["C17S05", "C19S01", "C19S03"],
+      "external_basis": ["AUTH-AERA-REPORTING", "AUTH-NASEM-REPRO"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.INFERENCE.CAUSAL_OVERREACH",
+      "risk": "result exceeds route causal capability",
+      "basis_type": "method",
+      "textbook_basis": ["C07S01", "C07S02", "C07S03"],
+      "external_basis": ["AUTH-CAUSAL", "AUTH-ASA-P"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.VALIDATION.LEAKAGE",
+      "risk": "observed train/validation/test leakage",
+      "basis_type": "method",
+      "textbook_basis": ["C18S02", "C18S04"],
+      "external_basis": ["AUTH-DATASHEETS", "AUTH-MODELCARDS"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.EVIDENCE.FALSE_INDEPENDENCE",
+      "risk": "execution treats shared provenance as independent evidence",
+      "basis_type": "method",
+      "textbook_basis": ["C10S03", "C15S02"],
+      "external_basis": ["AUTH-PROCESS", "AUTH-AHA"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.ETHICS.UNRESOLVED",
+      "risk": "unresolved ethics, privacy, permission, or data-protection event",
+      "basis_type": "ethics",
+      "textbook_basis": ["C08S05", "C09S03", "C15S02", "C19S03"],
+      "external_basis": ["AUTH-COPE", "AUTH-AOIR", "AUTH-OHA"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.REPORTING.UNRESOLVED",
+      "risk": "outcome, deviation, negative finding, or selective-reporting inventory unresolved",
+      "basis_type": "integrity",
+      "textbook_basis": ["C17S05", "C19S01", "C19S03"],
+      "external_basis": ["AUTH-AERA-REPORTING", "AUTH-COPE"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "RD.REVIEW.ROUTE_MISSING",
+      "risk": "systematic review declared without a registered review route",
+      "basis_type": "method-and-reporting",
+      "textbook_basis": ["C06S03"],
+      "external_basis": ["AUTH-PRISMA"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "RD.REVIEW.PRISMA_MISSING",
+      "risk": "systematic-review design omits its PRISMA reporting connection",
+      "basis_type": "method-and-reporting",
+      "textbook_basis": ["C06S03"],
+      "external_basis": ["AUTH-PRISMA"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.REVIEW.PRISMA_MISSING",
+      "risk": "systematic-review execution omits its PRISMA reporting connection",
+      "basis_type": "method-and-reporting",
+      "textbook_basis": ["C06S03", "C19S01"],
+      "external_basis": ["AUTH-PRISMA"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "RD.SCHEMA.FUTURE",
+      "risk": "unknown future design schema",
+      "basis_type": "contract-safety",
+      "textbook_basis": [],
+      "external_basis": ["AUTH-NASEM-REPRO"],
+      "objectively_checkable": true
+    },
+    {
+      "code": "ME.SCHEMA.FUTURE",
+      "risk": "unknown future execution schema",
+      "basis_type": "contract-safety",
+      "textbook_basis": [],
+      "external_basis": ["AUTH-NASEM-REPRO"],
+      "objectively_checkable": true
+    }
+  ],
+  "soft_rules": [
+    {"code": "RD.REVIEW.EPISTEMIC_FIT", "judgment": "ontology, epistemology, paradigm, logic, and route compatibility"},
+    {"code": "RD.REVIEW.QCA_THRESHOLD", "judgment": "QCA calibration and threshold justification"},
+    {"code": "RD.REVIEW.SATURATION", "judgment": "grounded-theory saturation rationale"},
+    {"code": "RD.REVIEW.NETWORK_DEPENDENCE", "judgment": "network dependence treatment"},
+    {"code": "RD.REVIEW.DIGITAL_TRACE_COVERAGE", "judgment": "digital-trace population coverage"},
+    {"code": "ME.REVIEW.QCA_THRESHOLD", "judgment": "QCA sensitivity and robustness interpretation"},
+    {"code": "ME.REVIEW.SATURATION", "judgment": "execution evidence for theoretical saturation"},
+    {"code": "ME.REVIEW.NETWORK_DEPENDENCE", "judgment": "dependence-aware network modeling and diagnostics"}
+  ],
+  "answer_quality_review_rules": [
+    {
+      "code": "AQ.CONTEXT.FACT_BOUNDARY",
+      "judgment": "does not inject internal product names, schemas, versions, permissions, or results absent from the task or workspace"
+    },
+    {
+      "code": "AQ.SALIENCE.DECISION_FIRST",
+      "judgment": "prioritizes the few design bottlenecks that determine the answer instead of leading with a universal checklist"
+    },
+    {
+      "code": "AQ.COVERAGE.ROUTE_CLOSURE",
+      "judgment": "uses salience to order the answer without omitting task anomalies or method-specific decisions needed to close the selected route"
+    },
+    {
+      "code": "AQ.EXECUTION.DEPLOYMENT_MATCH",
+      "judgment": "matches assignment, uncertainty, data split, validation, and interpretation to the real cluster, entity, time, version, and deployment unit"
+    },
+    {
+      "code": "AQ.DECISION.CONDITIONAL_AUDIT",
+      "judgment": "uses audit-conditioned branches when a design property remains verifiable and reserves categorical rejection for established failures"
+    },
+    {
+      "code": "AQ.REPAIR.OBJECT_PRESERVED",
+      "judgment": "states whether a robustness or repair action preserves the original estimand, comparison, material universe, time order, or mechanism"
+    },
+    {
+      "code": "AQ.INFERENCE.EVIDENCE_LADDER",
+      "judgment": "maps weaker and stronger evidence combinations to explicit inference ceilings and an honest fallback deliverable"
+    }
+  ],
+  "never_universal_hard_rules": [
+    "fixed sample size",
+    "fixed p-value",
+    "fixed reliability or validity cutoff",
+    "fixed QCA consistency, frequency, or condition count",
+    "fixed theoretical saturation count",
+    "method hierarchy or RCT supremacy",
+    "hypotheses required for every research question"
+  ]
+}

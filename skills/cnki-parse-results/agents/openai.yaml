@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNKI Parse Results"
+  short_description: "Parse CNKI result pages into data"
+  default_prompt: "Use $cnki-parse-results to run the appropriate workflow."

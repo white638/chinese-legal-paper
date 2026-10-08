@@ -1,0 +1,12 @@
+{
+  "schema_version": "legal-method-profiles/v1",
+  "profiles": {
+    "doctrinal": {"label":"规范解释","required_fields":["legal_issue","interpretations","text_and_system_constraints","chosen_interpretation","strongest_objection","scope_and_exceptions"]},
+    "case-analysis": {"label":"裁判分析","required_fields":["legal_issue","case_selection","procedural_relationships","fact_rule_comparison","counter_cases","scope_and_exceptions"]},
+    "normative": {"label":"规范理论","required_fields":["legal_issue","normative_premises","empirical_premises","evaluation_standard","strongest_objection","scope_and_exceptions"]},
+    "comparative": {"label":"比较法","required_fields":["legal_issue","jurisdiction_selection","functional_comparison","original_text_and_translation","institutional_differences","transfer_limits"]},
+    "empirical": {"label":"实证法学","required_fields":["legal_issue","population_and_unit","sampling_and_publication_bias","case_deduplication","coding_and_validation","inference_limits"]},
+    "legislative": {"label":"立法与制度设计","required_fields":["legal_issue","competence_and_hierarchy","alternatives","implementation_and_cost","remedies","scope_and_exceptions"]},
+    "historical": {"label":"法律史","required_fields":["legal_issue","source_criticism","historical_versions","conceptual_context","competing_explanations","scope_and_exceptions"]}
+  }
+}

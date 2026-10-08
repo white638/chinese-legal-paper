@@ -1,0 +1,9 @@
+skills/cnki-paper/scripts/avereth_core/fixtures/integrations/*.json text eol=lf
+skills/cnki-paper/references/schemas/avereth-exa-*.schema.json text eol=lf
+skills/cnki-paper/references/schemas/avereth-zotero-*.schema.json text eol=lf
+skills/cnki-paper/references/schemas/cnki-acquisition-v3.schema.json text eol=lf
+evals/research-improvement/baseline-fae2cbf/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evals/novelty-regression/cases.json text eol=lf
+evals/novelty-regression/annotations.json text eol=lf
+# Source byte hashes identify the same evidence on every platform.
+evals/novelty-regression/sources/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNKI Search"
+  short_description: "Search CNKI papers from Chrome"
+  default_prompt: "Use $cnki-search to run the appropriate workflow."

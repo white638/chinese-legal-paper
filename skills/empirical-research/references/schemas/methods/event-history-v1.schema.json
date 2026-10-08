@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/methods/event-history-v1.schema.json",
+  "title": "Event History and Competing Risks Contract v1",
+  "type": "object",
+  "required": ["estimand", "unit_of_treatment", "unit_of_analysis", "independence_unit", "time_origin", "censoring_rule", "event_types", "clustering_level", "data", "diagnostics_artifact_id", "estimate_artifact_id", "sensitivity_artifact_id"],
+  "properties": {
+    "estimand": {"$ref": "causal-design-v1.schema.json#/$defs/estimand"},
+    "unit_of_treatment": {"type": "string"},
+    "unit_of_analysis": {"type": "string"},
+    "independence_unit": {"type": "string"},
+    "event_types": {"type": "array", "minItems": 1, "uniqueItems": true},
+    "data": {
+      "type": "object",
+      "required": ["artifact_id", "id_column", "start_column", "stop_column", "event_column"]
+    }
+  },
+  "additionalProperties": true
+}

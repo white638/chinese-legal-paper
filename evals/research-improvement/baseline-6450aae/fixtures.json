@@ -1,0 +1,45 @@
+{
+  "synthetic": true,
+  "shortlist": {
+    "positive": [
+      {
+        "record_id": "SAMPLE-A",
+        "title": "Allocation rules and local compliance",
+        "abstract": "This synthetic study compares allocation rules and observes compliance under bounded resource conditions.",
+        "cited_by": 900
+      }
+    ],
+    "negative": [
+      {
+        "record_id": "SAMPLE-B",
+        "title": "Recording practices and apparent service success",
+        "abstract": "This synthetic study examines whether altered recording rules account for apparent improvements in service completion.",
+        "cited_by": 0
+      }
+    ],
+    "middle": [
+      {
+        "record_id": "SAMPLE-C",
+        "title": "Access costs and service uptake",
+        "abstract": "This synthetic study tests rival explanations of service non-use using administrative and interview materials.",
+        "cited_by": 40
+      }
+    ]
+  },
+  "candidate": {
+    "id": "CAND-01",
+    "candidate_family": "accountability",
+    "research_question": "When do accountability reforms change local compliance?",
+    "potential_contribution": "Identify scope conditions under which accountability changes observed compliance."
+  },
+  "reference": {
+    "ref_id": "REF-01",
+    "identifier": "SYNTHETIC-RESULT-01",
+    "title": "Allocation and compliance",
+    "claim": "Resource allocation explains compliance differences in the synthetic study.",
+    "comparison_view": {
+      "maturity": "result",
+      "text": "Allocation and compliance: resource allocation explains differences in the synthetic study."
+    }
+  }
+}

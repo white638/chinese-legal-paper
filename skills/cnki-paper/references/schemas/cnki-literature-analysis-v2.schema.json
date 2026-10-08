@@ -1,0 +1,446 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper1.local/schemas/cnki-literature-analysis-v2.schema.json",
+  "title": "CNKI-Paper literature analysis v2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry_binding",
+    "migration_status",
+    "review_scope",
+    "source_readings",
+    "syntheses",
+    "literature_sufficiency"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cnki-literature-analysis/v2"
+    },
+    "registry_binding": {
+      "type": "object",
+      "required": [
+        "source_ids",
+        "digest"
+      ],
+      "properties": {
+        "source_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "migration_status": {
+      "enum": [
+        "current",
+        "needs-review",
+        "legacy-limited"
+      ]
+    },
+    "review_scope": {
+      "type": "object"
+    },
+    "source_readings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "reading_depth"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reading_depth": {
+            "enum": [
+              "core",
+              "background"
+            ]
+          },
+          "background_reading": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "syntheses": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "problem_arc": {
+      "$ref": "#/$defs/problemArc"
+    },
+    "literature_sufficiency": {
+      "type": "object",
+      "required": [
+        "mode",
+        "screened_source_ids",
+        "final_source_ids",
+        "core_reading_source_ids",
+        "current_qualified_count",
+        "benchmark",
+        "coverage",
+        "saturation_rounds",
+        "exhaustive_corpus_exception"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "target-venue-benchmark",
+            "fallback"
+          ]
+        },
+        "screened_source_ids": {
+          "$ref": "#/$defs/sourceIds"
+        },
+        "final_source_ids": {
+          "$ref": "#/$defs/sourceIds"
+        },
+        "core_reading_source_ids": {
+          "$ref": "#/$defs/sourceIds"
+        },
+        "current_qualified_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "benchmark": {
+          "type": "object",
+          "properties": {
+            "target_venue": {
+              "type": "string"
+            },
+            "article_type": {
+              "type": "string"
+            },
+            "target_word_count": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1
+            },
+            "samples": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "source_id",
+                  "venue",
+                  "article_type",
+                  "publication_year",
+                  "word_count",
+                  "scholarly_reference_count"
+                ]
+              }
+            }
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "required": [
+            "major_positions",
+            "counterarguments",
+            "foundational_chain",
+            "recent_developments",
+            "method_responsibilities"
+          ],
+          "properties": {
+            "major_positions": {
+              "$ref": "#/$defs/coverageEntry"
+            },
+            "counterarguments": {
+              "$ref": "#/$defs/coverageEntry"
+            },
+            "foundational_chain": {
+              "$ref": "#/$defs/coverageEntry"
+            },
+            "recent_developments": {
+              "$ref": "#/$defs/coverageEntry"
+            },
+            "method_responsibilities": {
+              "$ref": "#/$defs/coverageEntry"
+            }
+          },
+          "additionalProperties": true
+        },
+        "saturation_rounds": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "required": [
+              "query_ids",
+              "purpose",
+              "new_major_position",
+              "new_decisive_evidence_type",
+              "new_sources_role"
+            ],
+            "properties": {
+              "query_ids": {
+                "$ref": "#/$defs/sourceIds"
+              },
+              "purpose": {
+                "type": "string",
+                "minLength": 1
+              },
+              "new_major_position": {
+                "const": false
+              },
+              "new_decisive_evidence_type": {
+                "const": false
+              },
+              "new_sources_role": {
+                "enum": [
+                  "verification",
+                  "boundary",
+                  "known-gap",
+                  "none"
+                ]
+              }
+            }
+          }
+        },
+        "exhaustive_corpus_exception": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "requested"
+              ],
+              "properties": {
+                "requested": {
+                  "const": false
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "requested",
+                "search_boundary",
+                "query_ids",
+                "eligibility_rule",
+                "exhaustion_evidence",
+                "eligible_total",
+                "included_source_ids",
+                "all_eligible_included",
+                "user_confirmed",
+                "confirmation_evidence",
+                "reason"
+              ],
+              "properties": {
+                "requested": {
+                  "const": true
+                },
+                "search_boundary": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "query_ids": {
+                  "$ref": "#/$defs/sourceIds"
+                },
+                "eligibility_rule": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "exhaustion_evidence": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "eligible_total": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "included_source_ids": {
+                  "$ref": "#/$defs/sourceIds"
+                },
+                "all_eligible_included": {
+                  "const": true
+                },
+                "user_confirmed": {
+                  "const": true
+                },
+                "confirmation_evidence": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reason": {
+                  "const": "closed-corpus-exhausted"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "sourceIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "coverageEntry": {
+      "type": "object",
+      "required": [
+        "status",
+        "source_ids",
+        "synthesis_ids",
+        "rationale"
+      ],
+      "properties": {
+        "status": {
+          "const": "covered"
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "synthesis_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edge_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Optional registry edge identities that materialise this coverage claim (foundational_chain, counterarguments)."
+        }
+      }
+    },
+    "problemArc": {
+      "type": "object",
+      "required": [
+        "arc_id",
+        "states"
+      ],
+      "properties": {
+        "arc_id": {
+          "type": "string",
+          "pattern": "^ARC-[A-Za-z0-9][A-Za-z0-9._-]*$"
+        },
+        "major_branch_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "states": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "state_id",
+              "live_question",
+              "provisional_answer",
+              "pressure",
+              "transition_type",
+              "updated_problem",
+              "residual_unknown",
+              "authority_refs"
+            ],
+            "properties": {
+              "state_id": {
+                "type": "string",
+                "pattern": "^ARC-STATE-[A-Za-z0-9][A-Za-z0-9._-]*$"
+              },
+              "live_question": {
+                "type": "string",
+                "minLength": 4
+              },
+              "provisional_answer": {
+                "type": "string",
+                "minLength": 4
+              },
+              "pressure": {
+                "type": "string",
+                "minLength": 4
+              },
+              "transition_type": {
+                "enum": [
+                  "POSE",
+                  "PRESS",
+                  "DISTINGUISH",
+                  "REVISE",
+                  "ADVANCE"
+                ]
+              },
+              "updated_problem": {
+                "type": "string",
+                "minLength": 4
+              },
+              "residual_unknown": {
+                "type": "string",
+                "minLength": 4
+              },
+              "authority_refs": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "predecessor_state_refs": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "branch_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "branch_disposition": {
+                "type": "string",
+                "minLength": 4
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

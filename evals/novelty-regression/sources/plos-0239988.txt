@@ -1,0 +1,15 @@
+Are politically diverse Thanksgiving dinners shorter than politically uniform ones?
+
+Authors: Jeremy A. Frimer; Linda J. Skitka
+DOI: 10.1371/journal.pone.0239988
+Publisher: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0239988
+License: Creative Commons Attribution 4.0 International
+License URL: https://creativecommons.org/licenses/by/4.0/
+Attribution: Frimer JA, Skitka LJ (2020) Are politically diverse Thanksgiving dinners shorter than politically uniform ones? PLoS ONE 15(10): e0239988. https://doi.org/10.1371/journal.pone.0239988
+
+Locator: Abstract, paragraph 1; normalized characters 1165:1246
+Excerpt (verbatim; one inspected span):
+politically diverse dinners were 24 minutes shorter than politically uniform ones
+
+Editorial scope note (paraphrase): 两个预注册研究的合并分析；单独分析结果混合，估计关联不是随机化因果效应。
+This excerpt records the authors' report. It does not establish a universal effect, replication outcome, or absolute novelty judgment.

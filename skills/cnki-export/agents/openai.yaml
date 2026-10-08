@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNKI Export"
+  short_description: "Export CNKI citations and RIS files"
+  default_prompt: "Use $cnki-export to run the appropriate workflow."

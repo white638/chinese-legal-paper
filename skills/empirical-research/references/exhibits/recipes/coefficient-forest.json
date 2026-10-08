@@ -1,0 +1,8 @@
+{
+  "schema_version": "avereth-exhibit-recipe/v1",
+  "id": "coefficient_forest",
+  "required_fields": ["term", "estimate", "conf_low", "conf_high", "model_label", "unit"],
+  "semantic_checks": ["reference line declared", "confidence interval contains its estimate"],
+  "author_review_requirements": ["model labels are unambiguous within each panel"],
+  "recommended_for": ["model comparison", "heterogeneity", "robustness"]
+}

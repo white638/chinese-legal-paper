@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/public-text-politics/claim-measurement-v2.schema.json",
+  "title": "Claim-level model-researcher measurement supplemental profile contract v2",
+  "x-profile-contract-role": "supplement-over-core-method-contract",
+  "x-core-method-contract-id": "text-as-data/measurement-v2",
+  "type": "object",
+  "required": ["schema_version", "profile_id", "construct", "corpus", "annotation", "split", "validation", "interpretation"],
+  "properties": {
+    "schema_version": {"const": "avereth-public-text-politics/claim-measurement/v2"},
+    "profile_id": {"const": "claim_measurement"},
+    "construct": {
+      "type": "object",
+      "required": ["name", "definition", "unit", "codebook_version", "codebook"],
+      "properties": {
+        "name": {"type": "string", "minLength": 2},
+        "definition": {"type": "string", "minLength": 20},
+        "unit": {"const": "claim", "x-error-code": "PTP.CLAIM.UNIT"},
+        "codebook_version": {"type": "string", "minLength": 1},
+        "codebook": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "corpus": {
+      "type": "object",
+      "required": ["manifest", "frozen_at"],
+      "properties": {
+        "manifest": {"$ref": "#/$defs/artifact"},
+        "frozen_at": {"type": "string", "minLength": 10}
+      },
+      "additionalProperties": false
+    },
+    "annotation": {
+      "type": "object",
+      "required": ["reference_labels", "sampling_strategy", "reference_runs", "run_manifest", "evidence_trace", "independent_review"],
+      "properties": {
+        "reference_labels": {"$ref": "#/$defs/artifact"},
+        "sampling_strategy": {"type": "string", "minLength": 5},
+        "reference_runs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["run_id", "context_id", "model_name", "model_revision", "output", "blind_to_primary"],
+            "properties": {
+              "run_id": {"type": "string", "minLength": 1},
+              "context_id": {"type": "string", "minLength": 1},
+              "model_name": {"type": "string", "minLength": 1},
+              "model_revision": {"type": "string", "minLength": 1},
+              "output": {"$ref": "#/$defs/artifact"},
+              "blind_to_primary": {"const": true, "x-error-code": "PTP.CLAIM.SELF_VALIDATION"}
+            },
+            "additionalProperties": false
+          }
+        },
+        "run_manifest": {"$ref": "#/$defs/artifact"},
+        "evidence_trace": {"$ref": "#/$defs/artifact"},
+        "independent_review": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "split": {
+      "type": "object",
+      "required": ["independent_validation", "grouping_unit", "development_manifest", "validation_manifest"],
+      "properties": {
+        "independent_validation": {"const": true, "x-error-code": "PTP.CLAIM.INDEPENDENT_VALIDATION"},
+        "grouping_unit": {"enum": ["document_id", "source_id", "speaker_id", "time_block"]},
+        "development_manifest": {"$ref": "#/$defs/artifact"},
+        "validation_manifest": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "validation": {
+      "type": "object",
+      "required": ["predictions", "metrics", "error_analysis", "sensitivity", "class_metrics_required"],
+      "properties": {
+        "predictions": {"$ref": "#/$defs/artifact"},
+        "metrics": {"$ref": "#/$defs/artifact"},
+        "error_analysis": {"$ref": "#/$defs/artifact"},
+        "sensitivity": {"$ref": "#/$defs/artifact"},
+        "class_metrics_required": {"const": true, "x-error-code": "PTP.CLAIM.CLASS_METRICS"}
+      },
+      "additionalProperties": false
+    },
+    "interpretation": {"$ref": "#/$defs/interpretation"}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "string",
+      "pattern": "^ART-[A-Z0-9][A-Z0-9_-]*$",
+      "x-error-code": "PTP.ARTIFACT.ID"
+    },
+    "interpretation": {
+      "type": "object",
+      "required": ["allowed", "prohibited"],
+      "properties": {
+        "allowed": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}},
+        "prohibited": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

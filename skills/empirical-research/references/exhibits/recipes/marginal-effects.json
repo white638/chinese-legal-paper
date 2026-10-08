@@ -1,0 +1,8 @@
+{
+  "schema_version": "avereth-exhibit-recipe/v1",
+  "id": "marginal_effects",
+  "required_fields": ["x", "estimate", "conf_low", "conf_high", "estimand", "unit"],
+  "semantic_checks": ["response scale declared"],
+  "author_review_requirements": ["evaluation grid identified", "averaging rule identified"],
+  "recommended_for": ["nonlinear models", "interactions", "conditional effects"]
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "process_tracing",
+  "required_operation_kinds": [
+    "timeline_freeze",
+    "source_dependency_audit",
+    "predicted_trace_test",
+    "rival_mechanism_test",
+    "negative_evidence_search",
+    "inference_disposition"
+  ],
+  "optional_operation_kinds": ["scope_condition_probe"],
+  "required_artifact_roles": [
+    "timeline",
+    "source_dependency_graph",
+    "mechanism_trace_matrix",
+    "rival_adjudication",
+    "negative_evidence_register",
+    "claim_disposition"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "process-tracing-pilot/v1",
+    "required_operation_kinds": [
+      "timeline_freeze",
+      "source_dependency_audit",
+      "predicted_trace_test",
+      "rival_mechanism_test",
+      "negative_evidence_search"
+    ],
+    "acceptance_dimensions": [
+      "mechanism nodes are temporally ordered",
+      "predicted traces have diagnostic expectations",
+      "source transmission chains are explicit",
+      "the strongest rival and missing expected evidence are testable"
+    ]
+  },
+  "completion_predicates": [
+    "all active mechanism nodes are disposed",
+    "all material sources have provenance and dependence dispositions",
+    "the strongest rival mechanism is adjudicated",
+    "searched-for negative evidence is recorded whether found or absent"
+  ],
+  "failure_routes": [
+    {"code": "TEMPORAL.MECHANISM_ORDER_INVALID", "route": "reopen:design"},
+    {"code": "SOURCE.DEPENDENCE_UNRESOLVED", "route": "retry"},
+    {"code": "CLAIM.RIVAL_MECHANISM_SURVIVES", "route": "narrow:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "diagnosticity of each predicted trace",
+    "independence of apparently corroborating sources",
+    "comparative plausibility of the strongest rival",
+    "meaning of absent expected evidence",
+    "mechanism inference boundary"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

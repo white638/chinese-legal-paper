@@ -1,0 +1,52 @@
+{
+  "schema_version": "avereth-public-text-politics-executable-fixtures/v1",
+  "profile_id": "claim_measurement",
+  "artifact_token_prefix": "artifact:",
+  "base_contract": {
+    "schema_version": "avereth-public-text-politics/claim-measurement/v2",
+    "profile_id": "claim_measurement",
+    "construct": {
+      "name": "security_frame",
+      "definition": "A claim that presents an issue as a threat requiring protective public action.",
+      "unit": "claim",
+      "codebook_version": "1.2",
+      "codebook": "artifact:artifacts/codebook.yaml"
+    },
+    "corpus": {"manifest": "artifact:artifacts/corpus_manifest.jsonl", "frozen_at": "2026-08-17T00:00:00Z"},
+    "annotation": {
+      "reference_labels": "artifact:artifacts/reference_labels.csv",
+      "sampling_strategy": "stratified by institution and year",
+      "reference_runs": [
+        {"run_id": "reference-model-01", "context_id": "ctx-reference-01", "model_name": "research-model", "model_revision": "rev-a", "output": "artifact:artifacts/reference_run_01.jsonl", "blind_to_primary": true},
+        {"run_id": "reference-model-02", "context_id": "ctx-reference-02", "model_name": "research-model", "model_revision": "rev-b", "output": "artifact:artifacts/reference_run_02.jsonl", "blind_to_primary": true}
+      ],
+      "run_manifest": "artifact:artifacts/reference_run_manifest.json",
+      "evidence_trace": "artifact:artifacts/reference_evidence.csv",
+      "independent_review": "artifact:artifacts/reference_review.json"
+    },
+    "split": {
+      "independent_validation": true,
+      "grouping_unit": "document_id",
+      "development_manifest": "artifact:artifacts/development_ids.txt",
+      "validation_manifest": "artifact:artifacts/validation_ids.txt"
+    },
+    "validation": {
+      "predictions": "artifact:artifacts/validation_predictions.csv",
+      "metrics": "artifact:artifacts/class_metrics.json",
+      "error_analysis": "artifact:artifacts/error_analysis.md",
+      "sensitivity": "artifact:artifacts/measurement_sensitivity.json",
+      "class_metrics_required": true
+    },
+    "interpretation": {
+      "allowed": ["Report validated claim-level frame prevalence."],
+      "prohibited": ["Treat predictions as unqualified ground truth."]
+    }
+  },
+  "cases": [
+    {"id": "claim-positive", "kind": "positive", "operations": [], "expected_status": "PASS", "expected_codes": []},
+    {"id": "claim-self-validation", "kind": "typical-error", "operations": [{"op": "replace", "path": "/annotation/reference_runs/1/blind_to_primary", "from": true, "value": false}], "expected_status": "FAIL", "expected_codes": ["PTP.CLAIM.SELF_VALIDATION"]},
+    {"id": "claim-accuracy-only", "kind": "typical-error", "operations": [{"op": "replace", "path": "/validation/class_metrics_required", "from": true, "value": false}], "expected_status": "FAIL", "expected_codes": ["PTP.CLAIM.CLASS_METRICS"]},
+    {"id": "claim-temporal-holdout", "kind": "boundary", "operations": [{"op": "replace", "path": "/split/grouping_unit", "from": "document_id", "value": "time_block"}], "expected_status": "PASS", "expected_codes": []},
+    {"id": "claim-no-independent-validation", "kind": "inference-overreach", "operations": [{"op": "replace", "path": "/split/independent_validation", "from": true, "value": false}], "expected_status": "FAIL", "expected_codes": ["PTP.CLAIM.INDEPENDENT_VALIDATION"]}
+  ]
+}

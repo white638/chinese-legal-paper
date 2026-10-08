@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avereth-review-resolution-v1.schema.json",
+  "title": "Avereth Review Resolution v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "review_run_id", "findings_sha256", "status", "resolutions", "post_revision_review"],
+  "properties": {
+    "schema_version": {"const": "avereth-review-resolution/v1"},
+    "review_run_id": {"type": "string", "pattern": "^REV-[A-F0-9]{16}$"},
+    "findings_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "status": {"enum": ["ACTIVE", "CLOSED", "NO_MATERIAL_OBJECTIONS"]},
+    "post_revision_review": {
+      "anyOf": [{"$ref": "#/$defs/postRevisionReview"}, {"type": "null"}]
+    },
+    "resolutions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "finding_id", "status", "decision", "original_severity",
+          "final_severity", "earliest_reopen_stage", "adjudication",
+          "merge_target_finding_id", "authorization", "change",
+          "verification", "history"
+        ],
+        "properties": {
+          "finding_id": {"type": "string", "pattern": "^REV-(MET|CON|CLR)-[0-9]{3}$"},
+          "status": {
+            "enum": [
+              "OPEN", "PLANNED", "APPLIED", "VERIFIED", "MERGED",
+              "REJECTED", "WAIVED", "REOPENED"
+            ]
+          },
+          "decision": {"enum": ["PENDING", "ACCEPTED", "MERGED", "REJECTED", "WAIVED"]},
+          "original_severity": {"enum": ["CRITICAL", "MAJOR", "MINOR", "OBSERVATION"]},
+          "final_severity": {"enum": ["CRITICAL", "MAJOR", "MINOR", "OBSERVATION"]},
+          "earliest_reopen_stage": {"enum": ["research", "design", "execution", "build"]},
+          "adjudication": {
+            "anyOf": [{"$ref": "#/$defs/adjudication"}, {"type": "null"}]
+          },
+          "merge_target_finding_id": {"type": ["string", "null"]},
+          "authorization": {
+            "anyOf": [{"$ref": "#/$defs/authorization"}, {"type": "null"}]
+          },
+          "change": {"anyOf": [{"$ref": "#/$defs/change"}, {"type": "null"}]},
+          "verification": {
+            "anyOf": [{"$ref": "#/$defs/verification"}, {"type": "null"}]
+          },
+          "history": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/historyEvent"}
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "postRevisionReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "review_run_id", "mode", "before_manuscript_sha256",
+        "after_manuscript_sha256", "changed_locations", "scope",
+        "reviewed_by", "reviewer_context_id", "result",
+        "output_path", "output_sha256"
+      ],
+      "properties": {
+        "review_run_id": {"type": "string", "pattern": "^REV-[A-F0-9]{16}$"},
+        "mode": {"enum": ["DELTA", "FULL"]},
+        "before_manuscript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "after_manuscript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "changed_locations": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "scope": {"type": "string", "minLength": 1},
+        "reviewed_by": {"type": "string", "minLength": 1},
+        "reviewer_context_id": {"type": "string", "minLength": 1},
+        "result": {"const": "PASS"},
+        "output_path": {"type": "string", "minLength": 1},
+        "output_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "adjudication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["changed_by", "context_id", "reason"],
+      "properties": {
+        "changed_by": {"type": "string", "minLength": 1},
+        "context_id": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authorized_by", "authorization_evidence", "risk_statement"],
+      "properties": {
+        "authorized_by": {"type": "string", "minLength": 1},
+        "authorization_evidence": {"type": "string", "minLength": 1},
+        "risk_statement": {"type": "string", "minLength": 1}
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_id", "kind", "path", "sha256"],
+      "properties": {
+        "artifact_id": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["execution", "evidence", "design", "research"]},
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "propagationCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "status"],
+      "properties": {
+        "target": {
+          "enum": [
+            "abstract", "introduction", "analysis_or_results", "conclusion",
+            "figures_tables", "response_materials"
+          ]
+        },
+        "status": {"enum": ["CHECKED", "NOT_APPLICABLE"]},
+        "evidence": {"type": "string"},
+        "reason": {"type": "string"}
+      }
+    },
+    "change": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "before_manuscript_sha256", "after_manuscript_sha256", "changed_locations",
+        "affected_claim_ids", "affected_evidence_ids", "affected_design_ids",
+        "affected_execution_ids", "rerun_artifacts", "change_summary",
+        "applied_by", "applier_context_id", "propagation_checks"
+      ],
+      "properties": {
+        "before_manuscript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "after_manuscript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "changed_locations": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "affected_claim_ids": {"$ref": "#/$defs/idList"},
+        "affected_evidence_ids": {"$ref": "#/$defs/idList"},
+        "affected_design_ids": {"$ref": "#/$defs/idList"},
+        "affected_execution_ids": {"$ref": "#/$defs/idList"},
+        "rerun_artifacts": {
+          "type": "array", "items": {"$ref": "#/$defs/artifact"}
+        },
+        "change_summary": {"type": "string", "minLength": 1},
+        "applied_by": {"type": "string", "minLength": 1},
+        "applier_context_id": {"type": "string", "minLength": 1},
+        "propagation_checks": {
+          "type": "array", "items": {"$ref": "#/$defs/propagationCheck"}
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method", "verified_by", "verifier_context_id", "verified_against_sha256",
+        "result", "remaining_boundary", "output_path", "output_sha256"
+      ],
+      "properties": {
+        "method": {"type": "string", "minLength": 1},
+        "verified_by": {"type": "string", "minLength": 1},
+        "verifier_context_id": {"type": "string", "minLength": 1},
+        "verified_against_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "result": {"const": "PASS"},
+        "remaining_boundary": {"type": "string", "minLength": 1},
+        "output_path": {"type": "string", "minLength": 1},
+        "output_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "historyEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to", "by", "at"],
+      "properties": {
+        "from": {"enum": ["OPEN", "PLANNED", "APPLIED", "VERIFIED", "MERGED", "REJECTED", "WAIVED", "REOPENED"]},
+        "to": {"enum": ["OPEN", "PLANNED", "APPLIED", "VERIFIED", "MERGED", "REJECTED", "WAIVED", "REOPENED"]},
+        "by": {"type": "string", "minLength": 1},
+        "at": {"type": "string", "minLength": 1}
+      }
+    },
+    "idList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    }
+  }
+}

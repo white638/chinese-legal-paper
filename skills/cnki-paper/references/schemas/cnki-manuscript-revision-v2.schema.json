@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cnki-manuscript-revision-v2.schema.json",
+  "title": "CNKI-Paper controlled manuscript revision v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "baseline", "requested_changes", "affected_identities",
+    "earliest_reopen_stage", "assurance_level", "authorization",
+    "active_batch_id", "revision_batches"
+  ],
+  "properties": {
+    "schema_version": {"const": "cnki-manuscript-revision/v2"},
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "path", "snapshot_path", "sha256"],
+      "properties": {
+        "kind": {"enum": ["workspace", "standalone"]},
+        "path": {"type": "string", "minLength": 1},
+        "source_path": {"type": "string"},
+        "snapshot_path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "requested_changes": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["change_id", "summary", "change_class", "target_finding_keys"],
+        "properties": {
+          "change_id": {"type": "string", "minLength": 1},
+          "summary": {"type": "string", "minLength": 1},
+          "change_class": {"enum": ["surface", "argument", "evidence", "design", "execution"]},
+          "target_finding_keys": {"$ref": "#/$defs/findingKeyList"}
+        }
+      }
+    },
+    "affected_identities": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_ids", "claim_ids", "design_ids", "execution_ids", "manuscript_units"],
+      "properties": {
+        "source_ids": {"$ref": "#/$defs/idList"},
+        "claim_ids": {"$ref": "#/$defs/idList"},
+        "design_ids": {"$ref": "#/$defs/idList"},
+        "execution_ids": {"$ref": "#/$defs/idList"},
+        "manuscript_units": {"$ref": "#/$defs/idList"}
+      }
+    },
+    "earliest_reopen_stage": {"enum": ["research", "design", "execution", "build"]},
+    "assurance_level": {"enum": ["full", "reconstructed", "legacy_limited"]},
+    "authorization": {"type": "object"},
+    "active_batch_id": {"type": ["string", "null"], "pattern": "^RB-[0-9]{3}$"},
+    "revision_batches": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/revisionBatch"}
+    }
+  },
+  "$defs": {
+    "idList": {
+      "type": "array", "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "nonEmptyIdList": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "findingKeyList": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^RFK-[A-F0-9]{24}$"}
+    },
+    "revisionBatch": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "batch_id", "status", "target_change_ids", "target_finding_keys", "candidate_path", "before_sha256",
+        "authority_digests", "declared_changed_unit_ids", "impact_path", "impact_sha256",
+        "promotion_count", "promoted_sha256", "created_at"
+      ],
+      "properties": {
+        "batch_id": {"type": "string", "pattern": "^RB-[0-9]{3}$"},
+        "status": {"enum": ["STAGED", "PREFLIGHT_PASS", "PROMOTED", "VERIFIED", "BLOCKED"]},
+        "target_change_ids": {"$ref": "#/$defs/nonEmptyIdList"},
+        "target_finding_keys": {"$ref": "#/$defs/findingKeyList"},
+        "candidate_path": {"type": "string", "minLength": 1},
+        "before_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "authority_digests": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "research_design.json": {"type": "string"},
+            "method_execution.json": {"type": "string"},
+            "confirmed_motivation.md": {"type": "string"},
+            "confirmed_contribution.md": {"type": "string"},
+            "claim_register.md": {"type": "string"},
+            "evidence_bank.md": {"type": "string"},
+            "section_blueprints.md": {"type": "string"}
+          }
+        },
+        "declared_changed_unit_ids": {"$ref": "#/$defs/idList"},
+        "impact_path": {"type": ["string", "null"]},
+        "impact_sha256": {"type": ["string", "null"]},
+        "promotion_count": {"type": "integer", "minimum": 0, "maximum": 1},
+        "promoted_sha256": {"type": ["string", "null"]},
+        "created_at": {"type": "string", "minLength": 1},
+        "promoted_at": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

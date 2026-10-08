@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/avereth-manuscript-ir-v1.schema.json",
+  "title": "Avereth Manuscript Intermediate Representation v1",
+  "description": "Deterministic build projection compiled from a manuscript contract and current registered authorities. It is not a scientific authority, stage, receipt, or completion truth.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "compiler_version",
+    "control_plane",
+    "owner_stage",
+    "authority_class",
+    "contract",
+    "profile",
+    "global_identity",
+    "narrative_contract",
+    "authority_snapshot",
+    "sections",
+    "moves",
+    "claim_lifecycle",
+    "promises",
+    "cross_section_edges",
+    "scientific_commitment_order",
+    "render_order",
+    "manuscript_binding",
+    "source_digest",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {"const": "avereth-manuscript-ir/v1"},
+    "compiler_version": {"type": "string", "minLength": 1},
+    "control_plane": {"const": "cnki-paper"},
+    "owner_stage": {"const": "build"},
+    "authority_class": {"const": "derived_projection"},
+    "contract": {"$ref": "#/$defs/file_binding"},
+    "profile": {"$ref": "#/$defs/file_binding"},
+    "global_identity": {"type": "object"},
+    "narrative_contract": {"type": "object"},
+    "authority_snapshot": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ref_id", "authority_kind", "source_path", "source_sha256", "selector", "selector_digest"],
+        "properties": {
+          "ref_id": {"type": "string"},
+          "authority_kind": {"type": "string"},
+          "source_path": {"type": "string"},
+          "source_sha256": {"$ref": "#/$defs/sha256"},
+          "selector": {"type": "object"},
+          "selector_digest": {"$ref": "#/$defs/sha256"},
+          "claim_semantic_digest": {"$ref": "#/$defs/sha256"},
+          "inference_ceiling": {"type": "string"},
+          "formal_claim_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1}
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/compiled_node"}
+    },
+    "moves": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/compiled_node"}
+    },
+    "claim_lifecycle": {"type": "array", "items": {"type": "object"}},
+    "promises": {"type": "array", "items": {"$ref": "#/$defs/compiled_promise"}},
+    "cross_section_edges": {"type": "array", "items": {"$ref": "#/$defs/compiled_edge"}},
+    "scientific_commitment_order": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "render_order": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "manuscript_binding": {
+      "oneOf": [
+        {"type": "object", "maxProperties": 0},
+        {"$ref": "#/$defs/file_binding"}
+      ]
+    },
+    "source_digest": {"$ref": "#/$defs/sha256"},
+    "status": {"const": "CURRENT"}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "file_binding": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    },
+    "compiled_node": {
+      "type": "object",
+      "required": ["contract", "contract_digest", "source_digest", "output_digest"],
+      "properties": {
+        "contract": {"type": "object"},
+        "contract_digest": {"$ref": "#/$defs/sha256"},
+        "source_digest": {"$ref": "#/$defs/sha256"},
+        "output_digest": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    },
+    "compiled_promise": {
+      "type": "object",
+      "required": ["promise_id", "promise_type", "source_move_ref", "authority_refs", "delivery_move_refs"],
+      "properties": {
+        "promise_id": {"type": "string"},
+        "promise_type": {"type": "string"},
+        "source_move_ref": {"type": "string"},
+        "authority_refs": {"type": "array", "items": {"type": "string"}},
+        "delivery_move_refs": {"type": "array", "items": {"type": "string"}},
+        "delay_span": {"enum": ["same_move", "same_section", "next_answer_section"]},
+        "resolution_type": {"enum": ["DISTINGUISH", "REVISE", "RESOLVE", "REDEFINE"]}
+      },
+      "additionalProperties": false
+    },
+    "compiled_edge": {
+      "type": "object",
+      "required": ["edge_id", "source_ref", "target_ref", "relation"],
+      "properties": {
+        "edge_id": {"type": "string"},
+        "source_ref": {"type": "string"},
+        "target_ref": {"type": "string"},
+        "relation": {"type": "string"},
+        "anchor_id": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

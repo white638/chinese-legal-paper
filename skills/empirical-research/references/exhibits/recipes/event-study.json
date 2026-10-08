@@ -1,0 +1,7 @@
+{
+  "schema_version": "avereth-exhibit-recipe/v1",
+  "id": "event_study",
+  "required_fields": ["x", "estimate", "conf_low", "conf_high", "is_reference", "estimand", "unit", "cluster_level"],
+  "semantic_checks": ["reference period present and normalized", "treatment boundary declared", "confidence interval level declared", "cluster level declared when applicable"],
+  "recommended_for": ["difference in differences", "dynamic treatment effects"]
+}

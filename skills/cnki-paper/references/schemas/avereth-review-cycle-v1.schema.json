@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avereth-review-cycle-v1.schema.json",
+  "title": "Avereth append-only review cycle v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "cycle_id", "batch_id", "parent_cycle_id", "mode",
+    "before_manuscript_sha256", "after_manuscript_sha256", "impact_path", "impact_sha256",
+    "reviewed_unit_ids", "required_reviewers", "dispatched_reviewers", "reused_reviewers",
+    "reused_from_cycles", "role_input_digests", "role_results", "result", "closed_finding_keys",
+    "reopened_finding_keys", "new_finding_keys", "reviewer_outputs", "block_reason"
+  ],
+  "properties": {
+    "schema_version": {"const": "avereth-review-cycle/v1"},
+    "cycle_id": {"type": "string", "pattern": "^RC-[0-9]{3}$"},
+    "batch_id": {"type": "string", "pattern": "^RB-[0-9]{3}$"},
+    "parent_cycle_id": {"type": ["string", "null"]},
+    "mode": {"enum": ["DELTA", "FULL"]},
+    "before_manuscript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "after_manuscript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "impact_path": {"type": "string", "minLength": 1},
+    "impact_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "reviewed_unit_ids": {"$ref": "#/$defs/idList"},
+    "required_reviewers": {"$ref": "#/$defs/roleList"},
+    "dispatched_reviewers": {"$ref": "#/$defs/roleList"},
+    "reused_reviewers": {"$ref": "#/$defs/roleList"},
+    "reused_from_cycles": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^RC-[0-9]{3}$"}},
+    "role_input_digests": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+    "role_results": {"type": "object", "additionalProperties": {"enum": ["PASS", "FINDINGS", "BLOCKED"]}},
+    "result": {"enum": ["PASS", "FINDINGS", "BLOCKED"]},
+    "closed_finding_keys": {"$ref": "#/$defs/idList"},
+    "reopened_finding_keys": {"$ref": "#/$defs/idList"},
+    "new_finding_keys": {"$ref": "#/$defs/idList"},
+    "reviewer_outputs": {"type": "array", "items": {"type": "object"}},
+    "block_reason": {"type": "string"}
+  },
+  "$defs": {
+    "idList": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "roleList": {"type": "array", "uniqueItems": true, "items": {"enum": ["methods", "contribution", "clarity"]}}
+  }
+}

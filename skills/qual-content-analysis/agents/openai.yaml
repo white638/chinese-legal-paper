@@ -1,0 +1,4 @@
+interface:
+  display_name: "Qual Content Analysis"
+  short_description: "Qualitative content analysis workflow"
+  default_prompt: "Use $qual-content-analysis to run the appropriate workflow."

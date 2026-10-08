@@ -1,0 +1,71 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "review",
+  "required_operation_kinds": [
+    "review_protocol_freeze",
+    "search_execution",
+    "record_deduplication",
+    "eligibility_screening",
+    "evidence_extraction",
+    "quality_appraisal",
+    "evidence_synthesis",
+    "contradictory_evidence_analysis",
+    "gap_test",
+    "review_disposition"
+  ],
+  "optional_operation_kinds": ["citation_snowballing", "reporting_standard_audit"],
+  "required_artifact_roles": [
+    "review_protocol",
+    "search_log",
+    "deduplication_log",
+    "screening_log",
+    "extraction_table",
+    "quality_appraisal",
+    "synthesis_results",
+    "contradiction_register",
+    "gap_assessment"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "review-pilot/v1",
+    "required_operation_kinds": [
+      "review_protocol_freeze",
+      "search_execution",
+      "record_deduplication",
+      "eligibility_screening",
+      "evidence_extraction",
+      "quality_appraisal"
+    ],
+    "acceptance_dimensions": [
+      "search scope maps to the review question",
+      "retrieval and deduplication are reproducible",
+      "screening decisions retain exclusion reasons",
+      "extraction and appraisal distinguish evidence from author claims"
+    ]
+  },
+  "completion_predicates": [
+    "every included record resolves to search, screening, extraction, and appraisal entries",
+    "synthesis logic matches the declared review type",
+    "contradictory evidence is analyzed rather than removed by conclusion",
+    "claimed gaps survive the recorded search and adjacent-literature test"
+  ],
+  "failure_routes": [
+    {"code": "COVERAGE.SEARCH_SCOPE_INADEQUATE", "route": "reopen:research"},
+    {"code": "PROTOCOL.SCREENING_DRIFT", "route": "retry"},
+    {"code": "LINKAGE.EXTRACTION_SOURCE_BROKEN", "route": "reopen:research"},
+    {"code": "CLAIM.GAP_NOT_AUTHENTIC", "route": "withdraw:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "search-scope sufficiency",
+    "eligibility-rule interpretation",
+    "quality-appraisal relevance",
+    "synthesis compatibility",
+    "contradiction and gap authenticity"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

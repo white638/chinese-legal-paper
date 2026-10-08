@@ -1,0 +1,314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avereth-commonplace-packet-v1.schema.json",
+  "title": "avereth-commonplace-packet-v1",
+  "description": "Transient language-only view. validate_packet with bank and current ProsePacket additionally rederives every field, binds section/action and source hashes, and checks budgets. The packet grants no factual authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "avereth-commonplace-packet/v1"
+    },
+    "move_ref": {
+      "type": "string",
+      "pattern": "^MOVE-[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "prose_packet_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "conditioning_mode": {
+      "const": "commonplace"
+    },
+    "status": {
+      "enum": [
+        "READY",
+        "COMMONPLACE_MISS"
+      ]
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "section_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "argument_action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "discourse_function": {
+          "type": "string"
+        },
+        "citation_pattern": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "discipline": {
+          "type": "string"
+        },
+        "venue": {
+          "type": "string"
+        },
+        "syntactic_architecture": {
+          "type": "string"
+        },
+        "topic_terms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "max_total_excerpt_chars": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_source_excerpt_chars": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "section_role",
+        "argument_action",
+        "discourse_function",
+        "citation_pattern",
+        "discipline",
+        "venue",
+        "syntactic_architecture",
+        "topic_terms",
+        "limit",
+        "max_total_excerpt_chars",
+        "max_source_excerpt_chars"
+      ]
+    },
+    "exemplars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "cp_id": {
+            "type": "string",
+            "pattern": "^CP-[A-Za-z0-9][A-Za-z0-9._-]*$"
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "locator": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "section": {
+                "type": "string",
+                "minLength": 1
+              },
+              "page": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "paragraph": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "section"
+            ],
+            "anyOf": [
+              {
+                "required": [
+                  "page"
+                ]
+              },
+              {
+                "required": [
+                  "paragraph"
+                ]
+              },
+              {
+                "required": [
+                  "label"
+                ]
+              }
+            ]
+          },
+          "neighborhood": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "before": {
+                "type": "string"
+              },
+              "focus": {
+                "type": "string",
+                "minLength": 1
+              },
+              "after": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "before",
+              "focus",
+              "after"
+            ]
+          },
+          "rhetorical_skeleton": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "citation_pattern": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "syntactic_skeleton": {
+            "type": "string",
+            "minLength": 1
+          },
+          "allowed_bundles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "blocked_spans": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "reuse_class": {
+            "const": "structural_exemplar"
+          }
+        },
+        "required": [
+          "cp_id",
+          "source_id",
+          "source_sha256",
+          "locator",
+          "neighborhood",
+          "rhetorical_skeleton",
+          "citation_pattern",
+          "syntactic_skeleton",
+          "allowed_bundles",
+          "blocked_spans",
+          "reuse_class"
+        ]
+      },
+      "maxItems": 5
+    },
+    "cross_source_conventions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category": {
+            "enum": [
+              "conventional_bundle",
+              "discipline_specific_bundle",
+              "technical_fixed_expression"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 2
+          }
+        },
+        "required": [
+          "text",
+          "category",
+          "source_ids"
+        ]
+      }
+    },
+    "source_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "move_ref",
+    "prose_packet_sha256",
+    "conditioning_mode",
+    "status",
+    "target",
+    "exemplars",
+    "cross_source_conventions",
+    "source_digest"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "READY"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "exemplars": {
+            "minItems": 1
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "exemplars": {
+            "maxItems": 0
+          },
+          "cross_source_conventions": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}

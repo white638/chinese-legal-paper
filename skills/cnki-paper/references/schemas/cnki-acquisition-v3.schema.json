@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://paper1.local/schemas/cnki-acquisition-v3.schema.json",
+  "title": "CNKI-Paper acquisition registry v3",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "target_name",
+    "tier",
+    "access",
+    "queries",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cnki-acquisition/v3"
+    },
+    "target_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tier": {
+      "enum": [
+        "flash",
+        "pro"
+      ]
+    },
+    "publication_track": {
+      "enum": [
+        "cnki-cn",
+        "international-ssci",
+        "mixed"
+      ]
+    },
+    "access": {
+      "type": "object"
+    },
+    "queries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "run_artifact": {
+            "type": "string",
+            "pattern": "^reference_materials/integrations/exa_runs/[A-Za-z0-9._-]+\\.json$"
+          },
+          "run_sha256": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "cnki-acquisition-v2.schema.json#/$defs/source"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "discovery_events": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "provider",
+                    "query_id",
+                    "rank",
+                    "discovered_url",
+                    "run_sha256"
+                  ],
+                  "properties": {
+                    "provider": {
+                      "const": "exa"
+                    },
+                    "query_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "rank": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "discovered_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "run_sha256": {
+                      "type": "string",
+                      "pattern": "^[A-Fa-f0-9]{64}$"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "zotero_link": {
+                "type": "object",
+                "required": [
+                  "server_id",
+                  "library_id",
+                  "item_key",
+                  "item_version",
+                  "citation_key",
+                  "citation_key_locked",
+                  "attachment_keys",
+                  "last_reconciled_at"
+                ],
+                "properties": {
+                  "server_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "library_id": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "item_key": {
+                    "type": "string",
+                    "pattern": "^[A-Z0-9]{8}$"
+                  },
+                  "item_version": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "citation_key": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "citation_key_locked": {
+                    "type": "boolean"
+                  },
+                  "collection_key": {
+                    "type": "string",
+                    "pattern": "^[A-Z0-9]{8}$"
+                  },
+                  "attachment_keys": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Z0-9]{8}$"
+                    },
+                    "uniqueItems": true
+                  },
+                  "last_reconciled_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    "edges": {
+      "type": "array",
+      "description": "Verified citation relations between registered Source IDs; see acquisition-registry.md section 5.3 and scripts/citation_edges.py.",
+      "items": {
+        "type": "object",
+        "required": [
+          "edge_id",
+          "from_source_id",
+          "to_source_id",
+          "relation",
+          "evidence",
+          "verified_at"
+        ],
+        "properties": {
+          "edge_id": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_-]{1,63}$"
+          },
+          "from_source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to_source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relation": {
+            "enum": [
+              "cites",
+              "co-cited-with",
+              "co-mentioned-with"
+            ]
+          },
+          "evidence": {
+            "enum": [
+              "openalex",
+              "semantic-scholar",
+              "crossref",
+              "cnki-detail",
+              "grobid-paragraph",
+              "full-text-read",
+              "other-index"
+            ]
+          },
+          "stance": {
+            "enum": [
+              "supportive",
+              "critical",
+              "neutral",
+              "unknown"
+            ]
+          },
+          "context_quote": {
+            "type": "string"
+          },
+          "context_locator": {
+            "type": "string"
+          },
+          "via_source_id": {
+            "type": "string"
+          },
+          "query_id": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "verified_at": {
+            "type": "string",
+            "minLength": 10
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

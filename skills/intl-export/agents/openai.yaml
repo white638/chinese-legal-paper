@@ -1,0 +1,4 @@
+interface:
+  display_name: "Intl Export"
+  short_description: "Export foreign references in GB/T"
+  default_prompt: "Use $intl-export to run the appropriate workflow."

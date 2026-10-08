@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quant Causal Inference"
+  short_description: "Quant causal inference workflow"
+  default_prompt: "Use $quant-causal-inference to run the appropriate workflow."

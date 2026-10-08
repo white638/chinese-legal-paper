@@ -1,0 +1,15 @@
+No Evidence of the Ego-Depletion Effect across Task Characteristics and Individual Differences: A Pre-Registered Study
+
+Authors: John H. Lurquin; Laura E. Michaelson; Jane E. Barker; Daniel E. Gustavson; Claudia C. von Bastian; Nicholas P. Carruth; Akira Miyake
+DOI: 10.1371/journal.pone.0147770
+Publisher: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147770
+License: Creative Commons Attribution 4.0 International
+License URL: https://creativecommons.org/licenses/by/4.0/
+Attribution: Lurquin JH, Michaelson LE, Barker JE, Gustavson DE, von Bastian CC, Carruth NP, et al. (2016) No Evidence of the Ego-Depletion Effect across Task Characteristics and Individual Differences: A Pre-Registered Study. PLoS ONE 11(2): e0147770. https://doi.org/10.1371/journal.pone.0147770
+
+Locator: Abstract, paragraph 1; normalized characters 929:1052
+Excerpt (verbatim; one inspected span):
+participants in the depletion condition did not perform worse than control participants on the subsequent self-control task
+
+Editorial scope note (paraphrase): 视频注意控制任务后的实验室自控表现；所检验的任务组合和调节变量。
+This excerpt records the authors' report. It does not establish a universal effect, replication outcome, or absolute novelty judgment.

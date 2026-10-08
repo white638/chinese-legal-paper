@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:chinese-legal-paper:analysis:v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "legal-analysis/v1"
+    },
+    "design": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "method": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method_card": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "jurisdiction": {
+            "type": "string",
+            "minLength": 1
+          },
+          "as_of": {
+            "type": "string",
+            "format": "date"
+          },
+          "fact_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "use": {
+            "type": "string",
+            "enum": [
+              "current_law",
+              "historical_law",
+              "interpretation",
+              "normative_proposal",
+              "empirical",
+              "comparative"
+            ]
+          },
+          "applicability_review": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "verified"
+                ]
+              },
+              "reviewer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reviewed_at": {
+                "type": "string",
+                "format": "date"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "basis": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "status",
+              "reviewer",
+              "reviewed_at",
+              "reason",
+              "basis"
+            ],
+            "additionalProperties": false
+          },
+          "cross_jurisdiction_reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "claim_id",
+          "claim_digest",
+          "source_ids",
+          "jurisdiction",
+          "as_of",
+          "use",
+          "applicability_review"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "design",
+    "method",
+    "method_card",
+    "claims"
+  ],
+  "additionalProperties": false
+}

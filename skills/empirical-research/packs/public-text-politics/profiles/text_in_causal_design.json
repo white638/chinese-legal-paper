@@ -1,0 +1,29 @@
+{
+  "schema_version": "avereth-public-text-politics-profile/v1",
+  "profile_id": "text_in_causal_design",
+  "title_zh": "因果设计中的文本测量",
+  "purpose": "明确文本在因果设计中作为结果、处理、匹配变量、控制变量或机制证据的角色，并把测量误差传播到效应推断。",
+  "core_method_families": ["quantitative", "experiment"],
+  "complementary_method_families": ["text_as_data"],
+  "core_claim_capability_refs": [
+    "../../references/method-adapter-registry.json#/claim_capabilities/quantitative",
+    "../../references/method-adapter-registry.json#/claim_capabilities/experiment"
+  ],
+  "core_method_contract_id": "causal-design/v1",
+  "core_method_contract_schema": "../../references/schemas/methods/causal-design-v1.schema.json",
+  "profile_contract_schema": "../contracts/text_in_causal_design.schema.json",
+  "artifact_roles": ["measurement_contract", "development_manifest", "effect_estimation_manifest", "core_estimand", "core_counterfactual", "identification_diagnostics", "measurement_error_sensitivity", "hashed_model_output", "core_inference_result"],
+  "machine_checks": [
+    {"id": "core_refs", "check_kind": "core_contract_reference", "inputs": ["/causal_design/estimand_ref", "/causal_design/counterfactual_ref", "/causal_design/identification_diagnostics"], "failure_code": "PTP.CAUSAL.CORE_CONTRACT_REF"},
+    {"id": "units", "check_kind": "unit_alignment", "inputs": ["/units/treatment_level", "/units/text_analysis_unit", "/units/effective_sample_unit", "/units/cluster_level"], "failure_code": "PTP.CAUSAL.UNIT_MISMATCH"},
+    {"id": "data_separation", "check_kind": "development_estimation_separation", "inputs": ["/data_separation/development_manifest", "/data_separation/effect_estimation_manifest", "/data_separation/overlap_disposition"], "failure_code": "PTP.CAUSAL.DATA_OVERLAP"},
+    {"id": "measurement_uncertainty", "check_kind": "measurement_error_sensitivity", "inputs": ["/measurement/contract_ref", "/measurement/error_sensitivity"], "failure_code": "PTP.CAUSAL.MEASUREMENT_ERROR"},
+    {"id": "observed_ceiling", "check_kind": "inference_ceiling_binding", "inputs": ["/core_inference_result", "/causal_design/identification_diagnostics", "/measurement/error_sensitivity"], "failure_code": "PTP.CAUSAL.INFERENCE_OVERREACH"},
+    {"id": "hashed_results", "check_kind": "artifact_exists_and_hash_matches", "inputs": ["/results/model_output", "/results/claim_ledger"], "failure_code": "PTP.CAUSAL.ARTIFACT_HASH"}
+  ],
+  "researcher_judgments": ["文本角色是否与理论中的处理、结果或机制位置一致", "测量误差敏感性是否足以支撑目标效应解释", "识别假设与文本产生过程是否共同可信"],
+  "interpretation_boundaries": {
+    "allowed": ["引用核心 estimand 与反事实并报告文本测量不确定性", "开发集与估计集重叠时降级为探索性"],
+    "prohibited": ["在本 profile 重写核心 estimand 或 Claim 能力", "把句子数量冒充处理层级的独立样本量", "识别诊断失败后仍保留 causal_effect 语言"]
+  }
+}

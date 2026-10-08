@@ -1,0 +1,234 @@
+{
+  "schema_version": "avereth-public-source-provenance/v1",
+  "checked_at": "2026-09-11T16:01:14.506769+00:00",
+  "papers": [
+    {
+      "source_id": "PLOS-0147770",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147770",
+      "publisher_html_sha256": "11a7737759da713917be2ddac4420b996a506285d18f7e742a9bc89dd28d3e8d",
+      "source_content": {
+        "path": "sources/plos-0147770.txt",
+        "sha256": "496ef2068da6af0a85cd07a753ab984cd0c203600b83103f2a83092efab1163e"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Lurquin JH, Michaelson LE, Barker JE, Gustavson DE, von Bastian CC, Carruth NP, et al. (2016) No Evidence of the Ego-Depletion Effect across Task Characteristics and Individual Differences: A Pre-Registered Study. PLoS ONE 11(2): e0147770. https://doi.org/10.1371/journal.pone.0147770"
+      },
+      "publisher_copyright_notice": "Copyright: © 2016 Lurquin et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0147770.html",
+      "excerpt_word_count": 17,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0172636",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0172636",
+      "publisher_html_sha256": "9687c5bb59575e93f2f4067008d0a6e9a32f0d0e929bddec6851fc92350485b4",
+      "source_content": {
+        "path": "sources/plos-0172636.txt",
+        "sha256": "262585207835a0b09fa52c3f9e69a59ec0396edd38f6272f42e47ba8d7d7f709"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Sanchez C, Sundermeier B, Gray K, Calin-Jageman RJ (2017) Direct replication of Gervais & Norenzayan (2012): No evidence that analytic thinking decreases religious belief. PLoS ONE 12(2): e0172636. https://doi.org/10.1371/journal.pone.0172636"
+      },
+      "publisher_copyright_notice": "Copyright: © 2017 Sanchez et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0172636.html",
+      "excerpt_word_count": 13,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0209263",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0209263",
+      "publisher_html_sha256": "3785578f0b0f469cc0d4e4349c38c5b021a449902c2a1690bb09fbeb9cf03305",
+      "source_content": {
+        "path": "sources/plos-0209263.txt",
+        "sha256": "939cd53f3423d390ba58d45b8d99e7609cfb167df7d50860ab55cb2dd5b9469d"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Belaus A, Reyna C, Freidin E (2018) Testing the effect of cooperative/competitive priming on the Prisoner’s Dilemma. A replication study. PLoS ONE 13(12): e0209263. https://doi.org/10.1371/journal.pone.0209263"
+      },
+      "publisher_copyright_notice": "Copyright: © 2018 Belaus et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0209263.html",
+      "excerpt_word_count": 16,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0173851",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0173851",
+      "publisher_html_sha256": "88070e5430104c505bf7bfaf67eb946c30a46eb958b7cd0ebda4803852e53e54",
+      "source_content": {
+        "path": "sources/plos-0173851.txt",
+        "sha256": "564c544300f289c374205394206c82da0ed53b3caec1ea30688068a192c7f331"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Jones JJ, Bond RM, Bakshy E, Eckles D, Fowler JH (2017) Social influence and political mobilization: Further evidence from a randomized experiment in the 2012 U.S. presidential election. PLoS ONE 12(4): e0173851. https://doi.org/10.1371/journal.pone.0173851"
+      },
+      "publisher_copyright_notice": "Copyright: © 2017 Jones et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0173851.html",
+      "excerpt_word_count": 19,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0182199",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0182199",
+      "publisher_html_sha256": "85540b431765b5fc39e9d639a7bd8c9777b437ea2cf3d940b2fbc07746ecb973",
+      "source_content": {
+        "path": "sources/plos-0182199.txt",
+        "sha256": "186fc7ce9fa54f77f60c00298f67a400ea8a7163e098f6ec08c804c4c8364075"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Gerber AS, Huber GA, Fang AH, Reardon CE (2017) The effect on turnout of campaign mobilization messages addressing ballot secrecy concerns: A replication experiment. PLoS ONE 12(8): e0182199. https://doi.org/10.1371/journal.pone.0182199"
+      },
+      "publisher_copyright_notice": "Copyright: © 2017 Gerber et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0182199.html",
+      "excerpt_word_count": 15,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0239988",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0239988",
+      "publisher_html_sha256": "899891d07aceda57097c5624356cd5d0f104211c43146d3b2893b1daeeb522b4",
+      "source_content": {
+        "path": "sources/plos-0239988.txt",
+        "sha256": "768048e93c2178971ac47ffb50c370a3c9e551762ad077fe8b6c82d899dfcdbe"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Frimer JA, Skitka LJ (2020) Are politically diverse Thanksgiving dinners shorter than politically uniform ones? PLoS ONE 15(10): e0239988. https://doi.org/10.1371/journal.pone.0239988"
+      },
+      "publisher_copyright_notice": "Copyright: © 2020 Frimer, Skitka. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0239988.html",
+      "excerpt_word_count": 11,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0304482",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304482",
+      "publisher_html_sha256": "568cc7bb36577951268c3a8a9d194f807417c44d9d85ed2a643f2a759261d23b",
+      "source_content": {
+        "path": "sources/plos-0304482.txt",
+        "sha256": "f7bf1a51f9e9182eb20309c01fff4d665684570bef9dbd5b90e0ca8ba03df769"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Choi S-W (2024) Can trade and security alliance help reduce interstate war? PLoS ONE 19(6): e0304482. https://doi.org/10.1371/journal.pone.0304482"
+      },
+      "publisher_copyright_notice": "Copyright: © 2024 Seung-Whan Choi. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0304482.html",
+      "excerpt_word_count": 13,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0304269",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304269",
+      "publisher_html_sha256": "287ed8aed0b5c7fdc6c57d382aea4003400e5a688dbb9d364f62feea1b3daa63",
+      "source_content": {
+        "path": "sources/plos-0304269.txt",
+        "sha256": "033c7d63de492a9b3edd423bfa02d3f02bf3c24c6b2024b52eff1d43f631ac7a"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Jöst P (2024) Neighborly social pressure and collective action: Evidence from a field experiment in Tunisia. PLoS ONE 19(7): e0304269. https://doi.org/10.1371/journal.pone.0304269"
+      },
+      "publisher_copyright_notice": "Copyright: © 2024 Prisca Jöst. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0304269.html",
+      "excerpt_word_count": 16,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0263028",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0263028",
+      "publisher_html_sha256": "77da5a1c9f332de072cbf9c520a45d2d206a0b77b821301fdaa45a84f50de86d",
+      "source_content": {
+        "path": "sources/plos-0263028.txt",
+        "sha256": "2a6fc56f1965344f087d66db0a945ef00b516a385e61e94c76433d0dd11e20e8"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Salahshour M, Oberhauser V, Smerlak M (2022) The cost of noise: Stochastic punishment falls short of sustaining cooperation in social dilemma experiments. PLoS ONE 17(3): e0263028. https://doi.org/10.1371/journal.pone.0263028"
+      },
+      "publisher_copyright_notice": "Copyright: © 2022 Salahshour et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0263028.html",
+      "excerpt_word_count": 13,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0155703",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155703",
+      "publisher_html_sha256": "c3c8024ccfb88052396786b3e16686e1a396d681d299deb2d4a43a7110347f0f",
+      "source_content": {
+        "path": "sources/plos-0155703.txt",
+        "sha256": "b5d979fc2af8bfee5dcd0c32b19914b3b2070ed65decc7bcf50803cad9c34e5a"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Corten R, Rosenkranz S, Buskens V, Cook KS (2016) Reputation Effects in Social Networks Do Not Promote Cooperation: An Experimental Test of the Raub & Weesie Model. PLoS ONE 11(7): e0155703. https://doi.org/10.1371/journal.pone.0155703"
+      },
+      "publisher_copyright_notice": "Copyright: © 2016 Corten et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0155703.html",
+      "excerpt_word_count": 17,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0131562",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131562",
+      "publisher_html_sha256": "41fb317b3a9ae96bace58670bdc9d6fc2652d0abb87771b4a2ca903d65ace153",
+      "source_content": {
+        "path": "sources/plos-0131562.txt",
+        "sha256": "2132455b973b39b11fcdd652be4d1d0ff5a56b12cc3cbd378f547ddf308a7474"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Lotz S (2015) Spontaneous Giving under Structural Inequality: Intuition Promotes Cooperation in Asymmetric Social Dilemmas. PLoS ONE 10(7): e0131562. https://doi.org/10.1371/journal.pone.0131562"
+      },
+      "publisher_copyright_notice": "Copyright: © 2015 Lotz Sebastian. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0131562.html",
+      "excerpt_word_count": 19,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    },
+    {
+      "source_id": "PLOS-0187840",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0187840",
+      "publisher_html_sha256": "8b0775a8c16a12fd4ad2a2f8260ba7d34fc978b8d755eb635f6542f04eb784a0",
+      "source_content": {
+        "path": "sources/plos-0187840.txt",
+        "sha256": "7d6042d018e5f9228685499c3f6899492bb19200b4bac2352694dd85335fc33e"
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Abatayo AL, Thorsen BJ (2017) One-shot exogenous interventions increase subsequent coordination in Denmark, Spain and Ghana. PLoS ONE 12(11): e0187840. https://doi.org/10.1371/journal.pone.0187840"
+      },
+      "publisher_copyright_notice": "Copyright: © 2017 Abatayo, Thorsen. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+      "raw_capture_location": "External research workspace: novelty-source-research/plos-0187840.html",
+      "excerpt_word_count": 14,
+      "transform": "HTML entity decoding and whitespace normalization; a single contiguous abstract span is exported",
+      "scope_note_origin": "editorial paraphrase of inspected publisher abstract"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/avereth-research-feasibility-v1.schema.json",
+  "title": "Avereth Research Feasibility Contract v1",
+  "description": "Research-owned, candidate-specific judgment about whether verified materials can support the required observations and inference boundary.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "feasibility_id",
+    "status",
+    "selected_candidate_id",
+    "question_version_id",
+    "candidate_assessments",
+    "selected_assessment_digest",
+    "material_basis_digest",
+    "basis_digest"
+  ],
+  "properties": {
+    "schema_version": {"const": "avereth-research-feasibility/v1"},
+    "feasibility_id": {"type": "string", "pattern": "^FEAS-[0-9]{3,}$"},
+    "status": {"enum": ["PASS", "CONDITIONAL", "BLOCKED", "FAIL", "NOT_APPLICABLE", "STALE", "NEEDS_REVIEW"]},
+    "selected_candidate_id": {"type": ["string", "null"]},
+    "question_version_id": {"type": ["string", "null"]},
+    "candidate_assessments": {"type": "array", "items": {"$ref": "#/$defs/assessment"}},
+    "selected_assessment_digest": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "material_basis_digest": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "basis_digest": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "invalidation_archive": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "material_ref": {
+      "type": "object",
+      "required": ["material_id", "probe_ids"],
+      "properties": {
+        "material_id": {"type": "string", "pattern": "^MAT-[0-9]{3,}$"},
+        "probe_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^PROBE-[0-9]{3,}$"}}
+      },
+      "additionalProperties": false
+    },
+    "boundary": {
+      "type": "object",
+      "required": ["statement", "allowed_claim_types", "time_scope", "spatial_scope", "unit_scope", "required_fields_or_roles", "material_ids"],
+      "properties": {
+        "statement": {"type": "string", "minLength": 8},
+        "allowed_claim_types": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 2}},
+        "time_scope": {"type": "string", "minLength": 1},
+        "spatial_scope": {"type": "string", "minLength": 1},
+        "unit_scope": {"type": "string", "minLength": 1},
+        "required_fields_or_roles": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "material_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^MAT-[0-9]{3,}$"}}
+      },
+      "additionalProperties": true
+    },
+    "assessment": {
+      "type": "object",
+      "required": [
+        "candidate_id",
+        "topic_option_id",
+        "question_version_id",
+        "question_text",
+        "candidate_semantic_digest",
+        "required_observations",
+        "material_refs",
+        "dimensions",
+        "critical_dimensions",
+        "verdict",
+        "allowed_question_boundary",
+        "fallbacks",
+        "rationale",
+        "assessed_at"
+      ],
+      "properties": {
+        "candidate_id": {"type": "string", "pattern": "^CAND-[0-9]{2,}$"},
+        "topic_option_id": {"type": "string", "minLength": 1},
+        "question_version_id": {"type": "string", "minLength": 1},
+        "question_text": {"type": "string", "minLength": 8},
+        "candidate_semantic_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "required_observations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 4}},
+        "material_refs": {"type": "array", "items": {"$ref": "#/$defs/material_ref"}},
+        "dimensions": {
+          "type": "object",
+          "required": ["actual_access", "legal_and_ethics", "coverage", "required_fields_or_roles", "machine_readability", "linkage_and_comparability", "variation_or_identification", "cost_and_time", "source_stability"],
+          "additionalProperties": {"enum": ["PASS", "CONDITIONAL", "BLOCKED", "FAIL", "NOT_APPLICABLE"]}
+        },
+        "critical_dimensions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "verdict": {"enum": ["PASS", "CONDITIONAL", "BLOCKED", "FAIL", "NOT_APPLICABLE", "STALE", "NEEDS_REVIEW"]},
+        "allowed_question_boundary": {"$ref": "#/$defs/boundary"},
+        "fallbacks": {"type": "array", "items": {"type": "object"}},
+        "rationale": {"type": "string", "minLength": 8},
+        "assessed_at": {"type": "string", "format": "date-time"}
+      },
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Empirical Research"
+  short_description: "Social-science method adapters and execution contract"
+  default_prompt: "Use $empirical-research to select the question-matched method adapter, execute it against a confirmed v2 design, and register results, deviations, environments, and hashed artifacts."

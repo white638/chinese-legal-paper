@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/cnki-research-design-v4.schema.json",
+  "title": "CNKI Paper Research Design Contract v4",
+  "description": "Research-design v3 plus claim operationalizations and an action-level execution blueprint. Deterministic graph and cross-artifact checks are implemented by research_design_v4.py.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "research_decision_ref",
+    "research_questions",
+    "knowledge_state",
+    "epistemic_position",
+    "concepts",
+    "claims",
+    "evidence",
+    "method_routes",
+    "integration",
+    "governance",
+    "case_design",
+    "operationalizations",
+    "execution_blueprint"
+  ],
+  "properties": {
+    "schema_version": {"const": "cnki-research-design/v4"},
+    "status": {"enum": ["confirmed", "draft", "needs-review"]},
+    "knowledge_baseline": {
+      "type": "object",
+      "description": "Optional design-owned baseline; required for post-execution contribution calibration. Historical origin must be declared honestly.",
+      "required": ["origin", "judgement", "source_refs"],
+      "properties": {
+        "origin": {"enum": ["contemporaneous", "retrospective", "unknown"]},
+        "judgement": {"type": "string", "minLength": 4},
+        "source_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "recorded_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "operationalizations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/operationalization"}
+    },
+    "execution_blueprint": {
+      "type": "object",
+      "required": ["schema_version", "steps"],
+      "properties": {
+        "schema_version": {"const": "method-operation/v1"},
+        "steps": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/step"}}
+      }
+    }
+  },
+  "$defs": {
+    "idArray": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "operationalization": {
+      "type": "object",
+      "required": [
+        "id", "question_ids", "claim_ids", "concept_id", "dimension", "observable",
+        "recognition_or_measurement_rule", "unit_of_analysis", "material_ids", "evidence_ids",
+        "extraction_rule", "transformation_rule", "quality_checks", "decision_rule",
+        "failure_consequence", "expected_result_type"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^OPR-[A-Z0-9][A-Z0-9_-]*$"},
+        "question_ids": {"$ref": "#/$defs/idArray"},
+        "claim_ids": {"$ref": "#/$defs/idArray"},
+        "concept_id": {"type": "string"},
+        "dimension": {"type": "string", "minLength": 1},
+        "observable": {"type": "string", "minLength": 1},
+        "recognition_or_measurement_rule": {
+          "type": "object",
+          "required": ["type", "rule"],
+          "properties": {"type": {"type": "string"}, "rule": {"type": "string"}}
+        },
+        "unit_of_analysis": {"type": "string", "minLength": 1},
+        "material_ids": {"$ref": "#/$defs/idArray"},
+        "evidence_ids": {"$ref": "#/$defs/idArray"},
+        "extraction_rule": {"type": "string", "minLength": 1},
+        "transformation_rule": {"type": "string", "minLength": 1},
+        "quality_checks": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "decision_rule": {
+          "type": "object",
+          "required": ["support", "contradict", "inconclusive"],
+          "properties": {
+            "support": {"type": "string"},
+            "contradict": {"type": "string"},
+            "inconclusive": {"type": "string"}
+          }
+        },
+        "failure_consequence": {
+          "type": "object",
+          "required": ["contradict", "inconclusive"],
+          "properties": {"contradict": {"type": "string"}, "inconclusive": {"type": "string"}}
+        },
+        "expected_result_type": {"type": "string"}
+      }
+    },
+    "step": {
+      "type": "object",
+      "required": [
+        "id", "design_id", "run_kind", "goal", "claim_ids", "operationalization_ids",
+        "material_ids", "evidence_ids", "read_set", "write_set", "preconditions", "procedure",
+        "expected_artifacts", "acceptance_checks", "on_failure", "result_disposition"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^STEP-[A-Z0-9][A-Z0-9_-]*$"},
+        "design_id": {"type": "string"},
+        "run_kind": {"enum": ["mvmr", "full"]},
+        "goal": {"type": "string", "minLength": 1},
+        "claim_ids": {"$ref": "#/$defs/idArray"},
+        "operationalization_ids": {"$ref": "#/$defs/idArray"},
+        "material_ids": {"$ref": "#/$defs/idArray"},
+        "evidence_ids": {"$ref": "#/$defs/idArray"},
+        "read_set": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+        "write_set": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+        "preconditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["step_id", "required_status"],
+            "properties": {"step_id": {"type": "string"}, "required_status": {"const": "accepted"}}
+          }
+        },
+        "procedure": {
+          "type": "object",
+          "required": ["adapter", "operation", "parameters_ref"],
+          "properties": {
+            "adapter": {"type": "string"},
+            "operation": {"type": "string"},
+            "parameters_ref": {"type": "string"}
+          }
+        },
+        "researcher_risk": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "epistemic_fit", "interpretive_ambiguity", "consequence_of_error",
+            "codebook_maturity", "reference_basis", "holdout_status",
+            "boundary_case_load", "inference_distance", "rationale"
+          ],
+          "properties": {
+            "epistemic_fit": {"enum": ["independent_replication", "competing_readings", "deterministic_recompute", "single_judgment", "not_applicable"]},
+            "interpretive_ambiguity": {"enum": ["low", "moderate", "high"]},
+            "consequence_of_error": {"enum": ["low", "moderate", "high"]},
+            "codebook_maturity": {"enum": ["not_applicable", "stable", "provisional", "new"]},
+            "reference_basis": {"enum": ["not_applicable", "external_benchmark", "rule_verified", "model_constructed", "mixed_evidence", "absent"]},
+            "holdout_status": {"enum": ["not_applicable", "planned", "frozen", "unavailable"]},
+            "boundary_case_load": {"enum": ["low", "moderate", "high"]},
+            "inference_distance": {"enum": ["direct", "one_step", "multi_step"]},
+            "rationale": {"type": "string", "minLength": 1}
+          }
+        },
+        "expected_artifacts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "role", "path"],
+            "properties": {"id": {"type": "string"}, "role": {"type": "string"}, "path": {"type": "string"}}
+          }
+        },
+        "acceptance_checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "rule"],
+            "properties": {"id": {"type": "string"}, "rule": {"type": "string"}}
+          }
+        },
+        "on_failure": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["code", "route"],
+            "properties": {"code": {"type": "string"}, "route": {"type": "string"}}
+          }
+        },
+        "result_disposition": {
+          "type": "object",
+          "required": ["support", "contradict", "inconclusive"],
+          "properties": {
+            "support": {"type": "string"},
+            "contradict": {"type": "string"},
+            "inconclusive": {"type": "string"}
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

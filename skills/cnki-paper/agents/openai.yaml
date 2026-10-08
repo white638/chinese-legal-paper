@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNKI / SSCI Paper"
+  short_description: "Critical reading and CNKI/SSCI paper research"
+  default_prompt: "Use $cnki-paper to critically read the relevant sources, synthesize the literature by problem and evidence, and develop this Chinese/CNKI or international SSCI paper through its research, writing, and audit gates."

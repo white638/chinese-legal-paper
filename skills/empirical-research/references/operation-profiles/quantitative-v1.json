@@ -1,0 +1,61 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "quantitative",
+  "required_operation_kinds": [
+    "analytic_sample_freeze",
+    "estimand_specification",
+    "model_estimation",
+    "assumption_diagnostic",
+    "uncertainty_estimation",
+    "robustness_analysis",
+    "inference_disposition"
+  ],
+  "optional_operation_kinds": ["missing_data_sensitivity", "heterogeneity_analysis", "exhibit_rendering"],
+  "required_artifact_roles": [
+    "analytic_sample_manifest",
+    "specification_ledger",
+    "diagnostics_report",
+    "uncertainty_results",
+    "robustness_matrix",
+    "claim_disposition"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "quantitative-pilot/v1",
+    "required_operation_kinds": [
+      "analytic_sample_freeze",
+      "estimand_specification",
+      "model_estimation",
+      "assumption_diagnostic",
+      "uncertainty_estimation"
+    ],
+    "acceptance_dimensions": [
+      "sample provenance is resolvable",
+      "estimand and comparison basis are aligned",
+      "diagnostics are interpreted against assumptions",
+      "uncertainty is reported for the target quantity"
+    ]
+  },
+  "completion_predicates": [
+    "every active estimand has an explicit result disposition",
+    "every material identifying assumption has a diagnostic or a documented non-testability rationale",
+    "every reported result resolves to the frozen sample and specification ledger"
+  ],
+  "failure_routes": [
+    {"code": "IDENTIFICATION.COMPARISON_BASIS_INVALID", "route": "reopen:design"},
+    {"code": "MODEL.DIAGNOSTIC_FAILURE", "route": "narrow:<Claim ID>"},
+    {"code": "REPRO.SPECIFICATION_UNREPRODUCIBLE", "route": "replace-implementation"}
+  ],
+  "judgment_nodes": [
+    "estimand-comparison fit",
+    "missingness mechanism and remedy",
+    "model adequacy for the target quantity",
+    "substantive interpretation of robustness results"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

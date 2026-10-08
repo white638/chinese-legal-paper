@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNKI Download"
+  short_description: "Download CNKI papers with checks"
+  default_prompt: "Use $cnki-download to run the appropriate workflow."

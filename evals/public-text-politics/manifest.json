@@ -1,0 +1,30 @@
+{
+  "schema_version": "avereth-public-text-politics-eval-manifest/v1",
+  "suite": "public-text-politics-contracts",
+  "version": "1.0.0",
+  "pack_manifest": "skills/empirical-research/packs/public-text-politics/manifest.json",
+  "test": "evals/public-text-politics/test_public_text_politics.py",
+  "required_profiles": [
+    "claim_measurement",
+    "semantic_alignment_and_reuse",
+    "legislative_process",
+    "institutional_grammar",
+    "public_source_process_tracing",
+    "discourse_network",
+    "text_in_causal_design"
+  ],
+  "required_fixture_kinds_per_profile": {
+    "positive": 1,
+    "typical-error": 2,
+    "boundary": 1,
+    "inference-overreach": 1
+  },
+  "hard_invariants": [
+    "internal pack has no SKILL.md and owns no workflow stage",
+    "claim capabilities are JSON Pointer references into the core method registry",
+    "all carrying artifact references include path and sha256",
+    "model-researcher runs bind run/context/model/prompt/output provenance without an identity disclaimer",
+    "journal requirements cannot redefine core method authority",
+    "no golden-project examples or placeholder examples directory"
+  ]
+}

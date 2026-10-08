@@ -1,0 +1,1339 @@
+{
+  "schema_version": "avereth-novelty-regression-cases/v1",
+  "bank_version": 1,
+  "name": "Twelve published social-science sources with forty-eight constructed controls",
+  "distinct_published_papers": 12,
+  "constructed_cases": 48,
+  "purpose": "Evaluate source-bound novelty behavior, replication eligibility and uncertainty handling under explicit transformations.",
+  "limitations": [
+    "Constructed controls are not 48 published research ideas or expert novelty judgments.",
+    "Four controls from a common source are dependent; report source-cluster and family results.",
+    "The source universe is bounded. Global nearest-prior-work recall and intellectual significance remain unmeasured.",
+    "No candidate study has been executed. Boundary and mechanism changes remain unresolved."
+  ],
+  "sources": [
+    {
+      "source_id": "PLOS-0147770",
+      "title": "No Evidence of the Ego-Depletion Effect across Task Characteristics and Individual Differences: A Pre-Registered Study",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147770",
+      "doi": "10.1371/journal.pone.0147770",
+      "authors": [
+        "John H. Lurquin",
+        "Laura E. Michaelson",
+        "Jane E. Barker",
+        "Daniel E. Gustavson",
+        "Claudia C. von Bastian",
+        "Nicholas P. Carruth",
+        "Akira Miyake"
+      ],
+      "content": {
+        "path": "sources/plos-0147770.txt",
+        "sha256": "496ef2068da6af0a85cd07a753ab984cd0c203600b83103f2a83092efab1163e"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 929:1052",
+          "exact_quote": "participants in the depletion condition did not perform worse than control participants on the subsequent self-control task"
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Lurquin JH, Michaelson LE, Barker JE, Gustavson DE, von Bastian CC, Carruth NP, et al. (2016) No Evidence of the Ego-Depletion Effect across Task Characteristics and Individual Differences: A Pre-Registered Study. PLoS ONE 11(2): e0147770. https://doi.org/10.1371/journal.pone.0147770"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "11a7737759da713917be2ddac4420b996a506285d18f7e742a9bc89dd28d3e8d",
+        "publisher_paragraph_index_zero_based": 16,
+        "normalized_paragraph_sha256": "4cd1113526e075ef71f34ce8e06edc9a51060251b59b708dd35bafa2f4f35445",
+        "abstract_sha256": "4cd1113526e075ef71f34ce8e06edc9a51060251b59b708dd35bafa2f4f35445"
+      }
+    },
+    {
+      "source_id": "PLOS-0172636",
+      "title": "Direct replication of Gervais & Norenzayan (2012): No evidence that analytic thinking decreases religious belief",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0172636",
+      "doi": "10.1371/journal.pone.0172636",
+      "authors": [
+        "Clinton Sanchez",
+        "Brian Sundermeier",
+        "Kenneth Gray",
+        "Robert J. Calin-Jageman"
+      ],
+      "content": {
+        "path": "sources/plos-0172636.txt",
+        "sha256": "262585207835a0b09fa52c3f9e69a59ec0396edd38f6272f42e47ba8d7d7f709"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 260:344",
+          "exact_quote": "We observed little to no effect of the experimental manipulation on religious belief"
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Sanchez C, Sundermeier B, Gray K, Calin-Jageman RJ (2017) Direct replication of Gervais & Norenzayan (2012): No evidence that analytic thinking decreases religious belief. PLoS ONE 12(2): e0172636. https://doi.org/10.1371/journal.pone.0172636"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "9687c5bb59575e93f2f4067008d0a6e9a32f0d0e929bddec6851fc92350485b4",
+        "publisher_paragraph_index_zero_based": 14,
+        "normalized_paragraph_sha256": "5616b2328aa9623526314b0e5adef3b74fd6fb87e8718003322ff367e96e4c65",
+        "abstract_sha256": "5616b2328aa9623526314b0e5adef3b74fd6fb87e8718003322ff367e96e4c65"
+      }
+    },
+    {
+      "source_id": "PLOS-0209263",
+      "title": "Testing the effect of cooperative/competitive priming on the Prisoner’s Dilemma. A replication study",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0209263",
+      "doi": "10.1371/journal.pone.0209263",
+      "authors": [
+        "Anabel Belaus",
+        "Cecilia Reyna",
+        "Esteban Freidin"
+      ],
+      "content": {
+        "path": "sources/plos-0209263.txt",
+        "sha256": "939cd53f3423d390ba58d45b8d99e7609cfb167df7d50860ab55cb2dd5b9469d"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 670:775",
+          "exact_quote": "we could not reproduce their findings in the present close replication, despite counting on higher power."
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Belaus A, Reyna C, Freidin E (2018) Testing the effect of cooperative/competitive priming on the Prisoner’s Dilemma. A replication study. PLoS ONE 13(12): e0209263. https://doi.org/10.1371/journal.pone.0209263"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "3785578f0b0f469cc0d4e4349c38c5b021a449902c2a1690bb09fbeb9cf03305",
+        "publisher_paragraph_index_zero_based": 16,
+        "normalized_paragraph_sha256": "c16ad68825577366099299726ed5e3c33a36b70ecc1e9f06c335e786a2f9ae5b",
+        "abstract_sha256": "c16ad68825577366099299726ed5e3c33a36b70ecc1e9f06c335e786a2f9ae5b"
+      }
+    },
+    {
+      "source_id": "PLOS-0173851",
+      "title": "Social influence and political mobilization: Further evidence from a randomized experiment in the 2012 U.S. presidential election",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0173851",
+      "doi": "10.1371/journal.pone.0173851",
+      "authors": [
+        "Jason J. Jones",
+        "Robert M. Bond",
+        "Eytan Bakshy",
+        "Dean Eckles",
+        "James H. Fowler"
+      ],
+      "content": {
+        "path": "sources/plos-0173851.txt",
+        "sha256": "564c544300f289c374205394206c82da0ed53b3caec1ea30688068a192c7f331"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 514:626",
+          "exact_quote": "Voting also increased significantly among the close friends of those who received the message to go to the polls"
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Jones JJ, Bond RM, Bakshy E, Eckles D, Fowler JH (2017) Social influence and political mobilization: Further evidence from a randomized experiment in the 2012 U.S. presidential election. PLoS ONE 12(4): e0173851. https://doi.org/10.1371/journal.pone.0173851"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "88070e5430104c505bf7bfaf67eb946c30a46eb958b7cd0ebda4803852e53e54",
+        "publisher_paragraph_index_zero_based": 15,
+        "normalized_paragraph_sha256": "8fd4eb1db00407499afa8f54fadfa15ed5a3363b93d0c940db88443c08fc0ce5",
+        "abstract_sha256": "8fd4eb1db00407499afa8f54fadfa15ed5a3363b93d0c940db88443c08fc0ce5"
+      }
+    },
+    {
+      "source_id": "PLOS-0182199",
+      "title": "The effect on turnout of campaign mobilization messages addressing ballot secrecy concerns: A replication experiment",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0182199",
+      "doi": "10.1371/journal.pone.0182199",
+      "authors": [
+        "Alan S. Gerber",
+        "Gregory A. Huber",
+        "Albert H. Fang",
+        "Catlan E. Reardon"
+      ],
+      "content": {
+        "path": "sources/plos-0182199.txt",
+        "sha256": "186fc7ce9fa54f77f60c00298f67a400ea8a7163e098f6ec08c804c4c8364075"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 656:735",
+          "exact_quote": "We find that sending this mailer has no effect on turnout rates in this setting"
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Gerber AS, Huber GA, Fang AH, Reardon CE (2017) The effect on turnout of campaign mobilization messages addressing ballot secrecy concerns: A replication experiment. PLoS ONE 12(8): e0182199. https://doi.org/10.1371/journal.pone.0182199"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "85540b431765b5fc39e9d639a7bd8c9777b437ea2cf3d940b2fbc07746ecb973",
+        "publisher_paragraph_index_zero_based": 22,
+        "normalized_paragraph_sha256": "bc0b9ea5d4ff5e3e222e47643f3bf831b6c491ec2553b898b2c5569bb5bcb105",
+        "abstract_sha256": "bc0b9ea5d4ff5e3e222e47643f3bf831b6c491ec2553b898b2c5569bb5bcb105"
+      }
+    },
+    {
+      "source_id": "PLOS-0239988",
+      "title": "Are politically diverse Thanksgiving dinners shorter than politically uniform ones?",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0239988",
+      "doi": "10.1371/journal.pone.0239988",
+      "authors": [
+        "Jeremy A. Frimer",
+        "Linda J. Skitka"
+      ],
+      "content": {
+        "path": "sources/plos-0239988.txt",
+        "sha256": "768048e93c2178971ac47ffb50c370a3c9e551762ad077fe8b6c82d899dfcdbe"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 1165:1246",
+          "exact_quote": "politically diverse dinners were 24 minutes shorter than politically uniform ones"
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Frimer JA, Skitka LJ (2020) Are politically diverse Thanksgiving dinners shorter than politically uniform ones? PLoS ONE 15(10): e0239988. https://doi.org/10.1371/journal.pone.0239988"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "899891d07aceda57097c5624356cd5d0f104211c43146d3b2893b1daeeb522b4",
+        "publisher_paragraph_index_zero_based": 14,
+        "normalized_paragraph_sha256": "c269b5a0cb45d0888ba988f5d03161d6282983deea17f79a4981a44aab6fa2e2",
+        "abstract_sha256": "c269b5a0cb45d0888ba988f5d03161d6282983deea17f79a4981a44aab6fa2e2"
+      }
+    },
+    {
+      "source_id": "PLOS-0304482",
+      "title": "Can trade and security alliance help reduce interstate war?",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304482",
+      "doi": "10.1371/journal.pone.0304482",
+      "authors": [
+        "Seung-Whan Choi"
+      ],
+      "content": {
+        "path": "sources/plos-0304482.txt",
+        "sha256": "f7bf1a51f9e9182eb20309c01fff4d665684570bef9dbd5b90e0ca8ba03df769"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 828:921",
+          "exact_quote": "I uncover no peace-building effect, with regards to war, attributable to Extended Dependence."
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Choi S-W (2024) Can trade and security alliance help reduce interstate war? PLoS ONE 19(6): e0304482. https://doi.org/10.1371/journal.pone.0304482"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "568cc7bb36577951268c3a8a9d194f807417c44d9d85ed2a643f2a759261d23b",
+        "publisher_paragraph_index_zero_based": 12,
+        "normalized_paragraph_sha256": "8db86e58f74ddb6adbcf7cd895cb0308bb031a9432d896cd2cc6b1ff657125b6",
+        "abstract_sha256": "8db86e58f74ddb6adbcf7cd895cb0308bb031a9432d896cd2cc6b1ff657125b6"
+      }
+    },
+    {
+      "source_id": "PLOS-0304269",
+      "title": "Neighborly social pressure and collective action: Evidence from a field experiment in Tunisia",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304269",
+      "doi": "10.1371/journal.pone.0304269",
+      "authors": [
+        "Prisca Jöst"
+      ],
+      "content": {
+        "path": "sources/plos-0304269.txt",
+        "sha256": "033c7d63de492a9b3edd423bfa02d3f02bf3c24c6b2024b52eff1d43f631ac7a"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 632:747",
+          "exact_quote": "I do not find evidence to suggest that neighborly social pressure encourages participation in neighborhood cleanups"
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Jöst P (2024) Neighborly social pressure and collective action: Evidence from a field experiment in Tunisia. PLoS ONE 19(7): e0304269. https://doi.org/10.1371/journal.pone.0304269"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "287ed8aed0b5c7fdc6c57d382aea4003400e5a688dbb9d364f62feea1b3daa63",
+        "publisher_paragraph_index_zero_based": 12,
+        "normalized_paragraph_sha256": "4d4eb9dc76e8d8c4ab7e00a55e38fbdcaa10f93e32da5adc3eabe65c179e368d",
+        "abstract_sha256": "4d4eb9dc76e8d8c4ab7e00a55e38fbdcaa10f93e32da5adc3eabe65c179e368d"
+      }
+    },
+    {
+      "source_id": "PLOS-0263028",
+      "title": "The cost of noise: Stochastic punishment falls short of sustaining cooperation in social dilemma experiments",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0263028",
+      "doi": "10.1371/journal.pone.0263028",
+      "authors": [
+        "Mohammad Salahshour",
+        "Vincent Oberhauser",
+        "Matteo Smerlak"
+      ],
+      "content": {
+        "path": "sources/plos-0263028.txt",
+        "sha256": "2a6fc56f1965344f087d66db0a945ef00b516a385e61e94c76433d0dd11e20e8"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 490:583",
+          "exact_quote": "stochastic punishment falls short of sustaining cooperation in the repeated public good game."
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Salahshour M, Oberhauser V, Smerlak M (2022) The cost of noise: Stochastic punishment falls short of sustaining cooperation in social dilemma experiments. PLoS ONE 17(3): e0263028. https://doi.org/10.1371/journal.pone.0263028"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "77da5a1c9f332de072cbf9c520a45d2d206a0b77b821301fdaa45a84f50de86d",
+        "publisher_paragraph_index_zero_based": 17,
+        "normalized_paragraph_sha256": "9711412720839e63edea483a198dffcdea23b7183d5d11ba02e87d269baef7fa",
+        "abstract_sha256": "9711412720839e63edea483a198dffcdea23b7183d5d11ba02e87d269baef7fa"
+      }
+    },
+    {
+      "source_id": "PLOS-0155703",
+      "title": "Reputation Effects in Social Networks Do Not Promote Cooperation: An Experimental Test of the Raub & Weesie Model",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155703",
+      "doi": "10.1371/journal.pone.0155703",
+      "authors": [
+        "Rense Corten",
+        "Stephanie Rosenkranz",
+        "Vincent Buskens",
+        "Karen S. Cook"
+      ],
+      "content": {
+        "path": "sources/plos-0155703.txt",
+        "sha256": "b5d979fc2af8bfee5dcd0c32b19914b3b2070ed65decc7bcf50803cad9c34e5a"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 1059:1160",
+          "exact_quote": "we do not find that cooperation is higher in the embedded condition than in the atomized interaction."
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Corten R, Rosenkranz S, Buskens V, Cook KS (2016) Reputation Effects in Social Networks Do Not Promote Cooperation: An Experimental Test of the Raub & Weesie Model. PLoS ONE 11(7): e0155703. https://doi.org/10.1371/journal.pone.0155703"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "c3c8024ccfb88052396786b3e16686e1a396d681d299deb2d4a43a7110347f0f",
+        "publisher_paragraph_index_zero_based": 13,
+        "normalized_paragraph_sha256": "ca524f92bc71f539463a37f835270a34c7d27c3f3e5ad4ff0dd03196b25a1788",
+        "abstract_sha256": "ca524f92bc71f539463a37f835270a34c7d27c3f3e5ad4ff0dd03196b25a1788"
+      }
+    },
+    {
+      "source_id": "PLOS-0131562",
+      "title": "Spontaneous Giving under Structural Inequality: Intuition Promotes Cooperation in Asymmetric Social Dilemmas",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131562",
+      "doi": "10.1371/journal.pone.0131562",
+      "authors": [
+        "Sebastian Lotz"
+      ],
+      "content": {
+        "path": "sources/plos-0131562.txt",
+        "sha256": "2132455b973b39b11fcdd652be4d1d0ff5a56b12cc3cbd378f547ddf308a7474"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 266:396",
+          "exact_quote": "cooperation is promoted by intuition in an asymmetric context that distributes the gains from cooperation unequally among a group."
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Lotz S (2015) Spontaneous Giving under Structural Inequality: Intuition Promotes Cooperation in Asymmetric Social Dilemmas. PLoS ONE 10(7): e0131562. https://doi.org/10.1371/journal.pone.0131562"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "41fb317b3a9ae96bace58670bdc9d6fc2652d0abb87771b4a2ca903d65ace153",
+        "publisher_paragraph_index_zero_based": 10,
+        "normalized_paragraph_sha256": "41b4281cb94ea8d32765bd9c946e7274bccda6aca314cf00f626fe7c4acfbc40",
+        "abstract_sha256": "41b4281cb94ea8d32765bd9c946e7274bccda6aca314cf00f626fe7c4acfbc40"
+      }
+    },
+    {
+      "source_id": "PLOS-0187840",
+      "title": "One-shot exogenous interventions increase subsequent coordination in Denmark, Spain and Ghana",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0187840",
+      "doi": "10.1371/journal.pone.0187840",
+      "authors": [
+        "Anna Lou Abatayo",
+        "Bo Jellesmark Thorsen"
+      ],
+      "content": {
+        "path": "sources/plos-0187840.txt",
+        "sha256": "7d6042d018e5f9228685499c3f6899492bb19200b4bac2352694dd85335fc33e"
+      },
+      "locators": [
+        {
+          "locator": "Abstract, paragraph 1; normalized characters 729:868",
+          "exact_quote": "exogenous interventions increase subsequent coordination, with earlier interventions yielding better coordination than later interventions."
+        }
+      ],
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Abatayo AL, Thorsen BJ (2017) One-shot exogenous interventions increase subsequent coordination in Denmark, Spain and Ghana. PLoS ONE 12(11): e0187840. https://doi.org/10.1371/journal.pone.0187840"
+      },
+      "verification": {
+        "method": "publisher_html_body_and_abstract_exact_span",
+        "scope": "abstract passage and publication metadata",
+        "publisher_html_sha256": "8b0775a8c16a12fd4ad2a2f8260ba7d34fc978b8d755eb635f6542f04eb784a0",
+        "publisher_paragraph_index_zero_based": 14,
+        "normalized_paragraph_sha256": "8b6c63a537dca28848a6e98e7140adfdd79731b3e6999faf64494019e6c676ee",
+        "abstract_sha256": "8b6c63a537dca28848a6e98e7140adfdd79731b3e6999faf64494019e6c676ee"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "NREG-0147770-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，在该预注册的连续任务实验中，先前的自控消耗没有带来预期的后续自控表现下降。",
+      "source_ids": [
+        "PLOS-0147770",
+        "PLOS-0239988"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0147770",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "视频注意控制任务后的实验室自控表现；所检验的任务组合和调节变量。"
+      }
+    },
+    {
+      "id": "NREG-0147770-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“调节能量低谷”概念，指先前自控任务可能导致的后续自控表现下降。在预注册的连续任务实验中，前一任务的自控要求未降低后一任务的表现。",
+      "source_ids": [
+        "PLOS-0147770",
+        "PLOS-0239988"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0147770",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "视频注意控制任务后的实验室自控表现；所检验的任务组合和调节变量。"
+      }
+    },
+    {
+      "id": "NREG-0147770-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：在该预注册的连续任务实验中，先前的自控消耗没有带来预期的后续自控表现下降。",
+      "source_ids": [
+        "PLOS-0147770",
+        "PLOS-0239988"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0147770",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "视频注意控制任务后的实验室自控表现；所检验的任务组合和调节变量。"
+      }
+    },
+    {
+      "id": "NREG-0147770-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟比较短时实验室任务与持续自然情境任务，并预先区分资源消耗和动机变化的预测。计划采用两个情境下的独立随机对照、任务有效性测量和预先登记的动机调节检验。",
+      "source_ids": [
+        "PLOS-0147770",
+        "PLOS-0239988"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0147770",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "视频注意控制任务后的实验室自控表现；所检验的任务组合和调节变量。"
+      }
+    },
+    {
+      "id": "NREG-0172636-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，在这次多地点预注册复制中，分析性思维的图片启动对宗教信念几乎没有影响。",
+      "source_ids": [
+        "PLOS-0172636",
+        "PLOS-0304482"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0172636",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "复制原研究的一项图片启动实验；不是对所有分析性思考形式的检验。"
+      }
+    },
+    {
+      "id": "NREG-0172636-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“反思认知激活”概念，用图片材料激活分析性思维。多地点预注册实验显示，这种操作对宗教信念几乎没有影响。",
+      "source_ids": [
+        "PLOS-0172636",
+        "PLOS-0304482"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0172636",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "复制原研究的一项图片启动实验；不是对所有分析性思考形式的检验。"
+      }
+    },
+    {
+      "id": "NREG-0172636-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：在这次多地点预注册复制中，分析性思维的图片启动对宗教信念几乎没有影响。",
+      "source_ids": [
+        "PLOS-0172636",
+        "PLOS-0304482"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0172636",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "复制原研究的一项图片启动实验；不是对所有分析性思考形式的检验。"
+      }
+    },
+    {
+      "id": "NREG-0172636-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟比较短暂图片启动与持续反思训练，检验操作强度是否改变信念反应。计划采用随机分配的干预强度、操作检验以及重复测量的宗教信念结果。",
+      "source_ids": [
+        "PLOS-0172636",
+        "PLOS-0304482"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0172636",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "复制原研究的一项图片启动实验；不是对所有分析性思考形式的检验。"
+      }
+    },
+    {
+      "id": "NREG-0209263-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，这项更高统计功效的接近复制没有重现合作或竞争启动与情境解释的原有结果。",
+      "source_ids": [
+        "PLOS-0209263",
+        "PLOS-0304269"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0209263",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "囚徒困境中的接近复制；原始材料不完全可得限制了复制精度。"
+      }
+    },
+    {
+      "id": "NREG-0209263-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“互惠脚本唤起”概念，指合作线索对决策倾向的激活。在更高功效的囚徒困境实验中，没有重现合作或竞争线索与情境解释的预期效果。",
+      "source_ids": [
+        "PLOS-0209263",
+        "PLOS-0304269"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0209263",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "囚徒困境中的接近复制；原始材料不完全可得限制了复制精度。"
+      }
+    },
+    {
+      "id": "NREG-0209263-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：这项更高统计功效的接近复制没有重现合作或竞争启动与情境解释的原有结果。",
+      "source_ids": [
+        "PLOS-0209263",
+        "PLOS-0304269"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0209263",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "囚徒困境中的接近复制；原始材料不完全可得限制了复制精度。"
+      }
+    },
+    {
+      "id": "NREG-0209263-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟比较匿名一次性决策与可建立声誉的重复互动，检验启动是否依赖互动结构。计划采用启动条件与重复互动条件的交叉随机实验，并单独测量声誉预期。",
+      "source_ids": [
+        "PLOS-0209263",
+        "PLOS-0304269"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0209263",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "囚徒困境中的接近复制；原始材料不完全可得限制了复制精度。"
+      }
+    },
+    {
+      "id": "NREG-0173851-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，2012年美国总统选举的实验发现，收到动员信息者的密友也出现了投票增加。",
+      "source_ids": [
+        "PLOS-0173851",
+        "PLOS-0263028"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0173851",
+      "source_finding_type": "observed_effect",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "在线动员信息的随机实验及其密友溢出；保留2012年美国选举的条件。"
+      }
+    },
+    {
+      "id": "NREG-0173851-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“熟人动员扩散”概念，描述在线动员信息通过密友关系影响投票的过程。2012年美国总统选举实验发现，收到动员信息者的密友也出现投票增加。",
+      "source_ids": [
+        "PLOS-0173851",
+        "PLOS-0263028"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0173851",
+      "source_finding_type": "observed_effect",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "在线动员信息的随机实验及其密友溢出；保留2012年美国选举的条件。"
+      }
+    },
+    {
+      "id": "NREG-0173851-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：2012年美国总统选举的实验发现，收到动员信息者的密友也出现了投票增加。",
+      "source_ids": [
+        "PLOS-0173851",
+        "PLOS-0263028"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0173851",
+      "source_finding_type": "observed_effect",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "在线动员信息的随机实验及其密友溢出；保留2012年美国选举的条件。"
+      }
+    },
+    {
+      "id": "NREG-0173851-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟比较高低既有动员饱和度，检验密友溢出是否因先前接触动员信息而变化。计划采用可识别网络溢出的随机分配、预先测量的动员饱和度及实际投票记录。",
+      "source_ids": [
+        "PLOS-0173851",
+        "PLOS-0263028"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0173851",
+      "source_finding_type": "observed_effect",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "在线动员信息的随机实验及其密友溢出；保留2012年美国选举的条件。"
+      }
+    },
+    {
+      "id": "NREG-0182199-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，密西西比州2014年选举的复制实验中，秘密投票保证邮件没有提高投票率。",
+      "source_ids": [
+        "PLOS-0182199",
+        "PLOS-0155703"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0182199",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "新注册而此前不投票的人群，且基线投票率较低；不能推成所有场景均无效。"
+      }
+    },
+    {
+      "id": "NREG-0182199-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“匿名选票安全提示”概念，指通过邮件向选民保证投票内容保密的动员方式。密西西比州2014年选举实验发现，这类邮件未提高目标人群的投票率。",
+      "source_ids": [
+        "PLOS-0182199",
+        "PLOS-0155703"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0182199",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "新注册而此前不投票的人群，且基线投票率较低；不能推成所有场景均无效。"
+      }
+    },
+    {
+      "id": "NREG-0182199-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：密西西比州2014年选举的复制实验中，秘密投票保证邮件没有提高投票率。",
+      "source_ids": [
+        "PLOS-0182199",
+        "PLOS-0155703"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0182199",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "新注册而此前不投票的人群，且基线投票率较低；不能推成所有场景均无效。"
+      }
+    },
+    {
+      "id": "NREG-0182199-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟按事先投票倾向分层比较保密保证，检验低参与倾向是否限制处理效应。计划采用分层随机邮件投放、处理前投票倾向和登记投票结果，预先登记交互检验。",
+      "source_ids": [
+        "PLOS-0182199",
+        "PLOS-0155703"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0182199",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "新注册而此前不投票的人群，且基线投票率较低；不能推成所有场景均无效。"
+      }
+    },
+    {
+      "id": "NREG-0239988-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，控制协变量的合并分析中，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。",
+      "source_ids": [
+        "PLOS-0239988",
+        "PLOS-0131562"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0239988",
+      "source_finding_type": "bounded_mixed_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "两个预注册研究的合并分析；单独分析结果混合，估计关联不是随机化因果效应。"
+      }
+    },
+    {
+      "id": "NREG-0239988-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“家庭意识形态距离”概念，描述聚餐成员之间的政治立场差异。控制协变量的合并分析显示，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。",
+      "source_ids": [
+        "PLOS-0239988",
+        "PLOS-0131562"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0239988",
+      "source_finding_type": "bounded_mixed_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "两个预注册研究的合并分析；单独分析结果混合，估计关联不是随机化因果效应。"
+      }
+    },
+    {
+      "id": "NREG-0239988-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：控制协变量的合并分析中，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。",
+      "source_ids": [
+        "PLOS-0239988",
+        "PLOS-0131562"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0239988",
+      "source_finding_type": "bounded_mixed_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "两个预注册研究的合并分析；单独分析结果混合，估计关联不是随机化因果效应。"
+      }
+    },
+    {
+      "id": "NREG-0239988-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟检验既有家庭关系强度是否改变政治分歧与聚餐时长的关系。计划采用聚餐前测量的关系强度、时长与政治构成记录，及明确处理混杂的分析设计。",
+      "source_ids": [
+        "PLOS-0239988",
+        "PLOS-0131562"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0239988",
+      "source_finding_type": "bounded_mixed_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "两个预注册研究的合并分析；单独分析结果混合，估计关联不是随机化因果效应。"
+      }
+    },
+    {
+      "id": "NREG-0304482-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，该再分析没有发现扩展依赖对国家间战争的和平促进作用。",
+      "source_ids": [
+        "PLOS-0304482",
+        "PLOS-0187840"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0304482",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "结果变量为战争，区别于未升级至战争的军事争端；结论来自该统计检验。"
+      }
+    },
+    {
+      "id": "NREG-0304482-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“联盟贸易联结”概念，指挑战国与目标国防御盟友之间的贸易关系。以国家间战争为结果变量的统计检验没有发现这种联结的和平促进作用。",
+      "source_ids": [
+        "PLOS-0304482",
+        "PLOS-0187840"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0304482",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "结果变量为战争，区别于未升级至战争的军事争端；结论来自该统计检验。"
+      }
+    },
+    {
+      "id": "NREG-0304482-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：该再分析没有发现扩展依赖对国家间战争的和平促进作用。",
+      "source_ids": [
+        "PLOS-0304482",
+        "PLOS-0187840"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0304482",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "结果变量为战争，区别于未升级至战争的军事争端；结论来自该统计检验。"
+      }
+    },
+    {
+      "id": "NREG-0304482-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟区分短期贸易中断和长期贸易联系，并检验防御承诺强度是否改变战争风险关系。计划采用有时间顺序的贸易与安全承诺资料、战争结果以及可区分竞争解释的识别策略。",
+      "source_ids": [
+        "PLOS-0304482",
+        "PLOS-0187840"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0304482",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "结果变量为战争，区别于未升级至战争的军事争端；结论来自该统计检验。"
+      }
+    },
+    {
+      "id": "NREG-0304269-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，突尼斯三处社区的现场实验没有发现邻里压力促进社区清洁参与的证据。",
+      "source_ids": [
+        "PLOS-0304269",
+        "PLOS-0147770"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0304269",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "邻居与社区外人员发出邀请的比较，结果是实际集体清洁参与。"
+      }
+    },
+    {
+      "id": "NREG-0304269-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“近邻参与规范”概念，指邻居邀请所产生的社区参与压力。突尼斯三处社区的现场实验没有发现这类压力提高实际社区清洁参与的证据。",
+      "source_ids": [
+        "PLOS-0304269",
+        "PLOS-0147770"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0304269",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "邻居与社区外人员发出邀请的比较，结果是实际集体清洁参与。"
+      }
+    },
+    {
+      "id": "NREG-0304269-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：突尼斯三处社区的现场实验没有发现邻里压力促进社区清洁参与的证据。",
+      "source_ids": [
+        "PLOS-0304269",
+        "PLOS-0147770"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0304269",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "邻居与社区外人员发出邀请的比较，结果是实际集体清洁参与。"
+      }
+    },
+    {
+      "id": "NREG-0304269-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟比较可独立完成的个人贡献与需要共同承诺的集体行动，检验行动互补性是否改变邀请效果。计划采用邀请者身份与行动互补性的交叉随机化，并记录实际行为和参与承诺。",
+      "source_ids": [
+        "PLOS-0304269",
+        "PLOS-0147770"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0304269",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "邻居与社区外人员发出邀请的比较，结果是实际集体清洁参与。"
+      }
+    },
+    {
+      "id": "NREG-0263028-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，该重复公共品实验发现，随机惩罚不足以维持合作。",
+      "source_ids": [
+        "PLOS-0263028",
+        "PLOS-0172636"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0263028",
+      "source_finding_type": "boundary_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "惩罚带有随机噪声的公共品博弈；不能仅据此推断惩罚在所有制度中无效。"
+      }
+    },
+    {
+      "id": "NREG-0263028-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“不确定制裁”概念，指惩罚结果包含随机噪声的制裁方式。重复公共品实验发现，这种制裁不足以维持合作。",
+      "source_ids": [
+        "PLOS-0263028",
+        "PLOS-0172636"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0263028",
+      "source_finding_type": "boundary_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "惩罚带有随机噪声的公共品博弈；不能仅据此推断惩罚在所有制度中无效。"
+      }
+    },
+    {
+      "id": "NREG-0263028-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：该重复公共品实验发现，随机惩罚不足以维持合作。",
+      "source_ids": [
+        "PLOS-0263028",
+        "PLOS-0172636"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0263028",
+      "source_finding_type": "boundary_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "惩罚带有随机噪声的公共品博弈；不能仅据此推断惩罚在所有制度中无效。"
+      }
+    },
+    {
+      "id": "NREG-0263028-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟区分惩罚噪声与系统性偏差，并检验可核验的惩罚程序能否减轻噪声影响。计划采用保持期望惩罚一致的随机实验、独立操纵噪声和可核验性、合作及反社会惩罚记录。",
+      "source_ids": [
+        "PLOS-0263028",
+        "PLOS-0172636"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0263028",
+      "source_finding_type": "boundary_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "惩罚带有随机噪声的公共品博弈；不能仅据此推断惩罚在所有制度中无效。"
+      }
+    },
+    {
+      "id": "NREG-0155703-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，该网络合作实验没有发现可观察组内互动的嵌入条件比孤立互动条件具有更高合作水平。",
+      "source_ids": [
+        "PLOS-0155703",
+        "PLOS-0209263"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0155703",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "对Raub与Weesie模型的两项激励实验；不能将未发现差异写成精确零效应。"
+      }
+    },
+    {
+      "id": "NREG-0155703-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“互动可见性网络”概念，描述参与者能够观察同组他人互动结果的结构。激励实验没有发现这种结构比仅能观察自身互动的条件具有更高合作水平。",
+      "source_ids": [
+        "PLOS-0155703",
+        "PLOS-0209263"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0155703",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "对Raub与Weesie模型的两项激励实验；不能将未发现差异写成精确零效应。"
+      }
+    },
+    {
+      "id": "NREG-0155703-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：该网络合作实验没有发现可观察组内互动的嵌入条件比孤立互动条件具有更高合作水平。",
+      "source_ids": [
+        "PLOS-0155703",
+        "PLOS-0209263"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0155703",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "对Raub与Weesie模型的两项激励实验；不能将未发现差异写成精确零效应。"
+      }
+    },
+    {
+      "id": "NREG-0155703-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟区分声誉信息的可见程度与可信程度，检验信息误差是否改变合作反应。计划采用独立操纵可见性与误差率的重复博弈，记录信念更新和实际合作行为。",
+      "source_ids": [
+        "PLOS-0155703",
+        "PLOS-0209263"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0155703",
+      "source_finding_type": "negative_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "对Raub与Weesie模型的两项激励实验；不能将未发现差异写成精确零效应。"
+      }
+    },
+    {
+      "id": "NREG-0131562-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，该概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。",
+      "source_ids": [
+        "PLOS-0131562",
+        "PLOS-0173851"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0131562",
+      "source_finding_type": "boundary_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "概念启动和收益不对称的实验情境；不是已确认的普遍直觉合作规律。"
+      }
+    },
+    {
+      "id": "NREG-0131562-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“快速亲社会反应”概念，描述由直觉性加工推动的合作行为。概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。",
+      "source_ids": [
+        "PLOS-0131562",
+        "PLOS-0173851"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0131562",
+      "source_finding_type": "boundary_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "概念启动和收益不对称的实验情境；不是已确认的普遍直觉合作规律。"
+      }
+    },
+    {
+      "id": "NREG-0131562-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：该概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。",
+      "source_ids": [
+        "PLOS-0131562",
+        "PLOS-0173851"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0131562",
+      "source_finding_type": "boundary_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "概念启动和收益不对称的实验情境；不是已确认的普遍直觉合作规律。"
+      }
+    },
+    {
+      "id": "NREG-0131562-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟区分收益不均与成本不均，检验不对称性的来源是否改变直觉与合作的关系。计划采用启动条件与不对称性来源的交叉随机实验，并比较可理解的净收益结构。",
+      "source_ids": [
+        "PLOS-0131562",
+        "PLOS-0173851"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0131562",
+      "source_finding_type": "boundary_result",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "概念启动和收益不对称的实验情境；不是已确认的普遍直觉合作规律。"
+      }
+    },
+    {
+      "id": "NREG-0187840-KNOWN",
+      "family": "published_claim_reassertion",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文发现，丹麦、西班牙和加纳的实验报告，一次外部指令提高了后续协调，较早指令的效果更好。",
+      "source_ids": [
+        "PLOS-0187840",
+        "PLOS-0182199"
+      ],
+      "control_kind": "known_prior_claim",
+      "parent_paper_id": "PLOS-0187840",
+      "source_finding_type": "observed_effect",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "固定配对、五轮最小努力博弈；不得据此宣称长期政策效果。"
+      }
+    },
+    {
+      "id": "NREG-0187840-RENAME",
+      "family": "terminology_only_change",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本文提出“一次性秩序提示”概念，指在互动过程的一轮中发出行为指令的干预。丹麦、西班牙和加纳的实验报告，这类指令提高了后续协调，较早发出的指令效果更好。",
+      "source_ids": [
+        "PLOS-0187840",
+        "PLOS-0182199"
+      ],
+      "control_kind": "surface_rename",
+      "parent_paper_id": "PLOS-0187840",
+      "source_finding_type": "observed_effect",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "固定配对、五轮最小努力博弈；不得据此宣称长期政策效果。"
+      }
+    },
+    {
+      "id": "NREG-0187840-REPLICATE",
+      "family": "independent_replication",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟通过新样本开展独立预注册复制，检验以下发现的可重复性和估计精度：丹麦、西班牙和加纳的实验报告，一次外部指令提高了后续协调，较早指令的效果更好。",
+      "source_ids": [
+        "PLOS-0187840",
+        "PLOS-0182199"
+      ],
+      "control_kind": "replication_allowed",
+      "parent_paper_id": "PLOS-0187840",
+      "source_finding_type": "observed_effect",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "固定配对、五轮最小努力博弈；不得据此宣称长期政策效果。"
+      }
+    },
+    {
+      "id": "NREG-0187840-BOUNDARY",
+      "family": "scope_or_mechanism_probe",
+      "groundtruth_type": "source_derived_control",
+      "candidate_origin": "counterfactual_transform",
+      "candidate_claim": "本研究拟将观察窗口延长至更多轮次，并检验干预后反馈是否影响协调效果的持续时间。计划采用预先登记的长窗口随机实验、逐轮努力选择与信息反馈操纵。",
+      "source_ids": [
+        "PLOS-0187840",
+        "PLOS-0182199"
+      ],
+      "control_kind": "boundary_probe",
+      "parent_paper_id": "PLOS-0187840",
+      "source_finding_type": "observed_effect",
+      "construction": {
+        "performed_research": false,
+        "published_candidate": false,
+        "scope": "固定配对、五轮最小努力博弈；不得据此宣称长期政策效果。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "schema_version": "cnki-authoritative-method-sources/v1",
+  "updated_at": "2026-07-29",
+  "policy": "Textbook propositions become hard gates only when an independent authoritative source supports an objectively checkable risk. Reporting guidance is not silently converted into a design-quality hierarchy.",
+  "sources": [
+    {
+      "id": "AUTH-AERA-REPORTING",
+      "title": "Standards for Reporting on Empirical Social Science Research in AERA Publications",
+      "organization_or_authors": "American Educational Research Association",
+      "year": 2006,
+      "url": "https://doi.org/10.3102/0013189X035006033",
+      "supports": ["research questions", "design transparency", "evidence and inference", "reporting"]
+    },
+    {
+      "id": "AUTH-NASEM-REPRO",
+      "title": "Reproducibility and Replicability in Science",
+      "organization_or_authors": "National Academies of Sciences, Engineering, and Medicine",
+      "year": 2019,
+      "url": "https://doi.org/10.17226/25303",
+      "supports": ["scientific reasoning", "reproducibility", "computational transparency"]
+    },
+    {
+      "id": "AUTH-SRQR",
+      "title": "Standards for Reporting Qualitative Research",
+      "organization_or_authors": "O'Brien et al.",
+      "year": 2014,
+      "url": "https://doi.org/10.1097/ACM.0000000000000388",
+      "supports": ["qualitative paradigm", "researcher position", "context", "sampling and analysis transparency"]
+    },
+    {
+      "id": "AUTH-PRISMA",
+      "title": "PRISMA 2020 Statement",
+      "organization_or_authors": "PRISMA",
+      "year": 2021,
+      "url": "https://www.prisma-statement.org/prisma-2020",
+      "supports": ["systematic review reporting", "search and screening flow", "study inventory"]
+    },
+    {
+      "id": "AUTH-PRISMA-SCR",
+      "title": "PRISMA Extension for Scoping Reviews",
+      "organization_or_authors": "PRISMA",
+      "year": 2018,
+      "url": "https://www.prisma-statement.org/scoping",
+      "supports": ["scoping review reporting"]
+    },
+    {
+      "id": "AUTH-AAPOR",
+      "title": "Best Practices for Survey Research",
+      "organization_or_authors": "American Association for Public Opinion Research",
+      "year": 2026,
+      "url": "https://aapor.org/standards-and-ethics/best-practices/",
+      "supports": ["sampling frame", "questionnaire", "interviewer training", "response and weighting", "transparency"]
+    },
+    {
+      "id": "AUTH-CONSORT",
+      "title": "CONSORT 2025 Statement",
+      "organization_or_authors": "CONSORT Group",
+      "year": 2025,
+      "url": "https://www.equator-network.org/reporting-guidelines/consort/",
+      "supports": ["random allocation", "participant flow", "intervention and comparator", "outcomes and harms"]
+    },
+    {
+      "id": "AUTH-ASA-P",
+      "title": "The ASA Statement on p-Values: Context, Process, and Purpose",
+      "organization_or_authors": "Wasserstein and Lazar",
+      "year": 2016,
+      "url": "https://doi.org/10.1080/00031305.2016.1154108",
+      "supports": ["uncertainty", "no universal significance threshold", "avoid dichotomous inference"]
+    },
+    {
+      "id": "AUTH-STROBE",
+      "title": "STROBE Statement",
+      "organization_or_authors": "STROBE Initiative",
+      "year": 2007,
+      "url": "https://www.equator-network.org/reporting-guidelines/strobe/",
+      "supports": ["observational study reporting", "participants", "variables", "bias", "missing data", "limitations"]
+    },
+    {
+      "id": "AUTH-PROCESS",
+      "title": "Understanding Process Tracing",
+      "organization_or_authors": "David Collier",
+      "year": 2011,
+      "url": "https://doi.org/10.1017/S1049096511001429",
+      "supports": ["within-case sequence", "diagnostic evidence", "description", "causal process observations"]
+    },
+    {
+      "id": "AUTH-QCA-GOOD",
+      "title": "Approaches to Qualitative Comparative Analysis and Good Practices",
+      "organization_or_authors": "Thomann, Ege, and Paustyan",
+      "year": 2022,
+      "url": "https://doi.org/10.1111/spsr.12503",
+      "supports": ["calibration", "truth tables", "contradictions", "logical remainders", "return to cases"]
+    },
+    {
+      "id": "AUTH-QCA-ROBUST",
+      "title": "A Robustness Test Protocol for Applied QCA",
+      "organization_or_authors": "Oana and Schneider",
+      "year": 2024,
+      "url": "https://doi.org/10.1177/00491241211036158",
+      "supports": ["calibration sensitivity", "consistency and frequency sensitivity", "robustness interpretation"]
+    },
+    {
+      "id": "AUTH-CONTENT",
+      "title": "Qualitative Content Analysis: A Focus on Trustworthiness",
+      "organization_or_authors": "Elo et al.",
+      "year": 2014,
+      "url": "https://doi.org/10.1177/2158244014522633",
+      "supports": ["content analysis preparation", "coding process", "trustworthiness", "reporting"]
+    },
+    {
+      "id": "AUTH-NETWORK",
+      "title": "ergm: A Package to Fit, Simulate and Diagnose Exponential-Family Models for Networks",
+      "organization_or_authors": "Hunter et al.",
+      "year": 2008,
+      "url": "https://doi.org/10.18637/jss.v024.i03",
+      "supports": ["network dependence", "model diagnostics", "simulation and reproducibility"]
+    },
+    {
+      "id": "AUTH-COMPARATIVE",
+      "title": "Strategies of Causal Inference in Small-N Analysis",
+      "organization_or_authors": "James Mahoney",
+      "year": 2000,
+      "url": "https://doi.org/10.1177/0049124100028004001",
+      "supports": ["within-case and cross-case comparison", "case selection", "causal inference limits"]
+    },
+    {
+      "id": "AUTH-TYPOLOGY",
+      "title": "Putting Typologies to Work",
+      "organization_or_authors": "Collier, LaPorte, and Seawright",
+      "year": 2012,
+      "url": "https://doi.org/10.1017/S0003055412000079",
+      "supports": ["type space", "classification", "conceptual dimensions", "cell comparison"]
+    },
+    {
+      "id": "AUTH-AHA",
+      "title": "Statement on Standards of Professional Conduct",
+      "organization_or_authors": "American Historical Association",
+      "year": 2023,
+      "url": "https://www.historians.org/resource/aha-statement-on-standards-of-professional-conduct/",
+      "supports": ["source attribution", "evidence integrity", "historical interpretation", "professional ethics"]
+    },
+    {
+      "id": "AUTH-OHA",
+      "title": "Principles and Best Practices for Oral History",
+      "organization_or_authors": "Oral History Association",
+      "year": 2018,
+      "url": "https://oralhistory.org/principles-and-best-practices-revised-2018/",
+      "supports": ["informed consent", "narrator rights", "preservation", "access", "power and reflexivity"]
+    },
+    {
+      "id": "AUTH-GROUNDED",
+      "title": "The Grounded Theory Method: Application of a Variant of Its Procedure of Constant Comparative Analysis",
+      "organization_or_authors": "Rennie",
+      "year": 2006,
+      "url": "https://doi.org/10.1016/B978-012088470-4/50006-5",
+      "supports": ["constant comparison", "coding", "category development", "theory generation"]
+    },
+    {
+      "id": "AUTH-GROUNDED-CHARMAZ",
+      "title": "Constructing Grounded Theory",
+      "organization_or_authors": "Kathy Charmaz",
+      "year": 2024,
+      "url": "https://uk.sagepub.com/en-gb/mst/constructing-grounded-theory/book255601",
+      "supports": ["constructivist grounded theory", "researcher position", "reflexivity", "tradition-specific analytic logic"]
+    },
+    {
+      "id": "AUTH-COCHRANE-SEARCH",
+      "title": "Cochrane Handbook Chapter 4: Searching for and selecting studies",
+      "organization_or_authors": "Cochrane Information Retrieval Methods Group",
+      "year": 2025,
+      "url": "https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current/chapter-04",
+      "supports": ["search-source coverage", "date and language restrictions", "study selection", "duplicate screening", "awaiting-classification fallback"]
+    },
+    {
+      "id": "AUTH-RD-PRACTICAL",
+      "title": "A Practical Introduction to Regression Discontinuity Designs: Foundations",
+      "organization_or_authors": "Cattaneo, Idrobo, and Titiunik",
+      "year": 2019,
+      "url": "https://arxiv.org/abs/1911.09511",
+      "supports": ["local cutoff estimands", "sharp and fuzzy assignment", "running-variable diagnostics", "design-specific interpretation"]
+    },
+    {
+      "id": "AUTH-CAUSAL",
+      "title": "Causal Inference: What If",
+      "organization_or_authors": "Hernan and Robins",
+      "year": 2020,
+      "url": "https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/",
+      "supports": ["estimand", "counterfactual comparison", "time order", "identification assumptions"]
+    },
+    {
+      "id": "AUTH-TRIPOD",
+      "title": "TRIPOD Statement",
+      "organization_or_authors": "TRIPOD Group",
+      "year": 2015,
+      "url": "https://www.equator-network.org/reporting-guidelines/tripod-statement/",
+      "supports": ["prediction target", "model development", "validation", "performance and uncertainty"]
+    },
+    {
+      "id": "AUTH-DATASHEETS",
+      "title": "Datasheets for Datasets",
+      "organization_or_authors": "Gebru et al.",
+      "year": 2021,
+      "url": "https://doi.org/10.1145/3458723",
+      "supports": ["dataset provenance", "collection and preprocessing", "uses and limitations", "maintenance"]
+    },
+    {
+      "id": "AUTH-MODELCARDS",
+      "title": "Model Cards for Model Reporting",
+      "organization_or_authors": "Mitchell et al.",
+      "year": 2019,
+      "url": "https://doi.org/10.1145/3287560.3287596",
+      "supports": ["model purpose", "evaluation slices", "limitations", "fairness"]
+    },
+    {
+      "id": "AUTH-AOIR",
+      "title": "Internet Research: Ethical Guidelines 3.0",
+      "organization_or_authors": "Association of Internet Researchers",
+      "year": 2019,
+      "url": "https://aoir.org/ethics/",
+      "supports": ["internet data ethics", "privacy", "contextual risk", "research lifecycle"]
+    },
+    {
+      "id": "AUTH-COPE",
+      "title": "Principles of Transparency and Best Practice in Scholarly Publishing",
+      "organization_or_authors": "COPE, DOAJ, OASPA, and WAME",
+      "year": 2022,
+      "url": "https://doi.org/10.24318/cope.2019.1.12",
+      "supports": ["authorship", "conflicts of interest", "data and reproducibility", "ethical oversight", "publication misconduct"]
+    },
+    {
+      "id": "AUTH-ICMJE-AI",
+      "title": "Use of Artificial Intelligence by Authors",
+      "organization_or_authors": "International Committee of Medical Journal Editors",
+      "year": 2025,
+      "url": "https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html",
+      "supports": ["AI disclosure", "human accountability", "confidentiality", "citation responsibility"]
+    },
+    {
+      "id": "AUTH-NIH-MIXED",
+      "title": "Best Practices for Mixed Methods Research in the Health Sciences",
+      "organization_or_authors": "US National Institutes of Health, Office of Behavioral and Social Sciences Research",
+      "year": 2011,
+      "url": "https://obssr.od.nih.gov/research-resources/mixed-methods-research",
+      "supports": ["mixed-method design", "route integration", "sequence and priority", "integrated inference"]
+    }
+  ]
+}

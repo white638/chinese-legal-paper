@@ -1,0 +1,1486 @@
+{
+  "schema_version": "avereth-novelty-reference/v1",
+  "cases_sha256": "dd2d7a2dbbe7b4e78af49f8d696901ae9a2de3b4f3174a6a7d10923185a10bd9",
+  "reference_kind": "automated_reference",
+  "generation_method": "deterministic source-derived control rules with inspected publisher anchors",
+  "external_model_calls": 0,
+  "expert_annotations": 0,
+  "annotations": [
+    {
+      "case_id": "NREG-0147770-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0147770"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "在该预注册的连续任务实验中，先前的自控消耗没有带来预期的后续自控表现下降。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0147770",
+          "locator": "Abstract, paragraph 1; normalized characters 929:1052",
+          "exact_quote": "participants in the depletion condition did not perform worse than control participants on the subsequent self-control task",
+          "prior_claim": "participants in the depletion condition did not perform worse than control participants on the subsequent self-control task",
+          "prior_claim_paraphrase": "在该预注册的连续任务实验中，先前的自控消耗没有带来预期的后续自控表现下降。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0147770-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0147770"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "在该预注册的连续任务实验中，先前的自控消耗没有带来预期的后续自控表现下降。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0147770",
+          "locator": "Abstract, paragraph 1; normalized characters 929:1052",
+          "exact_quote": "participants in the depletion condition did not perform worse than control participants on the subsequent self-control task",
+          "prior_claim": "participants in the depletion condition did not perform worse than control participants on the subsequent self-control task",
+          "prior_claim_paraphrase": "在该预注册的连续任务实验中，先前的自控消耗没有带来预期的后续自控表现下降。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0147770-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0147770"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "在该预注册的连续任务实验中，先前的自控消耗没有带来预期的后续自控表现下降。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0147770",
+          "locator": "Abstract, paragraph 1; normalized characters 929:1052",
+          "exact_quote": "participants in the depletion condition did not perform worse than control participants on the subsequent self-control task",
+          "prior_claim": "participants in the depletion condition did not perform worse than control participants on the subsequent self-control task",
+          "prior_claim_paraphrase": "在该预注册的连续任务实验中，先前的自控消耗没有带来预期的后续自控表现下降。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0147770-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "在该预注册的连续任务实验中，先前的自控消耗没有带来预期的后续自控表现下降。"
+      ],
+      "evidence_required": [
+        "两个情境下的独立随机对照、任务有效性测量和预先登记的动机调节检验",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0147770",
+          "locator": "Abstract, paragraph 1; normalized characters 929:1052",
+          "exact_quote": "participants in the depletion condition did not perform worse than control participants on the subsequent self-control task",
+          "prior_claim": "participants in the depletion condition did not perform worse than control participants on the subsequent self-control task",
+          "prior_claim_paraphrase": "在该预注册的连续任务实验中，先前的自控消耗没有带来预期的后续自控表现下降。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0172636-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0172636"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "在这次多地点预注册复制中，分析性思维的图片启动对宗教信念几乎没有影响。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0172636",
+          "locator": "Abstract, paragraph 1; normalized characters 260:344",
+          "exact_quote": "We observed little to no effect of the experimental manipulation on religious belief",
+          "prior_claim": "We observed little to no effect of the experimental manipulation on religious belief",
+          "prior_claim_paraphrase": "在这次多地点预注册复制中，分析性思维的图片启动对宗教信念几乎没有影响。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0172636-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0172636"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "在这次多地点预注册复制中，分析性思维的图片启动对宗教信念几乎没有影响。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0172636",
+          "locator": "Abstract, paragraph 1; normalized characters 260:344",
+          "exact_quote": "We observed little to no effect of the experimental manipulation on religious belief",
+          "prior_claim": "We observed little to no effect of the experimental manipulation on religious belief",
+          "prior_claim_paraphrase": "在这次多地点预注册复制中，分析性思维的图片启动对宗教信念几乎没有影响。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0172636-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0172636"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "在这次多地点预注册复制中，分析性思维的图片启动对宗教信念几乎没有影响。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0172636",
+          "locator": "Abstract, paragraph 1; normalized characters 260:344",
+          "exact_quote": "We observed little to no effect of the experimental manipulation on religious belief",
+          "prior_claim": "We observed little to no effect of the experimental manipulation on religious belief",
+          "prior_claim_paraphrase": "在这次多地点预注册复制中，分析性思维的图片启动对宗教信念几乎没有影响。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0172636-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "在这次多地点预注册复制中，分析性思维的图片启动对宗教信念几乎没有影响。"
+      ],
+      "evidence_required": [
+        "随机分配的干预强度、操作检验以及重复测量的宗教信念结果",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0172636",
+          "locator": "Abstract, paragraph 1; normalized characters 260:344",
+          "exact_quote": "We observed little to no effect of the experimental manipulation on religious belief",
+          "prior_claim": "We observed little to no effect of the experimental manipulation on religious belief",
+          "prior_claim_paraphrase": "在这次多地点预注册复制中，分析性思维的图片启动对宗教信念几乎没有影响。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0209263-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0209263"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "这项更高统计功效的接近复制没有重现合作或竞争启动与情境解释的原有结果。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0209263",
+          "locator": "Abstract, paragraph 1; normalized characters 670:775",
+          "exact_quote": "we could not reproduce their findings in the present close replication, despite counting on higher power.",
+          "prior_claim": "we could not reproduce their findings in the present close replication, despite counting on higher power.",
+          "prior_claim_paraphrase": "这项更高统计功效的接近复制没有重现合作或竞争启动与情境解释的原有结果。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0209263-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0209263"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "这项更高统计功效的接近复制没有重现合作或竞争启动与情境解释的原有结果。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0209263",
+          "locator": "Abstract, paragraph 1; normalized characters 670:775",
+          "exact_quote": "we could not reproduce their findings in the present close replication, despite counting on higher power.",
+          "prior_claim": "we could not reproduce their findings in the present close replication, despite counting on higher power.",
+          "prior_claim_paraphrase": "这项更高统计功效的接近复制没有重现合作或竞争启动与情境解释的原有结果。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0209263-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0209263"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "这项更高统计功效的接近复制没有重现合作或竞争启动与情境解释的原有结果。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0209263",
+          "locator": "Abstract, paragraph 1; normalized characters 670:775",
+          "exact_quote": "we could not reproduce their findings in the present close replication, despite counting on higher power.",
+          "prior_claim": "we could not reproduce their findings in the present close replication, despite counting on higher power.",
+          "prior_claim_paraphrase": "这项更高统计功效的接近复制没有重现合作或竞争启动与情境解释的原有结果。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0209263-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "这项更高统计功效的接近复制没有重现合作或竞争启动与情境解释的原有结果。"
+      ],
+      "evidence_required": [
+        "启动条件与重复互动条件的交叉随机实验，并单独测量声誉预期",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0209263",
+          "locator": "Abstract, paragraph 1; normalized characters 670:775",
+          "exact_quote": "we could not reproduce their findings in the present close replication, despite counting on higher power.",
+          "prior_claim": "we could not reproduce their findings in the present close replication, despite counting on higher power.",
+          "prior_claim_paraphrase": "这项更高统计功效的接近复制没有重现合作或竞争启动与情境解释的原有结果。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0173851-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0173851"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "2012年美国总统选举的实验发现，收到动员信息者的密友也出现了投票增加。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0173851",
+          "locator": "Abstract, paragraph 1; normalized characters 514:626",
+          "exact_quote": "Voting also increased significantly among the close friends of those who received the message to go to the polls",
+          "prior_claim": "Voting also increased significantly among the close friends of those who received the message to go to the polls",
+          "prior_claim_paraphrase": "2012年美国总统选举的实验发现，收到动员信息者的密友也出现了投票增加。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0173851-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0173851"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "2012年美国总统选举的实验发现，收到动员信息者的密友也出现了投票增加。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0173851",
+          "locator": "Abstract, paragraph 1; normalized characters 514:626",
+          "exact_quote": "Voting also increased significantly among the close friends of those who received the message to go to the polls",
+          "prior_claim": "Voting also increased significantly among the close friends of those who received the message to go to the polls",
+          "prior_claim_paraphrase": "2012年美国总统选举的实验发现，收到动员信息者的密友也出现了投票增加。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0173851-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0173851"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "2012年美国总统选举的实验发现，收到动员信息者的密友也出现了投票增加。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0173851",
+          "locator": "Abstract, paragraph 1; normalized characters 514:626",
+          "exact_quote": "Voting also increased significantly among the close friends of those who received the message to go to the polls",
+          "prior_claim": "Voting also increased significantly among the close friends of those who received the message to go to the polls",
+          "prior_claim_paraphrase": "2012年美国总统选举的实验发现，收到动员信息者的密友也出现了投票增加。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0173851-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "2012年美国总统选举的实验发现，收到动员信息者的密友也出现了投票增加。"
+      ],
+      "evidence_required": [
+        "可识别网络溢出的随机分配、预先测量的动员饱和度及实际投票记录",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0173851",
+          "locator": "Abstract, paragraph 1; normalized characters 514:626",
+          "exact_quote": "Voting also increased significantly among the close friends of those who received the message to go to the polls",
+          "prior_claim": "Voting also increased significantly among the close friends of those who received the message to go to the polls",
+          "prior_claim_paraphrase": "2012年美国总统选举的实验发现，收到动员信息者的密友也出现了投票增加。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0182199-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0182199"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "密西西比州2014年选举的复制实验中，秘密投票保证邮件没有提高投票率。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0182199",
+          "locator": "Abstract, paragraph 1; normalized characters 656:735",
+          "exact_quote": "We find that sending this mailer has no effect on turnout rates in this setting",
+          "prior_claim": "We find that sending this mailer has no effect on turnout rates in this setting",
+          "prior_claim_paraphrase": "密西西比州2014年选举的复制实验中，秘密投票保证邮件没有提高投票率。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0182199-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0182199"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "密西西比州2014年选举的复制实验中，秘密投票保证邮件没有提高投票率。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0182199",
+          "locator": "Abstract, paragraph 1; normalized characters 656:735",
+          "exact_quote": "We find that sending this mailer has no effect on turnout rates in this setting",
+          "prior_claim": "We find that sending this mailer has no effect on turnout rates in this setting",
+          "prior_claim_paraphrase": "密西西比州2014年选举的复制实验中，秘密投票保证邮件没有提高投票率。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0182199-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0182199"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "密西西比州2014年选举的复制实验中，秘密投票保证邮件没有提高投票率。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0182199",
+          "locator": "Abstract, paragraph 1; normalized characters 656:735",
+          "exact_quote": "We find that sending this mailer has no effect on turnout rates in this setting",
+          "prior_claim": "We find that sending this mailer has no effect on turnout rates in this setting",
+          "prior_claim_paraphrase": "密西西比州2014年选举的复制实验中，秘密投票保证邮件没有提高投票率。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0182199-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "密西西比州2014年选举的复制实验中，秘密投票保证邮件没有提高投票率。"
+      ],
+      "evidence_required": [
+        "分层随机邮件投放、处理前投票倾向和登记投票结果，预先登记交互检验",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0182199",
+          "locator": "Abstract, paragraph 1; normalized characters 656:735",
+          "exact_quote": "We find that sending this mailer has no effect on turnout rates in this setting",
+          "prior_claim": "We find that sending this mailer has no effect on turnout rates in this setting",
+          "prior_claim_paraphrase": "密西西比州2014年选举的复制实验中，秘密投票保证邮件没有提高投票率。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0239988-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0239988"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "控制协变量的合并分析中，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0239988",
+          "locator": "Abstract, paragraph 1; normalized characters 1165:1246",
+          "exact_quote": "politically diverse dinners were 24 minutes shorter than politically uniform ones",
+          "prior_claim": "politically diverse dinners were 24 minutes shorter than politically uniform ones",
+          "prior_claim_paraphrase": "控制协变量的合并分析中，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0239988-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0239988"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "控制协变量的合并分析中，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0239988",
+          "locator": "Abstract, paragraph 1; normalized characters 1165:1246",
+          "exact_quote": "politically diverse dinners were 24 minutes shorter than politically uniform ones",
+          "prior_claim": "politically diverse dinners were 24 minutes shorter than politically uniform ones",
+          "prior_claim_paraphrase": "控制协变量的合并分析中，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0239988-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0239988"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "控制协变量的合并分析中，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0239988",
+          "locator": "Abstract, paragraph 1; normalized characters 1165:1246",
+          "exact_quote": "politically diverse dinners were 24 minutes shorter than politically uniform ones",
+          "prior_claim": "politically diverse dinners were 24 minutes shorter than politically uniform ones",
+          "prior_claim_paraphrase": "控制协变量的合并分析中，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0239988-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "控制协变量的合并分析中，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。"
+      ],
+      "evidence_required": [
+        "聚餐前测量的关系强度、时长与政治构成记录，及明确处理混杂的分析设计",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0239988",
+          "locator": "Abstract, paragraph 1; normalized characters 1165:1246",
+          "exact_quote": "politically diverse dinners were 24 minutes shorter than politically uniform ones",
+          "prior_claim": "politically diverse dinners were 24 minutes shorter than politically uniform ones",
+          "prior_claim_paraphrase": "控制协变量的合并分析中，政治立场多样的感恩节聚餐平均比立场一致的聚餐短24分钟。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0304482-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0304482"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "该再分析没有发现扩展依赖对国家间战争的和平促进作用。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0304482",
+          "locator": "Abstract, paragraph 1; normalized characters 828:921",
+          "exact_quote": "I uncover no peace-building effect, with regards to war, attributable to Extended Dependence.",
+          "prior_claim": "I uncover no peace-building effect, with regards to war, attributable to Extended Dependence.",
+          "prior_claim_paraphrase": "该再分析没有发现扩展依赖对国家间战争的和平促进作用。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0304482-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0304482"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "该再分析没有发现扩展依赖对国家间战争的和平促进作用。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0304482",
+          "locator": "Abstract, paragraph 1; normalized characters 828:921",
+          "exact_quote": "I uncover no peace-building effect, with regards to war, attributable to Extended Dependence.",
+          "prior_claim": "I uncover no peace-building effect, with regards to war, attributable to Extended Dependence.",
+          "prior_claim_paraphrase": "该再分析没有发现扩展依赖对国家间战争的和平促进作用。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0304482-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0304482"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "该再分析没有发现扩展依赖对国家间战争的和平促进作用。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0304482",
+          "locator": "Abstract, paragraph 1; normalized characters 828:921",
+          "exact_quote": "I uncover no peace-building effect, with regards to war, attributable to Extended Dependence.",
+          "prior_claim": "I uncover no peace-building effect, with regards to war, attributable to Extended Dependence.",
+          "prior_claim_paraphrase": "该再分析没有发现扩展依赖对国家间战争的和平促进作用。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0304482-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "该再分析没有发现扩展依赖对国家间战争的和平促进作用。"
+      ],
+      "evidence_required": [
+        "有时间顺序的贸易与安全承诺资料、战争结果以及可区分竞争解释的识别策略",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0304482",
+          "locator": "Abstract, paragraph 1; normalized characters 828:921",
+          "exact_quote": "I uncover no peace-building effect, with regards to war, attributable to Extended Dependence.",
+          "prior_claim": "I uncover no peace-building effect, with regards to war, attributable to Extended Dependence.",
+          "prior_claim_paraphrase": "该再分析没有发现扩展依赖对国家间战争的和平促进作用。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0304269-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0304269"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "突尼斯三处社区的现场实验没有发现邻里压力促进社区清洁参与的证据。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0304269",
+          "locator": "Abstract, paragraph 1; normalized characters 632:747",
+          "exact_quote": "I do not find evidence to suggest that neighborly social pressure encourages participation in neighborhood cleanups",
+          "prior_claim": "I do not find evidence to suggest that neighborly social pressure encourages participation in neighborhood cleanups",
+          "prior_claim_paraphrase": "突尼斯三处社区的现场实验没有发现邻里压力促进社区清洁参与的证据。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0304269-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0304269"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "突尼斯三处社区的现场实验没有发现邻里压力促进社区清洁参与的证据。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0304269",
+          "locator": "Abstract, paragraph 1; normalized characters 632:747",
+          "exact_quote": "I do not find evidence to suggest that neighborly social pressure encourages participation in neighborhood cleanups",
+          "prior_claim": "I do not find evidence to suggest that neighborly social pressure encourages participation in neighborhood cleanups",
+          "prior_claim_paraphrase": "突尼斯三处社区的现场实验没有发现邻里压力促进社区清洁参与的证据。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0304269-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0304269"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "突尼斯三处社区的现场实验没有发现邻里压力促进社区清洁参与的证据。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0304269",
+          "locator": "Abstract, paragraph 1; normalized characters 632:747",
+          "exact_quote": "I do not find evidence to suggest that neighborly social pressure encourages participation in neighborhood cleanups",
+          "prior_claim": "I do not find evidence to suggest that neighborly social pressure encourages participation in neighborhood cleanups",
+          "prior_claim_paraphrase": "突尼斯三处社区的现场实验没有发现邻里压力促进社区清洁参与的证据。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0304269-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "突尼斯三处社区的现场实验没有发现邻里压力促进社区清洁参与的证据。"
+      ],
+      "evidence_required": [
+        "邀请者身份与行动互补性的交叉随机化，并记录实际行为和参与承诺",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0304269",
+          "locator": "Abstract, paragraph 1; normalized characters 632:747",
+          "exact_quote": "I do not find evidence to suggest that neighborly social pressure encourages participation in neighborhood cleanups",
+          "prior_claim": "I do not find evidence to suggest that neighborly social pressure encourages participation in neighborhood cleanups",
+          "prior_claim_paraphrase": "突尼斯三处社区的现场实验没有发现邻里压力促进社区清洁参与的证据。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0263028-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0263028"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "该重复公共品实验发现，随机惩罚不足以维持合作。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0263028",
+          "locator": "Abstract, paragraph 1; normalized characters 490:583",
+          "exact_quote": "stochastic punishment falls short of sustaining cooperation in the repeated public good game.",
+          "prior_claim": "stochastic punishment falls short of sustaining cooperation in the repeated public good game.",
+          "prior_claim_paraphrase": "该重复公共品实验发现，随机惩罚不足以维持合作。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0263028-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0263028"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "该重复公共品实验发现，随机惩罚不足以维持合作。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0263028",
+          "locator": "Abstract, paragraph 1; normalized characters 490:583",
+          "exact_quote": "stochastic punishment falls short of sustaining cooperation in the repeated public good game.",
+          "prior_claim": "stochastic punishment falls short of sustaining cooperation in the repeated public good game.",
+          "prior_claim_paraphrase": "该重复公共品实验发现，随机惩罚不足以维持合作。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0263028-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0263028"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "该重复公共品实验发现，随机惩罚不足以维持合作。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0263028",
+          "locator": "Abstract, paragraph 1; normalized characters 490:583",
+          "exact_quote": "stochastic punishment falls short of sustaining cooperation in the repeated public good game.",
+          "prior_claim": "stochastic punishment falls short of sustaining cooperation in the repeated public good game.",
+          "prior_claim_paraphrase": "该重复公共品实验发现，随机惩罚不足以维持合作。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0263028-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "该重复公共品实验发现，随机惩罚不足以维持合作。"
+      ],
+      "evidence_required": [
+        "保持期望惩罚一致的随机实验、独立操纵噪声和可核验性、合作及反社会惩罚记录",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0263028",
+          "locator": "Abstract, paragraph 1; normalized characters 490:583",
+          "exact_quote": "stochastic punishment falls short of sustaining cooperation in the repeated public good game.",
+          "prior_claim": "stochastic punishment falls short of sustaining cooperation in the repeated public good game.",
+          "prior_claim_paraphrase": "该重复公共品实验发现，随机惩罚不足以维持合作。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0155703-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0155703"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "该网络合作实验没有发现可观察组内互动的嵌入条件比孤立互动条件具有更高合作水平。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0155703",
+          "locator": "Abstract, paragraph 1; normalized characters 1059:1160",
+          "exact_quote": "we do not find that cooperation is higher in the embedded condition than in the atomized interaction.",
+          "prior_claim": "we do not find that cooperation is higher in the embedded condition than in the atomized interaction.",
+          "prior_claim_paraphrase": "该网络合作实验没有发现可观察组内互动的嵌入条件比孤立互动条件具有更高合作水平。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0155703-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0155703"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "该网络合作实验没有发现可观察组内互动的嵌入条件比孤立互动条件具有更高合作水平。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0155703",
+          "locator": "Abstract, paragraph 1; normalized characters 1059:1160",
+          "exact_quote": "we do not find that cooperation is higher in the embedded condition than in the atomized interaction.",
+          "prior_claim": "we do not find that cooperation is higher in the embedded condition than in the atomized interaction.",
+          "prior_claim_paraphrase": "该网络合作实验没有发现可观察组内互动的嵌入条件比孤立互动条件具有更高合作水平。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0155703-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0155703"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "该网络合作实验没有发现可观察组内互动的嵌入条件比孤立互动条件具有更高合作水平。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0155703",
+          "locator": "Abstract, paragraph 1; normalized characters 1059:1160",
+          "exact_quote": "we do not find that cooperation is higher in the embedded condition than in the atomized interaction.",
+          "prior_claim": "we do not find that cooperation is higher in the embedded condition than in the atomized interaction.",
+          "prior_claim_paraphrase": "该网络合作实验没有发现可观察组内互动的嵌入条件比孤立互动条件具有更高合作水平。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0155703-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "该网络合作实验没有发现可观察组内互动的嵌入条件比孤立互动条件具有更高合作水平。"
+      ],
+      "evidence_required": [
+        "独立操纵可见性与误差率的重复博弈，记录信念更新和实际合作行为",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0155703",
+          "locator": "Abstract, paragraph 1; normalized characters 1059:1160",
+          "exact_quote": "we do not find that cooperation is higher in the embedded condition than in the atomized interaction.",
+          "prior_claim": "we do not find that cooperation is higher in the embedded condition than in the atomized interaction.",
+          "prior_claim_paraphrase": "该网络合作实验没有发现可观察组内互动的嵌入条件比孤立互动条件具有更高合作水平。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0131562-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0131562"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "该概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0131562",
+          "locator": "Abstract, paragraph 1; normalized characters 266:396",
+          "exact_quote": "cooperation is promoted by intuition in an asymmetric context that distributes the gains from cooperation unequally among a group.",
+          "prior_claim": "cooperation is promoted by intuition in an asymmetric context that distributes the gains from cooperation unequally among a group.",
+          "prior_claim_paraphrase": "该概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0131562-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0131562"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "该概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0131562",
+          "locator": "Abstract, paragraph 1; normalized characters 266:396",
+          "exact_quote": "cooperation is promoted by intuition in an asymmetric context that distributes the gains from cooperation unequally among a group.",
+          "prior_claim": "cooperation is promoted by intuition in an asymmetric context that distributes the gains from cooperation unequally among a group.",
+          "prior_claim_paraphrase": "该概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0131562-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0131562"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "该概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0131562",
+          "locator": "Abstract, paragraph 1; normalized characters 266:396",
+          "exact_quote": "cooperation is promoted by intuition in an asymmetric context that distributes the gains from cooperation unequally among a group.",
+          "prior_claim": "cooperation is promoted by intuition in an asymmetric context that distributes the gains from cooperation unequally among a group.",
+          "prior_claim_paraphrase": "该概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0131562-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "该概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。"
+      ],
+      "evidence_required": [
+        "启动条件与不对称性来源的交叉随机实验，并比较可理解的净收益结构",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0131562",
+          "locator": "Abstract, paragraph 1; normalized characters 266:396",
+          "exact_quote": "cooperation is promoted by intuition in an asymmetric context that distributes the gains from cooperation unequally among a group.",
+          "prior_claim": "cooperation is promoted by intuition in an asymmetric context that distributes the gains from cooperation unequally among a group.",
+          "prior_claim_paraphrase": "该概念启动实验报告，在合作收益分配不对称的博弈中，直觉促进了合作。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0187840-KNOWN",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0187840"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "没有新增知识责任；比较对象和命题保持不变。",
+      "non_novel_elements": [
+        "丹麦、西班牙和加纳的实验报告，一次外部指令提高了后续协调，较早指令的效果更好。"
+      ],
+      "evidence_required": [],
+      "rationale": "给定原文已报告同一命题，重新宣称它是原创发现不能成立。此标签只评价所构造的复述。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0187840",
+          "locator": "Abstract, paragraph 1; normalized characters 729:868",
+          "exact_quote": "exogenous interventions increase subsequent coordination, with earlier interventions yielding better coordination than later interventions.",
+          "prior_claim": "exogenous interventions increase subsequent coordination, with earlier interventions yielding better coordination than later interventions.",
+          "prior_claim_paraphrase": "丹麦、西班牙和加纳的实验报告，一次外部指令提高了后续协调，较早指令的效果更好。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0187840-RENAME",
+      "status": "complete",
+      "expected_class": "non_novel",
+      "nearest_prior_work": [
+        "PLOS-0187840"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": true,
+      "decisive_difference": "仅变更名称，未改变命题、证据或解释。",
+      "non_novel_elements": [
+        "丹麦、西班牙和加纳的实验报告，一次外部指令提高了后续协调，较早指令的效果更好。"
+      ],
+      "evidence_required": [],
+      "rationale": "术语替换的构造条件明确保留研究实质，不能独立支持创新或不同问题身份。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0187840",
+          "locator": "Abstract, paragraph 1; normalized characters 729:868",
+          "exact_quote": "exogenous interventions increase subsequent coordination, with earlier interventions yielding better coordination than later interventions.",
+          "prior_claim": "exogenous interventions increase subsequent coordination, with earlier interventions yielding better coordination than later interventions.",
+          "prior_claim_paraphrase": "丹麦、西班牙和加纳的实验报告，一次外部指令提高了后续协调，较早指令的效果更好。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0187840-REPLICATE",
+      "status": "complete",
+      "expected_class": "legitimate_incremental",
+      "nearest_prior_work": [
+        "PLOS-0187840"
+      ],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "潜在增量是新的独立证据；尚未采集样本或得到结果。",
+      "non_novel_elements": [
+        "丹麦、西班牙和加纳的实验报告，一次外部指令提高了后续协调，较早指令的效果更好。"
+      ],
+      "evidence_required": [
+        "可执行的预注册方案、独立样本来源、功效或精度计划，以及未来实际执行结果。"
+      ],
+      "rationale": "复制已有问题不等于无价值。这里只确认独立证据是合法的增量目标，未确认研究可行性、结果或发表价值。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0187840",
+          "locator": "Abstract, paragraph 1; normalized characters 729:868",
+          "exact_quote": "exogenous interventions increase subsequent coordination, with earlier interventions yielding better coordination than later interventions.",
+          "prior_claim": "exogenous interventions increase subsequent coordination, with earlier interventions yielding better coordination than later interventions.",
+          "prior_claim_paraphrase": "丹麦、西班牙和加纳的实验报告，一次外部指令提高了后续协调，较早指令的效果更好。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    },
+    {
+      "case_id": "NREG-0187840-BOUNDARY",
+      "status": "complete",
+      "expected_class": "unclear",
+      "nearest_prior_work": [],
+      "nearest_prior_work_scope": "Only the supplied parent source; global nearest-neighbour completeness is unmeasured.",
+      "pseudo_diversity": false,
+      "decisive_difference": "提出实质范围或机制比较，是否已有近邻、能否产生增量均未确认。",
+      "non_novel_elements": [
+        "丹麦、西班牙和加纳的实验报告，一次外部指令提高了后续协调，较早指令的效果更好。"
+      ],
+      "evidence_required": [
+        "预先登记的长窗口随机实验、逐轮努力选择与信息反馈操纵",
+        "针对新增条件的先行研究检索与内容比较。"
+      ],
+      "rationale": "所给来源界定了起点，却不足以证明新条件的结果或新颖性。应保留问题供进一步核验，不能自动放行或否决。",
+      "anchors": [
+        {
+          "source_id": "PLOS-0187840",
+          "locator": "Abstract, paragraph 1; normalized characters 729:868",
+          "exact_quote": "exogenous interventions increase subsequent coordination, with earlier interventions yielding better coordination than later interventions.",
+          "prior_claim": "exogenous interventions increase subsequent coordination, with earlier interventions yielding better coordination than later interventions.",
+          "prior_claim_paraphrase": "丹麦、西班牙和加纳的实验报告，一次外部指令提高了后续协调，较早指令的效果更好。"
+        }
+      ],
+      "confidence": 1.0,
+      "disagreement": false,
+      "confidence_scope": "Stability of the explicit constructed control rule, not confidence in absolute research novelty.",
+      "label_basis": "constructed_control_contract",
+      "reference_status_meaning": "Complete construction and source binding; no independent expert or model judgment has been performed."
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avereth-workflow-config-v1.schema.json",
+  "title": "Avereth workflow configuration v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "framework_version",
+    "workflow",
+    "task_profile",
+    "publication_track",
+    "scene",
+    "tier",
+    "output_language",
+    "word_output",
+    "pdf_output",
+    "citation_mode",
+    "word_font_policy",
+    "prose_mode"
+  ],
+  "properties": {
+    "legal_profile": {"type": "string", "enum": ["chinese-law-v1"]},
+    "schema_version": {"const": "avereth-workflow-config/v1"},
+    "framework_version": {"const": "7.2.0"},
+    "workflow": {"enum": ["rewrite_existing", "build_from_materials"]},
+    "task_profile": {"enum": ["full_paper", "topic_selection", "research_design", "manuscript_audit", "manuscript_revision"]},
+    "manuscript_profile": {"enum": ["empirical-social-science", "humanities-argument"]},
+    "publication_track": {"enum": ["cnki-cn", "international-ssci", "mixed"]},
+    "scene": {"enum": ["journal", "conference", "report_review", "competition"]},
+    "tier": {"enum": ["flash", "pro"]},
+    "output_language": {"enum": ["en", "zh"]},
+    "word_output": {"enum": ["none", "docx"]},
+    "pdf_output": {"enum": ["none", "pdf"]},
+    "citation_mode": {"enum": ["numeric", "author_year", "footnote"]},
+    "word_font_policy": {"enum": ["default", "template", "skip"]},
+    "prose_mode": {"enum": ["clear", "distinguished"]},
+    "prose_conditioning": {"enum": ["none", "commonplace", "auto"], "default": "none", "description": "Absent legacy values retain none. New full_paper and manuscript_revision intake explicitly writes auto; none only disables exemplar conditioning."},
+    "delegation_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scout_enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "max_active": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3,
+          "default": 3
+        },
+        "max_tool_retries": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 1
+        },
+        "max_queries_per_task": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8,
+          "default": 4
+        },
+        "max_candidates": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30,
+          "default": 12
+        }
+      }
+    },
+    "topic_selection": {
+      "type": "object",
+      "required": ["origin_mode", "brainstorm_depth", "workspace_policy"],
+      "properties": {
+        "origin_mode": {"enum": ["direction_first", "workspace_extension", "material_opportunity", "phenomenon_first"]},
+        "brainstorm_depth": {"enum": ["broad", "focused"]},
+        "workspace_policy": {"enum": ["quarantine_until_divergence", "declared_source_from_start"]},
+        "taste_card": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"origin_mode": {"const": "direction_first"}}, "required": ["origin_mode"]},
+          "then": {"properties": {"workspace_policy": {"const": "quarantine_until_divergence"}}},
+          "else": {"properties": {"workspace_policy": {"const": "declared_source_from_start"}}}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "direction_contract": {
+      "type": "object",
+      "required": [
+        "current_user_goal",
+        "field",
+        "core_problem",
+        "preferred_contribution",
+        "object_scope",
+        "must_preserve",
+        "must_avoid",
+        "acceptable_adjacency",
+        "publication_track",
+        "method_role",
+        "workspace_role",
+        "authority"
+      ],
+      "properties": {
+        "current_user_goal": {"type": "string", "minLength": 4},
+        "field": {"type": "string", "minLength": 2},
+        "core_problem": {"type": "string", "minLength": 4},
+        "preferred_contribution": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 2}
+        },
+        "object_scope": {"type": "string", "minLength": 4},
+        "must_preserve": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "must_avoid": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "acceptable_adjacency": {"enum": ["narrow", "medium", "broad"]},
+        "publication_track": {"enum": ["cnki-cn", "international-ssci", "mixed"]},
+        "method_role": {"enum": ["open", "preferred", "fixed-by-user"]},
+        "workspace_role": {"enum": ["optional-after-divergence", "declared-extension-source", "declared-material-source", "declared-phenomenon-source"]},
+        "authority": {"const": "current-user-request"}
+      },
+      "additionalProperties": false
+    },
+    "resource_policy": {
+      "type": "object",
+      "properties": {
+        "max_f1_metadata_queries": {"type": "integer", "minimum": 1},
+        "max_f2_sample_bytes": {"type": "integer", "minimum": 1},
+        "max_f2_probe_seconds": {"type": "integer", "minimum": 1}
+      },
+      "required": ["max_f1_metadata_queries", "max_f2_sample_bytes", "max_f2_probe_seconds"],
+      "additionalProperties": false
+    },
+    "target_name": {"type": "string", "minLength": 1},
+    "translation_package": {"enum": ["none", "zh"]},
+    "translation_source": {"type": "string", "minLength": 1},
+    "translation_coverage_source": {"type": "string", "minLength": 1},
+    "submission_package": {"enum": ["none", "journal"]},
+    "submission_source_dir": {"type": "string", "minLength": 1},
+    "submission_contract": {"type": "string", "minLength": 1},
+    "submission_required_files": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "response_package": {"enum": ["none", "review_response", "rebuttal"]},
+    "response_source_dir": {"type": "string", "minLength": 1},
+    "response_review_source": {"type": "string", "minLength": 1},
+    "response_required_files": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "canonical_manuscript": {"type": "string", "minLength": 1},
+    "draft_path": {"type": "string", "minLength": 1}
+  },
+  "not": {"required": ["canonical_manuscript", "draft_path"]},
+  "allOf": [
+    {
+      "if": {"properties": {"translation_package": {"const": "zh"}}, "required": ["translation_package"]},
+      "then": {
+        "required": ["translation_source", "translation_coverage_source"],
+        "properties": {"output_language": {"const": "en"}}
+      }
+    },
+    {
+      "if": {"properties": {"submission_package": {"const": "journal"}}, "required": ["submission_package"]},
+      "then": {"required": ["target_name", "submission_source_dir", "submission_contract", "submission_required_files"]}
+    },
+    {
+      "if": {
+        "properties": {"response_package": {"enum": ["review_response", "rebuttal"]}},
+        "required": ["response_package"]
+      },
+      "then": {
+        "required": ["response_source_dir", "response_review_source", "response_required_files"],
+        "properties": {"task_profile": {"const": "manuscript_revision"}}
+      }
+    },
+    {
+      "if": {"required": ["topic_selection"]},
+      "then": {
+        "required": ["direction_contract"],
+        "properties": {"task_profile": {"const": "topic_selection"}}
+      }
+    },
+    {
+      "if": {
+        "properties": {"task_profile": {"const": "topic_selection"}},
+        "required": ["task_profile"]
+      },
+      "then": {"required": ["topic_selection", "direction_contract"]}
+    },
+    {
+      "if": {
+        "properties": {
+          "topic_selection": {
+            "properties": {"origin_mode": {"const": "direction_first"}},
+            "required": ["origin_mode"]
+          }
+        },
+        "required": ["topic_selection"]
+      },
+      "then": {
+        "properties": {
+          "direction_contract": {
+            "properties": {"workspace_role": {"const": "optional-after-divergence"}}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "topic_selection": {
+            "properties": {"origin_mode": {"const": "workspace_extension"}},
+            "required": ["origin_mode"]
+          }
+        },
+        "required": ["topic_selection"]
+      },
+      "then": {
+        "properties": {
+          "direction_contract": {
+            "properties": {"workspace_role": {"const": "declared-extension-source"}}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "topic_selection": {
+            "properties": {"origin_mode": {"const": "material_opportunity"}},
+            "required": ["origin_mode"]
+          }
+        },
+        "required": ["topic_selection"]
+      },
+      "then": {
+        "properties": {
+          "direction_contract": {
+            "properties": {"workspace_role": {"const": "declared-material-source"}}
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

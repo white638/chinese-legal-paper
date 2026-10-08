@@ -1,0 +1,67 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "content_analysis",
+  "required_operation_kinds": [
+    "corpus_freeze",
+    "unit_segmentation",
+    "codebook_freeze",
+    "content_coding",
+    "reliability_applicability_decision",
+    "reliability_or_validation_assessment",
+    "context_boundary_audit",
+    "content_inference_disposition"
+  ],
+  "optional_operation_kinds": ["coder_disagreement_adjudication", "codebook_revision"],
+  "required_artifact_roles": [
+    "corpus_manifest",
+    "segmentation_manifest",
+    "codebook",
+    "coding_ledger",
+    "reliability_report_or_na_rationale",
+    "validation_report",
+    "context_boundary_report"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "content-analysis-pilot/v1",
+    "required_operation_kinds": [
+      "corpus_freeze",
+      "unit_segmentation",
+      "codebook_freeze",
+      "content_coding",
+      "reliability_applicability_decision",
+      "reliability_or_validation_assessment"
+    ],
+    "acceptance_dimensions": [
+      "corpus inclusion and version rules are reproducible",
+      "units can be segmented consistently",
+      "code definitions distinguish close categories",
+      "reliability or an alternative validation route matches the coding design"
+    ]
+  },
+  "completion_predicates": [
+    "every coded unit resolves to the frozen corpus and codebook version",
+    "all material codebook changes preserve a revision trail",
+    "reliability non-applicability is justified rather than silently omitted",
+    "content claims respect the recorded context boundary"
+  ],
+  "failure_routes": [
+    {"code": "COVERAGE.CORPUS_INCOMPLETE", "route": "reopen:research"},
+    {"code": "UNIT.SEGMENTATION_UNSTABLE", "route": "reopen:design"},
+    {"code": "MEASUREMENT.CODING_UNSTABLE", "route": "retry"},
+    {"code": "CLAIM.CONTEXT_STRIPPED", "route": "narrow:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "unitization rule",
+    "code-category discriminability",
+    "applicability and interpretation of reliability evidence",
+    "treatment of ambiguous units",
+    "context-preserving inference boundary"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

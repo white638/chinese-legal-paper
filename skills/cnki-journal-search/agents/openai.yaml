@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNKI Journal Search"
+  short_description: "Find journals and publication details"
+  default_prompt: "Use $cnki-journal-search to run the appropriate workflow."

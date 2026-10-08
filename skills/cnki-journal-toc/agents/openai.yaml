@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNKI Journal TOC"
+  short_description: "Browse CNKI journal issue contents"
+  default_prompt: "Use $cnki-journal-toc to run the appropriate workflow."

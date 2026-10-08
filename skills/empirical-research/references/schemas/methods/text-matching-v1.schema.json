@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/methods/text-matching-v1.schema.json",
+  "title": "Text Matching in Causal Design Contract v1",
+  "allOf": [
+    {"$ref": "causal-design-v1.schema.json"},
+    {
+      "type": "object",
+      "required": ["matching_unit", "text_representation", "distance_function", "matching_threshold", "balance_before_artifact_id", "balance_after_artifact_id", "human_match_validation_artifact_id", "template_handling", "data_role_separation"],
+      "properties": {
+        "data_role_separation": {
+          "type": "object",
+          "required": ["status"],
+          "properties": {
+            "status": {"enum": ["separated", "overlap-disclosed-exploratory"]}
+          }
+        }
+      }
+    }
+  ]
+}

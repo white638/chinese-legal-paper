@@ -1,0 +1,698 @@
+[
+  {
+    "slug": "economic-research",
+    "name": "经济研究",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（旗舰）"
+  },
+  {
+    "slug": "china-economic-quarterly",
+    "name": "经济学（季刊）",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（旗舰）"
+  },
+  {
+    "slug": "economic-perspectives",
+    "name": "经济学动态",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（旗舰）"
+  },
+  {
+    "slug": "economic-science",
+    "name": "经济科学",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（旗舰）"
+  },
+  {
+    "slug": "journal-of-finance-and-economics",
+    "name": "财经研究",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（高校）"
+  },
+  {
+    "slug": "economic-theory-and-business-management",
+    "name": "经济理论与经济管理",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（高校）"
+  },
+  {
+    "slug": "economist-cn",
+    "name": "经济学家",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（高校）"
+  },
+  {
+    "slug": "nankai-economic-studies",
+    "name": "南开经济研究",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（高校）"
+  },
+  {
+    "slug": "economic-review-cn",
+    "name": "经济评论",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（高校）"
+  },
+  {
+    "slug": "modern-economic-science",
+    "name": "当代经济科学",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（高校）"
+  },
+  {
+    "slug": "china-economic-studies",
+    "name": "中国经济问题",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（高校）"
+  },
+  {
+    "slug": "shanghai-journal-of-economics",
+    "name": "上海经济研究",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（地方社科院）"
+  },
+  {
+    "slug": "south-china-journal-of-economics",
+    "name": "南方经济",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（地方社科院）"
+  },
+  {
+    "slug": "modern-economic-research",
+    "name": "现代经济探讨",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（地方社科院）"
+  },
+  {
+    "slug": "economic-problems",
+    "name": "经济问题",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（地方社科院）"
+  },
+  {
+    "slug": "economic-aspects",
+    "name": "经济纵横",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（地方社科院）"
+  },
+  {
+    "slug": "inquiry-into-economic-issues",
+    "name": "经济问题探索",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（地方社科院）"
+  },
+  {
+    "slug": "journal-of-quantitative-technological-economics",
+    "name": "数量经济技术经济研究",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合经济学（数量方法）"
+  },
+  {
+    "slug": "macroeconomics",
+    "name": "宏观经济研究",
+    "channel": "经济学理论与宏观",
+    "subfield": "宏观经济与改革政策"
+  },
+  {
+    "slug": "reform",
+    "name": "改革",
+    "channel": "经济学理论与宏观",
+    "subfield": "宏观经济与改革政策"
+  },
+  {
+    "slug": "reform-of-economic-system",
+    "name": "经济体制改革",
+    "channel": "经济学理论与宏观",
+    "subfield": "宏观经济与改革政策"
+  },
+  {
+    "slug": "journal-of-macro-quality-research",
+    "name": "宏观质量研究",
+    "channel": "经济学理论与宏观",
+    "subfield": "宏观质量与质量经济"
+  },
+  {
+    "slug": "review-of-political-economy",
+    "name": "政治经济学评论",
+    "channel": "经济学理论与宏观",
+    "subfield": "政治经济学"
+  },
+  {
+    "slug": "journal-of-management",
+    "name": "管理学刊",
+    "channel": "经济学理论与宏观",
+    "subfield": "政治经济学与经管交叉"
+  },
+  {
+    "slug": "studies-in-labor-economics",
+    "name": "劳动经济研究",
+    "channel": "经济学理论与宏观",
+    "subfield": "劳动经济"
+  },
+  {
+    "slug": "contemporary-finance-and-economics",
+    "name": "当代财经",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合财经"
+  },
+  {
+    "slug": "modern-finance-and-economics",
+    "name": "现代财经（天津财经大学学报）",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合财经"
+  },
+  {
+    "slug": "research-on-financial-and-economic-issues",
+    "name": "财经问题研究",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合财经"
+  },
+  {
+    "slug": "finance-and-economics",
+    "name": "财经科学",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合财经"
+  },
+  {
+    "slug": "journal-of-central-university-of-finance-and-economics",
+    "name": "中央财经大学学报",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合财经（高校学报）"
+  },
+  {
+    "slug": "journal-of-shanghai-university-of-finance-and-economics",
+    "name": "上海财经大学学报",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合财经（高校学报）"
+  },
+  {
+    "slug": "journal-of-zhongnan-university-of-economics-and-law",
+    "name": "中南财经政法大学学报",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合财经（高校学报）"
+  },
+  {
+    "slug": "journal-of-jiangxi-university-of-finance-and-economics",
+    "name": "江西财经大学学报",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合财经（高校学报）"
+  },
+  {
+    "slug": "journal-of-guangdong-university-of-finance-and-economics",
+    "name": "广东财经大学学报",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合财经（高校学报）"
+  },
+  {
+    "slug": "journal-of-shanxi-university-of-finance-and-economics",
+    "name": "山西财经大学学报",
+    "channel": "经济学理论与宏观",
+    "subfield": "综合财经（高校学报）"
+  },
+  {
+    "slug": "china-industrial-economics",
+    "name": "中国工业经济",
+    "channel": "产业区域与农业经济",
+    "subfield": "产业经济"
+  },
+  {
+    "slug": "industrial-economics-research",
+    "name": "产业经济研究",
+    "channel": "产业区域与农业经济",
+    "subfield": "产业经济"
+  },
+  {
+    "slug": "research-on-economics-and-management",
+    "name": "经济与管理研究",
+    "channel": "产业区域与农业经济",
+    "subfield": "产业经济与经管交叉"
+  },
+  {
+    "slug": "east-china-economic-management",
+    "name": "华东经济管理",
+    "channel": "产业区域与农业经济",
+    "subfield": "区域经济与管理"
+  },
+  {
+    "slug": "journal-of-business-economics",
+    "name": "商业经济与管理",
+    "channel": "产业区域与农业经济",
+    "subfield": "流通与商业经济"
+  },
+  {
+    "slug": "china-rural-economy",
+    "name": "中国农村经济",
+    "channel": "产业区域与农业经济",
+    "subfield": "农业与农村经济"
+  },
+  {
+    "slug": "china-rural-survey",
+    "name": "中国农村观察",
+    "channel": "产业区域与农业经济",
+    "subfield": "农业与农村经济"
+  },
+  {
+    "slug": "issues-in-agricultural-economy",
+    "name": "农业经济问题",
+    "channel": "产业区域与农业经济",
+    "subfield": "农业与农村经济"
+  },
+  {
+    "slug": "rural-economy",
+    "name": "农村经济",
+    "channel": "产业区域与农业经济",
+    "subfield": "农业与农村经济"
+  },
+  {
+    "slug": "journal-of-agrotechnical-economics",
+    "name": "农业技术经济",
+    "channel": "产业区域与农业经济",
+    "subfield": "农业技术经济"
+  },
+  {
+    "slug": "journal-of-financial-research",
+    "name": "金融研究",
+    "channel": "财政金融",
+    "subfield": "金融学（综合）"
+  },
+  {
+    "slug": "chinese-review-of-financial-studies",
+    "name": "金融评论",
+    "channel": "财政金融",
+    "subfield": "金融学（综合）"
+  },
+  {
+    "slug": "studies-of-financial-economics",
+    "name": "金融经济学研究",
+    "channel": "财政金融",
+    "subfield": "金融学（综合）"
+  },
+  {
+    "slug": "securities-market-herald",
+    "name": "证券市场导报",
+    "channel": "财政金融",
+    "subfield": "金融市场与公司金融"
+  },
+  {
+    "slug": "financial-regulation-research",
+    "name": "金融监管研究",
+    "channel": "财政金融",
+    "subfield": "金融监管"
+  },
+  {
+    "slug": "modern-financial-research",
+    "name": "现代金融研究",
+    "channel": "财政金融",
+    "subfield": "金融机构与银行"
+  },
+  {
+    "slug": "studies-of-international-finance",
+    "name": "国际金融研究",
+    "channel": "财政金融",
+    "subfield": "国际金融"
+  },
+  {
+    "slug": "public-finance-research",
+    "name": "财政研究",
+    "channel": "财政金融",
+    "subfield": "财政税收"
+  },
+  {
+    "slug": "tax-research",
+    "name": "税务研究",
+    "channel": "财政金融",
+    "subfield": "财政税收"
+  },
+  {
+    "slug": "finance-and-trade-economics",
+    "name": "财贸经济",
+    "channel": "财政金融",
+    "subfield": "财政与财贸政策"
+  },
+  {
+    "slug": "journal-of-world-economy",
+    "name": "世界经济",
+    "channel": "国际经济",
+    "subfield": "世界经济与开放宏观"
+  },
+  {
+    "slug": "world-economic-papers",
+    "name": "世界经济文汇",
+    "channel": "国际经济",
+    "subfield": "世界经济与开放宏观"
+  },
+  {
+    "slug": "world-economic-studies",
+    "name": "世界经济研究",
+    "channel": "国际经济",
+    "subfield": "世界经济与开放宏观"
+  },
+  {
+    "slug": "international-economic-review-cn",
+    "name": "国际经济评论",
+    "channel": "国际经济",
+    "subfield": "世界经济与全球治理"
+  },
+  {
+    "slug": "journal-of-international-trade",
+    "name": "国际贸易问题",
+    "channel": "国际经济",
+    "subfield": "国际贸易"
+  },
+  {
+    "slug": "international-economics-and-trade-research",
+    "name": "国际经贸探索",
+    "channel": "国际经济",
+    "subfield": "国际贸易"
+  },
+  {
+    "slug": "asia-pacific-economic-review",
+    "name": "亚太经济",
+    "channel": "国际经济",
+    "subfield": "区域与国别经济"
+  },
+  {
+    "slug": "contemporary-economy-of-japan",
+    "name": "现代日本经济",
+    "channel": "国际经济",
+    "subfield": "区域与国别经济"
+  },
+  {
+    "slug": "management-world",
+    "name": "管理世界",
+    "channel": "管理科学与工商管理",
+    "subfield": "综合经管（旗舰）"
+  },
+  {
+    "slug": "nankai-business-review",
+    "name": "南开管理评论",
+    "channel": "管理科学与工商管理",
+    "subfield": "工商管理与企业管理"
+  },
+  {
+    "slug": "business-management-journal",
+    "name": "经济管理",
+    "channel": "管理科学与工商管理",
+    "subfield": "工商管理与企业管理"
+  },
+  {
+    "slug": "chinese-journal-of-management",
+    "name": "管理学报",
+    "channel": "管理科学与工商管理",
+    "subfield": "工商管理与企业管理"
+  },
+  {
+    "slug": "management-review",
+    "name": "管理评论",
+    "channel": "管理科学与工商管理",
+    "subfield": "工商管理与企业管理"
+  },
+  {
+    "slug": "foreign-economics-and-management",
+    "name": "外国经济与管理",
+    "channel": "管理科学与工商管理",
+    "subfield": "工商管理与企业管理"
+  },
+  {
+    "slug": "organization-and-management",
+    "name": "组织与管理",
+    "channel": "管理科学与工商管理",
+    "subfield": "组织与人力资源"
+  },
+  {
+    "slug": "journal-of-management-sciences-china",
+    "name": "管理科学学报",
+    "channel": "管理科学与工商管理",
+    "subfield": "管理科学与工程"
+  },
+  {
+    "slug": "chinese-journal-of-management-science",
+    "name": "中国管理科学",
+    "channel": "管理科学与工商管理",
+    "subfield": "管理科学与工程"
+  },
+  {
+    "slug": "systems-engineering-theory-and-practice",
+    "name": "系统工程理论与实践",
+    "channel": "管理科学与工商管理",
+    "subfield": "管理科学与工程"
+  },
+  {
+    "slug": "management-science-cn",
+    "name": "管理科学",
+    "channel": "管理科学与工商管理",
+    "subfield": "管理科学与工程"
+  },
+  {
+    "slug": "journal-of-industrial-engineering-and-engineering-management",
+    "name": "管理工程学报",
+    "channel": "管理科学与工商管理",
+    "subfield": "管理科学与工程"
+  },
+  {
+    "slug": "frontiers-of-engineering-management-science-and-technology",
+    "name": "工程管理科技前沿",
+    "channel": "管理科学与工商管理",
+    "subfield": "管理科学与工程"
+  },
+  {
+    "slug": "scientific-decision-making",
+    "name": "科学决策",
+    "channel": "管理科学与工商管理",
+    "subfield": "管理科学与决策分析"
+  },
+  {
+    "slug": "studies-in-science-of-science",
+    "name": "科学学研究",
+    "channel": "管理科学与工商管理",
+    "subfield": "科技政策与创新管理"
+  },
+  {
+    "slug": "science-research-management",
+    "name": "科研管理",
+    "channel": "管理科学与工商管理",
+    "subfield": "科技政策与创新管理"
+  },
+  {
+    "slug": "forum-on-science-and-technology-in-china",
+    "name": "中国科技论坛",
+    "channel": "管理科学与工商管理",
+    "subfield": "科技政策与创新管理"
+  },
+  {
+    "slug": "science-and-technology-progress-and-policy",
+    "name": "科技进步与对策",
+    "channel": "管理科学与工商管理",
+    "subfield": "科技政策与创新管理"
+  },
+  {
+    "slug": "science-of-science-and-management-of-st",
+    "name": "科学学与科学技术管理",
+    "channel": "管理科学与工商管理",
+    "subfield": "科技政策与创新管理"
+  },
+  {
+    "slug": "research-and-development-management",
+    "name": "研究与发展管理",
+    "channel": "管理科学与工商管理",
+    "subfield": "科技政策与创新管理"
+  },
+  {
+    "slug": "scientific-management-research",
+    "name": "科学管理研究",
+    "channel": "管理科学与工商管理",
+    "subfield": "科技政策与创新管理"
+  },
+  {
+    "slug": "soft-science",
+    "name": "软科学",
+    "channel": "管理科学与工商管理",
+    "subfield": "科技政策与创新管理"
+  },
+  {
+    "slug": "bulletin-of-chinese-academy-of-sciences",
+    "name": "中国科学院院刊",
+    "channel": "管理科学与工商管理",
+    "subfield": "科技战略与智库决策"
+  },
+  {
+    "slug": "accounting-research",
+    "name": "会计研究",
+    "channel": "会计审计与财务",
+    "subfield": "会计"
+  },
+  {
+    "slug": "china-accounting-review",
+    "name": "会计评论",
+    "channel": "会计审计与财务",
+    "subfield": "会计"
+  },
+  {
+    "slug": "accounting-and-economics-research",
+    "name": "会计与经济研究",
+    "channel": "会计审计与财务",
+    "subfield": "会计"
+  },
+  {
+    "slug": "auditing-research",
+    "name": "审计研究",
+    "channel": "会计审计与财务",
+    "subfield": "审计"
+  },
+  {
+    "slug": "auditing-and-economics-research",
+    "name": "审计与经济研究",
+    "channel": "会计审计与财务",
+    "subfield": "审计"
+  },
+  {
+    "slug": "journal-of-public-management",
+    "name": "公共管理学报",
+    "channel": "公共管理与社会政策",
+    "subfield": "公共管理与治理"
+  },
+  {
+    "slug": "chinese-public-administration",
+    "name": "中国行政管理",
+    "channel": "公共管理与社会政策",
+    "subfield": "公共管理与治理"
+  },
+  {
+    "slug": "china-public-administration-review",
+    "name": "公共管理评论",
+    "channel": "公共管理与社会政策",
+    "subfield": "公共管理与治理"
+  },
+  {
+    "slug": "journal-of-public-administration-cn",
+    "name": "公共行政评论",
+    "channel": "公共管理与社会政策",
+    "subfield": "公共管理与治理"
+  },
+  {
+    "slug": "public-administration-and-policy-review",
+    "name": "公共管理与政策评论",
+    "channel": "公共管理与社会政策",
+    "subfield": "公共管理与治理"
+  },
+  {
+    "slug": "governance-studies",
+    "name": "治理研究",
+    "channel": "公共管理与社会政策",
+    "subfield": "公共管理与治理"
+  },
+  {
+    "slug": "e-government",
+    "name": "电子政务",
+    "channel": "公共管理与社会政策",
+    "subfield": "数字政府与电子政务"
+  },
+  {
+    "slug": "social-security-studies",
+    "name": "社会保障评论",
+    "channel": "公共管理与社会政策",
+    "subfield": "人口与社会保障"
+  },
+  {
+    "slug": "political-science-research-cn",
+    "name": "政治学研究",
+    "channel": "政治学与国际关系",
+    "subfield": "政治学理论与中国政治"
+  },
+  {
+    "slug": "comparative-politics-studies-cn",
+    "name": "比较政治学研究",
+    "channel": "政治学与国际关系",
+    "subfield": "比较政治"
+  },
+  {
+    "slug": "world-economics-and-politics",
+    "name": "世界经济与政治",
+    "channel": "政治学与国际关系",
+    "subfield": "国际关系与国际政治经济学"
+  },
+  {
+    "slug": "journal-of-international-studies-cn",
+    "name": "国际政治研究",
+    "channel": "政治学与国际关系",
+    "subfield": "国际关系与国际政治"
+  },
+  {
+    "slug": "sociological-studies",
+    "name": "社会学研究",
+    "channel": "社会学",
+    "subfield": "综合社会学"
+  },
+  {
+    "slug": "chinese-journal-of-sociology-shehui",
+    "name": "社会",
+    "channel": "社会学",
+    "subfield": "综合社会学"
+  },
+  {
+    "slug": "historical-research-cn",
+    "name": "历史研究",
+    "channel": "历史学",
+    "subfield": "综合史学"
+  },
+  {
+    "slug": "journal-of-historical-science",
+    "name": "史学月刊",
+    "channel": "历史学",
+    "subfield": "综合史学"
+  },
+  {
+    "slug": "journal-of-chinese-historical-studies",
+    "name": "中国史研究",
+    "channel": "历史学",
+    "subfield": "中国古代史"
+  },
+  {
+    "slug": "qing-history-journal",
+    "name": "清史研究",
+    "channel": "历史学",
+    "subfield": "清史"
+  },
+  {
+    "slug": "modern-chinese-history-studies",
+    "name": "近代史研究",
+    "channel": "历史学",
+    "subfield": "中国近代史"
+  },
+  {
+    "slug": "social-sciences-in-china",
+    "name": "中国社会科学",
+    "channel": "综合社科",
+    "subfield": "综合社科（旗舰）"
+  },
+  {
+    "slug": "academic-monthly",
+    "name": "学术月刊",
+    "channel": "综合社科",
+    "subfield": "综合社科（综合学术）"
+  },
+  {
+    "slug": "open-times",
+    "name": "开放时代",
+    "channel": "综合社科",
+    "subfield": "综合社科（人文社科评论）"
+  },
+  {
+    "slug": "exploration-and-free-views",
+    "name": "探索与争鸣",
+    "channel": "综合社科",
+    "subfield": "综合社科（思想评论）"
+  },
+  {
+    "slug": "comparative-economic-and-social-systems",
+    "name": "经济社会体制比较",
+    "channel": "综合社科",
+    "subfield": "制度与体制比较"
+  },
+  {
+    "slug": "china-soft-science",
+    "name": "中国软科学",
+    "channel": "综合社科",
+    "subfield": "软科学与科技政策"
+  }
+]

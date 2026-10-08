@@ -1,0 +1,64 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "case_study",
+  "required_operation_kinds": [
+    "case_boundary_freeze",
+    "case_selection_justification",
+    "embedded_unit_inventory",
+    "evidence_chain_assembly",
+    "source_independence_audit",
+    "timeline_reconstruction",
+    "rival_explanation_adjudication",
+    "case_inference_disposition"
+  ],
+  "optional_operation_kinds": ["cross_case_replication_test"],
+  "required_artifact_roles": [
+    "case_inventory",
+    "case_selection_memo",
+    "embedded_unit_log",
+    "evidence_chain",
+    "source_dependency_graph",
+    "case_timeline",
+    "rival_explanation_matrix"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "case-study-pilot/v1",
+    "required_operation_kinds": [
+      "case_boundary_freeze",
+      "case_selection_justification",
+      "evidence_chain_assembly",
+      "source_independence_audit",
+      "rival_explanation_adjudication"
+    ],
+    "acceptance_dimensions": [
+      "case boundary and embedded units are explicit",
+      "selection leverage is linked to the research question",
+      "key evidence has a reconstructable chain",
+      "the strongest rival can be tested with available materials"
+    ]
+  },
+  "completion_predicates": [
+    "every major within-case inference resolves to an evidence-chain entry",
+    "material sources have independence or transmission-chain dispositions",
+    "case-level generalization is bounded by the selection rationale"
+  ],
+  "failure_routes": [
+    {"code": "LINKAGE.EVIDENCE_CHAIN_BROKEN", "route": "reopen:research"},
+    {"code": "SOURCE.DEPENDENCE_UNRESOLVED", "route": "retry"},
+    {"code": "CLAIM.RIVAL_EXPLANATION_UNRESOLVED", "route": "narrow:<Claim ID>"}
+  ],
+  "judgment_nodes": [
+    "case selection leverage",
+    "embedded-unit relevance",
+    "source independence",
+    "strength of rival explanations",
+    "scope of analytic generalization"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

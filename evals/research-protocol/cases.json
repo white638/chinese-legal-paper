@@ -1,0 +1,16 @@
+{
+  "schema_version": "avereth-research-protocol-evals/v1",
+  "cases": [
+    {"id": "RP-001", "kind": "positive", "assertion": "active claim has a complete operationalization-to-action path"},
+    {"id": "RP-002", "kind": "positive", "assertion": "protocol compiler selects the next executable operation"},
+    {"id": "RP-003", "kind": "positive", "assertion": "typed steps expose inputs outputs procedure checks and failure routes"},
+    {"id": "RP-004", "kind": "negative", "assertion": "failed action cannot produce a manuscript-consumable formal result"},
+    {"id": "RP-005", "kind": "negative", "assertion": "free text cannot replace a structured method operation"},
+    {"id": "RP-006", "kind": "boundary", "assertion": "full execution remains blocked until an accepted MVMR"},
+    {"id": "RP-007", "kind": "boundary", "assertion": "typed failure code projects a registered disposition route"},
+    {"id": "RP-008", "kind": "drift", "assertion": "design digest drift invalidates the compiled protocol"},
+    {"id": "RP-009", "kind": "negative-result", "assertion": "null negative and not-supported results require claim narrowing or withdrawal"},
+    {"id": "RP-010", "kind": "release", "assertion": "computed maturity below L4 cannot be declared production ready"},
+    {"id": "RP-011", "kind": "end-to-end", "assertion": "accepted Action to Result to Claim is the only results-prose build path"}
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "avereth-public-text-politics-profile/v1",
+  "profile_id": "institutional_grammar",
+  "title_zh": "制度语法与条款兼容性",
+  "purpose": "把法律和政策条款拆为制度语法组件，在保留无法判断类别的前提下比较文本、法律、执行机制与治理能力兼容性。",
+  "core_method_families": ["content_analysis", "comparative", "historical"],
+  "complementary_method_families": ["interpretive"],
+  "core_claim_capability_refs": [
+    "../../references/method-adapter-registry.json#/claim_capabilities/content_analysis",
+    "../../references/method-adapter-registry.json#/claim_capabilities/comparative",
+    "../../references/method-adapter-registry.json#/claim_capabilities/historical"
+  ],
+  "core_method_contract_id": "institutional-grammar/v1",
+  "core_method_contract_schema": "../../references/schemas/methods/institutional-grammar-v1.schema.json",
+  "profile_contract_schema": "../contracts/institutional_grammar.schema.json",
+  "artifact_roles": ["clause_corpus", "grammar_codebook", "component_annotations", "reference_labels", "disagreement_log", "compatibility_matches", "validation_metrics", "weight_sensitivity"],
+  "machine_checks": [
+    {"id": "grammar_components", "check_kind": "component_completeness", "inputs": ["/grammar/components", "/coding/annotations"], "failure_code": "PTP.GRAMMAR.COMPONENTS"},
+    {"id": "match_categories", "check_kind": "category_coverage", "inputs": ["/matching/categories", "/matching/results"], "failure_code": "PTP.GRAMMAR.CATEGORIES"},
+    {"id": "separate_dimensions", "check_kind": "dimension_separation", "inputs": ["/reporting/dimensions", "/reporting/primary_composite_score"], "failure_code": "PTP.GRAMMAR.DIMENSION_COLLAPSE"},
+    {"id": "validation_artifacts", "check_kind": "artifact_exists_and_hash_matches", "inputs": ["/coding/annotations", "/validation/reference_labels", "/validation/metrics", "/validation/disagreements"], "failure_code": "PTP.GRAMMAR.ARTIFACT_HASH"}
+  ],
+  "researcher_judgments": ["条款拆分是否保存了法律语境和例外之间的关系", "功能等价与部分一致之间的实质边界", "文本兼容与真实执行能力之间应保持多大解释距离"],
+  "interpretation_boundaries": {
+    "allowed": ["分别报告四种兼容性维度及无法判断条款", "将不同权重作为敏感性分析"],
+    "prohibited": ["用一个综合分数掩盖程序缺口与实质冲突", "从文本一致直接推导执行兼容", "删除无法判断类别以提高一致率"]
+  }
+}

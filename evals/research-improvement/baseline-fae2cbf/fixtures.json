@@ -1,0 +1,53 @@
+{
+  "synthetic": true,
+  "evidence_kind": "contract fixtures, not real projects, articles, proposals, or model judgments",
+  "config": {
+    "task_profile": "topic_selection",
+    "direction_contract": {
+      "field": "比较政治"
+    }
+  },
+  "candidate": {
+    "id": "CAND-01",
+    "status": "alternate",
+    "maturity": "screened",
+    "research_question": "When do recording rules change apparent service completion?",
+    "potential_contribution": "Separate recorded completion from actual access before interpreting differences."
+  },
+  "published-results": [
+    {
+      "identifier": "SYNTHETIC-RESULT-01",
+      "title": "Recording rules and completion",
+      "claim": "The synthetic result attributes completion differences to recording rules."
+    },
+    {
+      "identifier": "SYNTHETIC-RESULT-02",
+      "title": "Access costs and service use",
+      "claim": "The synthetic result attributes uptake differences to the cost of access."
+    }
+  ],
+  "original-proposals": [
+    {
+      "identifier": "SYNTHETIC-PROPOSAL-01",
+      "title": "Comparability of completion measures",
+      "claim": "Identify which district comparisons are supported by consistent definitions.",
+      "comparison_view": {
+        "maturity": "proposal",
+        "origin": "contemporaneous",
+        "question": "Do completion records describe the same event across districts?",
+        "update": "Identify which district comparisons are supported by consistent definitions."
+      }
+    },
+    {
+      "identifier": "SYNTHETIC-PROPOSAL-02",
+      "title": "Costs of applying for services",
+      "claim": "Distinguish access costs from eligibility in an explicitly bounded comparison.",
+      "comparison_view": {
+        "maturity": "proposal",
+        "origin": "contemporaneous",
+        "question": "When do application costs explain non-use of services?",
+        "update": "Distinguish access costs from eligibility in an explicitly bounded comparison."
+      }
+    }
+  ]
+}

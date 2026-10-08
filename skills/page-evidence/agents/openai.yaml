@@ -1,0 +1,4 @@
+interface:
+  display_name: "Page Evidence"
+  short_description: "Verify citation pages and evidence"
+  default_prompt: "Use $page-evidence to run the appropriate workflow."

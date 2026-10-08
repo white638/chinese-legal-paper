@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "pairs",
+    "flavors",
+    "flavor_evidence",
+    "mediocrity_risk",
+    "mediocrity_path",
+    "best_case_paper",
+    "smell_hits"
+  ],
+  "properties": {
+    "pairs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "pair_id",
+          "preferred",
+          "reader_default_changed",
+          "rationale"
+        ],
+        "properties": {
+          "pair_id": {
+            "type": "string"
+          },
+          "preferred": {
+            "enum": [
+              "one",
+              "tie",
+              "two"
+            ]
+          },
+          "reader_default_changed": {
+            "type": "string",
+            "minLength": 8
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 12
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "flavors": {
+      "type": "object",
+      "required": [
+        "clear",
+        "thick",
+        "elegant",
+        "interesting"
+      ],
+      "properties": {
+        "clear": {
+          "enum": [
+            "absent",
+            "present",
+            "unclear"
+          ]
+        },
+        "thick": {
+          "enum": [
+            "absent",
+            "present",
+            "unclear"
+          ]
+        },
+        "elegant": {
+          "enum": [
+            "absent",
+            "present",
+            "unclear"
+          ]
+        },
+        "interesting": {
+          "enum": [
+            "absent",
+            "present",
+            "unclear"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "flavor_evidence": {
+      "type": "object",
+      "required": [
+        "clear",
+        "thick",
+        "elegant",
+        "interesting"
+      ],
+      "properties": {
+        "clear": {
+          "type": "string",
+          "minLength": 4
+        },
+        "thick": {
+          "type": "string",
+          "minLength": 4
+        },
+        "elegant": {
+          "type": "string",
+          "minLength": 4
+        },
+        "interesting": {
+          "type": "string",
+          "minLength": 4
+        }
+      },
+      "additionalProperties": false
+    },
+    "mediocrity_risk": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "mediocrity_path": {
+      "type": "string",
+      "minLength": 12
+    },
+    "best_case_paper": {
+      "type": "string",
+      "minLength": 12
+    },
+    "smell_hits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

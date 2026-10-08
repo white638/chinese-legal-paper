@@ -1,0 +1,77 @@
+{
+  "schema_version": "method-operation/v1",
+  "family": "computational",
+  "required_operation_kinds": [
+    "data_snapshot_freeze",
+    "access_terms_audit",
+    "feature_construction",
+    "split_leakage_audit",
+    "benchmark_execution",
+    "computational_model_run",
+    "drift_assessment",
+    "interpretability_assessment",
+    "bias_fairness_assessment",
+    "privacy_control",
+    "environment_lock",
+    "computational_result_disposition"
+  ],
+  "optional_operation_kinds": ["simulation_validation", "resource_scaling_test", "exhibit_rendering"],
+  "required_artifact_roles": [
+    "data_snapshot",
+    "terms_and_access_audit",
+    "feature_ledger",
+    "split_and_leakage_report",
+    "benchmark_results",
+    "model_or_simulation_log",
+    "drift_report",
+    "interpretability_results",
+    "bias_fairness_results",
+    "privacy_actions",
+    "environment_lockfile"
+  ],
+  "minimum_viable_run": {
+    "profile_id": "computational-pilot/v1",
+    "required_operation_kinds": [
+      "data_snapshot_freeze",
+      "access_terms_audit",
+      "feature_construction",
+      "split_leakage_audit",
+      "benchmark_execution",
+      "computational_model_run",
+      "environment_lock"
+    ],
+    "acceptance_dimensions": [
+      "data snapshot and access basis are reproducible",
+      "features resolve to source fields and transformations",
+      "split design prevents target or temporal leakage",
+      "benchmark and environment permit comparative reruns"
+    ]
+  },
+  "completion_predicates": [
+    "all computational results resolve to data, feature, code, and environment versions",
+    "benchmark and drift results receive explicit dispositions",
+    "interpretability and fairness claims match the tested population and metric",
+    "privacy controls cover retained and released artifacts"
+  ],
+  "failure_routes": [
+    {"code": "ACCESS.PLATFORM_TERMS_VIOLATION", "route": "reopen:acquisition"},
+    {"code": "MODEL.DATA_LEAKAGE", "route": "replace-implementation"},
+    {"code": "REPRO.ENVIRONMENT_UNLOCKED", "route": "replace-implementation"},
+    {"code": "ETHICS.PRIVACY_OR_FAIRNESS_FAILURE", "route": "human-review"}
+  ],
+  "judgment_nodes": [
+    "digital-trace population validity",
+    "feature-to-construct fit",
+    "leakage and benchmark adequacy",
+    "drift severity",
+    "interpretability and fairness metric meaning",
+    "privacy risk"
+  ],
+  "maturity_evidence": {
+    "validator": "skills/empirical-research/scripts/method_execution.py",
+    "positive_case": null,
+    "negative_case": null,
+    "worked_example": null,
+    "end_to_end_eval": null
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avereth.local/schemas/public-text-politics/discourse-network-v1.schema.json",
+  "title": "Actor-claim-position discourse-network supplemental profile contract",
+  "x-profile-contract-role": "supplement-over-core-method-contract",
+  "x-core-method-contract-id": "discourse-network/v1",
+  "type": "object",
+  "required": ["schema_version", "profile_id", "corpus", "measurement", "network", "interpretation"],
+  "properties": {
+    "schema_version": {"const": "avereth-public-text-politics/discourse-network/v1"},
+    "profile_id": {"const": "discourse_network"},
+    "corpus": {"$ref": "#/$defs/artifact"},
+    "measurement": {
+      "type": "object",
+      "required": ["actor_resolution", "claim_labels", "position_labels", "validation"],
+      "properties": {
+        "actor_resolution": {"$ref": "#/$defs/artifact"},
+        "claim_labels": {"$ref": "#/$defs/artifact"},
+        "position_labels": {"$ref": "#/$defs/artifact"},
+        "validation": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "network": {
+      "type": "object",
+      "required": ["tuple_fields", "tuples", "edge_list", "time_windows", "network_kind", "dependence_diagnostics"],
+      "properties": {
+        "tuple_fields": {"const": ["actor", "claim", "position", "time", "source"], "x-error-code": "PTP.NETWORK.TUPLE_SHAPE"},
+        "tuples": {"$ref": "#/$defs/artifact"},
+        "edge_list": {"$ref": "#/$defs/artifact"},
+        "time_windows": {"$ref": "#/$defs/artifact"},
+        "network_kind": {"const": "actor_claim_position", "x-error-code": "PTP.NETWORK.COWORD_CONFUSION"},
+        "dependence_diagnostics": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "interpretation": {"$ref": "#/$defs/interpretation"}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "string",
+      "pattern": "^ART-[A-Z0-9][A-Z0-9_-]*$",
+      "x-error-code": "PTP.ARTIFACT.ID"
+    },
+    "interpretation": {
+      "type": "object",
+      "required": ["allowed", "prohibited"],
+      "properties": {
+        "allowed": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}},
+        "prohibited": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
